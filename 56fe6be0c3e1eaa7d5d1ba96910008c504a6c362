@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ze450472b1fa9ef480a01e7f75d80dc7b",
+        "filename": "services/java/com/android/server/LocationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2008-12-08T20:04:02Z",
+      "side": 1,
+      "message": "Style nits:\n\nPut a space after the if, and don\u0027t go past 100 chars per line.",
+      "revId": "56fe6be0c3e1eaa7d5d1ba96910008c504a6c362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
