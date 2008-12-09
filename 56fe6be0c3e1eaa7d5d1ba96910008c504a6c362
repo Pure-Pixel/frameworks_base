@@ -50,6 +50,23 @@
       "revId": "56fe6be0c3e1eaa7d5d1ba96910008c504a6c362",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "z9d84c3d9125386e8d4312becf6fb47c9",
+        "filename": "services/java/com/android/server/LocationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1000692
+      },
+      "writtenOn": "2008-12-09T04:20:46Z",
+      "side": 1,
+      "message": "This change set is closed... should I just upload a new patch that fixes the style or can this be re-opened?",
+      "revId": "56fe6be0c3e1eaa7d5d1ba96910008c504a6c362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
