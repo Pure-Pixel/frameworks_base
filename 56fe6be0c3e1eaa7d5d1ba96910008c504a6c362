@@ -33,6 +33,23 @@
       "revId": "56fe6be0c3e1eaa7d5d1ba96910008c504a6c362",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "z369bbe3920fb8d456fce60eefa4b4524",
+        "filename": "services/java/com/android/server/LocationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1000392
+      },
+      "writtenOn": "2008-12-09T03:38:08Z",
+      "side": 1,
+      "message": "The !\u003d should be on the first line.\n\nThe second line should be indented (with spaces) to line up with the column just after the \u0027(\u0027 of the if statement.",
+      "revId": "56fe6be0c3e1eaa7d5d1ba96910008c504a6c362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
