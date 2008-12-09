@@ -16,6 +16,23 @@
       "revId": "56fe6be0c3e1eaa7d5d1ba96910008c504a6c362",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "z947ca5fc3616bde394139098319e7a1b",
+        "filename": "services/java/com/android/server/LocationManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1000692
+      },
+      "writtenOn": "2008-12-09T02:45:33Z",
+      "side": 1,
+      "message": "On 2008/12/08 20:04:02, Brad Fitzpatrick wrote:\n\u003e Style nits:\n\u003e \n\u003e Put a space after the if, and don\u0027t go past 100 chars per line.\n\nI\u0027ll fix and submit. Question: How far should the 2nd line of the condition be indented when I break it up? I see some places where people use 8 spaces and some places with 4. Also, should I put the !\u003d on the first or second line? ",
+      "revId": "56fe6be0c3e1eaa7d5d1ba96910008c504a6c362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
