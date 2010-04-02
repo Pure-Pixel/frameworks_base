@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAwX///zY\u003d",
+        "filename": "core/java/android/text/util/Regex.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1002975
+      },
+      "writtenOn": "2010-04-02T19:45:10Z",
+      "side": 1,
+      "message": "Don\u0027t you want it here as well?",
+      "revId": "ae54d65c69fc50f868bdeb873b6f165c44713f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
