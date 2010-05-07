@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAAyX///t4\u003d",
+        "filename": "core/java/android/text/util/Regex.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003263
+      },
+      "writtenOn": "2010-05-07T17:16:59Z",
+      "side": 1,
+      "message": "Does this change only add the .me domain or does it reflect all updates from running the script listed above? If the former, should we generate any other updates as well? If the latter, should we update the \"accurate as of\" date?",
+      "revId": "06daf19f6c77a3170215ca1a969a9b8fb913ab90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
