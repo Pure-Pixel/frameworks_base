@@ -45,6 +45,6 @@ class L2tpIpsecService extends VpnService<L2tpIpsecProfile> {
         // L2TP
         daemons.startL2tp(serverIp,
                 (p.isSecretEnabled() ? p.getSecretString() : null),
-                username, password);
+                username, password, p.getRouteList(), p.getExcludeRouteList());
     }
 }

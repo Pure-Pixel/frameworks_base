@@ -33,7 +33,8 @@ public abstract class VpnProfile implements Parcelable, Serializable {
     private String mId; // unique identifier
     private String mServerName; // VPN server name
     private String mDomainSuffices; // space separated list
-    private String mRouteList; // space separated list
+    private String mRouteList; // comma separated list
+    private String mExcludeRouteList; // comma separated list
     private String mSavedUsername;
     private boolean mIsCustomized;
     private transient VpnState mState = VpnState.IDLE;
@@ -87,7 +88,7 @@ public abstract class VpnProfile implements Parcelable, Serializable {
      * Sets the routing info for this VPN connection.
      *
      * @param entries a comma-separated list of routes; each entry is in the
-     *      format of "(network address)/(network mask)"
+     *      format of "network address/network mask"
      */
     public void setRouteList(String entries) {
         mRouteList = entries;
@@ -95,6 +96,20 @@ public abstract class VpnProfile implements Parcelable, Serializable {
 
     public String getRouteList() {
         return mRouteList;
+    }
+
+    /**
+     * Sets the network list accessed directly, not through VPN connection.
+     *
+     * @param entries a comma-separated list of routes; each entry is in the
+     *      format of "network address/network mask"
+     */
+    public void setExcludeRouteList(String entries) {
+        mExcludeRouteList = entries;
+    }
+
+    public String getExcludeRouteList() {
+        return mExcludeRouteList;
     }
 
     public void setSavedUsername(String name) {
@@ -140,6 +155,7 @@ public abstract class VpnProfile implements Parcelable, Serializable {
         mServerName = in.readString();
         mDomainSuffices = in.readString();
         mRouteList = in.readString();
+        mExcludeRouteList = in.readString();
         mSavedUsername = in.readString();
     }
 
@@ -168,6 +184,7 @@ public abstract class VpnProfile implements Parcelable, Serializable {
         parcel.writeString(mServerName);
         parcel.writeString(mDomainSuffices);
         parcel.writeString(mRouteList);
+        parcel.writeString(mExcludeRouteList);
         parcel.writeString(mSavedUsername);
     }
 
