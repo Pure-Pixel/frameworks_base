@@ -46,15 +46,17 @@ class VpnDaemons implements Serializable {
     private List<DaemonProxy> mDaemonList = new ArrayList<DaemonProxy>();
 
     public DaemonProxy startL2tp(String serverIp, String secret,
-            String username, String password) throws IOException {
+            String username, String password, String routeList,
+            String excludeRouteList) throws IOException {
         return startMtpd(L2TP, serverIp, L2TP_PORT, secret, username, password,
-                false);
+                false, routeList, excludeRouteList);
     }
 
     public DaemonProxy startPptp(String serverIp, String username,
-            String password, boolean encryption) throws IOException {
+            String password, boolean encryption, String routeList,
+            String excludeRouteList) throws IOException {
         return startMtpd(PPTP, serverIp, PPTP_PORT, null, username, password,
-                encryption);
+                encryption, routeList, excludeRouteList);
     }
 
     public DaemonProxy startIpsecForL2tp(String serverIp, String pskKey)
@@ -117,12 +119,14 @@ class VpnDaemons implements Serializable {
 
     private DaemonProxy startMtpd(String protocol,
             String serverIp, String port, String secret, String username,
-            String password, boolean encryption) throws IOException {
+            String password, boolean encryption, String routeList, 
+            String excludeRouteList) throws IOException {
         ArrayList<String> args = new ArrayList<String>();
         args.addAll(Arrays.asList(protocol, serverIp, port));
         if (secret != null) args.add(secret);
         args.add(PPP_ARGS_SEPARATOR);
-        addPppArguments(args, serverIp, username, password, encryption);
+        addPppArguments(args, serverIp, username, password, encryption, 
+                routeList, excludeRouteList);
 
         DaemonProxy mtpd = startDaemon(MTPD);
         mtpd.sendCommand(args.toArray(new String[args.size()]));
@@ -130,8 +134,8 @@ class VpnDaemons implements Serializable {
     }
 
     private static void addPppArguments(ArrayList<String> args, String serverIp,
-            String username, String password, boolean encryption)
-            throws IOException {
+            String username, String password, boolean encryption, 
+            String routeList, String excludeRouteList) throws IOException {
         args.addAll(Arrays.asList(
                 "linkname", VPN_LINKNAME,
                 "name", username,
@@ -142,6 +146,14 @@ class VpnDaemons implements Serializable {
                 "mru", "1400"));
         if (encryption) {
             args.add("+mppe");
+        }
+
+        String ipParam = (null != routeList) ? routeList : "";
+        if(null != excludeRouteList){
+            ipParam += ";" + excludeRouteList;
+        }
+        if(0 != ipParam.length()){
+            args.addAll(Arrays.asList("ipparam", ipParam));
         }
     }
 }

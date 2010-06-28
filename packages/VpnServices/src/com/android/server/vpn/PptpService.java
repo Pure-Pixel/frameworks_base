@@ -29,6 +29,6 @@ class PptpService extends VpnService<PptpProfile> {
             throws IOException {
         PptpProfile p = getProfile();
         getDaemons().startPptp(serverIp, username, password,
-                p.isEncryptionEnabled());
+                p.isEncryptionEnabled(), p.getRouteList(), p.getExcludeRouteList());
     }
 }

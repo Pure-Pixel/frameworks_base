@@ -30,6 +30,6 @@ class L2tpService extends VpnService<L2tpProfile> {
         L2tpProfile p = getProfile();
         getDaemons().startL2tp(serverIp,
                 (p.isSecretEnabled() ? p.getSecretString() : null),
-                username, password);
+                username, password, p.getRouteList(), p.getExcludeRouteList());
     }
 }
