@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAA0n//+3Y\u003d",
+        "filename": "packages/VpnServices/src/com/android/server/vpn/VpnDaemons.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2010-07-02T17:59:08Z",
+      "side": 1,
+      "message": "Standard android code style is to wrap the code at 100 columns (with the overflow being indented by 8 spaces).",
+      "revId": "f1fe6b1bcf062723da29d76ece6b519b5fcc8d80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
