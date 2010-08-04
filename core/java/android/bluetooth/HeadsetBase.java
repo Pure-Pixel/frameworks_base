@@ -17,11 +17,14 @@
 package android.bluetooth;
 
 import android.content.Context;
+import android.content.Intent;
 
 import android.os.Handler;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.util.Log;
+
+import java.util.ArrayList;
 
 /**
  * The Android Bluetooth API is not finalized, and *will* change. Use at your
@@ -145,6 +148,16 @@ public final class HeadsetBase {
         releaseWakeLock();
     }
 
+    /*
+     * Register a vendor-specific command.
+     * @param commandName the name of the command.  For example, if the expected
+     * incoming command is <code>AT+FOO=bar,baz</code>, the value of this should be
+     * <code>"+FOO"</code>.
+     */
+    private void registerVendorSpecificCommand(String commandName) {
+        mAtParser.register(commandName, new VendorSpecificCommandHandler(commandName));
+    }
+
     /**
      * Register AT commands that are common to all Headset / Handsets. This
      * function is called by the HeadsetBase constructor.
@@ -152,9 +165,42 @@ public final class HeadsetBase {
     protected void initializeAtParser() {
         mAtParser = new AtParser();
 
-        mAtParser.register("+XEVENT",
-                           new EventAtCommandHandler(mContext,
-                                                     mRemoteDevice));
+        // Plantronics vendor-specific headset events
+        registerVendorSpecificCommand("+XEVENT");
+    }
+
+    /*
+     * This class handles vendor-specific commands by broadcasting them to
+     * interested receivers.
+     */
+    private class VendorSpecificCommandHandler extends AtCommandHandler {
+
+        private String mCommandName;
+
+        private VendorSpecificCommandHandler(String commandName) {
+            mCommandName = commandName;
+        }
+
+        @Override
+        public AtCommandResult handleSetCommand(Object[] args) {
+
+            // convert the array of Strings and Integers to ArrayList<Strings>
+            ArrayList<String> stringArgs = new ArrayList<String>(args.length);
+            for (Object arg : args) {
+                stringArgs.add(arg.toString());
+            }
+
+            // put the AT command, arguments, and device in an Intent and broadcast it
+            Intent broadcastIntent =
+                    new Intent(BluetoothDevice.ACTION_VENDOR_SPECIFIC_HEADSET_EVENT);
+
+            broadcastIntent.putExtra(BluetoothDevice.EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_CMD, mCommandName);
+            broadcastIntent.putExtra(BluetoothDevice.EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_ARGS, stringArgs);
+            broadcastIntent.putExtra(BluetoothDevice.EXTRA_DEVICE, mRemoteDevice);
+            mContext.sendBroadcast(broadcastIntent);
+
+            return new AtCommandResult(AtCommandResult.OK);
+        }
     }
 
     public AtParser getAtParser() {

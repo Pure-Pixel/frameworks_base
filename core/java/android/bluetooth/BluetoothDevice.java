@@ -167,16 +167,15 @@ public final class BluetoothDevice implements Parcelable {
             "android.bluetooth.device.action.BOND_STATE_CHANGED";
 
     /**
-     * Broadcast Action: Indicates a headset has posted an event
-     * (<code>AT+XEVENT=</code> command).
-     * <p>Always contains the extra fields {@link #EXTRA_DEVICE}
-     * and {@link #EXTRA_XEVENT_ARGS}.
+     * Broadcast Action: Indicates a headset has posted a vendor-specific event.
+     * <p>Always contains the extra fields {@link #EXTRA_DEVICE},
+     * {@link #EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_CMD}, and 
+     * {@link #EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_ARGS}.
      * <p>Requires {@link android.Manifest.permission#BLUETOOTH} to receive.
-     * @hide
      */
     @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
-    public static final String ACTION_HEADSET_XEVENT =
-            "android.bluetooth.device.action.HEADSET_XEVENT";
+    public static final String ACTION_VENDOR_SPECIFIC_HEADSET_EVENT =
+            "android.bluetooth.device.action.VENDOR_SPECIFIC_HEADSET_EVENT";
 
     /**
      * Used as a Parcelable {@link BluetoothDevice} extra field in every intent
@@ -205,11 +204,19 @@ public final class BluetoothDevice implements Parcelable {
     public static final String EXTRA_CLASS = "android.bluetooth.device.extra.CLASS";
 
     /**
-     * Used as a Parcelable String array extra field in {@link
-     * #ACTION_HEADSET_XEVENT} intents.
-     * @hide
+     * A String extra field in {@link #ACTION_VENDOR_SPECIFIC_HEADSET_EVENT}
+     * intents that contains the name of the vendor-specific command.
      */
-    public static final String EXTRA_XEVENT_ARGS = "android.bluetooth.device.extra.XEVENT_ARGS";
+    public static final String EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_CMD =
+            "android.bluetooth.device.extra.VENDOR_SPECIFIC_HEADSET_EVENT_CMD";
+
+    /**
+     * A Parcelable String array extra field in
+     * {@link #ACTION_VENDOR_SPECIFIC_HEADSET_EVENT} intents that contains
+     * the arguments to the vendor-specific command.
+     */
+    public static final String EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_ARGS =
+            "android.bluetooth.device.extra.VENDOR_SPECIFIC_HEADSET_EVENT_ARGS";
 
     /**
      * Used as an int extra field in {@link #ACTION_BOND_STATE_CHANGED} intents.
