@@ -184,18 +184,12 @@ public final class HeadsetBase {
         @Override
         public AtCommandResult handleSetCommand(Object[] args) {
 
-            // convert the array of Strings and Integers to ArrayList<Strings>
-            ArrayList<String> stringArgs = new ArrayList<String>(args.length);
-            for (Object arg : args) {
-                stringArgs.add(arg.toString());
-            }
-
             // put the AT command, arguments, and device in an Intent and broadcast it
             Intent broadcastIntent =
                     new Intent(BluetoothDevice.ACTION_VENDOR_SPECIFIC_HEADSET_EVENT);
 
             broadcastIntent.putExtra(BluetoothDevice.EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_CMD, mCommandName);
-            broadcastIntent.putExtra(BluetoothDevice.EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_ARGS, stringArgs);
+            broadcastIntent.putExtra(BluetoothDevice.EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_ARGS, args);
             broadcastIntent.putExtra(BluetoothDevice.EXTRA_DEVICE, mRemoteDevice);
             mContext.sendBroadcast(broadcastIntent);
 
