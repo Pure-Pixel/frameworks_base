@@ -7770,13 +7770,12 @@ public final class ActivityManagerService extends ActivityManagerNative implemen
     }
 
     private final String checkContentProviderPermissionLocked(
-            ProviderInfo cpi, ProcessRecord r, int mode) {
+            ProviderInfo cpi, ProcessRecord r) {
         final int callingPid = (r != null) ? r.pid : Binder.getCallingPid();
         final int callingUid = (r != null) ? r.info.uid : Binder.getCallingUid();
         if (checkComponentPermission(cpi.readPermission, callingPid, callingUid,
                 cpi.exported ? -1 : cpi.applicationInfo.uid)
-                == PackageManager.PERMISSION_GRANTED
-                && mode == ParcelFileDescriptor.MODE_READ_ONLY || mode == -1) {
+                == PackageManager.PERMISSION_GRANTED) {
             return null;
         }
         if (checkComponentPermission(cpi.writePermission, callingPid, callingUid,
@@ -7793,8 +7792,7 @@ public final class ActivityManagerService extends ActivityManagerNative implemen
                 PathPermission pp = pps[i];
                 if (checkComponentPermission(pp.getReadPermission(), callingPid, callingUid,
                         cpi.exported ? -1 : cpi.applicationInfo.uid)
-                        == PackageManager.PERMISSION_GRANTED
-                        && mode == ParcelFileDescriptor.MODE_READ_ONLY || mode == -1) {
+                        == PackageManager.PERMISSION_GRANTED) {
                     return null;
                 }
                 if (checkComponentPermission(pp.getWritePermission(), callingPid, callingUid,
@@ -7834,7 +7832,7 @@ public final class ActivityManagerService extends ActivityManagerNative implemen
             cpr = (ContentProviderRecord)mProvidersByName.get(name);
             if (cpr != null) {
                 cpi = cpr.info;
-                if (checkContentProviderPermissionLocked(cpi, r, -1) != null) {
+                if (checkContentProviderPermissionLocked(cpi, r) != null) {
                     return new ContentProviderHolder(cpi,
                             cpi.readPermission != null
                                     ? cpi.readPermission : cpi.writePermission);
@@ -7897,7 +7895,7 @@ public final class ActivityManagerService extends ActivityManagerNative implemen
                     return null;
                 }
 
-                if (checkContentProviderPermissionLocked(cpi, r, -1) != null) {
+                if (checkContentProviderPermissionLocked(cpi, r) != null) {
                     return new ContentProviderHolder(cpi,
                             cpi.readPermission != null
                                     ? cpi.readPermission : cpi.writePermission);
