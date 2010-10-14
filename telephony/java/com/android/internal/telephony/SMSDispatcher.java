@@ -111,10 +111,13 @@ public abstract class SMSDispatcher extends Handler {
     static final protected int EVENT_STOP_SENDING = 10;
 
     /** Memory status reporting is acknowledged by RIL */
-    static final protected int EVENT_REPORT_MEMORY_STATUS_DONE = 11;
+    static final protected int EVENT_EVENT_RADIO_ONREPORT_MEMORY_STATUS_DONE = 11;
 
     /** Radio is ON */
     static final protected int EVENT_RADIO_ON = 12;
+
+    /** New broadcast SMS */
+    static final protected int EVENT_NEW_BROADCAST_SMS = 13;
 
     protected Phone mPhone;
     protected Context mContext;
@@ -400,7 +403,13 @@ public abstract class SMSDispatcher extends Handler {
                         obtainMessage(EVENT_REPORT_MEMORY_STATUS_DONE));
             }
             break;
+
+	case EVENT_NEW_BROADCAST_SMS:
+            handleBroadcastSms((AsyncResult)msg.obj);
+            break;
+
         }
+
     }
 
     private void createWakelock() {
@@ -993,6 +1002,17 @@ public abstract class SMSDispatcher extends Handler {
                     acknowledgeLastIncomingSms(success, rc, null);
                 }
             }
-
         };
+
+    protected abstract void handleBroadcastSms(AsyncResult ar);
+
+    protected void dispatchBroadcastPdus(byte[][] pdus) {
+        Intent intent = new Intent("android.provider.telephony.SMS_CB_RECEIVED");
+        intent.putExtra("pdus", pdus);
+
+        if (Config.LOGD)
+            Log.d(TAG, "Dispatching " + pdus.length + " SMS CB pdus");
+
+        dispatch(intent, "android.permission.RECEIVE_SMS");
+    }
 }

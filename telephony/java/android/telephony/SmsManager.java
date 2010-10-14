@@ -368,6 +368,67 @@ public final class SmsManager {
         }
         return messages;
     }
+    
+    /**
+     * Enable reception of cell broadcast (SMS-CB) messages with the given
+     * message identifier. Note that if two different clients enable the same
+     * message identifier, they must both disable it for the device to stop
+     * receiving those messages. All received messages will be broadcast in an
+     * intent with the action "android.provider.telephony.SMS_CB_RECEIVED".
+     * Note that this is a blocking call. It won't return until radio finished the update 
+     * of the messageIdentifier.
+     *
+     * @param messageIdentifier Message identifier as specified in TS 23.041
+     * @return true if successful, false otherwise
+     * @see #disableCellBroadcast(int)
+     *
+     * {@hide}
+     */
+    public boolean enableCellBroadcast(int messageIdentifier) {
+        boolean success = false;
+
+        try {
+            ISms iccISms = ISms.Stub.asInterface(ServiceManager.getService("isms"));
+            if (iccISms != null) {
+                success = iccISms.enableCellBroadcast(messageIdentifier);
+            }
+        } catch (RemoteException ex) {
+            // ignore it
+        }
+
+        return success;
+    }
+
+    /**
+     * Disable reception of cell broadcast (SMS-CB) messages with the given
+     * message identifier. Note that if two different clients enable the same
+     * message identifier, they must both disable it for the device to stop
+     * receiving those messages.
+     * Note that this is a blocking call. It won't return until radio finished the update 
+     * of the messageIdentifier.
+     *
+     * @param messageIdentifier Message identifier as specified in TS 23.041
+     * @return true if successful, false otherwise
+     *
+     * @see #enableCellBroadcast(int)
+     *
+     * {@hide}
+     */
+    public boolean disableCellBroadcast(int messageIdentifier) {
+        boolean success = false;
+
+        try {
+            ISms iccISms = ISms.Stub.asInterface(ServiceManager.getService("isms"));
+            if (iccISms != null) {
+                success = iccISms.disableCellBroadcast(messageIdentifier);
+            }
+        } catch (RemoteException ex) {
+            // ignore it
+        }
+
+        return success;
+    }
+
 
     // see SmsMessage.getStatusOnIcc
 
