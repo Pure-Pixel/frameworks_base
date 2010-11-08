@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAA8H//8wk\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1004305
+      },
+      "writtenOn": "2010-11-08T18:49:38Z",
+      "side": 1,
+      "message": "Use \"LOCAL_MODULE_PATH :\u003d $(TARGET_OUT_SHARED_LIBRARIES)/drm/plugins/native\"",
+      "revId": "6f635b77531e34f658ed4089c4deca24f992fa0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA8H//8wg\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/src/FwdLockEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1004305
+      },
+      "writtenOn": "2010-11-08T18:49:38Z",
+      "side": 1,
+      "message": "Android style wraps code to 100 columns",
+      "revId": "6f635b77531e34f658ed4089c4deca24f992fa0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA8H//8wc\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/src/FwdLockEngine.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1004305
+      },
+      "writtenOn": "2010-11-08T18:49:38Z",
+      "side": 1,
+      "message": "return from here?",
+      "revId": "6f635b77531e34f658ed4089c4deca24f992fa0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA8H//8wY\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/decoder/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1004305
+      },
+      "writtenOn": "2010-11-08T18:49:38Z",
+      "side": 1,
+      "message": "one empty line is enough",
+      "revId": "6f635b77531e34f658ed4089c4deca24f992fa0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
