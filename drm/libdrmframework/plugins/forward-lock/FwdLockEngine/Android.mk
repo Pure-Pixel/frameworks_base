@@ -1,0 +1,67 @@
+#
+# Copyright (C) 2010 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES:= \
+    src/FwdLockEngine.cpp
+
+LOCAL_MODULE := libfwdlockengine
+
+LOCAL_SHARED_LIBRARIES := \
+    libicui18n \
+    libicuuc \
+    libutils \
+    libdl \
+    libandroid_runtime \
+    libnativehelper \
+    libcrypto \
+    libssl \
+    libdrmframework
+
+LOCAL_STATIC_LIBRARIES := \
+    libdrmutility \
+    libdrmframeworkcommon \
+    libfwdlock-common \
+    libfwdlock-converter \
+    libfwdlock-decoder
+
+LOCAL_PRELINK_MODULE := false
+
+base := frameworks/base
+
+LOCAL_C_INCLUDES += \
+    $(JNI_H_INCLUDE) \
+    $(base)/include \
+    $(base)/include/drm \
+    $(base)/drm/libdrmframework/plugins/common/include \
+    $(LOCAL_PATH)/../../common/util/include \
+    $(LOCAL_PATH)/include \
+    $(LOCAL_PATH)/../internal-format/converter \
+    $(LOCAL_PATH)/../internal-format/decoder \
+    $(LOCAL_PATH)/../internal-format/common \
+    external/openssl/include \
+    $(TOP)/frameworks/base/drm/libdrmframework/include \
+    $(TOP)/frameworks/base/drm/libdrmframework/plugins/passthru/include \
+    $(TOP)/frameworks/base/drm/libdrmframework/plugins/common/include \
+    $(TOP)/frameworks/base/include
+
+PRODUCT_COPY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libfwdlockengine.so:system/lib/drm/plugins/native/libfwdlockengine.so
+
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_SHARED_LIBRARY)
