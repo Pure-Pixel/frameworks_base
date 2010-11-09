@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAA8n///z4\u003d",
+        "filename": "telephony/java/android/telephony/SmsCbMessage.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1002975
+      },
+      "writtenOn": "2010-11-09T22:35:59Z",
+      "side": 1,
+      "message": "Can you give a reference in the comments as to where this data comes from?",
+      "revId": "7dafc936cd43b98adc64f9e6573bfd062b680eb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA8n///0U\u003d",
+        "filename": "telephony/java/com/android/internal/telephony/SMSDispatcher.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1002975
+      },
+      "writtenOn": "2010-11-09T22:35:59Z",
+      "side": 1,
+      "message": "Typo?",
+      "revId": "7dafc936cd43b98adc64f9e6573bfd062b680eb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA8n///0Q\u003d",
+        "filename": "telephony/java/com/android/internal/telephony/SMSDispatcher.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1002975
+      },
+      "writtenOn": "2010-11-09T22:35:59Z",
+      "side": 1,
+      "message": "tab",
+      "revId": "7dafc936cd43b98adc64f9e6573bfd062b680eb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA8n///0M\u003d",
+        "filename": "telephony/java/com/android/internal/telephony/gsm/GsmSMSDispatcher.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002975
+      },
+      "writtenOn": "2010-11-09T22:35:59Z",
+      "side": 1,
+      "message": "tab",
+      "revId": "7dafc936cd43b98adc64f9e6573bfd062b680eb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA8n///0E\u003d",
+        "filename": "telephony/java/com/android/internal/telephony/gsm/GsmSMSDispatcher.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1002975
+      },
+      "writtenOn": "2010-11-09T22:35:59Z",
+      "side": 1,
+      "message": "tabs",
+      "revId": "7dafc936cd43b98adc64f9e6573bfd062b680eb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA8n///0A\u003d",
+        "filename": "telephony/java/com/android/internal/telephony/gsm/GsmSMSDispatcher.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1002975
+      },
+      "writtenOn": "2010-11-09T22:35:59Z",
+      "side": 1,
+      "message": "tabs",
+      "revId": "7dafc936cd43b98adc64f9e6573bfd062b680eb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
