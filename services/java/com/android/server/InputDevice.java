@@ -21,6 +21,7 @@ import android.view.Display;
 import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.WindowManagerPolicy;
+import android.os.SystemProperties;
 
 import java.io.PrintWriter;
 
@@ -43,6 +44,7 @@ public class InputDevice {
     /** Number of jumpy points to drop for touchscreens that need it. */
     private static final int JUMPY_TRANSITION_DROPS = 3;
     private static final int JUMPY_DROP_LIMIT = 3;
+    private static final int HWROTATION = SystemProperties.getInt("ro.input.hwrotation", 0) / 90;
     
     final int id;
     final int classes;
@@ -744,7 +746,7 @@ public class InputDevice {
         MotionEvent generateAbsMotion(InputDevice device, long curTime,
                 long curTimeNano, Display display, int orientation,
                 int metaState) {
-            
+            orientation = (orientation + HWROTATION) % 4;
             if (mSkipLastPointers) {
                 mSkipLastPointers = false;
                 mLastNumPointers = 0;
