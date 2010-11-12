@@ -1,0 +1,667 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAA83///mg\u003d",
+        "filename": "drm/libdrmframework/plugins/common/util/include/SessionMap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "I don\u0027t understand the part \"and free up memory allocated pointer can\".  Is there a word missing?",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///mE\u003d",
+        "filename": "drm/libdrmframework/plugins/common/util/src/MimeTypeUtil.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "Given the problem with sizeof (see below), how about calculating this length at runtime when needed, rather than keeping in the struct ... is there really a necessary performance boost for pre-calculating the length?",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///mc\u003d",
+        "filename": "drm/libdrmframework/plugins/common/util/src/MimeTypeUtil.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "I think you need another \"const\" between \"*\" and \"mime_...\" to indicate that not only is the pointer const, but also the thing pointed to by the pointer is const.",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///mY\u003d",
+        "filename": "drm/libdrmframework/plugins/common/util/src/MimeTypeUtil.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "We really need to lift these constants out to a common place; the code is littered with slightly different subsets of these. I\u0027m making a note of this for later, no need to change this code now.",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///mU\u003d",
+        "filename": "drm/libdrmframework/plugins/common/util/src/MimeTypeUtil.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "The sizeof is the size of the pointer, not the string pointed to by it.",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///mQ\u003d",
+        "filename": "drm/libdrmframework/plugins/common/util/src/MimeTypeUtil.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "through",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///mA\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/include/FwdLockEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "missing (",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///l8\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/include/FwdLockEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "to the or of the",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///l4\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/include/FwdLockEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "I don\u0027t understand what it means to \"execute drm information\", can you clarify this please?",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///l0\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/include/FwdLockEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "rights are",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///lw\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/include/FwdLockEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "The convertId",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///ls\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/include/FwdLockEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "not be the",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///lo\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/include/FwdLockEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "are new -\u003e is a new",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///lk\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/include/FwdLockEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "returns",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///lg\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/include/FwdLockEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "delete \"on\"",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///lc\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/include/FwdLockEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "\".\" after unit",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///lQ\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/include/FwdLockEngine.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "I notice we use off_t which I believe on our Linux is 32-bits???\nIf so, might want to consider using the 64-bit version\nsince filesystems are moving past 4 gigabyte per file, especially\nfor large games.  Note: I could be wrong on this, please check\nwith our Linux team.",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///lI\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/include/FwdLockEngineConst.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "inconsistent naming convention with respect to the other header files I saw",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///lE\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/FwdLockEngine/src/FwdLockEngine.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "new can\u0027t fail in our C++ implementation",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///lA\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/common/FwdLockGlue.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "malloc can\u0027t fail on Android",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///k8\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/common/FwdLockGlue.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "pthread_once",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///k4\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/common/FwdLockGlue.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "if this fails, who checks it ... will it keep failing over and over again, and never give up?",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///k0\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/common/FwdLockGlue.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "inconsistent name",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///ks\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "avoid ..",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///ko\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "avoid ..",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///kY\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "inconsistent name",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///kU\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "in the",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///kQ\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "explain where the number 40 comes from (is it the sum of other terms, etc.)",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///kk\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/decoder/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "avoid ..",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///kw\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/decoder/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "avoid ..",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///kI\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/decoder/FwdLockFile.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "Does session lookup need to lock the data structure? That is, what happens if a thread looks up a session concurrent with another thread adding/removing a session?",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///kE\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/decoder/FwdLockFile.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "This static sized array is a kind of strange data structure for this purpose.\nHow about a dynamic-sized map from fd to the session? We must have something like that in our runtime library, I would hope.",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///kA\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/decoder/FwdLockFile.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "can\u0027t fail on Android",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///j8\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/decoder/FwdLockFile.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "what is the ++ for ?",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///j4\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/decoder/FwdLockFile.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "can omit the \"? 1 : 0\" as \"\u003c\" returns an int of the proper value",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///j0\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/decoder/FwdLockFile.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "if dataOffset establishes a slice within the file, then isn\u0027t it needed for negative offsets relative to SEEK_END also?",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///jw\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/decoder/FwdLockFile.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "Shouldn\u0027t \u003e 0 be \"\u003d\u003d sizeof ...\" instead?  Also, note that if buffer is ever changed from static allocation within the struct to being a pointer, then the sizeof will fail as it returns sizeof the pointer instead.  I suggest a comment warning this.",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///js\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/decoder/FwdLockFile.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "\u003d\u003d 0 could be !memcmp  (optional)",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA83///kg\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/decoder/FwdLockFile.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-12T20:27:44Z",
+      "side": 1,
+      "message": "inconsistent name",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
