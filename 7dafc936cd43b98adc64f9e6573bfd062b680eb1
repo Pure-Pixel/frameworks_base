@@ -87,6 +87,23 @@
     },
     {
       "key": {
+        "uuid": "AAAA83///ow\u003d",
+        "filename": "telephony/java/com/android/internal/telephony/gsm/GsmSMSDispatcher.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1004896
+      },
+      "writtenOn": "2010-11-12T07:31:46Z",
+      "side": 1,
+      "message": "This condition is not sufficient. A CB pdu over UMTS could be anything from 7 bytes to 1252.\nAs discussed earlier, we\u0027re missing a reliable way of determining the RAT at this stage. Furthermore, the RIL spec says the data should be fixed size 88 bytes, hence suggesting it should be in GSM format.",
+      "revId": "7dafc936cd43b98adc64f9e6573bfd062b680eb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAAA8n///0A\u003d",
         "filename": "telephony/java/com/android/internal/telephony/gsm/GsmSMSDispatcher.java",
         "patchSetId": 1
