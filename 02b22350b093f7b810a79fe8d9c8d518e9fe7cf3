@@ -427,6 +427,176 @@
     },
     {
       "key": {
+        "uuid": "AAAA9H///6Q\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-15T19:47:37Z",
+      "side": 1,
+      "message": "can\u0027t fail on Android",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA9H///6M\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-15T19:47:37Z",
+      "side": 1,
+      "message": "Validate first before using to calculate address for the memset, or at least do an assert on range.",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA9H///6I\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-15T19:47:37Z",
+      "side": 1,
+      "message": "Also validate that ptr is non-NULL",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA9H///6E\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-15T19:47:37Z",
+      "side": 1,
+      "message": "Ah, the perfect validator to use in ReleaseSession! :-)",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA9H///6A\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-15T19:47:37Z",
+      "side": 1,
+      "message": "can\u0027t fail on Android",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA9H///58\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-15T19:47:37Z",
+      "side": 1,
+      "message": "What does this ++ do?",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA9H///54\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-15T19:47:37Z",
+      "side": 1,
+      "message": "won\u0027t fail on Android",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA9H///50\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-15T19:47:37Z",
+      "side": 1,
+      "message": "Some more comments in this and other parsing code would be nice",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA9H///5w\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-15T19:47:37Z",
+      "side": 1,
+      "message": "won\u0027t fail on Android",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA9H///5s\u003d",
+        "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2010-11-15T19:47:37Z",
+      "side": 1,
+      "message": "what if ch is \u003c 0",
+      "revId": "02b22350b093f7b810a79fe8d9c8d518e9fe7cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAAA83///kY\u003d",
         "filename": "drm/libdrmframework/plugins/forward-lock/internal-format/converter/FwdLockConv.h",
         "patchSetId": 2
