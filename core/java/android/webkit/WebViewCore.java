@@ -944,6 +944,10 @@ final class WebViewCore {
                             break;
 
                         case LOAD_URL: {
+                            /* At this stage, DNS resolver should have been created. Check is safeguard
+                               against someone calling DNS resolver without creating DNS resolver */
+                            if(DnsResolver.getInstance() != null)
+                                DnsResolver.getInstance().pauseDnsResolverThreadPool();
                             GetUrlData param = (GetUrlData) msg.obj;
                             loadUrl(param.mUrl, param.mExtraHeaders);
                             break;
@@ -1000,6 +1004,10 @@ final class WebViewCore {
                             break;
 
                         case RELOAD:
+                            /* At this stage, DNS resolver should have been created. Check is safeguard
+                               against someone calling DNS resolver without creating DNS resolver */
+                            if(DnsResolver.getInstance() != null)
+                                DnsResolver.getInstance().pauseDnsResolverThreadPool();
                             mBrowserFrame.reload(false);
                             break;
 
@@ -1043,6 +1051,10 @@ final class WebViewCore {
                             if (!mBrowserFrame.committed() && msg.arg1 == -1 &&
                                     (mBrowserFrame.loadType() ==
                                     BrowserFrame.FRAME_LOADTYPE_STANDARD)) {
+                                /* At this stage, DNS resolver should have been created. Check is safeguard
+                                   against someone calling DNS resolver without creating DNS resolver */
+                                if(DnsResolver.getInstance() != null)
+                                    DnsResolver.getInstance().pauseDnsResolverThreadPool();
                                 mBrowserFrame.reload(true);
                             } else {
                                 mBrowserFrame.goBackOrForward(msg.arg1);
@@ -1544,6 +1556,10 @@ final class WebViewCore {
             }
             mEventHub.blockMessages();
         }
+        /* At this stage, DNS resolver should have been created. Check is safeguard
+           against someone calling destroy without creating DNS resolver */
+        if(DnsResolver.getInstance() != null)
+            DnsResolver.getInstance().destroyDnsResolver();
     }
 
     //-------------------------------------------------------------------------
