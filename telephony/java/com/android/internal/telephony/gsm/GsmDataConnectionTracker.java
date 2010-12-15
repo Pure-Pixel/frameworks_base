@@ -492,6 +492,11 @@ public final class GsmDataConnectionTracker extends DataConnectionTracker {
      * @param reason reason for the clean up.
      */
     private void cleanUpConnection(boolean tearDown, String reason) {
+
+        if (state == State.DISCONNECTING) {
+            if (DBG) log("Clean up connection already in progress. Ignoring " + reason);
+            return;
+        }
         if (DBG) log("Clean up connection due to " + reason);
 
         // Clear the reconnect alarm, if set.
