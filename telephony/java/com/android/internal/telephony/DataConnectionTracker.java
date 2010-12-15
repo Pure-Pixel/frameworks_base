@@ -16,15 +16,18 @@
 
 package com.android.internal.telephony;
 
+import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.os.AsyncResult;
 import android.os.Handler;
 import android.os.Message;
-import android.os.RemoteException;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.android.internal.telephony.gsm.ApnSetting;
 
 import java.util.ArrayList;
 
@@ -121,6 +124,9 @@ public abstract class DataConnectionTracker extends Handler {
     protected boolean[] dataEnabled = new boolean[APN_NUM_TYPES];
     protected int enabledCount = 0;
 
+    /* Currently active APN. If we have no active Apn this is null. */
+    protected ApnSetting mActiveApn;
+
     /* Currently requested APN type */
     protected String mRequestedApnType = Phone.APN_TYPE_DEFAULT;
 
@@ -170,6 +176,11 @@ public abstract class DataConnectionTracker extends Handler {
     protected State state = State.IDLE;
     protected Handler mDataConnectionTracker = null;
 
+    /**
+     * dataConnectionList
+     * holds all the Data connection (PDP connection, i.e. IP Link in GPRS)
+     */
+    protected ArrayList<DataConnection> dataConnectionList;
 
     protected long txPkts, rxPkts, sentSinceLastRecv;
     protected int netStatPollPeriod;
@@ -267,7 +278,6 @@ public abstract class DataConnectionTracker extends Handler {
     protected abstract void onResetDone(AsyncResult ar);
     protected abstract void onVoiceCallStarted();
     protected abstract void onVoiceCallEnded();
-    protected abstract void onCleanUpConnection(boolean tearDown, String reason);
 
     @Override
     public void handleMessage (Message msg) {
@@ -578,5 +588,63 @@ public abstract class DataConnectionTracker extends Handler {
         }
     }
 
+    /**
+     * If tearDown is true, this only tears down a CONNECTED session. Presently,
+     * there is no mechanism for abandoning an INITING/CONNECTING session,
+     * but would likely involve cancelling pending async requests or
+     * setting a flag or new state to ignore them when they came in
+     * @param tearDown true if the underlying DataConnection should be
+     * disconnected.
+     * @param reason reason for the clean up.
+     */
+    protected void cleanUpConnection(boolean tearDown, String reason) {
+        if (state == State.DISCONNECTING) {
+            if (DBG) log("Clean up connection already in progress. Ignoring " + reason);
+            return;
+        }
+        if (DBG) log("cleanUpConnection: reason: " + reason);
 
+        // Clear the reconnect alarm, if set.
+        if (mReconnectIntent != null) {
+            AlarmManager am =
+                (AlarmManager) phone.getContext().getSystemService(Context.ALARM_SERVICE);
+            am.cancel(mReconnectIntent);
+            mReconnectIntent = null;
+        }
+
+        setState(State.DISCONNECTING);
+
+        boolean notificationDeferred = false;
+        for (DataConnection conn : dataConnectionList) {
+            if(conn != null) {
+                if (tearDown) {
+                    if (DBG) log("cleanUpConnection: teardown, call conn.disconnect");
+                    conn.disconnect(obtainMessage(EVENT_DISCONNECT_DONE, reason));
+                    notificationDeferred = true;
+                } else {
+                    if (DBG) log("cleanUpConnection: !tearDown, call conn.resetSynchronously");
+                    conn.resetSynchronously();
+                    notificationDeferred = false;
+                }
+            }
+        }
+
+        stopNetStatPoll();
+
+        if (!notificationDeferred) {
+            if (DBG) log("cleanupConnection: !notificationDeferred");
+            gotoIdleAndNotifyDataConnection(reason);
+        }
+    }
+
+    protected void onCleanUpConnection(boolean tearDown, String reason) {
+        cleanUpConnection(tearDown, reason);
+    }
+
+    protected void gotoIdleAndNotifyDataConnection(String reason) {
+        if (DBG) log("gotoIdleAndNotifyDataConnection: reason=" + reason);
+        setState(State.IDLE);
+        phone.notifyDataConnection(reason);
+        mActiveApn = null;
+    }
 }
