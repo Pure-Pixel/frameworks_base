@@ -70,11 +70,6 @@ public final class CdmaDataConnectionTracker extends DataConnectionTracker {
     //useful for debugging
     boolean failNextConnect = false;
 
-    /**
-     * dataConnectionList holds all the Data connection
-     */
-    private ArrayList<DataConnection> dataConnectionList;
-
     /** Currently active CdmaDataConnection */
     private CdmaDataConnection mActiveDataConnection;
 
@@ -110,9 +105,6 @@ public final class CdmaDataConnectionTracker extends DataConnectionTracker {
             Phone.APN_TYPE_DEFAULT,
             Phone.APN_TYPE_MMS,
             Phone.APN_TYPE_HIPRI };
-
-    // if we have no active Apn this is null
-    protected ApnSetting mActiveApn;
 
     // Possibly promote to base class, the only difference is
     // the INTENT_RECONNECT_ALARM action is a different string.
@@ -361,51 +353,6 @@ public final class CdmaDataConnectionTracker extends DataConnectionTracker {
         }
     }
 
-    /**
-     * If tearDown is true, this only tears down a CONNECTED session. Presently,
-     * there is no mechanism for abandoning an INITING/CONNECTING session,
-     * but would likely involve cancelling pending async requests or
-     * setting a flag or new state to ignore them when they came in
-     * @param tearDown true if the underlying DataConnection should be
-     * disconnected.
-     * @param reason reason for the clean up.
-     */
-    private void cleanUpConnection(boolean tearDown, String reason) {
-        if (DBG) log("cleanUpConnection: reason: " + reason);
-
-        // Clear the reconnect alarm, if set.
-        if (mReconnectIntent != null) {
-            AlarmManager am =
-                (AlarmManager) phone.getContext().getSystemService(Context.ALARM_SERVICE);
-            am.cancel(mReconnectIntent);
-            mReconnectIntent = null;
-        }
-
-        setState(State.DISCONNECTING);
-
-        boolean notificationDeferred = false;
-        for (DataConnection conn : dataConnectionList) {
-            if(conn != null) {
-                if (tearDown) {
-                    if (DBG) log("cleanUpConnection: teardown, call conn.disconnect");
-                    conn.disconnect(obtainMessage(EVENT_DISCONNECT_DONE, reason));
-                    notificationDeferred = true;
-                } else {
-                    if (DBG) log("cleanUpConnection: !tearDown, call conn.resetSynchronously");
-                    conn.resetSynchronously();
-                    notificationDeferred = false;
-                }
-            }
-        }
-
-        stopNetStatPoll();
-
-        if (!notificationDeferred) {
-            if (DBG) log("cleanupConnection: !notificationDeferred");
-            gotoIdleAndNotifyDataConnection(reason);
-        }
-    }
-
     private CdmaDataConnection findFreeDataConnection() {
         for (DataConnection connBase : dataConnectionList) {
             CdmaDataConnection conn = (CdmaDataConnection) connBase;
@@ -624,13 +571,6 @@ public final class CdmaDataConnectionTracker extends DataConnectionTracker {
         setState(State.FAILED);
     }
 
-    private void gotoIdleAndNotifyDataConnection(String reason) {
-        if (DBG) log("gotoIdleAndNotifyDataConnection: reason=" + reason);
-        setState(State.IDLE);
-        phone.notifyDataConnection(reason);
-        mActiveApn = null;
-    }
-
     protected void onRecordsLoaded() {
         if (state == State.FAILED) {
             cleanUpConnection(false, null);
@@ -810,13 +750,6 @@ public final class CdmaDataConnectionTracker extends DataConnectionTracker {
             // in case data setup was attempted when we were on a voice call
             trySetupData(Phone.REASON_VOICE_CALL_ENDED);
         }
-    }
-
-    /**
-     * @override com.android.internal.telephony.DataConnectionTracker
-     */
-    protected void onCleanUpConnection(boolean tearDown, String reason) {
-        cleanUpConnection(tearDown, reason);
     }
 
     private void createAllDataConnectionList() {

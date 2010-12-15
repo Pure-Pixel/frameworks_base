@@ -118,14 +118,6 @@ public final class GsmDataConnectionTracker extends DataConnectionTracker {
     private int waitingApnsPermanentFailureCountDown = 0;
     private ApnSetting preferredApn = null;
 
-    /* Currently active APN */
-    protected ApnSetting mActiveApn;
-
-    /**
-     * pdpList holds all the PDP connection, i.e. IP Link in GPRS
-     */
-    private ArrayList<DataConnection> pdpList;
-
     /** Currently active DataConnection */
     private GsmDataConnection mActivePdp;
 
@@ -384,7 +376,7 @@ public final class GsmDataConnectionTracker extends DataConnectionTracker {
      * Formerly this method was ArrayList<GsmDataConnection> getAllPdps()
      */
     public ArrayList<DataConnection> getAllDataConnections() {
-        ArrayList<DataConnection> pdps = (ArrayList<DataConnection>)pdpList.clone();
+        ArrayList<DataConnection> pdps = (ArrayList<DataConnection>)dataConnectionList.clone();
         return pdps;
     }
 
@@ -483,48 +475,6 @@ public final class GsmDataConnectionTracker extends DataConnectionTracker {
     }
 
     /**
-     * If tearDown is true, this only tears down a CONNECTED session. Presently,
-     * there is no mechanism for abandoning an INITING/CONNECTING session,
-     * but would likely involve cancelling pending async requests or
-     * setting a flag or new state to ignore them when they came in
-     * @param tearDown true if the underlying GsmDataConnection should be
-     * disconnected.
-     * @param reason reason for the clean up.
-     */
-    private void cleanUpConnection(boolean tearDown, String reason) {
-        if (DBG) log("Clean up connection due to " + reason);
-
-        // Clear the reconnect alarm, if set.
-        if (mReconnectIntent != null) {
-            AlarmManager am =
-                (AlarmManager) phone.getContext().getSystemService(Context.ALARM_SERVICE);
-            am.cancel(mReconnectIntent);
-            mReconnectIntent = null;
-        }
-
-        setState(State.DISCONNECTING);
-
-        boolean notificationDeferred = false;
-        for (DataConnection conn : pdpList) {
-            if (tearDown) {
-                if (DBG) log("cleanUpConnection: teardown, call conn.disconnect");
-                conn.disconnect(obtainMessage(EVENT_DISCONNECT_DONE, reason));
-                notificationDeferred = true;
-            } else {
-                if (DBG) log("cleanUpConnection: !tearDown, call conn.resetSynchronously");
-                conn.resetSynchronously();
-                notificationDeferred = false;
-            }
-        }
-        stopNetStatPoll();
-
-        if (!notificationDeferred) {
-            if (DBG) log("cleanupConnection: !notificationDeferred");
-            gotoIdleAndNotifyDataConnection(reason);
-        }
-    }
-
-    /**
      * @param types comma delimited list of APN types
      * @return array of APN types
      */
@@ -567,7 +517,7 @@ public final class GsmDataConnectionTracker extends DataConnectionTracker {
     }
 
     private GsmDataConnection findFreePdp() {
-        for (DataConnection conn : pdpList) {
+        for (DataConnection conn : dataConnectionList) {
             GsmDataConnection pdp = (GsmDataConnection) conn;
             if (pdp.isInactive()) {
                 return pdp;
@@ -752,13 +702,6 @@ public final class GsmDataConnectionTracker extends DataConnectionTracker {
         // reset reconnect timer
         mRetryMgr.resetRetryCount();
         mReregisterOnReconnectFailure = false;
-    }
-
-    private void gotoIdleAndNotifyDataConnection(String reason) {
-        if (DBG) log("gotoIdleAndNotifyDataConnection: reason=" + reason);
-        setState(State.IDLE);
-        phone.notifyDataConnection(reason);
-        mActiveApn = null;
     }
 
     /**
@@ -1245,10 +1188,6 @@ public final class GsmDataConnectionTracker extends DataConnectionTracker {
         }
     }
 
-    protected void onCleanUpConnection(boolean tearDown, String reason) {
-        cleanUpConnection(tearDown, reason);
-    }
-
     /**
      * Based on the sim operator numeric, create a list for all possible pdps
      * with all apns associated with that pdp
@@ -1295,19 +1234,19 @@ public final class GsmDataConnectionTracker extends DataConnectionTracker {
     }
 
     private void createAllPdpList() {
-        pdpList = new ArrayList<DataConnection>();
+        dataConnectionList = new ArrayList<DataConnection>();
         DataConnection pdp;
 
         for (int i = 0; i < PDP_CONNECTION_POOL_SIZE; i++) {
             pdp = GsmDataConnection.makeDataConnection(mGsmPhone);
-            pdpList.add(pdp);
+            dataConnectionList.add(pdp);
          }
     }
 
     private void destroyAllPdpList() {
-        if(pdpList != null) {
+        if(dataConnectionList != null) {
             GsmDataConnection pdp;
-            pdpList.removeAll(pdpList);
+            dataConnectionList.removeAll(dataConnectionList);
         }
     }
 
