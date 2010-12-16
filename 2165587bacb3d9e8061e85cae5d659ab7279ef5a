@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAA+3///6s\u003d",
+        "filename": "telephony/java/com/android/internal/telephony/gsm/GsmDataConnectionTracker.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1001401
+      },
+      "writtenOn": "2010-12-16T17:34:06Z",
+      "side": 1,
+      "message": "I see no reason why Cdma/Gsm shouldn\u0027t be the same, lets try \"merging\" the slightly different versions and promoting the result to the DataConnectionTracker base class.",
+      "revId": "2165587bacb3d9e8061e85cae5d659ab7279ef5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
