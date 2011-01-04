@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAA+3//+S8\u003d",
+        "filename": "core/java/android/webkit/WebViewCore.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2011-01-04T17:18:08Z",
+      "side": 1,
+      "message": "style: space after \"if\".  and add { braces } around the if body.  (even for single lines)\n\nalso, is getInstance() cheap enough to call it twice like this?",
+      "revId": "4737c42aeb4fb946d1e4d7c4867c17c8820eb039",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA+3//+S4\u003d",
+        "filename": "core/java/android/webkit/WebViewCore.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2011-01-04T17:18:08Z",
+      "side": 1,
+      "message": "style: space after \"if\". and add { braces } around the if body. (even for single lines)\nalso, is getInstance() cheap enough to call it twice like this?",
+      "revId": "4737c42aeb4fb946d1e4d7c4867c17c8820eb039",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA+3//+S0\u003d",
+        "filename": "core/java/android/webkit/WebViewCore.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2011-01-04T17:18:08Z",
+      "side": 1,
+      "message": "style: space after \"if\". and add { braces } around the if body. (even for single lines)\nalso, is getInstance() cheap enough to call it twice like this?",
+      "revId": "4737c42aeb4fb946d1e4d7c4867c17c8820eb039",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAA+3//+Sw\u003d",
+        "filename": "core/java/android/webkit/WebViewCore.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2011-01-04T17:18:08Z",
+      "side": 1,
+      "message": "style: space after \"if\". and add { braces } around the if body. (even for single lines)\nalso, is getInstance() cheap enough to call it twice like this?",
+      "revId": "4737c42aeb4fb946d1e4d7c4867c17c8820eb039",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
