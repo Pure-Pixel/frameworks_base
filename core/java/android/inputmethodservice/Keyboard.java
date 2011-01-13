@@ -422,7 +422,13 @@ public class Keyboard {
             StringTokenizer st = new StringTokenizer(value, ",");
             while (st.hasMoreTokens()) {
                 try {
-                    values[count++] = Integer.parseInt(st.nextToken());
+                    //default behavior
+                    if (nextToken.length() != 1 ){
+                        values[count++] = Integer.parseInt(nextToken);
+                    } else {
+                        // length == 1, assume a char!
+                        values[count++] = (int)nextToken.charAt(0);
+                    }
                 } catch (NumberFormatException nfe) {
                     Log.e(TAG, "Error parsing keycodes " + value);
                 }
