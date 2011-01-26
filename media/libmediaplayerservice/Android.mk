@@ -11,6 +11,8 @@ LOCAL_SRC_FILES:=               \
     MediaPlayerService.cpp      \
     MetadataRetrieverClient.cpp \
     TestPlayerStub.cpp          \
+    VorbisPlayer.cpp            \
+    VorbisMetadataRetriever.cpp \
     MidiMetadataRetriever.cpp   \
     MidiFile.cpp                \
     StagefrightPlayer.cpp       \

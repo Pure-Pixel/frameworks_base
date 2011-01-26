@@ -56,6 +56,7 @@
 #include "MetadataRetrieverClient.h"
 
 #include "MidiFile.h"
+#include "VorbisPlayer.h"
 #include <media/PVPlayer.h>
 #include "TestPlayerStub.h"
 #include "StagefrightPlayer.h"
@@ -196,6 +197,13 @@ extmap FILE_EXTS [] =  {
         {".rtttl", SONIVOX_PLAYER},
         {".rtx", SONIVOX_PLAYER},
         {".ota", SONIVOX_PLAYER},
+
+//added vorbis player for playing ogg files which is not handled correctly by stagefright player
+//Using StageFright player, total duration of music play displayed in music player while listing the music files and also while playing the music file was wrong .
+//Vorbis player correcly displays the total duration of music play.
+        {".ogg", VORBIS_PLAYER},
+        {".oga", VORBIS_PLAYER}
+
 #ifndef NO_OPENCORE
         {".wma", PV_PLAYER},
         {".wmv", PV_PLAYER},
@@ -678,6 +686,17 @@ static player_type getDefaultPlayerType() {
     return STAGEFRIGHT_PLAYER;
 }
 
+//using vorbis player for playing ogg files which is not handled correctly by stagefright player
+static player_type OverrideStagefrightForVorbis(player_type player) {
+    if (player != VORBIS_PLAYER) {
+        return player;
+    }
+
+
+    return VORBIS_PLAYER;
+}
+
+
 player_type getPlayerType(int fd, int64_t offset, int64_t length)
 {
     char buf[20];
@@ -689,7 +708,10 @@ player_type getPlayerType(int fd, int64_t offset, int64_t length)
 
     // Ogg vorbis?
     if (ident == 0x5367674f) // 'OggS'
-        return STAGEFRIGHT_PLAYER;
+//using vorbis player for playing ogg files which is not handled correctly by stagefright player
+        return OverrideStagefrightForVorbis(VORBIS_PLAYER);
+	//return STAGEFRIGHT_PLAYER;
+
 
 #ifndef NO_OPENCORE
     if (ident == 0x75b22630) {
@@ -764,6 +786,10 @@ static sp<MediaPlayerBase> createPlayer(player_type playerType, void* cookie,
         case SONIVOX_PLAYER:
             LOGV(" create MidiFile");
             p = new MidiFile();
+            break;
+        case VORBIS_PLAYER:
+            
+            p = new VorbisPlayer();
             break;
         case STAGEFRIGHT_PLAYER:
             LOGV(" create StagefrightPlayer");

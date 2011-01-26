@@ -44,6 +44,8 @@ enum player_type {
     // The shared library with the test player is passed passed as an
     // argument to the 'test:' url in the setDataSource call.
     TEST_PLAYER = 5,
+	//added vorbis player for playing ogg files which is not handled correctly by stagefright player
+	VORBIS_PLAYER = 6,
 };
 
 

@@ -26,6 +26,12 @@
 // Sonivox includes
 #include <libsonivox/eas.h>
 
+//using vorbis files for getting ogg file properties
+// Ogg Vorbis includes
+#include <Tremolo/ivorbiscodec.h>
+#include <Tremolo/ivorbisfile.h>
+
+
 namespace android {
 
 StagefrightMediaScanner::StagefrightMediaScanner()
@@ -99,6 +105,50 @@ static status_t HandleMIDI(
     return OK;
 }
 
+//added HandleOGG function for correctly displaying the total duration of music play by music player
+static status_t HandleOGG(
+        const char *filename, MediaScannerClient *client) {
+    int duration;
+
+    FILE *file = fopen(filename,"r");
+    if (!file)
+        return UNKNOWN_ERROR;
+
+    OggVorbis_File vf;
+    if (ov_open(file, &vf, NULL, 0) < 0) {
+        return UNKNOWN_ERROR;
+    }
+
+    char **ptr=ov_comment(&vf,-1)->user_comments;
+    while(*ptr){
+        char *val = strstr(*ptr, "=");
+        if (val) {
+            int keylen = val++ - *ptr;
+            char key[keylen + 1];
+            strncpy(key, *ptr, keylen);
+            key[keylen] = 0;
+            if (!client->addStringTag(key, val)) goto failure;
+        }
+        ++ptr;
+    }
+
+    // Duration
+    duration = ov_time_total(&vf, -1);
+    if (duration > 0) {
+        char buffer[20];
+        sprintf(buffer, "%d", duration);
+        if (!client->addStringTag("duration", buffer)) goto failure;
+    }
+
+    ov_clear(&vf); // this also closes the FILE
+    return OK;
+
+failure:
+    ov_clear(&vf); // this also closes the FILE
+    return UNKNOWN_ERROR;
+}
+
+
 status_t StagefrightMediaScanner::processFile(
         const char *path, const char *mimeType,
         MediaScannerClient &client) {
@@ -129,6 +179,11 @@ status_t StagefrightMediaScanner::processFile(
             || !strcasecmp(extension, ".ota")) {
         return HandleMIDI(path, &client);
     }
+//using HandleOGG function for correctly displaying the total duration of music play by music player
+  if (!strcasecmp(extension, ".ogg")) {
+        return HandleOGG(path, &client);
+    }
+
 
     if (mRetriever->setDataSource(path) == OK
             && mRetriever->setMode(

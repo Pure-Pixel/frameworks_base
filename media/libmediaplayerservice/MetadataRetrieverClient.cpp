@@ -37,6 +37,7 @@
 #include <media/MediaPlayerInterface.h>
 #include <media/PVMetadataRetriever.h>
 #include <private/media/VideoFrame.h>
+#include "VorbisMetadataRetriever.h"
 #include "MidiMetadataRetriever.h"
 #include "MetadataRetrieverClient.h"
 #include "StagefrightMetadataRetriever.h"
@@ -113,6 +114,12 @@ static sp<MediaMetadataRetrieverBase> createRetriever(player_type playerType)
             p = new PVMetadataRetriever();
             break;
 #endif
+//added vorbis player for playing ogg files which is not handled correctly by stagefright player
+        case VORBIS_PLAYER:
+            LOGV("create vorbis metadata retriever");
+            p = new VorbisMetadataRetriever();
+            break;
+
         case SONIVOX_PLAYER:
             LOGV("create midi metadata retriever");
             p = new MidiMetadataRetriever();
