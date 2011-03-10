@@ -83,6 +83,7 @@ import android.media.AudioManager;
 import android.media.AudioManagerInternal;
 import android.media.AudioSystem;
 import android.media.IRingtonePlayer;
+import android.media.ToneGenerator;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Bundle;
@@ -204,6 +205,11 @@ public class NotificationManagerService extends SystemService {
 
     static final boolean ENABLE_BLOCKED_NOTIFICATIONS = true;
     static final boolean ENABLE_BLOCKED_TOASTS = true;
+
+    private static final int TONE_INCALL_NOTIFICATION_MAX_LENGTH = 1000;
+
+    private ToneGenerator mInCallToneGenerator;
+    private final Object mInCallToneGeneratorLock = new Object();
 
     // When #matchesCallFilter is called from the ringer, wait at most
     // 3s to resolve the contacts. This timeout is required since
@@ -771,6 +777,30 @@ public class NotificationManagerService extends SystemService {
                 mInCall = TelephonyManager.EXTRA_STATE_OFFHOOK
                         .equals(intent.getStringExtra(TelephonyManager.EXTRA_STATE));
                 updateNotificationPulse();
+                synchronized (mInCallToneGeneratorLock) {
+                    if (mInCall) {
+                        if (mInCallToneGenerator == null) {
+                            int relativeToneVolume = getContext().getResources().getInteger(
+                                    R.integer.config_in_call_notification_relative_volume);
+                            if (relativeToneVolume < ToneGenerator.MIN_VOLUME
+                                    || relativeToneVolume > ToneGenerator.MAX_VOLUME) {
+                                relativeToneVolume = ToneGenerator.MAX_VOLUME;
+                            }
+                            try {
+                                mInCallToneGenerator = new ToneGenerator(
+                                        AudioManager.STREAM_VOICE_CALL, relativeToneVolume);
+                            } catch (RuntimeException e) {
+                                Log.e(TAG, "Error creating local tone generator: " + e);
+                                mInCallToneGenerator = null;
+                            }
+                        }
+                    } else {
+                        if (mInCallToneGenerator != null) {
+                            mInCallToneGenerator.release();
+                            mInCallToneGenerator = null;
+                        }
+                     }
+                }
             } else if (action.equals(Intent.ACTION_USER_STOPPED)) {
                 int userHandle = intent.getIntExtra(Intent.EXTRA_USER_HANDLE, -1);
                 if (userHandle >= 0) {
@@ -2874,7 +2904,9 @@ public class NotificationManagerService extends SystemService {
 
                 sendAccessibilityEvent(notification, record.sbn.getPackageName());
 
-                if (hasValidSound) {
+                if (mInCall && hasValidSound) {
+                    playInCallNotification();
+                } else if (hasValidSound) {
                     boolean looping =
                             (notification.flags & Notification.FLAG_INSISTENT) != 0;
                     AudioAttributes audioAttributes = audioAttributesForNotification(notification);
@@ -2902,7 +2934,7 @@ public class NotificationManagerService extends SystemService {
                     }
                 }
 
-                if (hasValidVibrate && !(mAudioManager.getRingerModeInternal()
+                if (!mInCall && hasValidVibrate && !(mAudioManager.getRingerModeInternal()
                         == AudioManager.RINGER_MODE_SILENT)) {
                     mVibrateNotificationKey = key;
 
@@ -2985,6 +3017,26 @@ public class NotificationManagerService extends SystemService {
             Log.w(TAG, String.format("Invalid stream type: %d", n.audioStreamType));
             return Notification.AUDIO_ATTRIBUTES_DEFAULT;
         }
+    }
+
+    private void playInCallNotification() {
+        new Thread() {
+            @Override
+            public void run() {
+                // If toneGenerator creation fails, just continue the call
+                // without playing the notification sound.
+                try {
+                    synchronized (mInCallToneGeneratorLock) {
+                        if (mInCallToneGenerator != null) {
+                            mInCallToneGenerator.startTone(ToneGenerator.TONE_PROP_BEEP2,
+                                    TONE_INCALL_NOTIFICATION_MAX_LENGTH);
+                        }
+                    }
+                } catch (RuntimeException e) {
+                    Log.w(TAG, "Exception from ToneGenerator: " + e);
+                }
+            }
+        }.start();
     }
 
     void showNextToastLocked() {
