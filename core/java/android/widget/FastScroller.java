@@ -382,15 +382,19 @@ class FastScroller {
                 mList.setSelection(index + mListOffset);
             }
         } else {
-            int index = (int) (position * count);
             if (mList instanceof ExpandableListView) {
                 ExpandableListView expList = (ExpandableListView) mList;
+                int index = (int) (position * expList.getExpandableListAdapter().getGroupCount());
                 expList.setSelectionFromTop(expList.getFlatListPosition(
                         ExpandableListView.getPackedPositionForGroup(index + mListOffset)), 0);
-            } else if (mList instanceof ListView) {
-                ((ListView)mList).setSelectionFromTop(index + mListOffset, 0);
-            } else {
-                mList.setSelection(index + mListOffset);
+            }
+            else {
+                int index = (int) (position * count);
+                if (mList instanceof ListView) {
+                    ((ListView)mList).setSelectionFromTop(index + mListOffset, 0);
+                } else {
+                    mList.setSelection(index + mListOffset);
+                }
             }
             sectionIndex = -1;
         }
