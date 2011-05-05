@@ -663,7 +663,7 @@ void LayerBuffer::OverlaySource::onVisibilityResolved(
     // this code-path must be as tight as possible, it's called each time
     // the screen is composited.
     if (UNLIKELY(mOverlay != 0)) {
-        if (mVisibilityChanged || !mInitialized) {
+        if (!getFlinger()->isFrozen() && (mVisibilityChanged || !mInitialized)) {
             mVisibilityChanged = false;
             mInitialized = true;
             const Rect bounds(mLayer.getTransformedBounds());
