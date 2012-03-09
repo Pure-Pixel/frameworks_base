@@ -514,10 +514,7 @@ class KeyguardStatusViewManager implements OnClickListener {
             case SimPukLocked:
                 carrierText = makeCarierString(mPlmn,
                         getContext().getText(R.string.lockscreen_sim_puk_locked_message));
-                if (!mLockPatternUtils.isPukUnlockScreenEnable()) {
-                    // This means we're showing the PUK unlock screen
-                    mEmergencyButtonEnabledBecauseSimLocked = true;
-                }
+                mEmergencyButtonEnabledBecauseSimLocked = true;
                 break;
         }
 
