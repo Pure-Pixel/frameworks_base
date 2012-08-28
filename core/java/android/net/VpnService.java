@@ -36,6 +36,7 @@ import java.net.Inet6Address;
 import java.net.DatagramSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * VpnService is a base class for applications to extend and build their
@@ -329,7 +330,8 @@ public class VpnService extends Service {
                 throw new IllegalArgumentException("Bad address");
             }
 
-            mAddresses.append(String.format(" %s/%d", address.getHostAddress(), prefixLength));
+            mAddresses.append(String.format(Locale.US, " %s/%d", address.getHostAddress(),
+                    prefixLength));
             return this;
         }
 
