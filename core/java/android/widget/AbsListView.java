@@ -2585,6 +2585,10 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
             mItemCount = mAdapter.getCount();
         }
         mIsAttached = true;
+
+        if (mFastScroller != null) {
+            mFastScroller.setScrollbarPosition(getVerticalScrollbarPosition());
+        }
     }
 
     @Override
