@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "QXAbeumA",
+        "filename": "core/jni/android_os_Debug.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-02-27T19:31:06Z",
+      "side": 1,
+      "message": "my question was \"what\u0027s not \u0027core\u0027 about thread stacks?\". they seem pretty \"core\" to me. more \"core\" than \"unknown\" is. but i\u0027m missing the explanation of what core is supposed to mean in this context.",
+      "revId": "294dc3e9a55d6e8dac6faae31982a2d0690068b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
