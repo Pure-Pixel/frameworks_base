@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "QXKaexqM",
+        "filename": "core/java/android/os/Debug.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-02-27T19:24:50Z",
+      "side": 1,
+      "message": "you could have added HEAP_STACK last, and avoided this renumbering.",
+      "revId": "22d05bce5b270ffc85015d2a5da57213e6c9733f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "QXIabyrM",
+        "filename": "core/jni/android_os_Debug.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-02-27T19:24:50Z",
+      "side": 1,
+      "message": "what is this \"core heap\" thing? should thread stacks be part of that?",
+      "revId": "22d05bce5b270ffc85015d2a5da57213e6c9733f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "QXOaovso",
+        "filename": "core/jni/android_os_Debug.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2013-02-27T19:24:50Z",
+      "side": 1,
+      "message": "if (",
+      "revId": "22d05bce5b270ffc85015d2a5da57213e6c9733f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
