@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "QWweQdpE",
+        "filename": "core/jni/android_os_Debug.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-02-27T19:27:21Z",
+      "side": 1,
+      "message": "The core ones don\u0027t live in otherStats, so no.",
+      "parentUuid": "QXIabyrM",
+      "revId": "22d05bce5b270ffc85015d2a5da57213e6c9733f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "QXOaovso",
         "filename": "core/jni/android_os_Debug.cpp",
         "patchSetId": 1
@@ -47,6 +65,24 @@
       "writtenOn": "2013-02-27T19:24:50Z",
       "side": 1,
       "message": "if (",
+      "revId": "22d05bce5b270ffc85015d2a5da57213e6c9733f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "QW2eV8oE",
+        "filename": "core/jni/android_os_Debug.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-02-27T19:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "QXOaovso",
       "revId": "22d05bce5b270ffc85015d2a5da57213e6c9733f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
