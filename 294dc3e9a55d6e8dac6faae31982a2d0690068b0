@@ -16,6 +16,24 @@
       "revId": "294dc3e9a55d6e8dac6faae31982a2d0690068b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "QW0dxzqc",
+        "filename": "core/jni/android_os_Debug.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2013-02-27T19:37:14Z",
+      "side": 1,
+      "message": "The core ones are dalvik and native where additional information on allocated and free are stored. This doesn\u0027t apply to stacks.",
+      "parentUuid": "QXAbeumA",
+      "revId": "294dc3e9a55d6e8dac6faae31982a2d0690068b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
