@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "Sk1Ub-Io",
+        "filename": "services/java/com/android/server/Watchdog.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000322
+      },
+      "writtenOn": "2013-03-26T21:43:59Z",
+      "side": 1,
+      "message": "I think with a system property as the enable/disable trigger you don\u0027t want to exclude user build flavors from this behavior.  I can certainly imagine wanting to do custom user builds for internal testing on a device configuration that is as near to retail as possible.",
+      "revId": "a6a436b48842ef81e39b032fe0adbfab2e78bb1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
