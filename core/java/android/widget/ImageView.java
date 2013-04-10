@@ -40,6 +40,9 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.RemoteViews.RemoteView;
 
+import java.io.InputStream;
+import java.io.IOException;
+
 /**
  * Displays an arbitrary image, such as an icon.  The ImageView class
  * can load images from various sources (such as resources or content
@@ -635,12 +638,20 @@ public class ImageView extends View {
                 }
             } else if (ContentResolver.SCHEME_CONTENT.equals(scheme)
                     || ContentResolver.SCHEME_FILE.equals(scheme)) {
+                InputStream is = null;
                 try {
-                    d = Drawable.createFromStream(
-                        mContext.getContentResolver().openInputStream(mUri),
-                        null);
+                    is = mContext.getContentResolver().openInputStream(mUri);
+                    d = Drawable.createFromStream(is, null);
                 } catch (Exception e) {
                     Log.w("ImageView", "Unable to open content: " + mUri, e);
+                } finally {
+                    try {
+                        if (is != null) {
+                            is.close();
+                        }
+                    } catch (IOException e) {
+                        // Ignore
+                    }
                 }
             } else {
                 d = Drawable.createFromPath(mUri.toString());
