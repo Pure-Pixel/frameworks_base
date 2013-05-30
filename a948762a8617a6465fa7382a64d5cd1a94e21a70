@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d4915a3_c1a146e4",
+        "filename": "core/java/android/widget/GridView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1005088
+      },
+      "writtenOn": "2013-05-30T00:28:08Z",
+      "side": 1,
+      "message": "Please use \"isLayoutRtl()\" call. It is ok to define \"final boolean isLayoutRtl \u003d isLayoutRtl()\" jsut before the switch.",
+      "revId": "a948762a8617a6465fa7382a64d5cd1a94e21a70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
