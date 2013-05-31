@@ -16,6 +16,24 @@
       "revId": "a948762a8617a6465fa7382a64d5cd1a94e21a70",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdde9125_feb32180",
+        "filename": "core/java/android/widget/GridView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1005088
+      },
+      "writtenOn": "2013-05-31T01:29:08Z",
+      "side": 1,
+      "message": "This code is also a bit too redundant. I think you can extract some methods  for dealing with LEFT and RIGHT cases and reuse them in LTR/RTL context.",
+      "parentUuid": "5d4915a3_c1a146e4",
+      "revId": "a948762a8617a6465fa7382a64d5cd1a94e21a70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
