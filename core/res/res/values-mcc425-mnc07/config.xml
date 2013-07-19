@@ -37,4 +37,11 @@
          note that empty fields can be ommitted: "name,apn,,,,,,,,,310,260,,DUN" -->
     <string translatable="false" name="config_tether_apndata">PC HOT mobile,pc.hotm,,,,,,,,,425,07,,DUN</string>
 
+    <!-- National roaming
+         No roaming icon for specific operators -->
+    <bool name="config_isNationalRoaming">true</bool>
+    <!-- National roaming according mnc -->
+    <string-array translatable="false" name="config_nationalRoamingAsMnc">
+        <item>03</item>
+    </string-array>
 </resources>
