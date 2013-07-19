@@ -1141,4 +1141,12 @@
         <item>com.android.inputmethod.latin</item>
     </string-array>
 
+    <!-- Don't use roaming icon for considered operators.
+         Can use mcc or mcc+mnc as item. For example, 302 or 21407.
+         If operatos, 21404 and 21407, make roaming agreements, user of 21404 should not see
+         the roaming icon as using 21407 network.
+         To do this, add 21407 item to values-mcc214-mnc04/config.xml -->
+    <string-array translatable="false" name="config_operatorConsideredNonRoaming">
+    </string-array>
+
 </resources>
