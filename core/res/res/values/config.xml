@@ -1142,4 +1142,8 @@
         <item>com.android.inputmethod.latin</item>
     </string-array>
 
+    <!-- National roaming
+         No roaming icon for specific operators -->
+    <bool name="config_isNationalRoaming">false</bool>
+
 </resources>
