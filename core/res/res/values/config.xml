@@ -1141,4 +1141,8 @@
         <item>com.android.inputmethod.latin</item>
     </string-array>
 
+    <!-- Don't use roaming icon for considered operators -->
+    <string-array translatable="false" name="config_operatorConsideredNonRoaming">
+    </string-array>
+
 </resources>
