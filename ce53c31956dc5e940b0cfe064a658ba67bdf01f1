@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7210cd3e_3affc11e",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 1144,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2013-08-28T17:00:39Z",
+      "side": 1,
+      "message": "explain what the format of the entries should be and that it can match just the mcc (all mnc in that mcc) or specific mcc+mnc combos.",
+      "revId": "ce53c31956dc5e940b0cfe064a658ba67bdf01f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
