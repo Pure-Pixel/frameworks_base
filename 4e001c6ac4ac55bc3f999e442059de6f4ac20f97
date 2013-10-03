@@ -16,6 +16,24 @@
       "revId": "4e001c6ac4ac55bc3f999e442059de6f4ac20f97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "819df127_986ee430",
+        "filename": "services/java/com/android/server/EntropyMixer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2013-10-03T20:42:34Z",
+      "side": 1,
+      "message": "It depends:\n1. RandomBlock requires 4096 bytes of input. We only need up to 512.\n2. We\u0027re fine if it\u0027s less than 512.\n\nI we decide we don\u0027t care about #2, then I could modify RandomBlock to have a constructor that takes a block size, and then I could use it for 512 bytes just fine. Shall I?",
+      "parentUuid": "819df127_d8f78c6b",
+      "revId": "4e001c6ac4ac55bc3f999e442059de6f4ac20f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
