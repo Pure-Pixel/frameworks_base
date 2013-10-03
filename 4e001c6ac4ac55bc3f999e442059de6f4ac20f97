@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "819df127_d8f78c6b",
+        "filename": "services/java/com/android/server/EntropyMixer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2013-10-03T20:33:02Z",
+      "side": 1,
+      "message": "Can\u0027t this entire function be replaced by:\n\nRandomBlock.fromFile(hwRandomDevice).toFile(randomDevice, false);\n\n(see line 142)",
+      "revId": "4e001c6ac4ac55bc3f999e442059de6f4ac20f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
