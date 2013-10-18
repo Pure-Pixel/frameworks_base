@@ -568,12 +568,14 @@ public class CallerInfo {
       String countryIso;
       CountryDetector detector = (CountryDetector) context.getSystemService(
           Context.COUNTRY_DETECTOR);
-      if (detector != null) {
+      if (detector != null && detector.detectCountry() != null) {
         countryIso = detector.detectCountry().getCountryIso();
-      } else {
+      } else if (locale != null) {
         countryIso = locale.getCountry();
         Rlog.w(TAG, "No CountryDetector; falling back to countryIso based on locale: "
               + countryIso);
+      } else {
+        countryIso = "US"; //default value is "US"
       }
       return countryIso;
     }

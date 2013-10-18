@@ -273,9 +273,11 @@ public class CallerInfoAsyncQuery {
                     if (!TextUtils.isEmpty(cw.number)) {
                         CountryDetector detector = (CountryDetector) mQueryContext.getSystemService(
                                 Context.COUNTRY_DETECTOR);
-                        mCallerInfo.phoneNumber = PhoneNumberUtils.formatNumber(cw.number,
+                        if (detector != null && detector.detectCountry() != null) {
+                            mCallerInfo.phoneNumber = PhoneNumberUtils.formatNumber(cw.number,
                                 mCallerInfo.normalizedNumber,
                                 detector.detectCountry().getCountryIso());
+                        }
                     }
                 }
 
