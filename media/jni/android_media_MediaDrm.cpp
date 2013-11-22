@@ -185,6 +185,7 @@ void JNIDrmListener::notify(DrmPlugin::EventType eventType, int extra,
             nativeParcel->setData(obj->data(), obj->dataSize());
             env->CallStaticVoidMethod(mClass, gFields.post_event, mObject,
                     jeventType, extra, jParcel);
+            env->DeleteLocalRef(jParcel);
         }
     }
 
