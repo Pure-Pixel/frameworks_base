@@ -79,18 +79,23 @@ static void checkAndClearExceptionFromCallback(JNIEnv* env, const char* methodNa
 static void location_callback(GpsLocation* location)
 {
     JNIEnv* env = AndroidRuntime::getJNIEnv();
-    env->CallVoidMethod(mCallbacksObj, method_reportLocation, location->flags,
-            (jdouble)location->latitude, (jdouble)location->longitude,
-            (jdouble)location->altitude,
-            (jfloat)location->speed, (jfloat)location->bearing,
-            (jfloat)location->accuracy, (jlong)location->timestamp);
+    env->CallVoidMethod(mCallbacksObj, method_reportLocation,
+            static_cast<jint>(location->flags),
+            static_cast<jdouble>(location->latitude),
+            static_cast<jdouble>(location->longitude),
+            static_cast<jdouble>(location->altitude),
+            static_cast<jfloat>(location->speed),
+            static_cast<jfloat>(location->bearing),
+            static_cast<jfloat>(location->accuracy),
+            static_cast<jlong>(location->timestamp));
     checkAndClearExceptionFromCallback(env, __FUNCTION__);
 }
 
 static void status_callback(GpsStatus* status)
 {
     JNIEnv* env = AndroidRuntime::getJNIEnv();
-    env->CallVoidMethod(mCallbacksObj, method_reportStatus, status->status);
+    env->CallVoidMethod(mCallbacksObj, method_reportStatus,
+                        static_cast<jint>(status->status));
     checkAndClearExceptionFromCallback(env, __FUNCTION__);
 }
 
@@ -109,7 +114,8 @@ static void nmea_callback(GpsUtcTime timestamp, const char* nmea, int length)
     // We do this to avoid creating unnecessary String objects
     sNmeaString = nmea;
     sNmeaStringLength = length;
-    env->CallVoidMethod(mCallbacksObj, method_reportNmea, timestamp);
+    env->CallVoidMethod(mCallbacksObj, method_reportNmea,
+                        static_cast<jlong>(timestamp));
     checkAndClearExceptionFromCallback(env, __FUNCTION__);
 }
 
@@ -117,7 +123,8 @@ static void set_capabilities_callback(uint32_t capabilities)
 {
     ALOGD("set_capabilities_callback: %du\n", capabilities);
     JNIEnv* env = AndroidRuntime::getJNIEnv();
-    env->CallVoidMethod(mCallbacksObj, method_setEngineCapabilities, capabilities);
+    env->CallVoidMethod(mCallbacksObj, method_setEngineCapabilities,
+                        static_cast<jint>(capabilities));
     checkAndClearExceptionFromCallback(env, __FUNCTION__);
 }
 
@@ -179,7 +186,9 @@ static void agps_status_callback(AGpsStatus* agps_status)
     else
         ipaddr = 0xFFFFFFFF;
     env->CallVoidMethod(mCallbacksObj, method_reportAGpsStatus,
-                        agps_status->type, agps_status->status, ipaddr);
+                        static_cast<jint>(agps_status->type),
+                        static_cast<jint>(agps_status->status),
+                        static_cast<jint>(ipaddr));
     checkAndClearExceptionFromCallback(env, __FUNCTION__);
 }
 
@@ -198,11 +207,15 @@ static void gps_ni_notify_callback(GpsNiNotification *notification)
 
     if (requestor_id && text && extras) {
         env->CallVoidMethod(mCallbacksObj, method_reportNiNotification,
-            notification->notification_id, notification->ni_type,
-            notification->notify_flags, notification->timeout,
-            notification->default_response, requestor_id, text,
-            notification->requestor_id_encoding,
-            notification->text_encoding, extras);
+            static_cast<jint>(notification->notification_id),
+            static_cast<jint>(notification->ni_type),
+            static_cast<jint>(notification->notify_flags),
+            static_cast<jint>(notification->timeout),
+            static_cast<jint>(notification->default_response),
+            requestor_id, text,
+            static_cast<jint>(notification->requestor_id_encoding),
+            static_cast<jint>(notification->text_encoding),
+            extras);
     } else {
         ALOGE("out of memory in gps_ni_notify_callback\n");
     }
@@ -224,14 +237,16 @@ GpsNiCallbacks sGpsNiCallbacks = {
 static void agps_request_set_id(uint32_t flags)
 {
     JNIEnv* env = AndroidRuntime::getJNIEnv();
-    env->CallVoidMethod(mCallbacksObj, method_requestSetID, flags);
+    env->CallVoidMethod(mCallbacksObj, method_requestSetID,
+                        static_cast<jint>(flags));
     checkAndClearExceptionFromCallback(env, __FUNCTION__);
 }
 
 static void agps_request_ref_location(uint32_t flags)
 {
     JNIEnv* env = AndroidRuntime::getJNIEnv();
-    env->CallVoidMethod(mCallbacksObj, method_requestRefLocation, flags);
+    env->CallVoidMethod(mCallbacksObj, method_requestRefLocation,
+                        static_cast<jint>(flags));
     checkAndClearExceptionFromCallback(env, __FUNCTION__);
 }
 
@@ -246,12 +261,18 @@ static void gps_geofence_transition_callback(int32_t geofence_id,  GpsLocation* 
 {
     JNIEnv* env = AndroidRuntime::getJNIEnv();
 
-    env->CallVoidMethod(mCallbacksObj, method_reportGeofenceTransition, geofence_id,
-            location->flags, (jdouble)location->latitude, (jdouble)location->longitude,
-            (jdouble)location->altitude,
-            (jfloat)location->speed, (jfloat)location->bearing,
-            (jfloat)location->accuracy, (jlong)location->timestamp,
-            transition, timestamp);
+    env->CallVoidMethod(mCallbacksObj, method_reportGeofenceTransition,
+            static_cast<jint>(geofence_id),
+            static_cast<jint>(location->flags),
+            static_cast<jdouble>(location->latitude),
+            static_cast<jdouble>(location->longitude),
+            static_cast<jdouble>(location->altitude),
+            static_cast<jfloat>(location->speed),
+            static_cast<jfloat>(location->bearing),
+            static_cast<jfloat>(location->accuracy),
+            static_cast<jlong>(location->timestamp),
+            static_cast<jint>(transition),
+            static_cast<jlong>(timestamp));
     checkAndClearExceptionFromCallback(env, __FUNCTION__);
 };
 
@@ -288,7 +309,9 @@ static void gps_geofence_add_callback(int32_t geofence_id, int32_t status)
     if (status != GPS_GEOFENCE_OPERATION_SUCCESS) {
         ALOGE("Error in geofence_add_callback: %d\n", status);
     }
-    env->CallVoidMethod(mCallbacksObj, method_reportGeofenceAddStatus, geofence_id, status);
+    env->CallVoidMethod(mCallbacksObj, method_reportGeofenceAddStatus,
+                        static_cast<jint>(geofence_id),
+                        static_cast<jint>(status));
     checkAndClearExceptionFromCallback(env, __FUNCTION__);
 };
 
@@ -298,7 +321,9 @@ static void gps_geofence_remove_callback(int32_t geofence_id, int32_t status)
     if (status != GPS_GEOFENCE_OPERATION_SUCCESS) {
         ALOGE("Error in geofence_remove_callback: %d\n", status);
     }
-    env->CallVoidMethod(mCallbacksObj, method_reportGeofenceRemoveStatus, geofence_id, status);
+    env->CallVoidMethod(mCallbacksObj, method_reportGeofenceRemoveStatus,
+                        static_cast<jint>(geofence_id),
+                        static_cast<jint>(status));
     checkAndClearExceptionFromCallback(env, __FUNCTION__);
 };
 
@@ -308,7 +333,9 @@ static void gps_geofence_resume_callback(int32_t geofence_id, int32_t status)
     if (status != GPS_GEOFENCE_OPERATION_SUCCESS) {
         ALOGE("Error in geofence_resume_callback: %d\n", status);
     }
-    env->CallVoidMethod(mCallbacksObj, method_reportGeofenceResumeStatus, geofence_id, status);
+    env->CallVoidMethod(mCallbacksObj, method_reportGeofenceResumeStatus,
+                        static_cast<jint>(geofence_id),
+                        static_cast<jint>(status));
     checkAndClearExceptionFromCallback(env, __FUNCTION__);
 };
 
@@ -318,7 +345,9 @@ static void gps_geofence_pause_callback(int32_t geofence_id, int32_t status)
     if (status != GPS_GEOFENCE_OPERATION_SUCCESS) {
         ALOGE("Error in geofence_pause_callback: %d\n", status);
     }
-    env->CallVoidMethod(mCallbacksObj, method_reportGeofencePauseStatus, geofence_id, status);
+    env->CallVoidMethod(mCallbacksObj, method_reportGeofencePauseStatus,
+                        static_cast<jint>(geofence_id),
+                        static_cast<jint>(status));
     checkAndClearExceptionFromCallback(env, __FUNCTION__);
 };
 

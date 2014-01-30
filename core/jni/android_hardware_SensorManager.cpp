@@ -163,14 +163,14 @@ private:
                     // method.
                     env->CallVoidMethod(mReceiverObject,
                                         gBaseEventQueueClassInfo.dispatchFlushCompleteEvent,
-                                        buffer[i].meta_data.sensor);
+                                        static_cast<jint>(buffer[i].meta_data.sensor));
                 } else {
                     env->CallVoidMethod(mReceiverObject,
                                         gBaseEventQueueClassInfo.dispatchSensorEvent,
-                                        buffer[i].sensor,
+                                        static_cast<jint>(buffer[i].sensor),
                                         mScratch,
-                                        buffer[i].vector.status,
-                                        buffer[i].timestamp);
+                                        static_cast<jint>(buffer[i].vector.status),
+                                        static_cast<jlong>(buffer[i].timestamp));
                 }
 
                 if (env->ExceptionCheck()) {

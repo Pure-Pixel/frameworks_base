@@ -172,7 +172,10 @@ static void android_media_callback(SoundPoolEvent event, SoundPool* soundPool, v
 {
     ALOGV("callback: (%d, %d, %d, %p, %p)", event.mMsg, event.mArg1, event.mArg2, soundPool, user);
     JNIEnv *env = AndroidRuntime::getJNIEnv();
-    env->CallStaticVoidMethod(fields.mSoundPoolClass, fields.mPostEvent, user, event.mMsg, event.mArg1, event.mArg2, NULL);
+    env->CallStaticVoidMethod(fields.mSoundPoolClass, fields.mPostEvent, user,
+                             static_cast<jint>(event.mMsg),
+                             static_cast<jint>(event.mArg1),
+                             static_cast<jint>(event.mArg2), NULL);
 }
 
 static jint

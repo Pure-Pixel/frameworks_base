@@ -267,7 +267,8 @@ protected:
         //data.print();
         //printf("\n");
         jboolean res = env->CallBooleanMethod(mObject, gBinderOffsets.mExecTransact,
-            code, reinterpret_cast<jlong>(&data), reinterpret_cast<jlong>(reply), flags);
+            static_cast<jint>(code), reinterpret_cast<jlong>(&data),
+            reinterpret_cast<jlong>(reply), static_cast<jint>(flags));
         jthrowable excep = env->ExceptionOccurred();
 
         if (excep) {

@@ -190,7 +190,9 @@ void JNICameraContext::notify(int32_t msgType, int32_t ext1, int32_t ext2)
     }
 
     env->CallStaticVoidMethod(mCameraJClass, fields.post_event,
-            mCameraJObjectWeak, msgType, ext1, ext2, NULL);
+            mCameraJObjectWeak,
+            static_cast<jint>(msgType), static_cast<jint>(ext1),
+            static_cast<jint>(ext2), NULL);
 }
 
 jbyteArray JNICameraContext::getCallbackBuffer(
@@ -268,7 +270,7 @@ void JNICameraContext::copyAndPost(JNIEnv* env, const sp<IMemory>& dataPtr, int 
 
     // post image data to Java
     env->CallStaticVoidMethod(mCameraJClass, fields.post_event,
-            mCameraJObjectWeak, msgType, 0, 0, obj);
+            mCameraJObjectWeak, (jint)msgType, (jint)0, (jint)0, obj);
     if (obj) {
         env->DeleteLocalRef(obj);
     }
@@ -299,7 +301,7 @@ void JNICameraContext::postData(int32_t msgType, const sp<IMemory>& dataPtr,
             ALOGV("rawCallback");
             if (mRawImageCallbackBuffers.isEmpty()) {
                 env->CallStaticVoidMethod(mCameraJClass, fields.post_event,
-                        mCameraJObjectWeak, dataMsgType, 0, 0, NULL);
+                        mCameraJObjectWeak, (jint)dataMsgType, (jint)0, (jint)0, NULL);
             } else {
                 copyAndPost(env, dataPtr, dataMsgType);
             }
@@ -354,7 +356,7 @@ void JNICameraContext::postMetadata(JNIEnv *env, int32_t msgType, camera_frame_m
         env->DeleteLocalRef(rect);
     }
     env->CallStaticVoidMethod(mCameraJClass, fields.post_event,
-            mCameraJObjectWeak, msgType, 0, 0, obj);
+            mCameraJObjectWeak, (jint)msgType, (jint)0, (jint)0, obj);
     env->DeleteLocalRef(obj);
 }
 

@@ -52,16 +52,16 @@ static struct {
 jobject android_view_KeyEvent_fromNative(JNIEnv* env, const KeyEvent* event) {
     jobject eventObj = env->CallStaticObjectMethod(gKeyEventClassInfo.clazz,
             gKeyEventClassInfo.obtain,
-            nanoseconds_to_milliseconds(event->getDownTime()),
-            nanoseconds_to_milliseconds(event->getEventTime()),
-            event->getAction(),
-            event->getKeyCode(),
-            event->getRepeatCount(),
-            event->getMetaState(),
-            event->getDeviceId(),
-            event->getScanCode(),
-            event->getFlags(),
-            event->getSource(),
+            static_cast<jlong>(nanoseconds_to_milliseconds(event->getDownTime())),
+            static_cast<jlong>(nanoseconds_to_milliseconds(event->getEventTime())),
+            static_cast<jint>(event->getAction()),
+            static_cast<jint>(event->getKeyCode()),
+            static_cast<jint>(event->getRepeatCount()),
+            static_cast<jint>(event->getMetaState()),
+            static_cast<jint>(event->getDeviceId()),
+            static_cast<jint>(event->getScanCode()),
+            static_cast<jint>(event->getFlags()),
+            static_cast<jint>(event->getSource()),
             NULL);
     if (env->ExceptionCheck()) {
         ALOGE("An exception occurred while obtaining a key event.");

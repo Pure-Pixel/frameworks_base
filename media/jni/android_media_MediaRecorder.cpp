@@ -100,7 +100,10 @@ void JNIMediaRecorderListener::notify(int msg, int ext1, int ext2)
     ALOGV("JNIMediaRecorderListener::notify");
 
     JNIEnv *env = AndroidRuntime::getJNIEnv();
-    env->CallStaticVoidMethod(mClass, fields.post_event, mObject, msg, ext1, ext2, 0);
+    env->CallStaticVoidMethod(mClass, fields.post_event, mObject,
+                              static_cast<jint>(msg),
+                              static_cast<jint>(ext1),
+                              static_cast<jint>(ext2), 0);
 }
 
 // ----------------------------------------------------------------------------

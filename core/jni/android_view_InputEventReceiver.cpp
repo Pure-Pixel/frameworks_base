@@ -311,7 +311,8 @@ status_t NativeInputEventReceiver::consumeEvents(JNIEnv* env,
                 ALOGD("channel '%s' ~ Dispatching input event.", getInputChannelName());
 #endif
                 env->CallVoidMethod(receiverObj.get(),
-                        gInputEventReceiverClassInfo.dispatchInputEvent, seq, inputEventObj);
+                        gInputEventReceiverClassInfo.dispatchInputEvent,
+                        static_cast<jint>(seq), inputEventObj);
                 if (env->ExceptionCheck()) {
                     ALOGE("Exception dispatching input event.");
                     skipCallbacks = true;

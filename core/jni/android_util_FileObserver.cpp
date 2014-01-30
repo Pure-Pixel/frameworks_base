@@ -83,7 +83,9 @@ static void android_os_fileobserver_observe(JNIEnv* env, jobject object, jint fd
                 path = env->NewStringUTF(event->name);
             }
 
-            env->CallVoidMethod(object, method_onEvent, event->wd, event->mask, path);
+            env->CallVoidMethod(object, method_onEvent,
+                                static_cast<jint>(event->wd),
+                                static_cast<jint>(event->mask), path);
             if (env->ExceptionCheck()) {
                 env->ExceptionDescribe();
                 env->ExceptionClear();

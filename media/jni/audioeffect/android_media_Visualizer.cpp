@@ -195,9 +195,9 @@ static void captureCallback(void* user,
                 callbackInfo->visualizer_class,
                 fields.midPostNativeEvent,
                 callbackInfo->visualizer_ref,
-                NATIVE_EVENT_PCM_CAPTURE,
-                samplingrate,
-                0,
+                static_cast<jint>(NATIVE_EVENT_PCM_CAPTURE),
+                static_cast<jint>(samplingrate),
+                static_cast<jint>(0),
                 jArray);
         }
     }
@@ -216,9 +216,9 @@ static void captureCallback(void* user,
                 callbackInfo->visualizer_class,
                 fields.midPostNativeEvent,
                 callbackInfo->visualizer_ref,
-                NATIVE_EVENT_FFT_CAPTURE,
-                samplingrate,
-                0,
+                static_cast<jint>(NATIVE_EVENT_FFT_CAPTURE),
+                static_cast<jint>(samplingrate),
+                static_cast<jint>(0),
                 jArray);
         }
     }
@@ -328,8 +328,8 @@ static void android_media_visualizer_effect_callback(int32_t event,
             callbackInfo->visualizer_class,
             fields.midPostNativeEvent,
             callbackInfo->visualizer_ref,
-            NATIVE_EVENT_SERVER_DIED,
-            0, 0, 0);
+            static_cast<jint>(NATIVE_EVENT_SERVER_DIED),
+            static_cast<jint>(0), static_cast<jint>(0), 0);
     }
 }
 

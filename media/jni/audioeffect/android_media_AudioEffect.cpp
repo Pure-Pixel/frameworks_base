@@ -166,7 +166,8 @@ static void effectCallback(int event, void* user, void *info) {
     env->CallStaticVoidMethod(
         callbackInfo->audioEffect_class,
         fields.midPostNativeEvent,
-        callbackInfo->audioEffect_ref, event, arg1, arg2, obj);
+        callbackInfo->audioEffect_ref, static_cast<jint>(event),
+        static_cast<jint>(arg1), static_cast<jint>(arg2), obj);
 
 effectCallback_Exit:
     if (array) {

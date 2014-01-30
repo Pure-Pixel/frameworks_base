@@ -213,22 +213,27 @@ static int mainWorkCallback(int fd, int events, void* data) {
         } break;
         case CMD_SET_WINDOW_FORMAT: {
             code->env->CallVoidMethod(code->clazz,
-                    gNativeActivityClassInfo.setWindowFormat, work.arg1);
+                    gNativeActivityClassInfo.setWindowFormat,
+                    static_cast<jint>(work.arg1));
             code->messageQueue->raiseAndClearException(code->env, "setWindowFormat");
         } break;
         case CMD_SET_WINDOW_FLAGS: {
             code->env->CallVoidMethod(code->clazz,
-                    gNativeActivityClassInfo.setWindowFlags, work.arg1, work.arg2);
+                    gNativeActivityClassInfo.setWindowFlags,
+                    static_cast<jint>(work.arg1),
+                    static_cast<jint>(work.arg2));
             code->messageQueue->raiseAndClearException(code->env, "setWindowFlags");
         } break;
         case CMD_SHOW_SOFT_INPUT: {
             code->env->CallVoidMethod(code->clazz,
-                    gNativeActivityClassInfo.showIme, work.arg1);
+                    gNativeActivityClassInfo.showIme,
+                    static_cast<jint>(work.arg1));
             code->messageQueue->raiseAndClearException(code->env, "showIme");
         } break;
         case CMD_HIDE_SOFT_INPUT: {
             code->env->CallVoidMethod(code->clazz,
-                    gNativeActivityClassInfo.hideIme, work.arg1);
+                    gNativeActivityClassInfo.hideIme,
+                    static_cast<jint>(work.arg1));
             code->messageQueue->raiseAndClearException(code->env, "hideIme");
         } break;
         default:

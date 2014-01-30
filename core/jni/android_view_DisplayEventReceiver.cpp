@@ -189,7 +189,9 @@ void NativeDisplayEventReceiver::dispatchVsync(nsecs_t timestamp, int32_t id, ui
 
     ALOGV("receiver %p ~ Invoking vsync handler.", this);
     env->CallVoidMethod(mReceiverObjGlobal,
-            gDisplayEventReceiverClassInfo.dispatchVsync, timestamp, id, count);
+            gDisplayEventReceiverClassInfo.dispatchVsync,
+            static_cast<jlong>(timestamp), static_cast<jint>(id),
+            static_cast<jint>(count));
     ALOGV("receiver %p ~ Returned from vsync handler.", this);
 
     mMessageQueue->raiseAndClearException(env, "dispatchVsync");
@@ -200,7 +202,9 @@ void NativeDisplayEventReceiver::dispatchHotplug(nsecs_t timestamp, int32_t id, 
 
     ALOGV("receiver %p ~ Invoking hotplug handler.", this);
     env->CallVoidMethod(mReceiverObjGlobal,
-            gDisplayEventReceiverClassInfo.dispatchHotplug, timestamp, id, connected);
+            gDisplayEventReceiverClassInfo.dispatchHotplug,
+            static_cast<jlong>(timestamp), static_cast<jint>(id),
+            connected ? JNI_TRUE : JNI_FALSE);
     ALOGV("receiver %p ~ Returned from hotplug handler.", this);
 
     mMessageQueue->raiseAndClearException(env, "dispatchHotplug");

@@ -236,7 +236,8 @@ static jint android_view_GLES20Canvas_invokeFunctors(JNIEnv* env,
     status_t status = renderer->invokeFunctors(bounds);
     if (status != DrawGlInfo::kStatusDone && dirty != NULL) {
         env->CallVoidMethod(dirty, gRectClassInfo.set,
-                int(bounds.left), int(bounds.top), int(bounds.right), int(bounds.bottom));
+             static_cast<jint>(bounds.left), static_cast<jint>(bounds.top),
+             static_cast<jint>(bounds.right), static_cast<jint>(bounds.bottom));
     }
     return status;
 }
@@ -369,7 +370,8 @@ static jboolean android_view_GLES20Canvas_getClipBounds(JNIEnv* env, jobject cla
     const android::uirenderer::Rect& bounds(renderer->getClipBounds());
 
     env->CallVoidMethod(rect, gRectClassInfo.set,
-            int(bounds.left), int(bounds.top), int(bounds.right), int(bounds.bottom));
+             static_cast<jint>(bounds.left), static_cast<jint>(bounds.top),
+             static_cast<jint>(bounds.right), static_cast<jint>(bounds.bottom));
 
     return !bounds.isEmpty() ? JNI_TRUE : JNI_FALSE;
 }
@@ -906,7 +908,8 @@ static jint android_view_GLES20Canvas_drawDisplayList(JNIEnv* env,
     status_t status = renderer->drawDisplayList(displayList, bounds, flags);
     if (status != DrawGlInfo::kStatusDone && dirty != NULL) {
         env->CallVoidMethod(dirty, gRectClassInfo.set,
-                int(bounds.left), int(bounds.top), int(bounds.right), int(bounds.bottom));
+             static_cast<jint>(bounds.left), static_cast<jint>(bounds.top),
+             static_cast<jint>(bounds.right), static_cast<jint>(bounds.bottom));
     }
     return status;
 }

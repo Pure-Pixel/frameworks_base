@@ -138,7 +138,8 @@ static void audioCallback(int event, void* user, void *info) {
             env->CallStaticVoidMethod(
                 callbackInfo->audioTrack_class,
                 javaAudioTrackFields.postNativeEventInJava,
-                callbackInfo->audioTrack_ref, event, 0,0, NULL);
+                callbackInfo->audioTrack_ref, static_cast<jint>(event),
+                static_cast<jint>(0), static_cast<jint>(0), NULL);
             if (env->ExceptionCheck()) {
                 env->ExceptionDescribe();
                 env->ExceptionClear();
@@ -152,7 +153,8 @@ static void audioCallback(int event, void* user, void *info) {
             env->CallStaticVoidMethod(
                 callbackInfo->audioTrack_class,
                 javaAudioTrackFields.postNativeEventInJava,
-                callbackInfo->audioTrack_ref, event, 0,0, NULL);
+                callbackInfo->audioTrack_ref, static_cast<jint>(event),
+                static_cast<jint>(0), static_cast<jint>(0), NULL);
             if (env->ExceptionCheck()) {
                 env->ExceptionDescribe();
                 env->ExceptionClear();

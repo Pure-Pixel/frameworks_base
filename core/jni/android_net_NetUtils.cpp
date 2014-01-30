@@ -155,7 +155,7 @@ static jboolean android_net_utils_runDhcpCommon(JNIEnv* env, jobject clazz, jstr
         // set the linkAddress
         // dhcpResults->addLinkAddress(inetAddress, prefixLength)
         result = env->CallBooleanMethod(dhcpResults, dhcpResultsFieldIds.addLinkAddress,
-                env->NewStringUTF(ipaddr), prefixLength);
+                env->NewStringUTF(ipaddr), static_cast<jint>(prefixLength));
     }
 
     if (result == 0) {

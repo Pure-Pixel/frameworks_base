@@ -60,7 +60,8 @@ jetPlayerEventCallback(int what, int arg1=0, int arg2=0, void* javaTarget = NULL
         env->CallStaticVoidMethod(
             javaJetPlayerFields.jetClass, javaJetPlayerFields.postNativeEventInJava,
             javaTarget,
-            what, arg1, arg2);
+            static_cast<jint>(what), static_cast<jint>(arg1),
+            static_cast<jint>(arg2));
         if (env->ExceptionCheck()) {
             env->ExceptionDescribe();
             env->ExceptionClear();

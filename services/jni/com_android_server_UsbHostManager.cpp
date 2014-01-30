@@ -116,9 +116,11 @@ static int usb_device_added(const char *devname, void* client_data) {
     jstring productName = env->NewStringUTF(product);
     jstring serialNumber = env->NewStringUTF(serial);
     env->CallVoidMethod(thiz, method_usbDeviceAdded,
-            deviceName, vendorId, productId, deviceClass,
-            deviceSubClass, protocol, manufacturerName,
-            productName, serialNumber, interfaceArray, endpointArray);
+            deviceName, static_cast<jint>(vendorId),
+            static_cast<jint>(productId), static_cast<jint>(deviceClass),
+            static_cast<jint>(deviceSubClass), static_cast<jint>(protocol),
+            manufacturerName, productName, serialNumber, interfaceArray,
+            endpointArray);
 
     env->DeleteLocalRef(interfaceArray);
     env->DeleteLocalRef(endpointArray);

@@ -74,7 +74,8 @@ public:
 
         env->CallVoidMethod(mRemoteDisplayObjGlobal,
                 gRemoteDisplayClassInfo.notifyDisplayConnected,
-                surfaceObj, width, height, flags, session);
+                surfaceObj, static_cast<jint>(width), static_cast<jint>(height),
+                static_cast<jint>(flags), static_cast<jint>(session));
         env->DeleteLocalRef(surfaceObj);
         checkAndClearExceptionFromCallback(env, "notifyDisplayConnected");
     }
@@ -91,7 +92,8 @@ public:
         JNIEnv* env = AndroidRuntime::getJNIEnv();
 
         env->CallVoidMethod(mRemoteDisplayObjGlobal,
-                gRemoteDisplayClassInfo.notifyDisplayError, error);
+                gRemoteDisplayClassInfo.notifyDisplayError,
+                static_cast<jint>(error));
         checkAndClearExceptionFromCallback(env, "notifyDisplayError");
     }
 

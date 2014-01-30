@@ -101,7 +101,8 @@ static void recorderCallback(int event, void* user, void *info) {
             env->CallStaticVoidMethod(
                 callbackInfo->audioRecord_class,
                 javaAudioRecordFields.postNativeEventInJava,
-                callbackInfo->audioRecord_ref, event, 0,0, NULL);
+                callbackInfo->audioRecord_ref, static_cast<jint>(event),
+                static_cast<jint>(0), static_cast<jint>(0), NULL);
             if (env->ExceptionCheck()) {
                 env->ExceptionDescribe();
                 env->ExceptionClear();
@@ -115,7 +116,8 @@ static void recorderCallback(int event, void* user, void *info) {
             env->CallStaticVoidMethod(
                 callbackInfo->audioRecord_class,
                 javaAudioRecordFields.postNativeEventInJava,
-                callbackInfo->audioRecord_ref, event, 0,0, NULL);
+                callbackInfo->audioRecord_ref, static_cast<jint>(event),
+                static_cast<jint>(0), static_cast<jint>(0), NULL);
             if (env->ExceptionCheck()) {
                 env->ExceptionDescribe();
                 env->ExceptionClear();

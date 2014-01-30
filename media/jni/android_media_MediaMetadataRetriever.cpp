@@ -243,7 +243,7 @@ static jobject android_media_MediaMetadataRetriever_getFrameAtTime(JNIEnv *env, 
     jobject config = env->CallStaticObjectMethod(
                         fields.configClazz,
                         fields.createConfigMethod,
-                        SkBitmap::kRGB_565_Config);
+                        static_cast<jint>(SkBitmap::kRGB_565_Config));
 
     size_t width, height;
     bool swapWidthAndHeight = false;
@@ -259,8 +259,8 @@ static jobject android_media_MediaMetadataRetriever_getFrameAtTime(JNIEnv *env, 
     jobject jBitmap = env->CallStaticObjectMethod(
                             fields.bitmapClazz,
                             fields.createBitmapMethod,
-                            width,
-                            height,
+                            static_cast<jint>(width),
+                            static_cast<jint>(height),
                             config);
 
     SkBitmap *bitmap =
@@ -287,9 +287,9 @@ static jobject android_media_MediaMetadataRetriever_getFrameAtTime(JNIEnv *env, 
         jobject scaledBitmap = env->CallStaticObjectMethod(fields.bitmapClazz,
                                     fields.createScaledBitmapMethod,
                                     jBitmap,
-                                    displayWidth,
-                                    displayHeight,
-                                    true);
+                                    static_cast<jint>(displayWidth),
+                                    static_cast<jint>(displayHeight),
+                                    JNI_TRUE);
         return scaledBitmap;
     }
 

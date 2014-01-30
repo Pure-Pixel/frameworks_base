@@ -42,7 +42,8 @@ static struct {
 
 jobject android_view_PointerIcon_getSystemIcon(JNIEnv* env, jobject contextObj, int32_t style) {
     jobject pointerIconObj = env->CallStaticObjectMethod(gPointerIconClassInfo.clazz,
-            gPointerIconClassInfo.getSystemIcon, contextObj, style);
+            gPointerIconClassInfo.getSystemIcon, contextObj,
+            static_cast<jint>(style));
     if (env->ExceptionCheck()) {
         ALOGW("An exception occurred while getting a pointer icon with style %d.", style);
         LOGW_EX(env);

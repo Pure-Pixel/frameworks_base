@@ -156,8 +156,11 @@ public:
             return NO_MEMORY;
         }
 
-        mEnv->CallVoidMethod(mClient, mScanFileMethodID, pathStr, lastModified,
-                fileSize, isDirectory, noMedia);
+        mEnv->CallVoidMethod(mClient, mScanFileMethodID, pathStr,
+                static_cast<jlong>(lastModified),
+                static_cast<jlong>(fileSize),
+                isDirectory ? JNI_TRUE : JNI_FALSE,
+                noMedia ? JNI_TRUE : JNI_FALSE);
 
         mEnv->DeleteLocalRef(pathStr);
         return checkAndClearExceptionFromCallback(mEnv, "scanFile");

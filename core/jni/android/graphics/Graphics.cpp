@@ -383,7 +383,9 @@ void GraphicsJNI::reinitBitmap(JNIEnv* env, jobject javaBitmap, SkBitmap* bitmap
         bool isPremultiplied)
 {
     env->CallVoidMethod(javaBitmap, gBitmap_reinitMethodID,
-            bitmap->width(), bitmap->height(), isPremultiplied);
+            static_cast<jint>(bitmap->width()),
+            static_cast<jint>(bitmap->height()),
+            isPremultiplied ? JNI_TRUE : JNI_FALSE);
 }
 
 int GraphicsJNI::getBitmapAllocationByteCount(JNIEnv* env, jobject javaBitmap)

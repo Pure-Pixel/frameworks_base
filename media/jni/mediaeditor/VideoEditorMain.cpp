@@ -480,8 +480,11 @@ static void jniPreviewProgressCallback (void* cookie, M4OSA_UInt32 msgType,
         tmpFileName  = pEnv->NewStringUTF(pContext->mOverlayFileName);
         pEnv->CallVoidMethod(pContext->engine,
                 pContext->onPreviewProgressUpdateMethodId,
-                currentMs,isFinished, pContext->mIsUpdateOverlay,
-                tmpFileName, pContext->mOverlayRenderingMode, error);
+                static_cast<jint>(currentMs),
+                isFinished ? JNI_TRUE : JNI_FALSE,
+                pContext->mIsUpdateOverlay ? JNI_TRUE : JNI_FALSE,
+                tmpFileName, static_cast<jint>(pContext->mOverlayRenderingMode),
+                static_cast<jint>(error));
 
         if (pContext->mIsUpdateOverlay) {
             pContext->mIsUpdateOverlay = false;
@@ -963,7 +966,7 @@ static jint videoEditor_renderPreviewFrame(JNIEnv* pEnv,
         tmpOverlayString = pEnv->NewStringUTF(tmpOverlayFilename);
         pEnv->CallVoidMethod(pContext->engine,
             pContext->previewFrameEditInfoId,
-            tmpOverlayString, tmpRenderingMode);
+            tmpOverlayString, static_cast<jint>(tmpRenderingMode));
 
     }
 
@@ -1404,8 +1407,8 @@ M4OSA_ERR videoEditor_generateAudio(JNIEnv* pEnv,ManualEditContext* pContext,
 
     ALOGV("LVME_generateAudio Current progress is =%d", curProgress);
     pEnv->CallVoidMethod(pContext->engine,
-            pContext->onProgressUpdateMethodId, 1/*task status*/,
-            curProgress/*progress*/);
+            pContext->onProgressUpdateMethodId, static_cast<jint>(1)/*task status*/,
+            static_cast<jint>(curProgress)/*progress*/);
     do {
         result = M4MCS_step(mcsContext, &curProgress);
 
@@ -1418,8 +1421,9 @@ M4OSA_ERR videoEditor_generateAudio(JNIEnv* pEnv,ManualEditContext* pContext,
                 // Send a progress notification.
                 curProgress = 100;
                 pEnv->CallVoidMethod(pContext->engine,
-                    pContext->onProgressUpdateMethodId, 1/*task status*/,
-                    curProgress);
+                    pContext->onProgressUpdateMethodId,
+                    static_cast<jint>(1)/*task status*/,
+                    static_cast<jint>(curProgress)/*progress*/);
                 ALOGV("LVME_generateAudio Current progress is =%d", curProgress);
             }
         } else {
@@ -1427,8 +1431,9 @@ M4OSA_ERR videoEditor_generateAudio(JNIEnv* pEnv,ManualEditContext* pContext,
             if (curProgress != lastProgress) {
                 lastProgress = curProgress;
                 pEnv->CallVoidMethod(pContext->engine,
-                    pContext->onProgressUpdateMethodId, 0/*task status*/,
-                    curProgress/*progress*/);
+                    pContext->onProgressUpdateMethodId,
+                    static_cast<jint>(0)/*task status*/,
+                    static_cast<jint>(curProgress)/*progress*/);
                 ALOGV("LVME_generateAudio Current progress is =%d",curProgress);
             }
         }
@@ -2287,7 +2292,7 @@ static jint videoEditor_getPixelsList(
         if (err != M4NO_ERROR) {
             break;
         }
-        env->CallVoidMethod(callback, mid, (jint)k);
+        env->CallVoidMethod(callback, mid, static_cast<jint>(k));
         if (env->ExceptionCheck()) {
             err = M4ERR_ALLOC;
             break;
@@ -2430,7 +2435,8 @@ videoEditor_callOnProgressUpdate(
 
     // Call the on completion callback.
     pEnv->CallVoidMethod(pContext->engine, pContext->onProgressUpdateMethodId,
-     videoEditJava_getEngineCToJava(task), progress);
+     static_cast<jint>(videoEditJava_getEngineCToJava(task)),
+     static_cast<jint>(progress));
 
 
     // Detach the current thread.
@@ -2766,7 +2772,7 @@ M4OSA_ERR videoEditor_processClip(
     ALOGV("VERY FIRST PROGRESS videoEditor_processClip ITEM %d Progress indication %d",
         unuseditemID, progress);
     pEnv->CallVoidMethod(pContext->engine, pContext->onProgressUpdateMethodId,
-        unuseditemID, progress);
+        static_cast<jint>(unuseditemID), static_cast<jint>(progress));
 
     // Check if a task is being performed.
     // ??? ADD STOPPING MECHANISM
@@ -2805,7 +2811,8 @@ M4OSA_ERR videoEditor_processClip(
                         unuseditemID, progress);
                     pEnv->CallVoidMethod(pContext->engine,
                         pContext->onProgressUpdateMethodId,
-                        unuseditemID, progress);
+                        static_cast<jint>(unuseditemID),
+                        static_cast<jint>(progress));
                     lastProgress = progress;
                 }
             }
@@ -2858,8 +2865,8 @@ M4OSA_ERR videoEditor_processClip(
                         unuseditemID, progress);
                     pEnv->CallVoidMethod(pContext->engine,
                         pContext->onProgressUpdateMethodId,
-                        unuseditemID, progress);
-
+                        static_cast<jint>(unuseditemID),
+                        static_cast<jint>(progress));
 
                     // Stop the encoding.
                     ALOGV("videoEditor_processClip Calling M4xVSS_SaveStop()");
@@ -3505,7 +3512,7 @@ M4OSA_ERR M4MA_generateAudioGraphFile(JNIEnv* pEnv, M4OSA_Char* pInputFileURL,
                 //LVME_callAudioGraphOnProgressUpdate(pContext, 0, prevProgress);
             pEnv->CallVoidMethod(pContext->engine,
                                  pContext->onAudioGraphProgressUpdateMethodId,
-                                 prevProgress, 0);
+                                 static_cast<jint>(prevProgress), JNI_FALSE);
             VIDEOEDIT_LOG_API(ANDROID_LOG_INFO, "VIDEO_EDITOR", "pContext->threadProgress %d",
                              prevProgress);
             }
@@ -3548,7 +3555,8 @@ M4OSA_ERR M4MA_generateAudioGraphFile(JNIEnv* pEnv, M4OSA_Char* pInputFileURL,
     M4OSA_fileReadClose(inputFileHandle);
     M4OSA_fileWriteClose(outFileHandle);
     /* final finish callback */
-    pEnv->CallVoidMethod(pContext->engine, pContext->onAudioGraphProgressUpdateMethodId, 100, 0);
+    pEnv->CallVoidMethod(pContext->engine, pContext->onAudioGraphProgressUpdateMethodId,
+                         static_cast<jint>(100), JNI_FALSE);
 
     /* EXIT */
     VIDEOEDIT_LOG_API(ANDROID_LOG_INFO, "VIDEO_EDITOR", "EXIT - M4MA_generateAudioGraphFile");

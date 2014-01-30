@@ -109,7 +109,8 @@ void android_server_PowerManagerService_userActivity(nsecs_t eventTime, int32_t 
 
         env->CallVoidMethod(gPowerManagerServiceObj,
                 gPowerManagerServiceClassInfo.userActivityFromNative,
-                nanoseconds_to_milliseconds(eventTime), eventType, 0);
+                static_cast<jlong>(nanoseconds_to_milliseconds(eventTime)),
+                static_cast<jint>(eventType), static_cast<jint>(0));
         checkAndClearExceptionFromCallback(env, "userActivityFromNative");
     }
 }
@@ -120,7 +121,7 @@ void android_server_PowerManagerService_wakeUp(nsecs_t eventTime) {
 
         env->CallVoidMethod(gPowerManagerServiceObj,
                 gPowerManagerServiceClassInfo.wakeUpFromNative,
-                nanoseconds_to_milliseconds(eventTime));
+                static_cast<jlong>(nanoseconds_to_milliseconds(eventTime)));
         checkAndClearExceptionFromCallback(env, "wakeUpFromNative");
     }
 }
@@ -131,7 +132,8 @@ void android_server_PowerManagerService_goToSleep(nsecs_t eventTime) {
 
         env->CallVoidMethod(gPowerManagerServiceObj,
                 gPowerManagerServiceClassInfo.goToSleepFromNative,
-                nanoseconds_to_milliseconds(eventTime), 0);
+                static_cast<jlong>(nanoseconds_to_milliseconds(eventTime)),
+                static_cast<jint>(0));
         checkAndClearExceptionFromCallback(env, "goToSleepFromNative");
     }
 }

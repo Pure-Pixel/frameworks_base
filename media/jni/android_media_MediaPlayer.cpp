@@ -114,12 +114,14 @@ void JNIMediaPlayerListener::notify(int msg, int ext1, int ext2, const Parcel *o
             Parcel* nativeParcel = parcelForJavaObject(env, jParcel);
             nativeParcel->setData(obj->data(), obj->dataSize());
             env->CallStaticVoidMethod(mClass, fields.post_event, mObject,
-                    msg, ext1, ext2, jParcel);
+                    static_cast<jint>(msg), static_cast<jint>(ext1),
+                    static_cast<jint>(ext2), jParcel);
             env->DeleteLocalRef(jParcel);
         }
     } else {
         env->CallStaticVoidMethod(mClass, fields.post_event, mObject,
-                msg, ext1, ext2, NULL);
+                static_cast<jint>(msg), static_cast<jint>(ext1),
+                static_cast<jint>(ext2), NULL);
     }
     if (env->ExceptionCheck()) {
         ALOGW("An exception occurred while notifying an event.");
