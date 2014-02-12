@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fabf157_7953efac",
+        "filename": "core/jni/android/graphics/CreateJavaOutputStreamAdaptor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1037066
+      },
+      "writtenOn": "2014-02-12T13:23:35Z",
+      "side": 1,
+      "message": "requested is size_t.",
+      "revId": "3539a62056a4f3b13cdc967e7eab4d67f2a648a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f405174_1111bc6e",
+        "filename": "core/jni/android/graphics/CreateJavaOutputStreamAdaptor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1037066
+      },
+      "writtenOn": "2014-02-12T13:23:35Z",
+      "side": 1,
+      "message": "requested is size_t.",
+      "revId": "3539a62056a4f3b13cdc967e7eab4d67f2a648a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fabf157_395d77b5",
+        "filename": "media/jni/android_media_MediaCodec.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1037066
+      },
+      "writtenOn": "2014-02-12T13:23:35Z",
+      "side": 1,
+      "message": "offset and size are size_t.",
+      "revId": "3539a62056a4f3b13cdc967e7eab4d67f2a648a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f3ec9eb_d3447469",
+        "filename": "media/jni/android_media_MediaExtractor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1037066
+      },
+      "writtenOn": "2014-02-12T13:23:35Z",
+      "side": 1,
+      "message": "size is size_t",
+      "revId": "3539a62056a4f3b13cdc967e7eab4d67f2a648a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fabf157_d961c36b",
+        "filename": "media/jni/android_media_MediaExtractor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1037066
+      },
+      "writtenOn": "2014-02-12T13:23:35Z",
+      "side": 1,
+      "message": "numSubSamples is size_t",
+      "revId": "3539a62056a4f3b13cdc967e7eab4d67f2a648a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fabf157_f95effae",
+        "filename": "media/jni/android_media_MediaMetadataRetriever.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1037066
+      },
+      "writtenOn": "2014-02-12T13:23:35Z",
+      "side": 1,
+      "message": "width and height are size_t",
+      "revId": "3539a62056a4f3b13cdc967e7eab4d67f2a648a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f405174_51286499",
+        "filename": "media/jni/android_media_MediaMetadataRetriever.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1037066
+      },
+      "writtenOn": "2014-02-12T13:23:35Z",
+      "side": 1,
+      "message": "displayWidth and displayHeight are size_t",
+      "revId": "3539a62056a4f3b13cdc967e7eab4d67f2a648a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
