@@ -1757,4 +1757,19 @@
   <java-symbol type="dimen" name="subtitle_shadow_radius" />
   <java-symbol type="dimen" name="subtitle_shadow_offset" />
   <java-symbol type="dimen" name="subtitle_outline_width" />
+ 
+  <!--From SIM Information-->
+  <java-symbol type="layout" name="subscription_item_layout" />
+  <java-symbol type="id" name="sub_color" />
+  <java-symbol type="id" name="sub_short_number" />
+  <java-symbol type="id" name="sub_name" />
+  <java-symbol type="id" name="sub_number" />
+  <java-symbol type="drawable" name="sim_light_blue" />
+  <java-symbol type="drawable" name="sim_light_green" />
+  <java-symbol type="drawable" name="sim_light_orange" />
+  <java-symbol type="drawable" name="sim_light_purple" />
+  <java-symbol type="drawable" name="sim_dark_blue" />
+  <java-symbol type="drawable" name="sim_dark_green" />
+  <java-symbol type="drawable" name="sim_dark_orange" />
+  <java-symbol type="drawable" name="sim_dark_purple" />
 </resources>
