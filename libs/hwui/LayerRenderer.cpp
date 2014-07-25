@@ -187,6 +187,10 @@ void LayerRenderer::generateMesh() {
 Layer* LayerRenderer::createLayer(uint32_t width, uint32_t height, bool isOpaque) {
     LAYER_RENDERER_LOGD("Requesting new render layer %dx%d", width, height);
 
+    // clear all OpenGL error flags
+    while ( glGetError() != GL_NO_ERROR)
+        ALOGW("OpenGL error flag is not cleared");
+
     Caches& caches = Caches::getInstance();
     GLuint fbo = caches.fboCache.get();
     if (!fbo) {
