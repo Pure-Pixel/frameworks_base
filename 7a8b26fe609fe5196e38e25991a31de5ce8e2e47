@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16295785_c8911300",
+        "filename": "libs/hwui/LayerRenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1010333
+      },
+      "writtenOn": "2014-07-31T18:34:31Z",
+      "side": 1,
+      "message": "remove space, and use braces around log",
+      "revId": "7a8b26fe609fe5196e38e25991a31de5ce8e2e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
