@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "753d2e9e_37545a93",
+        "filename": "core/java/android/widget/GridView.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1855,
+      "author": {
+        "id": 1044446
+      },
+      "writtenOn": "2014-11-07T17:52:58Z",
+      "side": 1,
+      "message": "Similar to the Gallery change, I think readability would be improved if you pick an increment based on direction and invert it if we\u0027re in RTL.\n\ncase FOCUS_LEFT:\ncase FOCUS_RIGHT:\n    int adjust \u003d (direction \u003d\u003d FOCUS_LEFT) ? 1 : -1;\n    if (isLayoutRtl()) {\n      adjust \u003d -adjust;\n    }\n    mLayoutMode \u003d LAYOUT_MOVE_SELECTION;\n    setSelectionInt(MathUtils.constrain(\n        selectedPosition + adjust, 0, mItemCount - 1));\n    moved \u003d true;\n    break;",
+      "revId": "1b2ceb0dd102d203d0a946b280478ea1fd68fe60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
