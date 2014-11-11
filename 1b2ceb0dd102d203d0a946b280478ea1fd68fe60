@@ -16,6 +16,24 @@
       "revId": "1b2ceb0dd102d203d0a946b280478ea1fd68fe60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa83cbc2_c226c225",
+        "filename": "core/java/android/widget/GridView.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1855,
+      "author": {
+        "id": 1002951
+      },
+      "writtenOn": "2014-11-11T11:58:59Z",
+      "side": 1,
+      "message": "The code in your review comment looks just fine. I don\u0027t feel very comfortable uploading your code in our name though. Would you mind uploading in your name, or submit internally and then we can abandon this change here?",
+      "parentUuid": "753d2e9e_37545a93",
+      "revId": "1b2ceb0dd102d203d0a946b280478ea1fd68fe60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
