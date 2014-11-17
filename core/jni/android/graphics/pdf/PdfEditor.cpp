@@ -72,8 +72,10 @@ static jlong nativeOpen(JNIEnv* env, jclass thiz, jint fd, jlong size) {
 
     if (!document) {
         const long error = FPDF_GetLastError();
+        char msg[128];
+        snprintf(msg, 128, "cannot create document. Error: %ld", error);
         jniThrowException(env, "java/io/IOException",
-                "cannot create document. Error:" + error);
+                msg);
         destroyLibraryIfNeeded();
         return -1;
     }
@@ -138,8 +140,9 @@ static void nativeWrite(JNIEnv* env, jclass thiz, jlong documentPtr, jint fd) {
     writer.WriteBlock = &writeBlock;
     const bool success = FPDF_SaveAsCopy(document, &writer, FPDF_NO_INCREMENTAL);
     if (!success) {
-        jniThrowException(env, "java/io/IOException",
-                "cannot write to fd. Error:" + errno);
+        char msg[256];
+        snprintf(msg, 256, "cannot write to fd. Error: %s", strerror(errno));
+        jniThrowException(env, "java/io/IOException", msg);
         destroyLibraryIfNeeded();
     }
 }
