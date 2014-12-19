@@ -92,6 +92,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Looper;
 import android.os.Message;
+import android.os.PersistableBundle;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemClock;
@@ -110,6 +111,7 @@ import android.service.notification.NotificationListenerService;
 import android.service.notification.NotificationRankingUpdate;
 import android.service.notification.StatusBarNotification;
 import android.service.notification.ZenModeConfig;
+import android.telephony.CarrierConfigManager;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -306,6 +308,8 @@ public class NotificationManagerService extends SystemService {
     private long mLastOverRateLogTime;
     private float mMaxPackageEnqueueRate = DEFAULT_MAX_NOTIFICATION_ENQUEUE_RATE;
     private String mSystemNotificationSound;
+    private PersistableBundle mCarrierConfig;
+    private CarrierConfigManager mConfigManager;
 
     private static class Archive {
         final int mBufferSize;
@@ -1070,6 +1074,8 @@ public class NotificationManagerService extends SystemService {
 
         publishBinderService(Context.NOTIFICATION_SERVICE, mService);
         publishLocalService(NotificationManagerInternal.class, mInternalService);
+        mConfigManager = (CarrierConfigManager)
+                getContext().getSystemService(Context.CARRIER_CONFIG_SERVICE);
     }
 
     private void sendRegisteredOnlyBroadcast(String action) {
@@ -2826,7 +2832,14 @@ public class NotificationManagerService extends SystemService {
         // These are set inside the conditional if the notification is allowed to make noise.
         boolean hasValidVibrate = false;
         boolean hasValidSound = false;
-        if (disableEffects == null
+
+        boolean smsRingtone =  false;
+        if (mCarrierConfig == null) {
+            mCarrierConfig = mConfigManager.getConfig();
+            smsRingtone = mCarrierConfig.getBoolean(
+                CarrierConfigManager.KEY_CONFIG_SMS_RINGTONE_INCALL);
+        }
+        if ((disableEffects == null || (smsRingtone && mInCall))
                 && (record.getUserId() == UserHandle.USER_ALL ||
                     record.getUserId() == currentUser ||
                     mUserProfiles.isCurrentProfile(record.getUserId()))

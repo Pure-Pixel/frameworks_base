@@ -1116,6 +1116,12 @@ public class CarrierConfigManager {
     public static final String KEY_EDITABLE_WFC_ROAMING_MODE_BOOL =
             "editable_wfc_roaming_mode_bool";
 
+    /**
+     * Configuration to play sms ringtone during MO/MT call.
+     * @hide
+     */
+    public static final String KEY_CONFIG_SMS_RINGTONE_INCALL = "config_sms_ringtone_incall";
+
     /** The default value for every variable. */
     private final static PersistableBundle sDefaults;
 
@@ -1285,41 +1291,7 @@ public class CarrierConfigManager {
         sDefaults.putBoolean(KEY_FORCE_IMEI_BOOL, false);
         sDefaults.putInt(KEY_CDMA_ROAMING_MODE_INT, CDMA_ROAMING_MODE_RADIO_DEFAULT);
 
-        // Carrier Signalling Receivers
-        sDefaults.putString(KEY_CARRIER_SETUP_APP_STRING, "");
-        sDefaults.putStringArray(KEY_CARRIER_APP_WAKE_SIGNAL_CONFIG_STRING_ARRAY,
-                new String[]{
-                        "com.android.carrierdefaultapp/.CarrierDefaultBroadcastReceiver:" +
-                                "android.intent.action.CARRIER_SIGNAL_REDIRECTED"
-                });
-        sDefaults.putStringArray(KEY_CARRIER_APP_NO_WAKE_SIGNAL_CONFIG_STRING_ARRAY, null);
-
-        // Default carrier app configurations
-        sDefaults.putStringArray(KEY_CARRIER_DEFAULT_ACTIONS_ON_REDIRECTION_STRING_ARRAY,
-                new String[]{
-                        "4, 1"
-                        //4: CARRIER_ACTION_DISABLE_METERED_APNS
-                        //1: CARRIER_ACTION_SHOW_PORTAL_NOTIFICATION
-                });
-        sDefaults.putStringArray(KEY_CARRIER_DEFAULT_REDIRECTION_URL_STRING_ARRAY, null);
-
-        // Rat families: {GPRS, EDGE}, {EVDO, EVDO_A, EVDO_B}, {UMTS, HSPA, HSDPA, HSUPA, HSPAP},
-        // {LTE, LTE_CA}
-        // Order is important - lowest precidence first
-        sDefaults.putStringArray(KEY_RATCHET_RAT_FAMILIES,
-                new String[]{"1,2","7,8,12","3,11,9,10,15","14,19"});
-        sDefaults.putBoolean(KEY_TREAT_DOWNGRADED_VIDEO_CALLS_AS_VIDEO_CALLS_BOOL, false);
-        sDefaults.putBoolean(KEY_DROP_VIDEO_CALL_WHEN_ANSWERING_AUDIO_CALL_BOOL, false);
-        sDefaults.putBoolean(KEY_ALLOW_MERGE_WIFI_CALLS_WHEN_VOWIFI_OFF_BOOL, true);
-        sDefaults.putBoolean(KEY_ALLOW_ADD_CALL_DURING_VIDEO_CALL_BOOL, true);
-        sDefaults.putBoolean(KEY_WIFI_CALLS_CAN_BE_HD_AUDIO, true);
-        sDefaults.putBoolean(KEY_VIDEO_CALLS_CAN_BE_HD_AUDIO, true);
-
-        sDefaults.putStringArray(KEY_IMS_REASONINFO_MAPPING_STRING_ARRAY, null);
-        sDefaults.putBoolean(KEY_ENHANCED_4G_LTE_TITLE_VARIANT_BOOL, false);
-        sDefaults.putBoolean(KEY_NOTIFY_VT_HANDOVER_TO_WIFI_FAILURE_BOOL, false);
-        sDefaults.putStringArray(KEY_FILTERED_CNAP_NAMES_STRING_ARRAY, null);
-        sDefaults.putBoolean(KEY_EDITABLE_WFC_ROAMING_MODE_BOOL, false);
+        sDefaults.putBoolean(KEY_CONFIG_SMS_RINGTONE_INCALL, true);
     }
 
     /**
