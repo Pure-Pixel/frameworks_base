@@ -16,7 +16,7 @@
 
 #include "RenderThread.h"
 
-#if defined(HAVE_PTHREADS)
+#if !defined(_WIN32)
 #include <sys/resource.h>
 #endif
 #include <gui/DisplayEventReceiver.h>
@@ -245,7 +245,7 @@ void RenderThread::requestVsync() {
 }
 
 bool RenderThread::threadLoop() {
-#if defined(HAVE_PTHREADS)
+#if !defined(_WIN32)
     setpriority(PRIO_PROCESS, 0, PRIORITY_DISPLAY);
 #endif
     initThreadLocals();

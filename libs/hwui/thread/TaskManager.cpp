@@ -15,7 +15,7 @@
  */
 
 #include <sys/sysinfo.h>
-#if defined(HAVE_PTHREADS)
+#if !defined(_WIN32)
 #include <sys/resource.h>
 #endif
 
@@ -83,7 +83,7 @@ bool TaskManager::addTaskBase(const sp<TaskBase>& task, const sp<TaskProcessorBa
 ///////////////////////////////////////////////////////////////////////////////
 
 status_t TaskManager::WorkerThread::readyToRun() {
-#if defined(HAVE_PTHREADS)
+#if !defined(_WIN32)
     setpriority(PRIO_PROCESS, 0, PRIORITY_FOREGROUND);
 #endif
     return NO_ERROR;

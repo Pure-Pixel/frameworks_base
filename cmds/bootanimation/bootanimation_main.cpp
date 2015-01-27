@@ -25,7 +25,7 @@
 #include <utils/Log.h>
 #include <utils/threads.h>
 
-#if defined(HAVE_PTHREADS)
+#if !defined(_WIN32)
 # include <pthread.h>
 # include <sys/resource.h>
 #endif
@@ -38,7 +38,7 @@ using namespace android;
 
 int main()
 {
-#if defined(HAVE_PTHREADS)
+#if !defined(_WIN32)
     setpriority(PRIO_PROCESS, 0, ANDROID_PRIORITY_DISPLAY);
 #endif
 
