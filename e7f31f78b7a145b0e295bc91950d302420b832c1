@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e32fba6e_6dbb71b2",
+        "filename": "keystore/java/android/security/EcIesParameterSpec.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-04-10T21:22:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e356daec_4183d450",
+      "revId": "e7f31f78b7a145b0e295bc91950d302420b832c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "234d525a_a8cb789c",
         "filename": "keystore/java/android/security/EcIesParameterSpec.java",
         "patchSetId": 4
@@ -48,6 +66,30 @@
       "writtenOn": "2015-04-10T19:22:20Z",
       "side": 1,
       "message": "Do we really need to split the name of DEM algorithms into substrings like this?\n\nWhat should we name the new DEMs, e.g., DEM_AES128_CTR_HMAC_SHA256?",
+      "range": {
+        "startLine": 91,
+        "startChar": 19,
+        "endLine": 91,
+        "endChar": 26
+      },
+      "revId": "e7f31f78b7a145b0e295bc91950d302420b832c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c326369c_29c169ae",
+        "filename": "keystore/java/android/security/EcIesParameterSpec.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-04-10T21:22:12Z",
+      "side": 1,
+      "message": "Yes. The main reason is to offer parameterization in terms of  JCA primitives, such as Cipher and Mac.\n\nDEM_AES128_CTR_HMAC_SHA256 is name: \"DEM1\", Cipher transformation: \"AES/CTR/NoPadding\" and Mac algorithm: \"HmacSHA256\".",
+      "parentUuid": "234d525a_a8cb789c",
       "range": {
         "startLine": 91,
         "startChar": 19,
@@ -83,6 +125,30 @@
     },
     {
       "key": {
+        "uuid": "a3214287_c840cf67",
+        "filename": "keystore/java/android/security/EcIesParameterSpec.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-04-10T21:22:12Z",
+      "side": 1,
+      "message": "No, but we can default this (and the MAC size) to 128. Sounds like a sensible default.",
+      "parentUuid": "e356daec_2157b060",
+      "range": {
+        "startLine": 93,
+        "startChar": 28,
+        "endLine": 93,
+        "endChar": 44
+      },
+      "revId": "e7f31f78b7a145b0e295bc91950d302420b832c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e356daec_a4064e4b",
         "filename": "keystore/java/android/security/EcIesParameterSpec.java",
         "patchSetId": 4
@@ -106,6 +172,30 @@
     },
     {
       "key": {
+        "uuid": "e32fba6e_2d2259cf",
+        "filename": "keystore/java/android/security/EcIesParameterSpec.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-04-10T21:22:12Z",
+      "side": 1,
+      "message": "Defaulted to the same size as Cipher key.",
+      "parentUuid": "e356daec_a4064e4b",
+      "range": {
+        "startLine": 95,
+        "startChar": 8,
+        "endLine": 95,
+        "endChar": 22
+      },
+      "revId": "e7f31f78b7a145b0e295bc91950d302420b832c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e356daec_e1a4c830",
         "filename": "keystore/java/android/security/EcIesParameterSpec.java",
         "patchSetId": 4
@@ -117,6 +207,30 @@
       "writtenOn": "2015-04-10T19:22:20Z",
       "side": 1,
       "message": "KDF1withSHA256, KDF2withSHA1, KDF2withSHA256. I know that at least one project at Google will need to use KDF2withSHA256.",
+      "range": {
+        "startLine": 113,
+        "startChar": 73,
+        "endLine": 113,
+        "endChar": 85
+      },
+      "revId": "e7f31f78b7a145b0e295bc91950d302420b832c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c326369c_09166dd1",
+        "filename": "keystore/java/android/security/EcIesParameterSpec.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-04-10T21:22:12Z",
+      "side": 1,
+      "message": "These are just examples. I\u0027ve now added KDF2withSHA256 to the list, to make it clearer.",
+      "parentUuid": "e356daec_e1a4c830",
       "range": {
         "startLine": 113,
         "startChar": 73,
