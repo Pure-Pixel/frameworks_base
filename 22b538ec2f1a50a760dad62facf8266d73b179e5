@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e32fba6e_4dba2d50",
+        "filename": "keystore/java/android/security/EcIesParameterSpec.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1069370
+      },
+      "writtenOn": "2015-04-10T21:38:37Z",
+      "side": 1,
+      "message": "In the ISO doc, DEM1 is AES-CBC-PKCS7Padding. Using it to name AES-GCM is confusing, isn\u0027t it?\n\nWill it be clearer if we just remove the demName?",
+      "revId": "22b538ec2f1a50a760dad62facf8266d73b179e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
