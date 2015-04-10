@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e32fba6e_7038a69d",
+        "filename": "keystore/java/android/security/EcIesParameterSpec.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1069370
+      },
+      "writtenOn": "2015-04-10T22:10:07Z",
+      "side": 1,
+      "message": "Where do you enforce this default?",
+      "range": {
+        "startLine": 240,
+        "startChar": 41,
+        "endLine": 240,
+        "endChar": 42
+      },
+      "revId": "0ee9376ef40351f710d85f268900b485d8e0f527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
