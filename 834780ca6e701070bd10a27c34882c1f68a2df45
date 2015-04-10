@@ -22,6 +22,30 @@
       "revId": "834780ca6e701070bd10a27c34882c1f68a2df45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e356daec_a2e48350",
+        "filename": "keystore/java/android/security/EcIesParameterSpec.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-04-10T17:50:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "234d525a_eebe6df6",
+      "range": {
+        "startLine": 62,
+        "startChar": 68,
+        "endLine": 63,
+        "endChar": 28
+      },
+      "revId": "834780ca6e701070bd10a27c34882c1f68a2df45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
