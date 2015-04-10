@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "636d8ab3_819dd9b3",
+        "filename": "keystore/java/android/security/EcIesParameterSpec.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-04-10T18:11:21Z",
+      "side": 1,
+      "message": "Thai, we need to unambiguously specify the remaining degrees of freedom (e.g., whether both coordinates of \"ECDH\" are fed into the KDF or only one). What degrees of freedom are still unspecified?\n\nThese don\u0027t have to be specified via setters, necessarily. Documenting is a good start. Otherwise different implementations of ECIES taking the same EcIesParameterSpec will be incompatible.",
+      "revId": "e7f31f78b7a145b0e295bc91950d302420b832c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
