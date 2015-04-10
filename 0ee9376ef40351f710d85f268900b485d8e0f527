@@ -22,6 +22,30 @@
       "revId": "0ee9376ef40351f710d85f268900b485d8e0f527",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c326369c_40dbd2ef",
+        "filename": "keystore/java/android/security/EcIesParameterSpec.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-04-10T22:47:02Z",
+      "side": 1,
+      "message": "In the constructor of the Builder. The Builder starts off with this value set to 128.",
+      "parentUuid": "e32fba6e_7038a69d",
+      "range": {
+        "startLine": 240,
+        "startChar": 41,
+        "endLine": 240,
+        "endChar": 42
+      },
+      "revId": "0ee9376ef40351f710d85f268900b485d8e0f527",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
