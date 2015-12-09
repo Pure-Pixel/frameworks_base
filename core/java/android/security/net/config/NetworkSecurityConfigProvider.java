@@ -17,6 +17,7 @@
 package android.security.net.config;
 
 import android.content.Context;
+import android.security.NetworkSecurityPolicy;
 import java.security.Security;
 import java.security.Provider;
 
@@ -40,5 +41,6 @@ public final class NetworkSecurityConfigProvider extends Provider {
             throw new RuntimeException("Failed to install provider as highest priority provider."
                     + " Provider was installed at position " + pos);
         }
+        NetworkSecurityPolicy.setInstance(new ConfigNetworkSecurityPolicy(config));
     }
 }
