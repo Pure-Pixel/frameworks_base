@@ -32,4 +32,10 @@ public class FrameworkNetworkSecurityPolicy extends libcore.net.NetworkSecurityP
     public boolean isCleartextTrafficPermitted() {
         return mCleartextTrafficPermitted;
     }
+
+    @Override
+    public boolean isCleartextTrafficPermitted(String hostname) {
+        // The framework implementation of isCleartextTrafficPermitted is not hostname aware.
+        return isCleartextTrafficPermitted();
+    }
 }
