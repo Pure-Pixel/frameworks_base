@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a567a60d_6ccfa335",
+        "filename": "core/java/android/security/net/config/ApplicationConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1022895
+      },
+      "writtenOn": "2015-12-10T19:15:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05487277_b2551e47",
+      "revId": "918721655330d189bb192f687289d272e085e9c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "254d7687_f30a7a67",
         "filename": "core/java/android/security/net/config/ApplicationConfig.java",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "05487277_326b6e8c",
+        "filename": "core/java/android/security/net/config/ApplicationConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1022895
+      },
+      "writtenOn": "2015-12-10T19:15:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "254d7687_f30a7a67",
+      "revId": "918721655330d189bb192f687289d272e085e9c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "253496db_e082aa27",
         "filename": "core/java/android/security/net/config/ApplicationConfig.java",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2015-12-10T17:07:25Z",
       "side": 1,
       "message": "* Returns {@code true} ...\n* {@hostname} -\u003e {@code hostname}.",
+      "revId": "918721655330d189bb192f687289d272e085e9c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05487277_12707272",
+        "filename": "core/java/android/security/net/config/ApplicationConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1022895
+      },
+      "writtenOn": "2015-12-10T19:15:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "253496db_e082aa27",
       "revId": "918721655330d189bb192f687289d272e085e9c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
