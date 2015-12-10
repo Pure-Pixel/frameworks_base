@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05487277_b2551e47",
+        "filename": "core/java/android/security/net/config/ApplicationConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-12-10T17:07:25Z",
+      "side": 1,
+      "message": "Shorter: Returns {@code true} if any cleartext traffic is permitted for this application, which is the case only if all ... For finer-grained policy, use ...",
+      "revId": "918721655330d189bb192f687289d272e085e9c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "254d7687_f30a7a67",
+        "filename": "core/java/android/security/net/config/ApplicationConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-12-10T17:07:25Z",
+      "side": 1,
+      "message": "* ensureInitialized missing?\n* mConfigs can be null",
+      "revId": "918721655330d189bb192f687289d272e085e9c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "253496db_e082aa27",
+        "filename": "core/java/android/security/net/config/ApplicationConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-12-10T17:07:25Z",
+      "side": 1,
+      "message": "* Returns {@code true} ...\n* {@hostname} -\u003e {@code hostname}.",
+      "revId": "918721655330d189bb192f687289d272e085e9c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
