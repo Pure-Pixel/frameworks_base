@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "253496db_e696420a",
+        "filename": "core/java/android/security/net/config/ApplicationConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-12-10T19:44:53Z",
+      "side": 1,
+      "message": "cleartext -\u003e if cleartext",
+      "revId": "8f6abb1777df48c90ea9d3f823a92d62613f60bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65984e34_ede731d4",
+        "filename": "core/java/android/security/net/config/ApplicationConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-12-10T19:44:53Z",
+      "side": 1,
+      "message": "@link is...-\u003e @link #is...",
+      "revId": "8f6abb1777df48c90ea9d3f823a92d62613f60bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65984e34_0de5bdcb",
+        "filename": "core/java/android/security/net/config/ApplicationConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2015-12-10T19:44:53Z",
+      "side": 1,
+      "message": "cleartext -\u003e if cleartext",
+      "revId": "8f6abb1777df48c90ea9d3f823a92d62613f60bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
