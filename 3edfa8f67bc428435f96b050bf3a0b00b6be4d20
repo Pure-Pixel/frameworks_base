@@ -52,6 +52,24 @@
       "revId": "3edfa8f67bc428435f96b050bf3a0b00b6be4d20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1da7f0d2_00b2c830",
+        "filename": "core/java/android/app/NativeActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2016-02-10T02:16:25Z",
+      "side": 1,
+      "message": "i mean \"what does -mk mean, and why is it a reasonable thing to link to from the canonical documentation?\"",
+      "parentUuid": "5da5e8c5_bf6337a8",
+      "revId": "3edfa8f67bc428435f96b050bf3a0b00b6be4d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
