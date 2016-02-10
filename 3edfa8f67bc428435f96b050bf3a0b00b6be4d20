@@ -34,6 +34,24 @@
       "revId": "3edfa8f67bc428435f96b050bf3a0b00b6be4d20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5da5e8c5_bf6337a8",
+        "filename": "core/java/android/app/NativeActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1070099
+      },
+      "writtenOn": "2016-02-10T01:39:35Z",
+      "side": 1,
+      "message": "https://github.com/googlesamples/android-ndk/tree/android-mk",
+      "parentUuid": "7da46cba_648dd2b0",
+      "revId": "3edfa8f67bc428435f96b050bf3a0b00b6be4d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
