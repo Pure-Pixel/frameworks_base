@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd92b865_dafad9d2",
+        "filename": "core/java/android/app/NativeActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1070099
+      },
+      "writtenOn": "2016-02-10T01:26:41Z",
+      "side": 1,
+      "message": "actually this should point to the android-mk branch because master is using the experimental gradle plugin (and that\u0027s not documented by the official android docs).",
+      "revId": "3edfa8f67bc428435f96b050bf3a0b00b6be4d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
