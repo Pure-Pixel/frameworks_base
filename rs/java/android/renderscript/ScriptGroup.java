@@ -187,6 +187,15 @@ public final class ScriptGroup extends BaseObj {
             guard.open("destroy");
         }
 
+        /**
+         * Destroys this Closure and the Allocation for its return value
+         */
+        public void destroy() {
+            super.destroy();
+            Allocation returnValue = (Allocation)getReturn().getValue();
+            returnValue.destroy();
+        }
+
         private void retrieveValueAndDependenceInfo(RenderScript rs,
                                                     int index, Script.FieldID fid, Object obj,
                                                     long[] values, int[] sizes,
@@ -1015,6 +1024,8 @@ public final class ScriptGroup extends BaseObj {
                 throw new RSIllegalArgumentException("invalid script group name");
             }
             ScriptGroup ret = new ScriptGroup(mRS, name, mClosures, mInputs, outputs);
+            mClosures = new ArrayList<Closure>();
+            mInputs = new ArrayList<Input>();
             return ret;
         }
 
@@ -1042,4 +1053,15 @@ public final class ScriptGroup extends BaseObj {
 
     }
 
+    /**
+     * Destroy this ScriptGroup and all Closures in it
+     */
+    public void destroy() {
+        super.destroy();
+        for(Closure c : mClosures) {
+            c.destroy();
+        }
+        mClosures.clear();
+        mInputs2.clear();
+    }
 }
