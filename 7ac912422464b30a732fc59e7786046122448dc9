@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2e2c802d_b5926045",
+        "filename": "core/java/android/bluetooth/BluetoothGattCharacteristic.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2016-04-06T11:51:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeb870d5_0d8df360",
+      "range": {
+        "startLine": 320,
+        "startChar": 20,
+        "endLine": 320,
+        "endChar": 26
+      },
+      "revId": "7ac912422464b30a732fc59e7786046122448dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aeb870d5_add8876e",
         "filename": "core/java/android/bluetooth/BluetoothGattServer.java",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ce1da4f8_3af5e16d",
+        "filename": "core/java/android/bluetooth/BluetoothGattServer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2016-04-06T11:51:07Z",
+      "side": 1,
+      "message": "Yes, these are handles, I renamed functions to *ByHandle\n\nNumeric test can\u0027t determine if handle is in service yet. To do that we need start and end handle of service, or start handle and number of attributes. We have only start handle.\n\nNumber of attributes was previously computed somewhere in java and provided to AddService, but now AddService determines number of handles needed on it\u0027s own.",
+      "parentUuid": "aeb870d5_add8876e",
+      "range": {
+        "startLine": 315,
+        "startChar": 66,
+        "endLine": 315,
+        "endChar": 80
+      },
+      "revId": "7ac912422464b30a732fc59e7786046122448dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aeb870d5_0ddfb354",
         "filename": "core/java/android/bluetooth/BluetoothGattServer.java",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-04-05T16:42:35Z",
       "side": 1,
       "message": "The same comment for above applies here - if it\u0027s a handle, the service can determine if it\u0027s inside it based on the Attribute Handle and it\u0027s base + number of attributes",
+      "range": {
+        "startLine": 329,
+        "startChar": 40,
+        "endLine": 329,
+        "endChar": 74
+      },
+      "revId": "7ac912422464b30a732fc59e7786046122448dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e525cad_bc3321ee",
+        "filename": "core/java/android/bluetooth/BluetoothGattServer.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2016-04-06T11:51:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeb870d5_0ddfb354",
       "range": {
         "startLine": 329,
         "startChar": 40,
