@@ -649,7 +649,8 @@ class AppWidgetServiceImpl extends IAppWidgetService.Stub implements WidgetBacku
     }
 
     private void ensureGroupStateLoadedLocked(int userId, boolean enforceUserUnlockingOrUnlocked) {
-        if (enforceUserUnlockingOrUnlocked && !isUserRunningAndUnlocked(userId)) {
+        if (enforceUserUnlockingOrUnlocked && (!isUserRunningAndUnlocked(userId) ||
+                !mUserManager.isUserUnlockingOrUnlocked(userId))) {
             throw new IllegalStateException(
                     "User " + userId + " must be unlocked for widgets to be available");
         }
