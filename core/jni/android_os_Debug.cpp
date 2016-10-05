@@ -441,7 +441,7 @@ static void load_maps(int pid, stats_t* stats, bool* foundSwapPss)
 static void android_os_Debug_getDirtyPagesPid(JNIEnv *env, jobject clazz,
         jint pid, jobject object)
 {
-    bool foundSwapPss;
+    bool foundSwapPss = false;
     stats_t stats[_NUM_HEAP];
     memset(&stats, 0, sizeof(stats));
 
