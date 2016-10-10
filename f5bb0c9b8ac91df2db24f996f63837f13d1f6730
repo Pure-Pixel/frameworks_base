@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff9f98ca_59ebf605",
+        "filename": "telephony/java/android/telephony/SignalStrength.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2016-10-10T23:11:26Z",
+      "side": 1,
+      "message": "This will still be a problem if threshRsrp is short.  For example if it\u0027s only 2 elements long we\u0027ll fall into the else and check the 4th element and throw an exception.\n\nYou should check if the length is not what we expect (6) and if not, log.wtf the problem and set rsrpIconLevel to NONE_OR_UNKNOWN,\nelse you can do these other checks.",
+      "range": {
+        "startLine": 792,
+        "startChar": 0,
+        "endLine": 792,
+        "endChar": 82
+      },
+      "revId": "f5bb0c9b8ac91df2db24f996f63837f13d1f6730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
