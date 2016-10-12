@@ -22,6 +22,30 @@
       "revId": "f5bb0c9b8ac91df2db24f996f63837f13d1f6730",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cff8a6b_32997072",
+        "filename": "telephony/java/android/telephony/SignalStrength.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1097598
+      },
+      "writtenOn": "2016-10-12T05:09:47Z",
+      "side": 1,
+      "message": "Done.\nI have modified patch to call log.wtf when invalid array is given from config file. When this happens, rsrpIconLevel does not change from default value(-1). This means RSRP signal evaluation will be ignored and other signal level such as snrIconLevel or rssiIconLevel will be used instead.",
+      "parentUuid": "ff9f98ca_59ebf605",
+      "range": {
+        "startLine": 792,
+        "startChar": 0,
+        "endLine": 792,
+        "endChar": 82
+      },
+      "revId": "f5bb0c9b8ac91df2db24f996f63837f13d1f6730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
