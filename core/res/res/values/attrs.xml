@@ -1832,6 +1832,7 @@ i
         <enum name="KEYCODE_CUT" value="277" />
         <enum name="KEYCODE_COPY" value="278" />
         <enum name="KEYCODE_PASTE" value="279" />
+        <enum name="KEYCODE_PTT" value="280" />
     </attr>
 
     <!-- ***************************************************************** -->
