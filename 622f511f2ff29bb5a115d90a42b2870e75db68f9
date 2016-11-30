@@ -52,6 +52,24 @@
       "revId": "622f511f2ff29bb5a115d90a42b2870e75db68f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_cda36180",
+        "filename": "cmds/app_process/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-30T21:00:25Z",
+      "side": 1,
+      "message": "I\u0027ll investigate in a follow-up.",
+      "parentUuid": "30288869_a59abf59",
+      "revId": "622f511f2ff29bb5a115d90a42b2870e75db68f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
