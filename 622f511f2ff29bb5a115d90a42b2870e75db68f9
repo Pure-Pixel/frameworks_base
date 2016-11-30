@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30288869_e56837d5",
+        "filename": "cmds/app_process/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2016-11-30T18:40:06Z",
+      "side": 1,
+      "message": "I think that eugenis is trying to remove this, since we really just mean to imply \"Not Address\".",
+      "revId": "622f511f2ff29bb5a115d90a42b2870e75db68f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
