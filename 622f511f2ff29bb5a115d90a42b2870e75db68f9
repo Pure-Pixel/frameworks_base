@@ -16,6 +16,24 @@
       "revId": "622f511f2ff29bb5a115d90a42b2870e75db68f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_c5c09b39",
+        "filename": "cmds/app_process/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-30T19:00:47Z",
+      "side": 1,
+      "message": "Yes, optimally this would be something like\n\n LOCAL_SANITIZE :\u003d -address -thread\n\nHowever, I thought that feature request was deemed to complicated to support.",
+      "parentUuid": "30288869_e56837d5",
+      "revId": "622f511f2ff29bb5a115d90a42b2870e75db68f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
