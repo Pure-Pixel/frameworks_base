@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30288869_5bd49600",
+        "filename": "cmds/app_process/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-11-30T03:32:34Z",
+      "side": 1,
+      "message": "TODO: See whether symlink is necessary (but I don\u0027t think so). dwillemsen thinks the executable_prefer_symlink won\u0027t work.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 27
+      },
+      "revId": "5fc94b933992e5b3fa3fbf9ad3de5dd40d66b48c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
