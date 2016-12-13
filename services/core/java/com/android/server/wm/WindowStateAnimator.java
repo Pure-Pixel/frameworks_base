@@ -940,6 +940,24 @@ class WindowStateAnimator {
         }
     }
 
+    boolean isChildWindowAnimating() {
+        boolean isFullScreen = true;
+
+        if (mWin.mFrame.left > 0 || mWin.mFrame.top > 0) {
+            isFullScreen = false;
+        }
+        WindowState win = mWin;
+        while (win.isChildWindow()) {
+            win = win.mAttachedWindow;
+        }
+        WindowStateAnimator winAnimator = win.mWinAnimator;
+        if (WindowManagerService.localLOGV) {
+            Slog.i(TAG, "[" + mWin.mLastTitle + "] isFullScreen = " + isFullScreen + " mAnimating = "
+                    + winAnimator.mAnimating + " win.mLayoutAttached = " + mWin.mLayoutAttached);
+        }
+        return (!isFullScreen && (winAnimator.mAnimating) && mWin.mLayoutAttached);
+    }
+
     void computeShownFrameLocked() {
         final boolean selfTransformation = mHasLocalTransformation;
         Transformation attachedTransformation =
@@ -988,7 +1006,7 @@ class WindowStateAnimator {
             final Matrix tmpMatrix = mWin.mTmpMatrix;
 
             // Compute the desired transformation.
-            if (screenAnimation && screenRotationAnimation.isRotating()) {
+            if (screenAnimation && screenRotationAnimation.isRotating() || isChildWindowAnimating()) {
                 // If we are doing a screen animation, the global rotation
                 // applied to windows can result in windows that are carefully
                 // aligned with each other to slightly separate, allowing you
@@ -999,7 +1017,7 @@ class WindowStateAnimator {
                 final float w = frame.width();
                 final float h = frame.height();
                 if (w>=1 && h>=1) {
-                    tmpMatrix.setScale(1 + 2/w, 1 + 2/h, w/2, h/2);
+                    tmpMatrix.setScale(1 + 4/w, 1 + 4/h, w/2, h/2);
                 } else {
                     tmpMatrix.reset();
                 }
@@ -1010,6 +1028,8 @@ class WindowStateAnimator {
             if (selfTransformation) {
                 tmpMatrix.postConcat(mTransformation.getMatrix());
             }
+            //
+            tmpMatrix.postTranslate(frame.left + mWin.mXOffset, frame.top + mWin.mYOffset);
             if (attachedTransformation != null) {
                 tmpMatrix.postConcat(attachedTransformation.getMatrix());
             }
@@ -1017,11 +1037,6 @@ class WindowStateAnimator {
                 tmpMatrix.postConcat(appTransformation.getMatrix());
             }
 
-            // The translation that applies the position of the window needs to be applied at the
-            // end in case that other translations include scaling. Otherwise the scaling will
-            // affect this translation. But it needs to be set before the screen rotation animation
-            // so the pivot point is at the center of the screen for all windows.
-            tmpMatrix.postTranslate(frame.left + mWin.mXOffset, frame.top + mWin.mYOffset);
             if (screenAnimation) {
                 tmpMatrix.postConcat(screenRotationAnimation.getEnterTransformation().getMatrix());
             }
