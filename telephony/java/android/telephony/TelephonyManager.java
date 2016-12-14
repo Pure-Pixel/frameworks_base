@@ -5654,11 +5654,14 @@ public class TelephonyManager {
     /**
      * Set the allowed carrier list for slotId
      * Require system privileges. In the future we may add this to carrier APIs.
+     * Requires Permission:
+     *   {@link android.Manifest.permission#READ_PRIVILEGED_PHONE_STATE READ_PRIVILEGED_PHONE_STATE}
      *
      * @return The number of carriers set successfully. Should be length of
-     * carrierList on success; -1 on error.
+     * carrierList on success; -1 on error or if the feature is not available on the device.
      * @hide
      */
+    @SystemApi
     public int setAllowedCarriers(int slotId, List<CarrierIdentifier> carriers) {
         try {
             ITelephony service = getITelephony();
@@ -5674,11 +5677,14 @@ public class TelephonyManager {
     /**
      * Get the allowed carrier list for slotId.
      * Require system privileges. In the future we may add this to carrier APIs.
+     * Requires Permission:
+     *   {@link android.Manifest.permission#READ_PRIVILEGED_PHONE_STATE READ_PRIVILEGED_PHONE_STATE}
      *
      * @return List of {@link android.telephony.CarrierIdentifier}; empty list
      * means all carriers are allowed.
      * @hide
      */
+    @SystemApi
     public List<CarrierIdentifier> getAllowedCarriers(int slotId) {
         try {
             ITelephony service = getITelephony();
