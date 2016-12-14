@@ -358,9 +358,9 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable,
      * closed.
      *
      * @param newCursor The new cursor to be used.
-     * @return Returns the previously set Cursor, or null if there wasa not one.
-     * If the given new Cursor is the same instance is the previously set
-     * Cursor, null is also returned.
+     * @return Returns the previously set Cursor, or null if there was not one.
+     * If the given new Cursor is the same instance as the previously set Cursor,
+     * null is also returned.
      */
     public Cursor swapCursor(Cursor newCursor) {
         if (newCursor == mCursor) {
