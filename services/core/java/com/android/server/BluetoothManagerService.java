@@ -49,6 +49,7 @@ import android.os.Message;
 import android.os.Process;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -57,6 +58,8 @@ import android.os.UserManagerInternal.UserRestrictionsListener;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.util.Slog;
+
+import com.android.server.pm.PackageManagerService;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -184,6 +187,8 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
     private int mErrorRecoveryRetryCounter;
     private final int mSystemUiUid;
 
+    private final PackageManagerService mPackageManagerService;
+
     // Save a ProfileServiceConnections object for each of the bound
     // bluetooth profile services
     private final Map <Integer, ProfileServiceConnections> mProfileServices =
@@ -217,6 +222,11 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
         @Override
         public void onUserRestrictionsChanged(int userId, Bundle newRestrictions,
                 Bundle prevRestrictions) {
+            if (!newRestrictions.containsKey(UserManager.DISALLOW_BLUETOOTH)
+                    && !prevRestrictions.containsKey(UserManager.DISALLOW_BLUETOOTH)) {
+                // The relevant restriction has not changed - do nothing.
+                return;
+            }
             final boolean bluetoothDisallowed =
                     newRestrictions.getBoolean(UserManager.DISALLOW_BLUETOOTH);
             if ((mEnable || mEnableExternal) && bluetoothDisallowed) {
@@ -227,6 +237,7 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                   // when from system.
                 }
             }
+            updateOppLauncherComponentState(bluetoothDisallowed);
         }
     };
 
@@ -340,6 +351,7 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
             Slog.w(TAG, "Unable to resolve SystemUI's UID.", e);
         }
         mSystemUiUid = systemUiUid;
+        mPackageManagerService = (PackageManagerService) ServiceManager.getService("package");
     }
 
     /**
@@ -938,7 +950,11 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
         UserManagerInternal userManagerInternal =
                 LocalServices.getService(UserManagerInternal.class);
         userManagerInternal.addUserRestrictionsListener(mUserRestrictionsListener);
-        if (isBluetoothDisallowed()) {
+        final boolean isBluetoothDisallowed = isBluetoothDisallowed();
+        if (!mPackageManagerService.isOnlyCoreApps()) {
+            updateOppLauncherComponentState(isBluetoothDisallowed);
+        }
+        if (isBluetoothDisallowed) {
             return;
         }
         if (mEnableExternal && isBluetoothPersistedStateOnBluetooth()) {
@@ -1993,6 +2009,24 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
         } finally {
             Binder.restoreCallingIdentity(callingIdentity);
         }
+    }
+
+    /**
+     * Disables BluetoothOppLauncherActivity component, so the Bluetooth sharing option is not
+     * offered to the user if Bluetooth is disallowed. Puts the component to its default state if
+     * Bluetooth is not disallowed.
+     *
+     * @param bluetoothDisallowed whether the {@link UserManager.DISALLOW_BLUETOOTH} user
+     * restriction was set.
+     */
+    private void updateOppLauncherComponentState(boolean bluetoothDisallowed) {
+        final ComponentName oppLauncherComponent = new ComponentName("com.android.bluetooth",
+                "com.android.bluetooth.opp.BluetoothOppLauncherActivity");
+        final int newState = bluetoothDisallowed
+                ? PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+                : PackageManager.COMPONENT_ENABLED_STATE_DEFAULT;
+        mContext.getPackageManager()
+                .setComponentEnabledSetting(oppLauncherComponent, newState, 0);
     }
 
     @Override
