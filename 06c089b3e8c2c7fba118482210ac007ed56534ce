@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8b252c3_eb7dcd83",
+        "filename": "services/core/java/com/android/server/connectivity/tethering/TetheringConfiguration.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2017-01-23T09:10:53Z",
+      "side": 1,
+      "message": "Might want to add that cell data (either mobile/hipri or DUN, depending on whether |requiresDun| is true) is *always* an upstream regardless of the upstream interface types specified by configuration.",
+      "range": {
+        "startLine": 124,
+        "startChar": 60,
+        "endLine": 124,
+        "endChar": 61
+      },
+      "revId": "06c089b3e8c2c7fba118482210ac007ed56534ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
