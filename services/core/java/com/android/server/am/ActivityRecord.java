@@ -746,7 +746,8 @@ final class ActivityRecord {
     private boolean isHomeIntent(Intent intent) {
         return Intent.ACTION_MAIN.equals(intent.getAction())
                 && intent.hasCategory(Intent.CATEGORY_HOME)
-                && intent.getCategories().size() == 1
+                && (intent.getCategories().size() == 1
+                        || (intent.getCategories().size == 2 && intent.getCategories().contains(Intent.CATEGORY_DEFAULT)))
                 && intent.getData() == null
                 && intent.getType() == null;
     }
