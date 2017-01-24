@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c5afa39_c95f178a",
+        "filename": "libs/hwui/GlopBuilder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1010334
+      },
+      "writtenOn": "2017-01-24T20:23:15Z",
+      "side": 1,
+      "message": "this looks redundant with mDescription.modulate - can you just use that?",
+      "revId": "5b9cd6778a0cfa4ca50f10550d8f04e7b3a2cb7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b006654_e4278a29",
+        "filename": "libs/hwui/Program.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1010334
+      },
+      "writtenOn": "2017-01-24T20:23:15Z",
+      "side": 1,
+      "message": "In the code without this change, which cases do you see non-matching keys that should match?\n\nPlease write a unit test in GlopBuilderTests that shows these two cases that should collide, that validates that they generate the same key.\n\nI do like fixing it so we produce the correct keys in these cases, but I\u0027d prefer to hide bits/flags that don\u0027t matter, rather than adding a early return at the top of this function, since adding an early return isn\u0027t scalable in the long term.\n\nOne easy (and more testable) approach to hiding bits would be to look for bits in the description that we know don\u0027t matter in GlopBuilder::build(), and disable them.",
+      "revId": "5b9cd6778a0cfa4ca50f10550d8f04e7b3a2cb7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fb4f32a_a18f4543",
+        "filename": "libs/hwui/ProgramCache.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1010334
+      },
+      "writtenOn": "2017-01-24T20:23:15Z",
+      "side": 1,
+      "message": "use description.modulate?",
+      "revId": "5b9cd6778a0cfa4ca50f10550d8f04e7b3a2cb7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
