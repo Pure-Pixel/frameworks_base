@@ -22,6 +22,29 @@
       "revId": "7762da1d6a5534a83dcec2f69731b6b2cfdd273d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ccb095b_1dc629e1",
+        "filename": "services/core/java/com/android/server/BluetoothManagerService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1060895
+      },
+      "writtenOn": "2017-01-25T18:09:38Z",
+      "side": 1,
+      "message": "It is one of the bootstrap services which are started by the system server before the others. On the other hand, checking against null can only make this more robust, so I am adding the check. Thanks!",
+      "range": {
+        "startLine": 954,
+        "startChar": 13,
+        "endLine": 954,
+        "endChar": 35
+      },
+      "revId": "7762da1d6a5534a83dcec2f69731b6b2cfdd273d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
