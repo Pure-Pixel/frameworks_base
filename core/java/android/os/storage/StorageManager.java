@@ -138,10 +138,6 @@ public class StorageManager {
     // TODO: the location of the primary storage block varies from device to device, so we need to
     // try the most likely candidates - a long-term solution would be a device-specific vold
     // function that returns the calculated size.
-    private static final String[] INTERNAL_STORAGE_SIZE_PATHS = {
-            "/sys/block/mmcblk0/size",
-            "/sys/block/sda/size"
-    };
     private static final int INTERNAL_STORAGE_SECTOR_SIZE = 512;
 
     private final Context mContext;
@@ -933,7 +929,9 @@ public class StorageManager {
 
     /** {@hide} */
     public static Pair<String, Long> getPrimaryStoragePathAndSize() {
-        for (String path : INTERNAL_STORAGE_SIZE_PATHS) {
+        String[] storagePath = mContext.
+                         getStringArray(com.android.internal.R.array.config_internalStoragePath);
+        for (String path : storagePath) {
             final long numberBlocks = readLong(path);
             if (numberBlocks > 0) {
                 return new Pair<>(path, Long.valueOf(numberBlocks * INTERNAL_STORAGE_SECTOR_SIZE));
