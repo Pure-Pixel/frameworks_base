@@ -2691,4 +2691,10 @@
 
     <!-- Package name of the default cell broadcast receiver -->
     <string name="config_defaultCellBroadcastReceiverPkg" translatable="false">com.android.cellbroadcastreceiver</string>
+
+    <!-- Internal storage file path -->
+    <string-array translatable="false" name="config_internalStoragePath">
+        <item>/sys/block/mmcblk0/size</item>
+        <item>/sys/block/sda/size</item>
+    </string-array>
 </resources>
