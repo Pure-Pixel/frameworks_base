@@ -2764,4 +2764,7 @@
   <java-symbol type="string" name="etws_primary_default_message_test" />
 
   <java-symbol type="string" name="etws_primary_default_message_others" />
+
+  <!-- Internal storage file path -->
+  <java-symbol type="array" name="config_internalStoragePath" />
 </resources>
