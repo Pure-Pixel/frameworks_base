@@ -2640,9 +2640,13 @@ public final class Parcel {
                         throws IOException, ClassNotFoundException {
                     // try the custom classloader if provided
                     if (loader != null) {
-                        Class<?> c = Class.forName(osClass.getName(), false, loader);
-                        if (c != null) {
-                            return c;
+                        try {
+                            Class<?> c = Class.forName(osClass.getName(), false, loader);
+                            if (c != null) {
+                                return c;
+                            }
+                        }catch(ClassNotFoundException ignored) {
+                            // let the super method handle primitive types.
                         }
                     }
                     return super.resolveClass(osClass);
