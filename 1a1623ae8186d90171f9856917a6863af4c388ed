@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ba12fee_6e663b65",
+        "filename": "core/jni/android_os_HwBinder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2017-02-08T17:28:13Z",
+      "side": 1,
+      "message": "No need for the \"\u003d nullptr\" unless you think it adds clarity.",
+      "revId": "1a1623ae8186d90171f9856917a6863af4c388ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
