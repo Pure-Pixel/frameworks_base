@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "636ec97a_089a7d58",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2836,
+      "author": {
+        "id": 1087703
+      },
+      "writtenOn": "2017-02-13T22:27:04Z",
+      "side": 1,
+      "message": "nit: extra space",
+      "range": {
+        "startLine": 2836,
+        "startChar": 29,
+        "endLine": 2836,
+        "endChar": 31
+      },
+      "revId": "9a396584a0dc59453528a6f9ef3fe05ff755556d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ec463d1_d3a07099",
+        "filename": "services/core/java/com/android/server/notification/NotificationManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2836,
+      "author": {
+        "id": 1087703
+      },
+      "writtenOn": "2017-02-13T22:27:04Z",
+      "side": 1,
+      "message": "smsRingtone will always be false upon subsequent invocations of this method (since mCarrierConfig will be nonnull subsequently). Recommend the following:\n\nif (mCarrierConfig \u003d\u003d null) {\n    mCarrierConfig \u003d mConfigManager.getConfig();\n}\n\nif (mCarrierConfig !\u003d null) {\n    smsRingtone \u003d mCarrierConfig.getBoolean(....);\n}\n\nif ((disableEffects \u003d\u003d null..... ))",
+      "range": {
+        "startLine": 2836,
+        "startChar": 16,
+        "endLine": 2836,
+        "endChar": 27
+      },
+      "revId": "9a396584a0dc59453528a6f9ef3fe05ff755556d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

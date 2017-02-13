@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7682a8f_e515c445",
+        "filename": "telephony/java/android/telephony/CarrierConfigManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1322,
+      "author": {
+        "id": 1087703
+      },
+      "writtenOn": "2017-02-13T22:27:04Z",
+      "side": 0,
+      "message": "Is there some reason you\u0027re removing all these?",
+      "range": {
+        "startLine": 1306,
+        "startChar": 7,
+        "endLine": 1322,
+        "endChar": 72
+      },
+      "revId": "c313123afe03f9cbc48666e9e3328ff4846a1785",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
