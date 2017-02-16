@@ -131,6 +131,7 @@ import com.android.internal.util.WakeupMessage;
 import com.android.internal.util.XmlUtils;
 import com.android.server.am.BatteryStatsService;
 import com.android.server.connectivity.DataConnectionStats;
+import com.android.server.connectivity.IpConnectivityMetrics;
 import com.android.server.connectivity.KeepaliveTracker;
 import com.android.server.connectivity.MockableSystemProperties;
 import com.android.server.connectivity.Nat464Xlat;
@@ -4463,6 +4464,7 @@ public class ConnectivityService extends IConnectivityManager.Stub
         }
         addValidationLogs(nai.networkMonitor.getValidationLogs(), nai.network,
                 networkInfo.getExtraInfo());
+        IpConnectivityMetrics.registerNetwork(nai.network, nai.linkProperties);
         if (DBG) log("registerNetworkAgent " + nai);
         mHandler.sendMessage(mHandler.obtainMessage(EVENT_REGISTER_NETWORK_AGENT, nai));
         return nai.network.netId;

@@ -18,6 +18,8 @@ package com.android.server.connectivity;
 
 import android.content.Context;
 import android.net.ConnectivityMetricsEvent;
+import android.net.Network;
+import android.net.LinkProperties;
 import android.net.IIpConnectivityMetrics;
 import android.net.metrics.ApfProgramEvent;
 import android.net.metrics.IpConnectivityLog;
@@ -28,10 +30,13 @@ import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.ArrayMap;
 import android.util.Base64;
+import android.util.IntArray;
 import android.util.Log;
+import android.util.SparseArray;
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.util.TokenBucket;
+import com.android.server.LocalServices;
 import com.android.server.SystemService;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -40,6 +45,7 @@ import java.util.ArrayList;
 import java.util.function.ToIntFunction;
 
 import static com.android.server.connectivity.metrics.IpConnectivityLogClass.IpConnectivityEvent;
+import static com.android.server.connectivity.metrics.IpConnectivityLogClass.LinkLayer;
 
 /** {@hide} */
 final public class IpConnectivityMetrics extends SystemService {
@@ -73,14 +79,24 @@ final public class IpConnectivityMetrics extends SystemService {
     public final Impl impl = new Impl();
     private NetdEventListenerService mNetdListener;
 
+    // New events are added at the end of this buffer. Emptied when metrics are flushed.
     @GuardedBy("mLock")
     private ArrayList<ConnectivityMetricsEvent> mBuffer;
+    // Number of events dropped after the buffer became full. Reset to 0 when the buffer is flushed.
     @GuardedBy("mLock")
     private int mDropped;
+    // Total capacity of the buffer beyond which new events are dropped until metrics are flushed.
     @GuardedBy("mLock")
     private int mCapacity;
+    // TokenBuckets indexed by event types and used for rate limiting.
     @GuardedBy("mLock")
     private final ArrayMap<Class<?>, TokenBucket> mBuckets = makeRateLimitingBuckets();
+    // Interfaces indexed by network id whose name patterns was not recognized.
+    @GuardedBy("mLock")
+    private final SparseArray<String> ifnames = new SparseArray<>();
+    // Map of network id to LinkLayer ids.
+    @GuardedBy("mLock")
+    private final IntArray linkLayers = new IntArray();
 
     private final ToIntFunction<Context> mCapacityGetter;
 
@@ -166,6 +182,19 @@ final public class IpConnectivityMetrics extends SystemService {
         }
 
         return Base64.encodeToString(data, Base64.DEFAULT);
+    }
+
+    private void regNetwork(Network network, LinkProperties lp) {
+        synchronized (mLock) {
+            int netId = network.netId;
+            String ifname = lp.getInterfaceName();
+            int link = linkLayerFromInterface(lp.getInterfaceName());
+            linkLayers.add(netId, link);
+            if (link == LinkLayer.UNKNOWN) {
+                ifnames.put(netId, ifname);
+            }
+            Log.d(TAG, String.format("hello world: netid %d has LinkLayer value %d", netId, link));
+        }
     }
 
     /**
@@ -279,5 +308,35 @@ final public class IpConnectivityMetrics extends SystemService {
         // one token every minute, 50 tokens max: burst of ~50 events every hour.
         map.put(ApfProgramEvent.class, new TokenBucket((int)DateUtils.MINUTE_IN_MILLIS, 50));
         return map;
+    }
+
+    private static int linkLayerFromInterface(String ifname) {
+        final int size = LINKLAYERS.size();
+        for (int i = 0; i < size; i++) {
+            if (ifname.contains(LINKLAYERS.valueAt(i))) {
+                return LINKLAYERS.keyAt(i);
+            }
+        }
+        if (ifname.contains("p2p")) {
+            return LINKLAYERS.put(LinkLayer.WIFI;
+        }
+        return LinkLayer.UNKNOWN;
+    }
+
+    private static final SparseArray<String> LINKLAYERS = new SparseArray<>();
+    static {
+        LINKLAYERS.put(LinkLayer.WIFI, "wlan");
+        LINKLAYERS.put(LinkLayer.CELLULAR, "rmnet");
+        LINKLAYERS.put(LinkLayer.BLUETOOTH, "bt-pan");
+        LINKLAYERS.put(LinkLayer.ETHERNET, "eth");
+    }
+
+    public static void registerNetwork(Network network, LinkProperties lp) {
+        IpConnectivityMetrics service = LocalServices.getService(IpConnectivityMetrics.class);
+        if (service == null) {
+            Log.w(TAG, "IpConnectivityMetrics service was null");
+            return;
+        }
+        service.regNetwork(network, lp);
     }
 }
