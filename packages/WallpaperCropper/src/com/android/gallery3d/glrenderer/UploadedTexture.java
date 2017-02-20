@@ -144,7 +144,9 @@ public abstract class UploadedTexture extends BasicTexture {
     }
 
     private void freeBitmap() {
-        Assert.assertTrue(mBitmap != null);
+        if (mBitmap == null) {
+            throw new AssertionError();
+        }
         onFreeBitmap(mBitmap);
         mBitmap = null;
     }
@@ -219,7 +221,9 @@ public abstract class UploadedTexture extends BasicTexture {
                 int texWidth = getTextureWidth();
                 int texHeight = getTextureHeight();
 
-                Assert.assertTrue(bWidth <= texWidth && bHeight <= texHeight);
+                if (bWidth > texWidth || bHeight > texHeight) {
+                    throw new AssertionError();
+                }
 
                 // Upload the bitmap to a new texture.
                 mId = canvas.getGLId().generateTexture();
