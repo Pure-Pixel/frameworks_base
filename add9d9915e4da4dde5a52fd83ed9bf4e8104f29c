@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "872c87a7_a6204abd",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2017-02-28T10:06:22Z",
+      "side": 1,
+      "message": "Long line. Rename \"mockAgent\" to \"agent\"? :-)",
+      "range": {
+        "startLine": 1150,
+        "startChar": 100,
+        "endLine": 1150,
+        "endChar": 101
+      },
+      "revId": "add9d9915e4da4dde5a52fd83ed9bf4e8104f29c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e667dc25_71c6cca9",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2017-02-28T10:06:22Z",
+      "side": 1,
+      "message": "Can you add a note or explanation here about why VALIDATED happens before LOSING? It seems inconsistent that when we send LOSING because of a network becoming available, AVAILABLE is before LOSING, but when we send LOSING because of a network validating, VALIDATED is after LOSING.",
+      "range": {
+        "startLine": 1340,
+        "startChar": 71,
+        "endLine": 1340,
+        "endChar": 72
+      },
+      "revId": "add9d9915e4da4dde5a52fd83ed9bf4e8104f29c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "735fc01e_922c79e7",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1343,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2017-02-28T10:06:22Z",
+      "side": 1,
+      "message": "For readability, can you put this before the LOSING callback? That\u0027s when it\u0027s actually called. Also elsewhere in this function.",
+      "range": {
+        "startLine": 1343,
+        "startChar": 8,
+        "endLine": 1343,
+        "endChar": 85
+      },
+      "revId": "add9d9915e4da4dde5a52fd83ed9bf4e8104f29c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7781665c_1067e50d",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1389,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2017-02-28T10:06:22Z",
+      "side": 1,
+      "message": "Maybe put this before the LOST above?",
+      "range": {
+        "startLine": 1389,
+        "startChar": 8,
+        "endLine": 1389,
+        "endChar": 97
+      },
+      "revId": "add9d9915e4da4dde5a52fd83ed9bf4e8104f29c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3d0f6b5_1426b068",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1470,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2017-02-28T10:06:22Z",
+      "side": 1,
+      "message": "As per chat, it might improve readability to have an expectAvailableAndValidation method that checks for the available callbacks and then validation.",
+      "range": {
+        "startLine": 1469,
+        "startChar": 0,
+        "endLine": 1470,
+        "endChar": 85
+      },
+      "revId": "add9d9915e4da4dde5a52fd83ed9bf4e8104f29c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
