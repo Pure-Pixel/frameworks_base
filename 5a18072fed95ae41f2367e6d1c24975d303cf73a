@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0671efe_52a41189",
+        "filename": "core/res/res/values-mcc204-mnc04/config.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1043929
+      },
+      "writtenOn": "2017-03-03T20:00:36Z",
+      "side": 1,
+      "message": "FYI this will confuse Vodafone NL as resource doesn\u0027t support MVNO and this setting only applies to Verizon when they switch to 20404 and gid1 bae00000...\n\nuse CarrierConfig is preferred",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 71
+      },
+      "revId": "5a18072fed95ae41f2367e6d1c24975d303cf73a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
