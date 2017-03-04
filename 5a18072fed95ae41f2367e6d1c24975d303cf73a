@@ -22,6 +22,30 @@
       "revId": "5a18072fed95ae41f2367e6d1c24975d303cf73a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4701ca08_98a0939e",
+        "filename": "core/res/res/values-mcc204-mnc04/config.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1097598
+      },
+      "writtenOn": "2017-03-04T04:24:40Z",
+      "side": 1,
+      "message": "FYI. This gerrit does not introduce value changes for 20404 . This gerrit just introduces customization of threshold values, keeping default values which used to exist in Android unchanged. Please see config_LTE_RSRP_threshold_type.",
+      "parentUuid": "d0671efe_52a41189",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 71
+      },
+      "revId": "5a18072fed95ae41f2367e6d1c24975d303cf73a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
