@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ae0c6a4_c588eb22",
+        "filename": "core/jni/android_hardware_SensorManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1074523
+      },
+      "writtenOn": "2017-04-17T23:45:08Z",
+      "side": 1,
+      "message": "This is one of the fix for crash. However, this will never free up any unreferenced strings in the intern pool and theoretically allow pool go grow unbounded.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 1
+      },
+      "revId": "63528f5c548d5691a984d833a2e81da14e7980f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
