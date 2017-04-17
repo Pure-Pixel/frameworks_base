@@ -22,6 +22,30 @@
       "revId": "63528f5c548d5691a984d833a2e81da14e7980f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c78d7539_4d845562",
+        "filename": "core/jni/android_hardware_SensorManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1074523
+      },
+      "writtenOn": "2017-04-17T23:49:02Z",
+      "side": 1,
+      "message": "This one will fix the crash issue. However, this will never free up any unreferenced strings in the intern pool (the map) and theoretically allow pool to grow unbounded.",
+      "parentUuid": "0ae0c6a4_c588eb22",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 1
+      },
+      "revId": "63528f5c548d5691a984d833a2e81da14e7980f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
