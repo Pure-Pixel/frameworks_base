@@ -46,6 +46,30 @@
       "revId": "63528f5c548d5691a984d833a2e81da14e7980f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eddf230_539c62b3",
+        "filename": "core/jni/android_hardware_SensorManager.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1006114
+      },
+      "writtenOn": "2017-04-24T20:23:12Z",
+      "side": 1,
+      "message": "Thanks Peng, I agree this can theoretically grow unbounded.  Since you mentioned Android O will use an alternative way to intern strings I will abandon these two changes.",
+      "parentUuid": "c78d7539_4d845562",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 1
+      },
+      "revId": "63528f5c548d5691a984d833a2e81da14e7980f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
