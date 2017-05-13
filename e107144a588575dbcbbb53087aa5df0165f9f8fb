@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23514413_80aa0ffe",
+        "filename": "telephony/java/android/telephony/mbms/StreamingServiceCallback.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1087703
+      },
+      "writtenOn": "2017-05-13T00:26:02Z",
+      "side": 1,
+      "message": "nit: constants should be placed at the top of the class",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 61
+      },
+      "revId": "e107144a588575dbcbbb53087aa5df0165f9f8fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
