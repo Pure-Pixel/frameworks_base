@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cccaef12_3041e1c6",
+        "filename": "wifi/java/android/net/wifi/WifiManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1043929
+      },
+      "writtenOn": "2017-05-25T22:26:24Z",
+      "side": 1,
+      "message": "which component is listening this?",
+      "range": {
+        "startLine": 645,
+        "startChar": 32,
+        "endLine": 645,
+        "endChar": 66
+      },
+      "revId": "90eb093783faffe4a768851d83c6e1638b5524ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
