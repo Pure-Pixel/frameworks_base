@@ -18219,10 +18219,6 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      */
     @RemotableViewMethod
     public void setBackgroundResource(@DrawableRes int resid) {
-        if (resid != 0 && resid == mBackgroundResource) {
-            return;
-        }
-
         Drawable d = null;
         if (resid != 0) {
             d = mContext.getDrawable(resid);
