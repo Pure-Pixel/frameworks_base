@@ -27,22 +27,22 @@ import android.telephony.mbms.StreamingServiceInfo;
  */
 interface IMbmsStreamingService
 {
-    int initialize(IMbmsStreamingManagerCallback listener, String appName, int subId);
+    int initialize(IMbmsStreamingManagerCallback listener, int subId);
 
-    int getStreamingServices(String appName, int subId, in List<String> serviceClasses);
+    int getStreamingServices(int subId, in List<String> serviceClasses);
 
-    int startStreaming(String appName, int subId, String serviceId,
+    int startStreaming(int subId, String serviceId,
             IStreamingServiceCallback listener);
 
     /**
      * Per-stream api.  Note each specifies what stream they apply to.
      */
 
-    Uri getPlaybackUri(String appName, int subId, String serviceId);
+    Uri getPlaybackUri(int subId, String serviceId);
 
-    void stopStreaming(String appName, int subId, String serviceId);
+    void stopStreaming(int subId, String serviceId);
 
-    void disposeStream(String appName, int subId, String serviceId);
+    void disposeStream(int subId, String serviceId);
 
     /**
      * End of life for all MbmsStreamingManager's created by this uid/appName/subId.
@@ -50,5 +50,5 @@ interface IMbmsStreamingService
      * an callbacks registered for this uid/appName/subId and the disposed methods on any
      * listeners registered with startStreaming.
      */
-    void dispose(String appName, int subId);
+    void dispose(int subId);
 }
