@@ -17,16 +17,46 @@
 package android.net.metrics;
 
 import android.net.NetworkCapabilities;
+import android.system.OsConstants;
+import android.util.ArrayMap;
 
+import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.util.BitUtils;
 
 import java.util.Arrays;
 
 /**
- * A DNS event recorded by NetdEventListenerService.
+ * A batch of DNS event recorded by NetdEventListenerService for a specific
+ * network.
+ *
  * {@hide}
  */
 final public class DnsEvent {
+
+    // As defined in INetdEventListener.aidl
+    @VisibleForTesting
+    static final int EVENT_GETADDRINFO = 1;
+    @VisibleForTesting
+    static final int EVENT_GETHOSTBYNAME = 2;
+
+    // Error names for gethostbyname, indexed by their error code constants.
+    private static final String[] GETADDRINFO_ERRORS = {
+        "UNKNOWN",
+        "EAI_ADDRFAMILY",
+        "EAI_AGAIN",
+        "EAI_BADFLAGS",
+        "EAI_FAIL",
+        "EAI_FAMILY",
+        "EAI_MEMORY",
+        "EAI_NODATA",
+        "EAI_NONAME",
+        "EAI_SERVICE",
+        "EAI_SOCKTYPE",
+        "EAI_SYSTEM",
+        "EAI_BADHINTS",
+        "EAI_PROTOCOL",
+        "EAI_OVERFLOW",
+    };
 
     private static final int SIZE_LIMIT = 20000;
 
@@ -58,7 +88,8 @@ final public class DnsEvent {
         latenciesMs = new int[initialCapacity];
     }
 
-    boolean addResult(byte eventType, byte returnCode, int latencyMs) {
+    /** Add the result of a single dns query to this DnsEvent. */
+    public boolean addResult(byte eventType, byte returnCode, int latencyMs) {
         boolean isSuccess = (returnCode == 0);
         if (eventCount >= SIZE_LIMIT) {
             // TODO: implement better rate limiting that does not biases metrics.
@@ -90,8 +121,32 @@ final public class DnsEvent {
             builder.append(NetworkCapabilities.transportNameOf(t)).append(", ");
         }
         builder.append(String.format("%d events, ", eventCount));
-        builder.append(String.format("%d success)", successCount));
-        // TODO: expand errors
-        return builder.toString();
+        builder.append(String.format("%d success, ", successCount));
+        ArrayMap<String, Integer> errors = new ArrayMap<>();
+        for (int i = 0; i < returnCodes.length; i++) {
+            String err = getErrorName(eventTypes[i], returnCodes[i]);
+            if (err == null) {
+                continue;
+            }
+            Integer count = errors.get(err);
+            if (count == null) {
+                count = 0;
+            }
+            errors.put(err, count + 1);
+        }
+        for (int i = 0; i < errors.size(); i++) {
+            builder.append(String.format(", %s: %d", errors.keyAt(i), errors.valueAt(i)));
+        }
+        return builder.append(")").toString();
+    }
+
+    private static String getErrorName(int ev, int result) {
+        if (ev == EVENT_GETHOSTBYNAME && result != 0) {
+            return OsConstants.errnoName(result);
+        }
+        if (ev == EVENT_GETADDRINFO && 0 <= result && result < GETADDRINFO_ERRORS.length) {
+            return GETADDRINFO_ERRORS[result];
+        }
+        return null;
     }
 }
