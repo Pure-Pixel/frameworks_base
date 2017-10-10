@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1dd6669a_cd18cd84",
+        "filename": "core/java/android/net/metrics/DnsEvent.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-10-10T08:04:22Z",
+      "side": 1,
+      "message": "Why does getaddrinfo look up into gethostbyname errors but gethostbyname looks to osconstants?\n\nGETADDRINFO_ERRORS perhaps?",
+      "range": {
+        "startLine": 148,
+        "startChar": 19,
+        "endLine": 148,
+        "endChar": 32
+      },
+      "revId": "4cd3b2ba88e30c16635596b16d262d67fa70ea63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
