@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d43fbf0e_51b58ac3",
+        "filename": "tests/net/java/android/net/metrics/MetricsTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2017-10-12T08:23:40Z",
+      "side": 1,
+      "message": "No asserts at all in there ; IIUC it may be fine as we only care that it won\u0027t crash but don\u0027t want to commit to a specific output, but just making sure it\u0027s intentional.",
+      "range": {
+        "startLine": 34,
+        "startChar": 16,
+        "endLine": 34,
+        "endChar": 35
+      },
+      "revId": "119a97c52bfc6d8e70a3acf20bdef2b7eebd489c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

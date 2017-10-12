@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4f27c364_5cac6775",
+        "filename": "core/java/android/net/metrics/DnsEvent.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2017-10-12T08:23:40Z",
+      "side": 1,
+      "message": "events",
+      "range": {
+        "startLine": 29,
+        "startChar": 18,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "4cd3b2ba88e30c16635596b16d262d67fa70ea63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dd6669a_cd18cd84",
         "filename": "core/java/android/net/metrics/DnsEvent.java",
         "patchSetId": 2
