@@ -46,6 +46,52 @@
       "revId": "a24d8e97800b637108cd430e35ca162ca9389db9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c577615_b1c64d2f",
+        "filename": "core/java/android/net/metrics/DnsEvent.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2017-10-13T07:56:21Z",
+      "side": 1,
+      "message": "Any reason not to use OsConstants#gaiName() instead of using our own array?\n\nAlso, bear in mind that we don\u0027t really return most of these. IIRC our implementation only ever returns 0 for success, and EAI_NODATA for all failures except \"netd is not running\" which is EAI_SYSTEM.",
+      "range": {
+        "startLine": 43,
+        "startChar": 34,
+        "endLine": 43,
+        "endChar": 52
+      },
+      "revId": "a24d8e97800b637108cd430e35ca162ca9389db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92c1ee9b_4d944ca1",
+        "filename": "core/java/android/net/metrics/DnsEvent.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2017-10-13T07:56:21Z",
+      "side": 1,
+      "message": "gethostname() does not return errno. The man page says:\n\nERRORS\n       The variable h_errno can have the following values:\n\n       HOST_NOT_FOUND\n              The specified host is unknown.\n\n       NO_ADDRESS or NO_DATA\n              The requested name is valid but does not have an IP address.\n\n       NO_RECOVERY\n              A nonrecoverable name server error occurred.\n\n       TRY_AGAIN\n              A temporary error occurred on an authoritative name server.  Try\n              again later.",
+      "range": {
+        "startLine": 145,
+        "startChar": 31,
+        "endLine": 145,
+        "endChar": 40
+      },
+      "revId": "a24d8e97800b637108cd430e35ca162ca9389db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
