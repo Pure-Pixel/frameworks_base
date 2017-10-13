@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "19b68aba_f009192f",
+        "filename": "core/java/android/net/metrics/DnsEvent.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-10-13T16:21:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a25d2381_ac043692",
+      "range": {
+        "startLine": 29,
+        "startChar": 18,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "a24d8e97800b637108cd430e35ca162ca9389db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c577615_b1c64d2f",
         "filename": "core/java/android/net/metrics/DnsEvent.java",
         "patchSetId": 7
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "dcb32da4_418695f1",
+        "filename": "core/java/android/net/metrics/DnsEvent.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-10-13T16:21:12Z",
+      "side": 1,
+      "message": "That\u0027s because I failed to find them in code search. I actually did look, but I forgot to filter on lang:java.\n\nThanks for pointing out gaiName().\n\n\n\u003e Also, bear in mind that we don\u0027t really return most of these.\n\nThe metrics does say that EAI_NODATA is the most common, but also says this is not the only value. All of EAI_AGAIN, EAI_FAIL, EAI_ADDRFAMILY, EAI_BADFLAGS do happen.",
+      "parentUuid": "5c577615_b1c64d2f",
+      "range": {
+        "startLine": 43,
+        "startChar": 34,
+        "endLine": 43,
+        "endChar": 52
+      },
+      "revId": "a24d8e97800b637108cd430e35ca162ca9389db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92c1ee9b_4d944ca1",
         "filename": "core/java/android/net/metrics/DnsEvent.java",
         "patchSetId": 7
@@ -83,6 +131,30 @@
       "writtenOn": "2017-10-13T07:56:21Z",
       "side": 1,
       "message": "gethostname() does not return errno. The man page says:\n\nERRORS\n       The variable h_errno can have the following values:\n\n       HOST_NOT_FOUND\n              The specified host is unknown.\n\n       NO_ADDRESS or NO_DATA\n              The requested name is valid but does not have an IP address.\n\n       NO_RECOVERY\n              A nonrecoverable name server error occurred.\n\n       TRY_AGAIN\n              A temporary error occurred on an authoritative name server.  Try\n              again later.",
+      "range": {
+        "startLine": 145,
+        "startChar": 31,
+        "endLine": 145,
+        "endChar": 40
+      },
+      "revId": "a24d8e97800b637108cd430e35ca162ca9389db9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d76ada7d_8e5dae21",
+        "filename": "core/java/android/net/metrics/DnsEvent.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-10-13T16:21:12Z",
+      "side": 1,
+      "message": "Thanks for pointing this error. I probably got confused reading the man page, or reading another man page.",
+      "parentUuid": "92c1ee9b_4d944ca1",
       "range": {
         "startLine": 145,
         "startChar": 31,
