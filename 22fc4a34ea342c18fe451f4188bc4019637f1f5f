@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b8664c7_a7a7b106",
+        "filename": "core/java/android/os/Binder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2017-11-10T20:48:06Z",
+      "side": 1,
+      "message": "I think we should reduce this significantly, and not make it close to the original. I think anything over 1000 already sounds ridiculous. (+Tim +Phil in case I have totally wrong expectations)",
+      "range": {
+        "startLine": 771,
+        "startChar": 49,
+        "endLine": 771,
+        "endChar": 55
+      },
+      "revId": "22fc4a34ea342c18fe451f4188bc4019637f1f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
