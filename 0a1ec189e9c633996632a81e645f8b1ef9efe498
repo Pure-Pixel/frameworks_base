@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4963f40a_d44b8fe5",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-17T20:41:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad028923_63916cc7",
+      "range": {
+        "startLine": 320,
+        "startChar": 4,
+        "endLine": 320,
+        "endChar": 33
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39c1c147_f5d11512",
         "filename": "services/core/java/com/android/server/IpSecService.java",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "070775f2_e8ea1214",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-17T20:41:04Z",
+      "side": 1,
+      "message": "So I was about to start changing this, but realized that having a single RefcountedResourceArray would require adding typecasting in multiple different places. What are your thoughts on such a tradeoff? If that is not a concern, I can still change to use a single resource array.",
+      "parentUuid": "39c1c147_f5d11512",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 9
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -82,6 +130,30 @@
       "writtenOn": "2017-11-17T05:55:53Z",
       "side": 1,
       "message": "why is this not final ?",
+      "range": {
+        "startLine": 417,
+        "startChar": 8,
+        "endLine": 417,
+        "endChar": 33
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b54df9c1_1ddca3f1",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-17T20:41:04Z",
+      "side": 1,
+      "message": "Done; holdover from existing code. Has been changed.",
+      "parentUuid": "1ad7a039_0060cf29",
       "range": {
         "startLine": 417,
         "startChar": 8,
@@ -157,6 +229,48 @@
     },
     {
       "key": {
+        "uuid": "731526e5_d8d5a61d",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-17T20:41:04Z",
+      "side": 1,
+      "message": "It\u0027s more or less a utility class. We had code like:\n\n\u003e        T record \u003d resArray.getAndCheckOwner(resourceId);\n\u003e\n\u003e        if (record \u003d\u003d null) {\n\u003e            throw new IllegalArgumentException(\n\u003e                    typeName + \" \" + resourceId + \" is not available to be deleted\");\n\u003e        }\n\nstrewn all over the place, and I figured checking it centrally was safer (just so we don\u0027t accidentally forget a null check), and avoid having the throw new IllegalArgumentException everywhere.\n\nAlso, it felt cleaner to have an extra method that returned the kernelResourceRecord object instead of doing a get(resourceId).getResource() every time.",
+      "parentUuid": "f9167ffc_08a8e0bc",
+      "range": {
+        "startLine": 470,
+        "startChar": 4,
+        "endLine": 470,
+        "endChar": 63
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b34c8dd5_e50261d0",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-17T20:41:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "662385b5_37b89424",
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6c07f2c_50b5cf9d",
         "filename": "services/core/java/com/android/server/IpSecService.java",
         "patchSetId": 2
@@ -177,6 +291,30 @@
       "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37780529_69136240",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-17T20:41:04Z",
+      "side": 1,
+      "message": "Hmm; Should I just leave it as getResource(), and rely on the @throws comment for documentation of that behavior?",
+      "parentUuid": "a6c07f2c_50b5cf9d",
+      "range": {
+        "startLine": 483,
+        "startChar": 21,
+        "endLine": 483,
+        "endChar": 28
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -261,6 +399,30 @@
       "side": 1,
       "message": "I am not sure I understand: is this a size limit you are trying to enforce or just something to avoid resizing the array dynamically later on ?\n\nIf you actually want to enforce the size is always 3 or less, you need to do something else right ?\n\nI would add an explicit short comment there about where 3 comes from.\n\nAlso, does this variable name need a \"m\" prefix ?",
       "parentUuid": "ad6e7a1a_f3043353",
+      "range": {
+        "startLine": 1056,
+        "startChar": 64,
+        "endLine": 1056,
+        "endChar": 65
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c774389_c2a791f8",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-17T20:41:04Z",
+      "side": 1,
+      "message": "Done; this was attempting to avoid resizing. I\u0027ve added a comment to explain where the 3 comes from.\n\nAlso, I believe that only fields get \"m\" prefixes. (https://source.android.com/setup/code-style#follow-field-naming-conventions) That website however does raise an interesting issue where a few static variables are named incorrectly (with \"m\" prefixes instead of \"s\")",
+      "parentUuid": "1512535d_4b00c3bd",
       "range": {
         "startLine": 1056,
         "startChar": 64,
