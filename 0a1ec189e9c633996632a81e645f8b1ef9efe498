@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "ad028923_63916cc7",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-11-17T05:55:53Z",
+      "side": 1,
+      "message": "Is this class is package private for testing purposes, it should be tagged as such.",
+      "range": {
+        "startLine": 320,
+        "startChar": 4,
+        "endLine": 320,
+        "endChar": 33
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39c1c147_f5d11512",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-11-17T05:55:53Z",
+      "side": 1,
+      "message": "I am not against this design of separating per type of resources, but if you managed to have only one map of resource id to resources, you could simplify a lot of things.\n\nFor instance you would only have one \"remove\" method. That would probably let you implement more stuff in the base KernelResourceRecord class.\n\n\nSimilar comment about the ResourceTracker: if you turned the TYPENAME_* constant into a proper enum with 3 entries, you could then regroup the three ResourceTracker into something simple like a Map\u003cResourceType,Integer\u003e. Then the KernelResourceRecord would have an additional abstract method getResourceType(), and everywhere you need to do take() or give() you call getResourceType() to increment or decrement the Int keyed to the ResourceType.",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 9
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81dc841c_69ab3dfe",
         "filename": "services/core/java/com/android/server/IpSecService.java",
         "patchSetId": 2
@@ -25,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "1ad7a039_0060cf29",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-11-17T05:55:53Z",
+      "side": 1,
+      "message": "why is this not final ?",
+      "range": {
+        "startLine": 417,
+        "startChar": 8,
+        "endLine": 417,
+        "endChar": 33
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6375f640_f6f0d3bc",
         "filename": "services/core/java/com/android/server/IpSecService.java",
         "patchSetId": 2
@@ -41,6 +110,69 @@
         "startChar": 13,
         "endLine": 463,
         "endChar": 30
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9167ffc_08a8e0bc",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-11-17T05:55:53Z",
+      "side": 1,
+      "message": "I don\u0027t understand the point of this class. It seems to do nothing more that call getResource() on the stuff inside. Why not just using directly a Set or Map or SparseArray directly ?",
+      "range": {
+        "startLine": 470,
+        "startChar": 4,
+        "endLine": 470,
+        "endChar": 63
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "662385b5_37b89424",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-11-17T05:55:53Z",
+      "side": 1,
+      "message": "If this class is not private, it should be tagged with @VisibleForTesting.",
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a6c07f2c_50b5cf9d",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-11-17T05:55:53Z",
+      "side": 1,
+      "message": "I am not a huge fan of this naming convention.\n\nAnother possibility about the semantics btw is to return null if the key is mapped to nothing.",
+      "range": {
+        "startLine": 483,
+        "startChar": 21,
+        "endLine": 483,
+        "endChar": 28
       },
       "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -105,6 +237,30 @@
       "writtenOn": "2017-11-17T02:00:11Z",
       "side": 1,
       "message": "Max number of children (dependencies) that we will be using in this method.",
+      "range": {
+        "startLine": 1056,
+        "startChar": 64,
+        "endLine": 1056,
+        "endChar": 65
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1512535d_4b00c3bd",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-11-17T05:55:53Z",
+      "side": 1,
+      "message": "I am not sure I understand: is this a size limit you are trying to enforce or just something to avoid resizing the array dynamically later on ?\n\nIf you actually want to enforce the size is always 3 or less, you need to do something else right ?\n\nI would add an explicit short comment there about where 3 comes from.\n\nAlso, does this variable name need a \"m\" prefix ?",
+      "parentUuid": "ad6e7a1a_f3043353",
       "range": {
         "startLine": 1056,
         "startChar": 64,
