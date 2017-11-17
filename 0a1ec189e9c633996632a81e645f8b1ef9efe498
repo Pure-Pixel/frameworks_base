@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81dc841c_69ab3dfe",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-17T02:00:11Z",
+      "side": 1,
+      "message": "Name changed to align with subclasses (SpiRecord, TransformRecord, EncapSocketRecord)",
+      "range": {
+        "startLine": 414,
+        "startChar": 41,
+        "endLine": 414,
+        "endChar": 47
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6375f640_f6f0d3bc",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-17T02:00:11Z",
+      "side": 1,
+      "message": "Gerrit was showing everything between lines 275 and 500 as a full deletion, followed by a full insertion. This makes it easier to review, as the analogue can still be side by side",
+      "range": {
+        "startLine": 462,
+        "startChar": 13,
+        "endLine": 463,
+        "endChar": 30
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85ef8c03_b9fcb5e2",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-17T02:00:11Z",
+      "side": 1,
+      "message": "Unfortunately, this seems to be the earliest place in which we know which array to remove from. The RefcountedResource only knows that it contains an IResource object.",
+      "range": {
+        "startLine": 564,
+        "startChar": 12,
+        "endLine": 564,
+        "endChar": 63
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24f9e7b6_4296abc3",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-17T02:00:11Z",
+      "side": 1,
+      "message": "No race conditions due to locking paradigm - All entrypoints are synchronized, so only one thread is running at a time (and will run to completion).",
+      "range": {
+        "startLine": 851,
+        "startChar": 12,
+        "endLine": 851,
+        "endChar": 22
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad6e7a1a_f3043353",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-17T02:00:11Z",
+      "side": 1,
+      "message": "Max number of children (dependencies) that we will be using in this method.",
+      "range": {
+        "startLine": 1056,
+        "startChar": 64,
+        "endLine": 1056,
+        "endChar": 65
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
