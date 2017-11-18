@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "621c7e89_e2d2aee4",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-11-18T00:07:24Z",
+      "side": 1,
+      "message": "Yeah that\u0027s a very good point. I could how it casting would become necessary. That\u0027s one of these things where It is difficult to say until you try it.\n\nHowever it looks like if the resourceId were objects with a type parameter saying the type of the resource instead of a raw int, you would be able to write something like:\n\n\u003cT\u003e T getResource(ResourceId\u003cT\u003e key) {\n  /* some cast inside */\n}\n\nwith a well controlled cast.\n\nAnyway, no need to change anything in that patch, that was more a potential improvement for later.",
+      "parentUuid": "070775f2_e8ea1214",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 9
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81dc841c_69ab3dfe",
         "filename": "services/core/java/com/android/server/IpSecService.java",
         "patchSetId": 2
@@ -268,6 +292,30 @@
       "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27954def_1db76fac",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-11-18T00:07:24Z",
+      "side": 1,
+      "message": "If it was just for this method, a simple static helper method taking a resourceId and a SparseArray may have worked too.\n\nSGTM like this.",
+      "parentUuid": "731526e5_d8d5a61d",
+      "range": {
+        "startLine": 470,
+        "startChar": 4,
+        "endLine": 470,
+        "endChar": 63
+      },
+      "revId": "0a1ec189e9c633996632a81e645f8b1ef9efe498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
