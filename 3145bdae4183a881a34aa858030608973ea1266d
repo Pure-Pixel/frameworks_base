@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57000e6f_ae7f6f57",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-11-21T07:06:49Z",
+      "side": 1,
+      "message": "Slightly out of topic remark about this class: shouldn\u0027t take and give return and do nothing if the wtf logs are hit ? In such an incorrect situation.",
+      "range": {
+        "startLine": 278,
+        "startChar": 4,
+        "endLine": 278,
+        "endChar": 34
+      },
+      "revId": "3145bdae4183a881a34aa858030608973ea1266d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1b9bb5e_463e8255",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1107893
+      },
+      "writtenOn": "2017-11-21T07:06:49Z",
+      "side": 1,
+      "message": "Is this needed for testing only ?",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 9
+      },
+      "revId": "3145bdae4183a881a34aa858030608973ea1266d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
