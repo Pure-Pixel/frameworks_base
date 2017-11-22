@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3cf97fa0_c959c8ec",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-22T05:27:31Z",
+      "side": 1,
+      "message": "Looking through the code again, I believe the original logic is that at the points that take and give are called, the resources are already allocated, and there\u0027s nothing we can do about it already; If we do nothing, we are inconsistent. Theoretically those cases should never be hit, since we only ever allow a single thread to run at a time.",
+      "parentUuid": "57000e6f_ae7f6f57",
+      "range": {
+        "startLine": 278,
+        "startChar": 4,
+        "endLine": 278,
+        "endChar": 34
+      },
+      "revId": "3145bdae4183a881a34aa858030608973ea1266d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1b9bb5e_463e8255",
         "filename": "services/core/java/com/android/server/IpSecService.java",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-21T07:06:49Z",
       "side": 1,
       "message": "Is this needed for testing only ?",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 9
+      },
+      "revId": "3145bdae4183a881a34aa858030608973ea1266d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2f35e25_dacc1ea7",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-11-22T05:27:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1b9bb5e_463e8255",
       "range": {
         "startLine": 305,
         "startChar": 0,
