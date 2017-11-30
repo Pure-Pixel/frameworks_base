@@ -22,6 +22,30 @@
       "revId": "22fc4a34ea342c18fe451f4188bc4019637f1f5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3839a21_ead07b42",
+        "filename": "core/java/android/os/Binder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2017-11-30T23:55:42Z",
+      "side": 1,
+      "message": "Reduced this to 5000, based on email discussion and testing. Also addressed in commit message.",
+      "parentUuid": "3b8664c7_a7a7b106",
+      "range": {
+        "startLine": 771,
+        "startChar": 49,
+        "endLine": 771,
+        "endChar": 55
+      },
+      "revId": "22fc4a34ea342c18fe451f4188bc4019637f1f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
