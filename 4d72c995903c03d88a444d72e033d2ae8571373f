@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d45f973d_223dff80",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-12-13T23:29:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f195fb73_39979f00",
+      "range": {
+        "startLine": 290,
+        "startChar": 75,
+        "endLine": 290,
+        "endChar": 76
+      },
+      "revId": "4d72c995903c03d88a444d72e033d2ae8571373f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0e8131e_e5672f58",
         "filename": "services/core/java/com/android/server/IpSecService.java",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-13T08:34:25Z",
       "side": 1,
       "message": "It feels strange that these two objects aren\u0027t connected to each other in any way.",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 83
+      },
+      "revId": "4d72c995903c03d88a444d72e033d2ae8571373f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0f1c32d_f8ae6342",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-12-13T23:29:10Z",
+      "side": 1,
+      "message": "Added some comments and rearranged it to clarify; They are somewhat related, but not very much so.",
+      "parentUuid": "a0e8131e_e5672f58",
       "range": {
         "startLine": 343,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d1a019a6_aab8d832",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-12-13T23:29:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b8a17eb_9637f61c",
+      "range": {
+        "startLine": 388,
+        "startChar": 43,
+        "endLine": 388,
+        "endChar": 44
+      },
+      "revId": "4d72c995903c03d88a444d72e033d2ae8571373f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6c17fcc_e625d03c",
         "filename": "services/core/java/com/android/server/IpSecService.java",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2017-12-13T08:34:25Z",
       "side": 1,
       "message": "This comment doesn\u0027t look useful to have in the codebase after review.",
+      "range": {
+        "startLine": 471,
+        "startChar": 58,
+        "endLine": 472,
+        "endChar": 30
+      },
+      "revId": "4d72c995903c03d88a444d72e033d2ae8571373f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8632f9af_fc5c3840",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-12-13T23:29:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6c17fcc_e625d03c",
       "range": {
         "startLine": 471,
         "startChar": 58,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b1b98459_5160d927",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-12-13T23:29:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4d3af37_e68efe4f",
+      "range": {
+        "startLine": 637,
+        "startChar": 25,
+        "endLine": 637,
+        "endChar": 55
+      },
+      "revId": "4d72c995903c03d88a444d72e033d2ae8571373f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6efe0726_064f116b",
         "filename": "services/core/java/com/android/server/IpSecService.java",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2017-12-13T08:34:25Z",
       "side": 1,
       "message": "Nit: isn\u0027t the default size of arraylist greater than 3 already?",
+      "range": {
+        "startLine": 1066,
+        "startChar": 11,
+        "endLine": 1066,
+        "endChar": 25
+      },
+      "revId": "4d72c995903c03d88a444d72e033d2ae8571373f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb6d322_46cf7157",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-12-13T23:29:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6efe0726_064f116b",
       "range": {
         "startLine": 1066,
         "startChar": 11,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "21bc62cb_4d3b56ae",
+        "filename": "tests/net/java/com/android/server/IpSecServiceTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-12-13T23:29:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a21ea1a9_48e19f91",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 8
+      },
+      "revId": "4d72c995903c03d88a444d72e033d2ae8571373f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61b0af39_5702538e",
         "filename": "tests/net/java/com/android/server/IpSecServiceTest.java",
         "patchSetId": 5
@@ -174,6 +342,30 @@
       "writtenOn": "2017-12-13T08:34:25Z",
       "side": 1,
       "message": "Can you just pass in 0 here? That way you\u0027ll never get EADDRINUSE.",
+      "range": {
+        "startLine": 150,
+        "startChar": 57,
+        "endLine": 150,
+        "endChar": 66
+      },
+      "revId": "4d72c995903c03d88a444d72e033d2ae8571373f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7d66461_31d86329",
+        "filename": "tests/net/java/com/android/server/IpSecServiceTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-12-13T23:29:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61b0af39_5702538e",
       "range": {
         "startLine": 150,
         "startChar": 57,
