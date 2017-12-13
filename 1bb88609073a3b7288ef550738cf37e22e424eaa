@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0df0642c_d6709332",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2017-12-13T08:34:25Z",
+      "side": 1,
+      "message": "Consider SecurityParameterIndex.class().getSimpleName()",
+      "range": {
+        "startLine": 320,
+        "startChar": 50,
+        "endLine": 320,
+        "endChar": 74
+      },
+      "revId": "1bb88609073a3b7288ef550738cf37e22e424eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78562323_3df2a5e1",
+        "filename": "services/core/java/com/android/server/IpSecService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2017-12-13T08:34:25Z",
+      "side": 1,
+      "message": "Nit: it seems strange to say this never fails given that it can throw an unchecked exception.",
+      "range": {
+        "startLine": 377,
+        "startChar": 12,
+        "endLine": 377,
+        "endChar": 22
+      },
+      "revId": "1bb88609073a3b7288ef550738cf37e22e424eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
