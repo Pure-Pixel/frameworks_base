@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d40ab430_bf9b68fb",
+        "filename": "core/java/android/net/IpSecConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2017-12-20T20:03:24Z",
+      "side": 1,
+      "message": "It appears that there is a duplicate check for localAddress \u003d\u003d null in IpSecService.checkIpSecConfig(IpSecConfig config)",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 37
+      },
+      "revId": "4c63c7f9e0878dabe5dfc9c0b1bd5d485eede8cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
