@@ -2793,6 +2793,7 @@ public class ActivityManager {
         public boolean visible;
         // Index of the stack in the display's stack list, can be used for comparison of stack order
         public int position;
+        public int[] taskActivities;
 
         @Override
         public int describeContents() {
@@ -2827,6 +2828,7 @@ public class ActivityManager {
             } else {
                 dest.writeInt(0);
             }
+            dest.writeIntArray(taskActivities);
         }
 
         public void readFromParcel(Parcel source) {
@@ -2854,6 +2856,7 @@ public class ActivityManager {
             if (source.readInt() > 0) {
                 topActivity = ComponentName.readFromParcel(source);
             }
+            taskActivities = source.createIntArray();
         }
 
         public static final Creator<StackInfo> CREATOR = new Creator<StackInfo>() {
@@ -2890,6 +2893,7 @@ public class ActivityManager {
                         }
                         sb.append(" userId=").append(taskUserIds[i]);
                         sb.append(" visible=").append(visible);
+                sb.append(" sz=").append(taskActivities[i]);
                         if (topActivity != null) {
                             sb.append(" topActivity=").append(topActivity);
                         }
