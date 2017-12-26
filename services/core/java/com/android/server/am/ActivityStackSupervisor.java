@@ -4086,6 +4086,7 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
         String[] taskNames = new String[numTasks];
         Rect[] taskBounds = new Rect[numTasks];
         int[] taskUserIds = new int[numTasks];
+        int[] taskActivities = new int[numTasks];
         for (int i = 0; i < numTasks; ++i) {
             final TaskRecord task = tasks.get(i);
             taskIds[i] = task.taskId;
@@ -4096,6 +4097,7 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
             taskBounds[i] = new Rect();
             task.getWindowContainerBounds(taskBounds[i]);
             taskUserIds[i] = task.userId;
+            taskActivities[i] = task.mActivities.size();
         }
         info.taskIds = taskIds;
         info.taskNames = taskNames;
@@ -4104,6 +4106,7 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
 
         final ActivityRecord top = stack.topRunningActivityLocked();
         info.topActivity = top != null ? top.intent.getComponent() : null;
+        info.taskActivities = taskActivities;
         return info;
     }
 
