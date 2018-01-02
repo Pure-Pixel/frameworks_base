@@ -1984,8 +1984,14 @@ class ActivityStack<T extends StackWindowController> extends ConfigurationContai
         final boolean keyguardShowing = mStackSupervisor.mKeyguardController.isKeyguardShowing(
                 mDisplayId != INVALID_DISPLAY ? mDisplayId : DEFAULT_DISPLAY);
         final boolean keyguardLocked = mStackSupervisor.mKeyguardController.isKeyguardLocked();
-        final boolean showWhenLocked = r.canShowWhenLocked() && !isInPinnedStack;
-        final boolean dismissKeyguard = r.hasDismissKeyguardWindows();
+        boolean showWhenLocked = false;
+        boolean dismissKeyguard = false;
+        if (shouldBeVisible) {
+            if (isTop || keyguardLocked) {
+                showWhenLocked = r.canShowWhenLocked() && !isInPinnedStack;
+            }
+            dismissKeyguard = r.hasDismissKeyguardWindows();
+        }
         if (shouldBeVisible) {
             if (dismissKeyguard && mTopDismissingKeyguardActivity == null) {
                 mTopDismissingKeyguardActivity = r;
