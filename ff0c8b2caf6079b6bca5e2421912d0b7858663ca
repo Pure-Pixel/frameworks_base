@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b835d30_380c4630",
+        "filename": "services/core/java/com/android/server/am/ActivityStack.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 1060320
+      },
+      "writtenOn": "2018-01-02T15:23:08Z",
+      "side": 1,
+      "message": "Not sure why these are chosen where as the other conditions are part of the assignment. If we are to make this change, I would have these values in the condition below. Also, if you concerned with calls to canShowWhenLocked, I would move !isInPinnedStack before r.canShowWhenLocked() to short circuit.",
+      "range": {
+        "startLine": 1990,
+        "startChar": 25,
+        "endLine": 1990,
+        "endChar": 39
+      },
+      "revId": "ff0c8b2caf6079b6bca5e2421912d0b7858663ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
