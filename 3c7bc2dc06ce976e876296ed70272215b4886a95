@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abea5fff_7e6109e7",
+        "filename": "core/java/android/net/IpSecConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-01-04T03:51:53Z",
+      "side": 0,
+      "message": "Would be nice if you mentioned in the commit message that you are moving these checks to the build methods. Otherwise, if in the future somebody scans the git history looking for when this change was made, they won\u0027t see it.\n\nI think you can change the commit message without losing the +2.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 9
+      },
+      "revId": "3c7bc2dc06ce976e876296ed70272215b4886a95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
