@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,16 @@
  * limitations under the License
  */
 
-package android.telephony.ims.internal;
+package android.telephony.ims.stub;
 
 import android.annotation.IntDef;
-import android.annotation.SystemApi;
 import android.os.RemoteException;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
-import android.telephony.ims.internal.aidl.IImsSmsListener;
-import android.telephony.ims.internal.feature.MmTelFeature;
+import android.telephony.ims.aidl.IImsSmsListener;
+import android.telephony.ims.feature.MmTelFeature;
 import android.util.Log;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -34,8 +34,8 @@ import java.lang.annotation.RetentionPolicy;
  * that the service supports.
  * @hide
  */
-public class SmsImplBase {
-  private static final String LOG_TAG = "SmsImplBase";
+public class ImsSmsImplBase {
+  private static final String LOG_TAG = "ImsSmsImplBase";
 
   @IntDef({
           SEND_STATUS_OK,

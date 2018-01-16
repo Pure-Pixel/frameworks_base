@@ -38,9 +38,9 @@ import android.telephony.ServiceState;
 import android.telephony.SignalStrength;
 import android.telephony.TelephonyHistogram;
 import android.telephony.VisualVoicemailSmsFilterSettings;
-import com.android.ims.internal.IImsMMTelFeature;
-import com.android.ims.internal.IImsRcsFeature;
-import com.android.ims.internal.IImsRegistration;
+import android.telephony.ims.aidl.IImsMmTelFeature;
+import android.telephony.ims.aidl.IImsRcsFeature;
+import android.telephony.ims.aidl.IImsRegistration;
 import com.android.ims.internal.IImsServiceFeatureCallback;
 import com.android.internal.telephony.CellNetworkScanResult;
 import com.android.internal.telephony.OperatorInfo;
@@ -786,20 +786,11 @@ interface ITelephony {
     int getTetherApnRequired();
 
     /**
-     *  Get IImsMMTelFeature binder from ImsResolver that corresponds to the subId and MMTel feature
-     *  as well as registering the MMTelFeature for callbacks using the IImsServiceFeatureCallback
+     *  Get IImsMmTelFeature binder from ImsResolver that corresponds to the subId and MMTel feature
+     *  as well as registering the MmTelFeature for callbacks using the IImsServiceFeatureCallback
      *  interface.
      */
-    IImsMMTelFeature getMMTelFeatureAndListen(int slotId, in IImsServiceFeatureCallback callback);
-
-    /**
-     *  Get IImsMMTelFeature binder from ImsResolver that corresponds to the subId and MMTel feature
-     *  as well as registering the MMTelFeature for callbacks using the IImsServiceFeatureCallback
-     *  interface.
-     *  Used for emergency calling only.
-     */
-    IImsMMTelFeature getEmergencyMMTelFeatureAndListen(int slotId,
-            in IImsServiceFeatureCallback callback);
+    IImsMmTelFeature getMmTelFeatureAndListen(int slotId, in IImsServiceFeatureCallback callback);
 
     /**
      *  Get IImsRcsFeature binder from ImsResolver that corresponds to the subId and RCS feature

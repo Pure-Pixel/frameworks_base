@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package android.telephony.ims.internal.aidl;
+package android.telephony.ims.aidl;
 
 /**
- * See ImsFeature#CapabilityCallback for more information.
+ * See MMTelFeature for more information.
  * {@hide}
  */
-oneway interface IImsCapabilityCallback {
-    void onQueryCapabilityConfiguration(int capability, int radioTech, boolean enabled);
-    void onChangeCapabilityConfigurationError(int capability, int radioTech, int reason);
-    void onCapabilitiesStatusChanged(int config);
+interface IImsSmsListener {
+    void onSendSmsResult(in int messageRef, in int status, in int reason);
+    void onSmsStatusReportReceived(in int messageRef, in String format, in byte[] pdu);
+    void onSmsReceived(in String format, in byte[] pdu);
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 The Android Open Source Project
+ * Copyright (c) 2013 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,18 @@
  * limitations under the License.
  */
 
-package android.telephony.ims.internal.aidl;
 
-import com.android.ims.internal.IImsCallSession;
+package android.telephony.ims.aidl;
+
+import android.telephony.ims.aidl.IImsRegistrationCallback;
 
 /**
- * See MmTelFeature#Listener for more information.
+ * See ImsRegistration for more information.
+ *
  * {@hide}
  */
-oneway interface IImsMmTelListener {
-    void onIncomingCall(IImsCallSession c);
-    void onVoiceMessageCountUpdate(int count);
+interface IImsRegistration {
+   int getRegistrationTechnology();
+   oneway void addRegistrationCallback(IImsRegistrationCallback c);
+   oneway void removeRegistrationCallback(IImsRegistrationCallback c);
 }

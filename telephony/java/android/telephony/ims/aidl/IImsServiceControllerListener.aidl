@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package android.telephony.ims.internal.aidl;
+package android.telephony.ims.aidl;
+
+import android.telephony.ims.stub.ImsFeatureConfiguration;
 
 /**
- * See MMTelFeature for more information.
+ * See ImsService#Listener for more information.
  * {@hide}
  */
-interface IImsSmsListener {
-    void onSendSmsResult(in int messageRef, in int status, in int reason);
-    void onSmsStatusReportReceived(in int messageRef, in String format, in byte[] pdu);
-    void onSmsReceived(in String format, in byte[] pdu);
+oneway interface IImsServiceControllerListener {
+    void onUpdateSupportedImsFeatures(in ImsFeatureConfiguration c);
 }

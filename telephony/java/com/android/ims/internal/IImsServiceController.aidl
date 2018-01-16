@@ -30,5 +30,4 @@ interface IImsServiceController {
     IImsMMTelFeature createMMTelFeature(int slotId, in IImsFeatureStatusCallback c);
     IImsRcsFeature createRcsFeature(int slotId, in IImsFeatureStatusCallback c);
     void removeImsFeature(int slotId, int featureType, in IImsFeatureStatusCallback c);
-    IImsRegistration getRegistration(int slotId);
 }

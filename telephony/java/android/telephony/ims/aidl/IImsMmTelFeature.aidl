@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package android.telephony.ims.internal.aidl;
+package android.telephony.ims.aidl;
 
 import android.os.Message;
-import android.telephony.ims.internal.aidl.IImsMmTelListener;
-import android.telephony.ims.internal.aidl.IImsSmsListener;
-import android.telephony.ims.internal.aidl.IImsCapabilityCallback;
-import android.telephony.ims.internal.feature.CapabilityChangeRequest;
+import android.telephony.ims.aidl.IImsMmTelListener;
+import android.telephony.ims.aidl.IImsSmsListener;
+import android.telephony.ims.aidl.IImsCapabilityCallback;
+import android.telephony.ims.feature.CapabilityChangeRequest;
 
 import com.android.ims.ImsCallProfile;
 import com.android.ims.internal.IImsCallSession;
