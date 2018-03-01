@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b385045f_ff928376",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-03-01T22:51:59Z",
+      "side": 1,
+      "message": "should this just check for exactly (0, 0)? Am I missing the point of the fix?",
+      "range": {
+        "startLine": 9,
+        "startChar": 33,
+        "endLine": 9,
+        "endChar": 42
+      },
+      "revId": "78eb48e53600198b04517210bc23977e59484e2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aae8e72e_07a670cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-03-01T22:51:59Z",
+      "side": 1,
+      "message": "should probably make this future proof also :)",
+      "range": {
+        "startLine": 11,
+        "startChar": 44,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "78eb48e53600198b04517210bc23977e59484e2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
