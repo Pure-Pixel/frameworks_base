@@ -93,6 +93,30 @@
       "revId": "78eb48e53600198b04517210bc23977e59484e2c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "742d4d03_9e16cc66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-03-01T23:22:44Z",
+      "side": 1,
+      "message": "you never know where new cell towers might pop up!",
+      "parentUuid": "d860923c_dcfb3778",
+      "range": {
+        "startLine": 11,
+        "startChar": 44,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "78eb48e53600198b04517210bc23977e59484e2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
