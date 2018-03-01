@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "049f7ed5_3044f2a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-03-01T23:02:33Z",
+      "side": 1,
+      "message": "This also catches -1, -1, which CDMA uses for defaults :-)",
+      "parentUuid": "b385045f_ff928376",
+      "range": {
+        "startLine": 9,
+        "startChar": 33,
+        "endLine": 9,
+        "endChar": 42
+      },
+      "revId": "78eb48e53600198b04517210bc23977e59484e2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aae8e72e_07a670cc",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-01T22:51:59Z",
       "side": 1,
       "message": "should probably make this future proof also :)",
+      "range": {
+        "startLine": 11,
+        "startChar": 44,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "78eb48e53600198b04517210bc23977e59484e2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d860923c_dcfb3778",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-03-01T23:02:33Z",
+      "side": 1,
+      "message": "This is in the middle of the ocean off the coast of Africa. That\u0027s why it was reported as a bug. it\u0027s not even a plausible location.",
+      "parentUuid": "aae8e72e_07a670cc",
       "range": {
         "startLine": 11,
         "startChar": 44,
