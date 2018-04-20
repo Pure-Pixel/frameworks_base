@@ -600,30 +600,36 @@ include $(BUILD_HOST_JAVA_LIBRARY)
 # rules for building them. Other rules in the build system should depend on the
 # files in the build folder.
 
-$(eval $(call copy-one-file,frameworks/base/config/hiddenapi-blacklist.txt,\
-                            $(INTERNAL_PLATFORM_HIDDENAPI_BLACKLIST)))
+# Automatically add all methods which match the following signatures.
+# These need to be greylisted in order to allow applications to write their
+# own serializers.
+$(INTERNAL_PLATFORM_HIDDENAPI_LIGHT_GREYLIST): REGEX_SERIALIZATION := \
+    "readObject\(Ljava/io/ObjectInputStream;\)V" \
+    "readObjectNoData\(\)V" \
+    "readResolve\(\)Ljava/lang/Object;" \
+    "serialVersionUID:J" \
+    "serialPersistentFields:\[Ljava/io/ObjectStreamField;" \
+    "writeObject\(Ljava/io/ObjectOutputStream;\)V" \
+    "writeReplace\(\)Ljava/lang/Object;"
+$(INTERNAL_PLATFORM_HIDDENAPI_LIGHT_GREYLIST): PRIVATE_API := $(INTERNAL_PLATFORM_PRIVATE_DEX_API_FILE)
+$(INTERNAL_PLATFORM_HIDDENAPI_LIGHT_GREYLIST): frameworks/base/config/hiddenapi-light-greylist.txt \
+                                               $(INTERNAL_PLATFORM_PRIVATE_DEX_API_FILE)
+	sort frameworks/base/config/hiddenapi-light-greylist.txt \
+	     <(grep -E "\->("$(subst $(space),"|",$(REGEX_SERIALIZATION))")$$" $(PRIVATE_API)) \
+	> $@
+
 $(eval $(call copy-one-file,frameworks/base/config/hiddenapi-dark-greylist.txt,\
                             $(INTERNAL_PLATFORM_HIDDENAPI_DARK_GREYLIST)))
 
 # Generate light greylist as private API minus (blacklist plus dark greylist).
 
-$(INTERNAL_PLATFORM_HIDDENAPI_LIGHT_GREYLIST): PRIVATE_API := $(INTERNAL_PLATFORM_PRIVATE_DEX_API_FILE)
-$(INTERNAL_PLATFORM_HIDDENAPI_LIGHT_GREYLIST): BLACKLIST := $(INTERNAL_PLATFORM_HIDDENAPI_BLACKLIST)
-$(INTERNAL_PLATFORM_HIDDENAPI_LIGHT_GREYLIST): DARK_GREYLIST := $(INTERNAL_PLATFORM_HIDDENAPI_DARK_GREYLIST)
-$(INTERNAL_PLATFORM_HIDDENAPI_LIGHT_GREYLIST): $(INTERNAL_PLATFORM_PRIVATE_DEX_API_FILE) \
-                                               $(INTERNAL_PLATFORM_HIDDENAPI_BLACKLIST) \
-                                               $(INTERNAL_PLATFORM_HIDDENAPI_DARK_GREYLIST)
-	if [ ! -z "`comm -12 <(sort $(BLACKLIST)) <(sort $(DARK_GREYLIST))`" ]; then \
-		echo "There should be no overlap between $(BLACKLIST) and $(DARK_GREYLIST)" 1>&2; \
-		exit 1; \
-	elif [ ! -z "`comm -13 <(sort $(PRIVATE_API)) <(sort $(BLACKLIST))`" ]; then \
-		echo "$(BLACKLIST) must be a subset of $(PRIVATE_API)" 1>&2; \
-		exit 2; \
-	elif [ ! -z "`comm -13 <(sort $(PRIVATE_API)) <(sort $(DARK_GREYLIST))`" ]; then \
-		echo "$(DARK_GREYLIST) must be a subset of $(PRIVATE_API)" 1>&2; \
-		exit 3; \
-	fi
-	comm -23 <(sort $(PRIVATE_API)) <(sort $(BLACKLIST) $(DARK_GREYLIST)) > $@
+$(INTERNAL_PLATFORM_HIDDENAPI_BLACKLIST): PRIVATE_API := $(INTERNAL_PLATFORM_PRIVATE_DEX_API_FILE)
+$(INTERNAL_PLATFORM_HIDDENAPI_BLACKLIST): LIGHT_GREYLIST := $(INTERNAL_PLATFORM_HIDDENAPI_LIGHT_GREYLIST)
+$(INTERNAL_PLATFORM_HIDDENAPI_BLACKLIST): DARK_GREYLIST := $(INTERNAL_PLATFORM_HIDDENAPI_DARK_GREYLIST)
+$(INTERNAL_PLATFORM_HIDDENAPI_BLACKLIST): $(INTERNAL_PLATFORM_PRIVATE_DEX_API_FILE) \
+                                          $(INTERNAL_PLATFORM_HIDDENAPI_LIGHT_GREYLIST) \
+                                          $(INTERNAL_PLATFORM_HIDDENAPI_DARK_GREYLIST)
+	comm -23 <(sort $(PRIVATE_API)) <(sort $(LIGHT_GREYLIST) $(DARK_GREYLIST)) > $@
 
 # Include subdirectory makefiles
 # ============================================================
@@ -635,4 +641,3 @@ include $(call first-makefiles-under,$(LOCAL_PATH))
 endif
 
 endif # ANDROID_BUILD_EMBEDDED
-
