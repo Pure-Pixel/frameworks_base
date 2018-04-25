@@ -622,7 +622,9 @@ $(INTERNAL_PLATFORM_HIDDENAPI_BLACKLIST): DARK_GREYLIST := $(INTERNAL_PLATFORM_H
 $(INTERNAL_PLATFORM_HIDDENAPI_BLACKLIST): $(INTERNAL_PLATFORM_PRIVATE_DEX_API_FILE) \
                                           $(INTERNAL_PLATFORM_HIDDENAPI_LIGHT_GREYLIST) \
                                           $(INTERNAL_PLATFORM_HIDDENAPI_DARK_GREYLIST)
-	if [ ! -z "`comm -12 <(sort $(LIGHT_GREYLIST)) <(sort $(DARK_GREYLIST))`" ]; then \
+	if [[ ${TARGET_PRODUCT} == aosp_* ]]; then \
+		`# Do not check for AOSP targets`; \
+	elif [ ! -z "`comm -12 <(sort $(LIGHT_GREYLIST)) <(sort $(DARK_GREYLIST))`" ]; then \
 		echo "There should be no overlap between $(LIGHT_GREYLIST) and $(DARK_GREYLIST)" 1>&2; \
 		comm -12 <(sort $(LIGHT_GREYLIST)) <(sort $(DARK_GREYLIST)) 1>&2; \
 		exit 1; \
