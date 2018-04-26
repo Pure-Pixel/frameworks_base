@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b61cedc_a6b9117f",
+        "filename": "config/hiddenapi-vendor-list.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2018-04-26T08:51:40Z",
+      "side": 1,
+      "message": "Why this change?",
+      "revId": "41d947d25578d5f65150a7799ce712bfcf8351f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
