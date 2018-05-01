@@ -285,6 +285,8 @@ final class ActivityManagerShellCommand extends ShellCommand {
                     mStartFlags |= ActivityManager.START_FLAG_DEBUG;
                 } else if (opt.equals("-N")) {
                     mStartFlags |= ActivityManager.START_FLAG_NATIVE_DEBUGGING;
+                } else if (opt.equals("--profile-startup")) {
+                    mStartFlags |= ActivityManager.START_FLAG_PROFILE_STARTUP;
                 } else if (opt.equals("-W")) {
                     mWaitOption = true;
                 } else if (opt.equals("-P")) {

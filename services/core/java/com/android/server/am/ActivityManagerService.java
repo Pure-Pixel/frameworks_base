@@ -300,6 +300,7 @@ import android.os.FileUtils;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.IDeviceIdentifiersPolicyService;
+import android.os.IPerfProfd;
 import android.os.IPermissionController;
 import android.os.IProcessInfoService;
 import android.os.IProgressListener;
@@ -382,6 +383,7 @@ import com.android.internal.os.BackgroundThread;
 import com.android.internal.os.BatteryStatsImpl;
 import com.android.internal.os.IResultReceiver;
 import com.android.internal.os.ProcessCpuTracker;
+import com.android.internal.os.RoSystemProperties;
 import com.android.internal.os.TransferPipe;
 import com.android.internal.os.Zygote;
 import com.android.internal.policy.IKeyguardDismissCallback;
@@ -1515,6 +1517,7 @@ public class ActivityManagerService extends IActivityManager.Stub
     int mMemWatchDumpUid;
     String mTrackAllocationApp = null;
     String mNativeDebuggingApp = null;
+    String mProfileStartupOf = null;
 
     final long[] mTmpLong = new long[2];
 
@@ -3838,6 +3841,48 @@ public class ActivityManagerService extends IActivityManager.Stub
                 null /* abiOverride */, null /* entryPoint */, null /* entryPointArgs */);
     }
 
+    private void tryStartStartupProfiling(String requiredAbi) {
+        try {
+            IPerfProfd perfprofd = IPerfProfd.Stub.asInterface(
+                    ServiceManager.getService("perfprofd"));
+            if (perfprofd != null) {
+                int zygotePid = Process.zygoteProcess.getZygotePid(requiredAbi);
+                try {
+                    perfprofd.stopProfiling();
+                } catch (Exception e) {
+                    // Ignore.
+                }
+
+                String config =
+                        "collection_interval=0"         // Immediately start profiling.
+                        + ":main_loop_iterations=1"     // One run.
+                        + ":process=" + zygotePid       // Start with the zygote.
+                        + ":sampling_frequency=9999"    // High-freq sampling.
+                        + ":stack_profile=1"            // Take stacks.
+                        + ":collect_cpu_utilization=0"  // No utilization (for latency).
+                        + ":use_elf_symbolizer=1"       // Symbolize.
+                        + ":compress=1"                 // Compress output.
+                        + ":dropbox=0";                 // Do not use Dropbox.
+
+                // TODO: Add intercept to stop on IDLE.
+                config += ":sample_duration=3";         // At most three seconds of sampling.
+                mProfileStartupOf = null;
+
+                perfprofd.startProfilingString(config);
+
+                // TODO: Consider a callback scheme.
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException ignored) {
+                }
+            } else {
+                Slog.w(TAG, "Could not find perfprofd");
+            }
+        } catch (RuntimeException | RemoteException e) {
+            Slog.e(TAG, "Cannot start profiling", e);
+        }
+    }
+
     private final void startProcessLocked(ProcessRecord app, String hostingType,
             String hostingNameStr, boolean disableHiddenApiChecks, String abiOverride,
             String entryPoint, String[] entryPointArgs) {
@@ -3850,6 +3895,15 @@ public class ActivityManagerService extends IActivityManager.Stub
             }
             checkTime(startTime, "startProcess: done removing from pids map");
             app.setPid(0);
+        }
+
+        String requiredAbi = (abiOverride != null) ? abiOverride : app.info.primaryCpuAbi;
+        if (requiredAbi == null) {
+            requiredAbi = Build.SUPPORTED_ABIS[0];
+        }
+
+        if (mProfileStartupOf != null && mProfileStartupOf.equals(app.processName)) {
+            tryStartStartupProfiling(requiredAbi);
         }
 
         if (DEBUG_PROCESSES && mProcessesOnHold.contains(app)) Slog.v(TAG_PROCESSES,
@@ -3983,11 +4037,6 @@ public class ActivityManagerService extends IActivityManager.Stub
                 } finally {
                     StrictMode.setThreadPolicy(oldPolicy);
                 }
-            }
-
-            String requiredAbi = (abiOverride != null) ? abiOverride : app.info.primaryCpuAbi;
-            if (requiredAbi == null) {
-                requiredAbi = Build.SUPPORTED_ABIS[0];
             }
 
             String instructionSet = null;
@@ -12876,6 +12925,12 @@ public class ActivityManagerService extends IActivityManager.Stub
             }
         }
         mNativeDebuggingApp = processName;
+    }
+
+    void setProfileStartupOfLocked(String processName) {
+        if (RoSystemProperties.DEBUGGABLE) {
+            mProfileStartupOf = processName;
+        }
     }
 
     @Override

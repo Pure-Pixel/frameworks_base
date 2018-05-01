@@ -1276,6 +1276,10 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
                     mService.setNativeDebuggingAppLocked(aInfo.applicationInfo, aInfo.processName);
                 }
 
+                if ((startFlags & ActivityManager.START_FLAG_PROFILE_STARTUP) != 0) {
+                    mService.setProfileStartupOfLocked(aInfo.processName);
+                }
+
                 if ((startFlags & ActivityManager.START_FLAG_TRACK_ALLOCATION) != 0) {
                     mService.setTrackAllocationApp(aInfo.applicationInfo, aInfo.processName);
                 }

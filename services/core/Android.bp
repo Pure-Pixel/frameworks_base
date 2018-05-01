@@ -12,6 +12,7 @@ java_library_static {
         ":netd_aidl",
         ":netd_metrics_aidl",
         ":installd_aidl",
+        ":perfprofd_aidl",
         "java/com/android/server/EventLogTags.logtags",
         "java/com/android/server/am/EventLogTags.logtags",
     ],

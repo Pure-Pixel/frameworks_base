@@ -397,6 +397,13 @@ public class ActivityManager {
     public static final int START_FLAG_NATIVE_DEBUGGING = 1<<3;
 
     /**
+     * Flag for IActivityManaqer.startActivity: launch the app and
+     * collect a startup profile.
+     * @hide
+     */
+    public static final int START_FLAG_PROFILE_STARTUP = 1 << 4;
+
+    /**
      * Result for IActivityManaqer.broadcastIntent: success!
      * @hide
      */
