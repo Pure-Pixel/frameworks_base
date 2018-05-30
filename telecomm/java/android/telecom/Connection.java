@@ -37,6 +37,7 @@ import android.os.Message;
 import android.os.ParcelFileDescriptor;
 import android.os.RemoteException;
 import android.os.SystemClock;
+import android.telephony.ServiceState;
 import android.util.ArraySet;
 import android.view.Surface;
 
@@ -1714,6 +1715,14 @@ public abstract class Connection extends Conferenceable {
     private boolean mAudioModeIsVoip;
     private long mConnectTimeMillis = Conference.CONNECT_TIME_NOT_SPECIFIED;
     private long mConnectElapsedTimeMillis = Conference.CONNECT_TIME_NOT_SPECIFIED;
+    /**
+     * Determines the call radio technology for current connection.
+     *
+     * This is used to propagate the call radio technology extra
+     * {@link android.telecom.TelecomManager#EXTRA_CALL_NETWORK_TYPE} to upper layer.
+     */
+    private @ServiceState.RilRadioTechnology int mCallRadioTech =
+            ServiceState.RIL_RADIO_TECHNOLOGY_UNKNOWN;
     private StatusHints mStatusHints;
     private int mVideoState;
     private DisconnectCause mDisconnectCause;
@@ -1871,6 +1880,18 @@ public abstract class Connection extends Conferenceable {
      */
     public final long getConnectElapsedTimeMillis() {
         return mConnectElapsedTimeMillis;
+    }
+
+    /**
+     * Returns RIL voice radio technology used for current connection.
+     *
+     * @return the RIL voice radio technology used for current connection,
+     *         see {@code RIL_RADIO_TECHNOLOGY_*} in {@link android.telephony.ServiceState}.
+     *
+     * @hide
+     */
+    public final @ServiceState.RilRadioTechnology int getCallRadioTech() {
+        return mCallRadioTech;
     }
 
     /**
@@ -2304,6 +2325,30 @@ public abstract class Connection extends Conferenceable {
      */
     public final void setConnectionStartElapsedRealTime(long connectElapsedTimeMillis) {
         mConnectElapsedTimeMillis = connectElapsedTimeMillis;
+    }
+
+    /**
+     * Sets RIL voice radio technology used for current connection.
+     *
+     * @param vrat the RIL Voice Radio Technology used for current connection,
+     *             see {@code RIL_RADIO_TECHNOLOGY_*} in {@link android.telephony.ServiceState}.
+     *
+     * @hide
+     */
+    public final void setCallRadioTech(@ServiceState.RilRadioTechnology int vrat) {
+        if (mCallRadioTech == vrat) {
+            return;
+        }
+        mCallRadioTech = vrat;
+        putExtra(TelecomManager.EXTRA_CALL_NETWORK_TYPE,
+                ServiceState.rilRadioTechnologyToNetworkType(mCallRadioTech));
+        // Propagates the call radio technology to its parent {@link android.telecom.Conference}
+        // This action only covers non-IMS CS conference calls.
+        // For IMS PS call conference call, it can be updated via its host connection
+        // {@link #Listener.onExtrasChanged} event.
+        if (getConference() != null) {
+            getConference().setCallRadioTech(vrat);
+        }
     }
 
     /**

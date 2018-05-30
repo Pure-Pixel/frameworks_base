@@ -22,6 +22,7 @@ import android.annotation.SystemApi;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.telecom.Connection.VideoProvider;
+import android.telephony.ServiceState;
 import android.util.ArraySet;
 
 import java.util.ArrayList;
@@ -82,6 +83,14 @@ public abstract class Conference extends Conferenceable {
     private String mDisconnectMessage;
     private long mConnectTimeMillis = CONNECT_TIME_NOT_SPECIFIED;
     private long mConnectionStartElapsedRealTime = CONNECT_TIME_NOT_SPECIFIED;
+    /**
+     * Determines the call radio technology for current conference.
+     *
+     * This is used to propagate the call radio technology extra
+     * {@link android.telecom.TelecomManager#EXTRA_CALL_NETWORK_TYPE} to upper layer.
+     */
+    private @ServiceState.RilRadioTechnology int mCallRadioTech =
+            ServiceState.RIL_RADIO_TECHNOLOGY_UNKNOWN;
     private StatusHints mStatusHints;
     private Bundle mExtras;
     private Set<String> mPreviousExtraKeys;
@@ -573,6 +582,20 @@ public abstract class Conference extends Conferenceable {
     }
 
     /**
+     * Updates RIL voice radio technology used for current conference after its creation.
+     *
+     * @hide
+     */
+    public void updateCallRadioTechAfterCreation() {
+        final Connection primaryConnection = getPrimaryConnection();
+        if (primaryConnection != null) {
+            setCallRadioTech(primaryConnection.getCallRadioTech());
+        } else {
+            Log.w(this, "No primary connection found while updateCallRadioTechAfterCreation");
+        }
+    }
+
+    /**
      * @hide
      * @deprecated Use {@link #setConnectionTime}.
      */
@@ -649,6 +672,35 @@ public abstract class Conference extends Conferenceable {
      */
     public final long getConnectionStartElapsedRealTime() {
         return mConnectionStartElapsedRealTime;
+    }
+
+    /**
+     * Sets RIL voice radio technology used for current conference.
+     *
+     * @param vrat the RIL voice radio technology used for current conference,
+     *             see {@code RIL_RADIO_TECHNOLOGY_*} in {@link android.telephony.ServiceState}.
+     *
+     * @hide
+     */
+    public final void setCallRadioTech(@ServiceState.RilRadioTechnology int vrat) {
+        if (mCallRadioTech == vrat) {
+            return;
+        }
+        mCallRadioTech = vrat;
+        putExtra(TelecomManager.EXTRA_CALL_NETWORK_TYPE,
+                ServiceState.rilRadioTechnologyToNetworkType(mCallRadioTech));
+    }
+
+    /**
+     * Returns RIL voice radio technology used for current conference.
+     *
+     * @return the RIL voice radio technology used for current conference,
+     *         see {@code RIL_RADIO_TECHNOLOGY_*} in {@link android.telephony.ServiceState}.
+     *
+     * @hide
+     */
+    public final @ServiceState.RilRadioTechnology int getCallRadioTech() {
+        return mCallRadioTech;
     }
 
     /**
