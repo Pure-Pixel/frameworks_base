@@ -685,6 +685,7 @@ class PackageManagerShellCommand extends ShellCommand {
         int getFlags = 0;
         boolean listDisabled = false, listEnabled = false;
         boolean listSystem = false, listThirdParty = false;
+        boolean listAll = false;
         boolean listInstaller = false;
         boolean showUid = false;
         boolean showVersionCode = false;
@@ -699,6 +700,9 @@ class PackageManagerShellCommand extends ShellCommand {
                         break;
                     case "-e":
                         listEnabled = true;
+                        break;
+                    case "-a":
+                        getFlags |= PackageManager.MATCH_KNOWN_PACKAGES;
                         break;
                     case "-f":
                         showSourceDir = true;
@@ -1703,6 +1707,7 @@ class PackageManagerShellCommand extends ShellCommand {
         pw.println("    the text in FILTER.");
         pw.println("    Options:");
         pw.println("      -f: see their associated file");
+        pw.println("      -a: all known packages");
         pw.println("      -d: filter to only show disabled packages");
         pw.println("      -e: filter to only show enabled packages");
         pw.println("      -s: filter to only show system packages");
