@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77614d91_fa48fa12",
+        "filename": "media/java/android/media/ExifInterface.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3708,
+      "author": {
+        "id": 1339423
+      },
+      "writtenOn": "2018-07-10T10:30:55Z",
+      "side": 1,
+      "message": "Instead of creating a new method, could you call seek(0) instead?",
+      "range": {
+        "startLine": 3704,
+        "startChar": 0,
+        "endLine": 3708,
+        "endChar": 9
+      },
+      "revId": "feba895c32c500966cbe6acf202a3250d1c0cc65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
