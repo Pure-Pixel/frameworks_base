@@ -37,7 +37,7 @@ import android.content.pm.PackageManagerInternal;
 import android.content.pm.UserInfo;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.support.test.filters.SmallTest;
+import androidx.test.filters.SmallTest;
 import android.testing.DexmakerShareClassLoaderRule;
 
 import com.android.internal.app.SuspendedAppActivity;
