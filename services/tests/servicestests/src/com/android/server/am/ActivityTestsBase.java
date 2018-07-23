@@ -49,9 +49,9 @@ import android.hardware.display.DisplayManager;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.service.voice.IVoiceInteractionSession;
-import android.support.test.InstrumentationRegistry;
 import android.testing.DexmakerShareClassLoaderRule;
 
+import androidx.test.InstrumentationRegistry;
 
 import com.android.internal.app.IVoiceInteractor;
 
@@ -65,7 +65,6 @@ import com.android.server.wm.WindowTestUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.mockito.MockitoAnnotations;
-
 
 /**
  * A base class to handle common operations in activity related unit tests.
