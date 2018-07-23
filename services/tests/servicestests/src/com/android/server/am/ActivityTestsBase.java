@@ -49,9 +49,9 @@ import android.hardware.display.DisplayManager;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.service.voice.IVoiceInteractionSession;
-import android.support.test.InstrumentationRegistry;
 import android.testing.DexmakerShareClassLoaderRule;
 
+import androidx.test.InstrumentationRegistry;
 
 import com.android.internal.app.IVoiceInteractor;
 
