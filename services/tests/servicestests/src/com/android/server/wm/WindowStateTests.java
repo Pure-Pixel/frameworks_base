@@ -16,17 +16,6 @@
 
 package com.android.server.wm;
 
-import android.view.WindowManager;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import android.platform.test.annotations.Presubmit;
-import android.support.test.filters.FlakyTest;
-import android.support.test.filters.SmallTest;
-import android.support.test.runner.AndroidJUnit4;
-
-import java.util.LinkedList;
-
 import static android.app.WindowConfiguration.ACTIVITY_TYPE_STANDARD;
 import static android.app.WindowConfiguration.WINDOWING_MODE_FULLSCREEN;
 import static android.view.WindowManager.LayoutParams.FIRST_SUB_WINDOW;
@@ -54,6 +43,19 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
+
+import android.graphics.Rect;
+import android.platform.test.annotations.Presubmit;
+import android.view.WindowManager;
+
+import androidx.test.filters.FlakyTest;
+import androidx.test.filters.SmallTest;
+import androidx.test.runner.AndroidJUnit4;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import java.util.LinkedList;
 
 /**
  * Tests for the {@link WindowState} class.
