@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea7c64d8_8b429396",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3219,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2018-07-26T10:02:09Z",
+      "side": 1,
+      "message": "Why keep timeoutMs at all ? It looks to me like it just was forgotten when we switched to the constant. Is there any particular condition in this test where 200 is not enough maybe ?",
+      "range": {
+        "startLine": 3219,
+        "startChar": 16,
+        "endLine": 3219,
+        "endChar": 52
+      },
+      "revId": "cb076e7cce5fe7b7c11de359e37cb012c1fced84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "600a4173_eaca77bf",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3240,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2018-07-26T10:02:09Z",
+      "side": 1,
+      "message": "Same question, why not just use TEST_CALLBACK_TIMEOUT_MS here ?",
+      "range": {
+        "startLine": 3240,
+        "startChar": 82,
+        "endLine": 3240,
+        "endChar": 97
+      },
+      "revId": "cb076e7cce5fe7b7c11de359e37cb012c1fced84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
