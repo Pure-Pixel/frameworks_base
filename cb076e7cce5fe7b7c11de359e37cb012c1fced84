@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "655b9374_ba9ea532",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3219,
+      "author": {
+        "id": 1288034
+      },
+      "writtenOn": "2018-07-27T02:50:37Z",
+      "side": 1,
+      "message": "My logic was: timeoutMs is the timeout for mWifiNetworkAgent.connect() to register a new network in ConnectivityService, and TEST_CALLBACK_TIMEOUT_MS is our timeout for ConnectivityService to trigger a callbacks in our test. So in total we should wait for timeoutMs + TEST_CALLBACK_TIMEOUT_MS for the whole process.\n\nBut looking closer that does not seem consistent with some other usages in this class, so changed to TEST_CALLBACK_TIMEOUT_MS as advised.",
+      "parentUuid": "ea7c64d8_8b429396",
+      "range": {
+        "startLine": 3219,
+        "startChar": 16,
+        "endLine": 3219,
+        "endChar": 52
+      },
+      "revId": "cb076e7cce5fe7b7c11de359e37cb012c1fced84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "600a4173_eaca77bf",
         "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "cb076e7cce5fe7b7c11de359e37cb012c1fced84",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a5ebdb1_e82b6edc",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3240,
+      "author": {
+        "id": 1288034
+      },
+      "writtenOn": "2018-07-27T02:50:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "600a4173_eaca77bf",
+      "range": {
+        "startLine": 3240,
+        "startChar": 82,
+        "endLine": 3240,
+        "endChar": 97
+      },
+      "revId": "cb076e7cce5fe7b7c11de359e37cb012c1fced84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
