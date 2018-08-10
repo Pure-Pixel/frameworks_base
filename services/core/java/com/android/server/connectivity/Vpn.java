@@ -683,7 +683,7 @@ public class Vpn {
         }
 
         // Check that the caller is authorized.
-        enforceControlPermission();
+        enforceControlPermissionOrInternalCaller();
 
         // Stop an existing always-on VPN from being dethroned by other apps.
         if (mAlwaysOn && !isCurrentPreparedPackage(newPackage)) {
@@ -1382,7 +1382,7 @@ public class Vpn {
      * Return the configuration of the currently running VPN.
      */
     public VpnConfig getVpnConfig() {
-        enforceControlPermission();
+        enforceControlPermissionOrInternalCaller();
         return mConfig;
     }
 
@@ -1425,10 +1425,6 @@ public class Vpn {
             }
         }
     };
-
-    private void enforceControlPermission() {
-        mContext.enforceCallingPermission(Manifest.permission.CONTROL_VPN, "Unauthorized Caller");
-    }
 
     private void enforceControlPermissionOrInternalCaller() {
         // Require the caller to be either an application with CONTROL_VPN permission or a process
@@ -1671,7 +1667,7 @@ public class Vpn {
      * permission check only when the caller is trusted (or the call is initiated by the system).
      */
     public void startLegacyVpn(VpnProfile profile, KeyStore keyStore, LinkProperties egress) {
-        enforceControlPermission();
+        enforceControlPermissionOrInternalCaller();
         long token = Binder.clearCallingIdentity();
         try {
             startLegacyVpnPrivileged(profile, keyStore, egress);
@@ -1825,7 +1821,7 @@ public class Vpn {
      */
     public synchronized LegacyVpnInfo getLegacyVpnInfo() {
         // Check if the caller is authorized.
-        enforceControlPermission();
+        enforceControlPermissionOrInternalCaller();
         return getLegacyVpnInfoPrivileged();
     }
 
