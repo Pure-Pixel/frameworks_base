@@ -77,6 +77,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.INetworkActivityListener;
 import android.os.INetworkManagementService;
+import android.os.Message;
 import android.os.PersistableBundle;
 import android.os.PowerManager;
 import android.os.Process;
@@ -94,6 +95,7 @@ import android.telephony.PhoneStateListener;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.DataUnit;
 import android.util.Log;
 import android.util.Slog;
 import android.util.SparseBooleanArray;
@@ -217,7 +219,20 @@ public class NetworkManagementService extends INetworkManagementService.Stub
      */
     static final String SOFT_AP_COMMAND_SUCCESS = "Ok";
 
-    static final int DAEMON_MSG_MOBILE_CONN_REAL_TIME_INFO = 1;
+    private static final int DAEMON_MSG_SCHEDULE_GLOBAL_ALERT = 1;
+
+    /**
+     * When global alert quota is high, wait for this delay before processing each callback,
+     * and do not schedule further callbacks once there is already one queued.
+     * This avoids firing the global alert too often on devices with high transfer speeds and
+     * high quota.
+     */
+    private static final long GLOBAL_ALERT_HIGH_QUOTA_DELAY_MS = 1_000;
+
+    // With the current quota set by NetworkPolicyManagerService, 1MB alert threshold corresponds
+    // to 1GB remaining quota.
+    // TODO: refactor quota calculation to avoid depending on implementation of NPMS
+    private static final long GLOBAL_ALERT_HIGH_QUOTA_BYTES = DataUnit.MEBIBYTES.toBytes(1);
 
     /**
      * Binder context for this service
@@ -314,6 +329,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
         }
     }
     private HashMap<String, IdleTimerParams> mActiveIdleTimers = Maps.newHashMap();
+    private volatile boolean mIsHighGlobalAlertQuota;
 
     private volatile boolean mBandwidthControlEnabled;
     private volatile boolean mFirewallEnabled;
@@ -352,7 +368,11 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                 FgThread.get().getLooper());
         mThread = new Thread(mConnector, NETD_TAG);
 
-        mDaemonHandler = new Handler(FgThread.get().getLooper());
+        mDaemonHandler = new Handler(FgThread.get().getLooper(), msg -> {
+            if (msg.what != DAEMON_MSG_SCHEDULE_GLOBAL_ALERT) return false;
+            notifyLimitReached(LIMIT_GLOBAL_ALERT, (String) msg.obj);
+            return true;
+        });
 
         // Add ourself to the Watchdog monitors.
         Watchdog.getInstance().addMonitor(this);
@@ -480,6 +500,31 @@ public class NetworkManagementService extends INetworkManagementService.Stub
         mActiveQuotas.remove(iface);
 
         invokeForAllObservers(o -> o.interfaceRemoved(iface));
+    }
+
+    /**
+     * Schedule a call to notifyLimitReached for {@link #LIMIT_GLOBAL_ALERT}.
+     *
+     * <p>Must be called on the {@link #mDaemonHandler} thread.
+     *
+     * <p>notifyLimitReached will be run immediately if the global alert quota is less than
+     * {@link #GLOBAL_ALERT_HIGH_QUOTA_BYTES}, or after {@link #GLOBAL_ALERT_HIGH_QUOTA_DELAY_MS} if
+     * it is more than or equal to that value, and there is no callback already pending.
+     */
+    private void scheduleNotifyGlobalAlertReached(@NonNull String ifaceName) {
+        final String iface = ifaceName.intern();
+        if (!mIsHighGlobalAlertQuota) {
+            // Not high quota: notify immediately. There may already be a callback scheduled, but
+            // calling it twice is fine.
+            notifyLimitReached(LIMIT_GLOBAL_ALERT, iface);
+            return;
+        }
+
+        // Do not schedule again if there is already a message pending for this interface.
+        if (!mDaemonHandler.hasMessages(DAEMON_MSG_SCHEDULE_GLOBAL_ALERT, iface)) {
+            final Message m = mDaemonHandler.obtainMessage(DAEMON_MSG_SCHEDULE_GLOBAL_ALERT, iface);
+            mDaemonHandler.sendMessageDelayed(m, GLOBAL_ALERT_HIGH_QUOTA_DELAY_MS);
+        }
     }
 
     /**
@@ -833,6 +878,11 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                         throw new IllegalStateException(errorMessage);
                     }
                     if (cooked[2].equals("alert")) {
+                        if (LIMIT_GLOBAL_ALERT.equals(cooked[3])) {
+                            scheduleNotifyGlobalAlertReached(cooked[4]);
+                        } else {
+                            notifyLimitReached(cooked[3], cooked[4]);
+                        }
                         notifyLimitReached(cooked[3], cooked[4]);
                         return true;
                     }
@@ -1695,6 +1745,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
         // TODO: eventually migrate to be always enabled
         if (!mBandwidthControlEnabled) return;
 
+        mIsHighGlobalAlertQuota = alertBytes >= GLOBAL_ALERT_HIGH_QUOTA_BYTES;
         try {
             mConnector.execute("bandwidth", "setglobalalert", alertBytes);
         } catch (NativeDaemonConnectorException e) {
