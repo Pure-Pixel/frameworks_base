@@ -121,6 +121,7 @@ import android.telephony.TelephonyManager;
 import android.text.format.DateUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
+import android.util.DataUnit;
 import android.util.EventLog;
 import android.util.Log;
 import android.util.MathUtils;
@@ -159,14 +160,26 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
     static final boolean LOGD = Log.isLoggable(TAG, Log.DEBUG);
     static final boolean LOGV = Log.isLoggable(TAG, Log.VERBOSE);
 
-    private static final int MSG_PERFORM_POLL = 1;
-    private static final int MSG_REGISTER_GLOBAL_ALERT = 2;
+    private static final int MSG_PERFORM_POLL_PERSIST_ALL = 1;
+    private static final int MSG_PERFORM_POLL_REGISTER_ALERT = 2;
 
     /** Flags to control detail level of poll event. */
     private static final int FLAG_PERSIST_NETWORK = 0x1;
     private static final int FLAG_PERSIST_UID = 0x2;
     private static final int FLAG_PERSIST_ALL = FLAG_PERSIST_NETWORK | FLAG_PERSIST_UID;
     private static final int FLAG_PERSIST_FORCE = 0x100;
+
+    /**
+     * When global alert quota is high, wait for this delay before processing each callback,
+     * and do not schedule further callbacks once there is already one queued.
+     * This avoids firing the global alert too often on devices with high transfer speeds and
+     * high quota.
+     */
+    private static final int PERFORM_POLL_DELAY_MS = 1000;
+    // With the current quota set by NetworkPolicyManagerService, 1MB alert threshold corresponds
+    // to 1GB remaining quota.
+    // TODO: refactor quota calculation to avoid depending on implementation of NPMS
+    private static final long GLOBAL_ALERT_HIGH_QUOTA_BYTES = DataUnit.MEBIBYTES.toBytes(1);
 
     private static final String TAG_NETSTATS_ERROR = "netstats_error";
 
@@ -920,7 +933,7 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
         }
 
         // Create baseline stats
-        mHandler.sendMessage(mHandler.obtainMessage(MSG_PERFORM_POLL, FLAG_PERSIST_ALL));
+        mHandler.sendMessage(mHandler.obtainMessage(MSG_PERFORM_POLL_PERSIST_ALL));
 
         return normalizedRequest;
    }
@@ -1055,16 +1068,24 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
             mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
 
             if (LIMIT_GLOBAL_ALERT.equals(limitName)) {
-                // kick off background poll to collect network stats; UID stats
-                // are handled during normal polling interval.
-                final int flags = FLAG_PERSIST_NETWORK;
-                mHandler.obtainMessage(MSG_PERFORM_POLL, flags, 0).sendToTarget();
-
-                // re-arm global alert for next update
-                mHandler.obtainMessage(MSG_REGISTER_GLOBAL_ALERT).sendToTarget();
+                // kick off background poll to collect network stats unless there is already
+                // such a call pending; UID stats are handled during normal polling interval.
+                if (!mHandler.hasMessages(MSG_PERFORM_POLL_REGISTER_ALERT)) {
+                    final Message msg = mHandler.obtainMessage(MSG_PERFORM_POLL_REGISTER_ALERT);
+                    if (isHighAlertQuota()) {
+                        mHandler.sendMessageDelayed(msg, PERFORM_POLL_DELAY_MS);
+                    } else {
+                        // If the alert quota is low, send the message immediately.
+                        mHandler.sendMessage(msg);
+                    }
+                }
             }
         }
     };
+
+    private boolean isHighAlertQuota() {
+        return mGlobalAlertBytes > GLOBAL_ALERT_HIGH_QUOTA_BYTES;
+    }
 
     private void updateIfaces(Network[] defaultNetworks) {
         synchronized (mStatsLock) {
@@ -1672,12 +1693,12 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
         @Override
         public boolean handleMessage(Message msg) {
             switch (msg.what) {
-                case MSG_PERFORM_POLL: {
-                    final int flags = msg.arg1;
-                    mService.performPoll(flags);
+                case MSG_PERFORM_POLL_PERSIST_ALL: {
+                    mService.performPoll(FLAG_PERSIST_ALL);
                     return true;
                 }
-                case MSG_REGISTER_GLOBAL_ALERT: {
+                case MSG_PERFORM_POLL_REGISTER_ALERT: {
+                    mService.performPoll(FLAG_PERSIST_NETWORK);
                     mService.registerGlobalAlert();
                     return true;
                 }
