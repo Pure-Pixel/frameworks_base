@@ -57,6 +57,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.INetd;
+import android.net.INetdUnsolicitedEventCallback;
 import android.net.INetworkManagementEventObserver;
 import android.net.ITetheringStatsProvider;
 import android.net.InterfaceConfiguration;
@@ -108,6 +109,7 @@ import com.android.internal.util.HexDump;
 import com.android.internal.util.Preconditions;
 import com.android.server.NativeDaemonConnector.Command;
 import com.android.server.NativeDaemonConnector.SensitiveArg;
+import com.android.server.net.BaseNetdUnsolicitedEventCallback;
 import com.google.android.collect.Maps;
 
 import java.io.BufferedReader;
@@ -236,6 +238,9 @@ public class NetworkManagementService extends INetworkManagementService.Stub
 
     private INetd mNetdService;
 
+    @VisibleForTesting
+    NetdUnsolicitedEventListenerService mNetdListener;
+
     private IBatteryStats mBatteryStats;
 
     private final Thread mThread;
@@ -353,7 +358,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
         mThread = new Thread(mConnector, NETD_TAG);
 
         mDaemonHandler = new Handler(FgThread.get().getLooper());
-
+        mNetdListener = new NetdUnsolicitedEventListenerService(context);
         // Add ourself to the Watchdog monitors.
         Watchdog.getInstance().addMonitor(this);
 
@@ -395,6 +400,12 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     }
 
     public void systemReady() {
+        try {
+            ServiceManager.addService(mNetdListener.SERVICE_NAME, mNetdListener);
+        } catch (Exception e) {
+            Slog.d(TAG, "Netd event service adding failed " + e);
+        }
+        registerNetdEventCallback();
         if (DBG) {
             final long start = System.currentTimeMillis();
             prepareNativeDaemon();
@@ -403,6 +414,111 @@ public class NetworkManagementService extends INetworkManagementService.Stub
             return;
         } else {
             prepareNativeDaemon();
+        }
+    }
+
+    @VisibleForTesting
+    protected final INetdUnsolicitedEventCallback mNetdEventCallback = new
+            BaseNetdUnsolicitedEventCallback() {
+        @Override
+        public void onInterfaceClassActivityEvent(boolean isActive,
+                String name, long timestamp , int uid) {
+            long timestampNanos = 0;
+            if (timestamp == 0) {
+                timestampNanos = SystemClock.elapsedRealtimeNanos();
+            } else {
+                timestampNanos = timestamp;
+            }
+            notifyInterfaceClassActivity(Integer.parseInt(name),
+                    isActive ? DataConnectionRealTimeInfo.DC_POWER_STATE_HIGH
+                    : DataConnectionRealTimeInfo.DC_POWER_STATE_LOW,
+                    timestampNanos, uid, false);
+        }
+
+        @Override
+        public void onQuotaLimitEvent(String alertName,  String ifName) {
+            notifyLimitReached(alertName, ifName);
+        }
+
+        @Override
+        public void onInterfaceDnsServersEvent(String ifName, long lifetime, String[] servers) {
+            notifyInterfaceDnsServerInfo(ifName, lifetime, servers);
+        }
+
+        @Override
+        public void onInterfaceAddressChangeEvent(boolean updated,
+                String addr, String ifName, int flags, int scope) {
+            LinkAddress address;
+            try {
+                address = new LinkAddress(addr, flags, scope);
+            } catch (IllegalArgumentException e) {
+                // Malformed/invalid IP address.
+                throw new IllegalStateException(e);
+            }
+
+            if (updated) {
+                notifyAddressUpdated(ifName, address);
+            } else {
+                notifyAddressRemoved(ifName, address);
+            }
+        }
+
+        @Override
+        public void onInterfaceAddEvent(String ifName) {
+            notifyInterfaceAdded(ifName);
+        }
+
+        @Override
+        public void onInterfaceRemoveEvent(String ifName) {
+            notifyInterfaceRemoved(ifName);
+        }
+
+        @Override
+        public void onInterfaceChangedEvent(String ifName, boolean status) {
+            notifyInterfaceStatusChanged(ifName, status);
+        }
+
+        @Override
+        public void onInterfaceLinkStatusEvent(String ifName, boolean status) {
+            notifyInterfaceLinkStateChanged(ifName, status);
+        }
+
+        @Override
+        public void onRouteChangeEvent(boolean updated,
+                String route, String gateway, String ifName) {
+            try {
+                InetAddress parsedGateway = null;
+                parsedGateway = InetAddress.parseNumericAddress(gateway);
+                RouteInfo processRoute = new RouteInfo(new IpPrefix(route), parsedGateway, ifName);
+                notifyRouteChange(updated, processRoute);
+            } catch (IllegalArgumentException e) {
+                throw new IllegalStateException(e);
+            }
+        }
+
+        @Override
+        public void onStrictCleartextEvent(int uid, String hex) {
+            final byte[] firstPacket = HexDump.hexStringToByteArray(hex);
+            try {
+                ActivityManager.getService().notifyCleartextNetwork(uid, firstPacket);
+            } catch (RemoteException e) {
+                Log.wtf(TAG, "Error notifyCleartextNetwork", e);
+            }
+        }
+    };
+
+    @VisibleForTesting
+    protected void registerNetdEventCallback() {
+        if (mNetdListener == null) {
+            log.wtf(TAG, "Missing mNetdListener");
+            return;
+        }
+        try {
+            mNetdListener.addNetdUnsolicitedEventCallback(
+                    INetdUnsolicitedEventCallback.CALLBACK_CALLER_NETWORKMANAGEMENT_SERVICE,
+                    mNetdEventCallback);
+        } catch (Exception e) {
+            Log.wtf(TAG, "Error registering netd callback: ", e);
         }
     }
 
@@ -754,8 +870,8 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     /**
      * Notify our observers of a route change.
      */
-    private void notifyRouteChange(String action, RouteInfo route) {
-        if (action.equals("updated")) {
+    private void notifyRouteChange(boolean updated, RouteInfo route) {
+        if (updated) {
             invokeForAllObservers(o -> o.routeUpdated(route));
         } else {
             invokeForAllObservers(o -> o.routeRemoved(route));
@@ -946,10 +1062,11 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                     if (valid) {
                         try {
                             // InetAddress.parseNumericAddress(null) inexplicably returns ::1.
+                            boolean updated = cooked[2].equals("updated");
                             InetAddress gateway = null;
                             if (via != null) gateway = InetAddress.parseNumericAddress(via);
                             RouteInfo route = new RouteInfo(new IpPrefix(cooked[3]), gateway, dev);
-                            notifyRouteChange(cooked[2], route);
+                            notifyRouteChange(updated, route);
                             return true;
                         } catch (IllegalArgumentException e) {}
                     }
