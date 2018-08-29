@@ -13,6 +13,7 @@ java_library_static {
         "java/**/*.java",
         ":netd_aidl",
         ":netd_metrics_aidl",
+        ":netd_events_aidl",
         ":installd_aidl",
         ":storaged_aidl",
         ":vold_aidl",

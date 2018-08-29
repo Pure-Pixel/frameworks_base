@@ -57,6 +57,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.INetd;
+import android.net.INetdUnsolicitedEventCallback;
 import android.net.INetworkManagementEventObserver;
 import android.net.ITetheringStatsProvider;
 import android.net.InterfaceConfiguration;
@@ -108,6 +109,7 @@ import com.android.internal.util.HexDump;
 import com.android.internal.util.Preconditions;
 import com.android.server.NativeDaemonConnector.Command;
 import com.android.server.NativeDaemonConnector.SensitiveArg;
+import com.android.server.net.BaseNetdUnsolicitedEventCallback;
 import com.google.android.collect.Maps;
 
 import java.io.BufferedReader;
@@ -236,6 +238,9 @@ public class NetworkManagementService extends INetworkManagementService.Stub
 
     private INetd mNetdService;
 
+    @VisibleForTesting
+    NetdUnsolicitedEventListenerService mNetdListener;
+
     private IBatteryStats mBatteryStats;
 
     private final Thread mThread;
@@ -353,7 +358,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
         mThread = new Thread(mConnector, NETD_TAG);
 
         mDaemonHandler = new Handler(FgThread.get().getLooper());
-
+        mNetdListener = new NetdUnsolicitedEventListenerService(context);
         // Add ourself to the Watchdog monitors.
         Watchdog.getInstance().addMonitor(this);
 
@@ -387,6 +392,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
         if (DBG) Slog.d(TAG, "Connecting native netd service");
         service.connectNativeNetdService();
         if (DBG) Slog.d(TAG, "Connected");
+
         return service;
     }
 
@@ -395,6 +401,13 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     }
 
     public void systemReady() {
+        try {
+            ServiceManager.addService(mNetdListener.SERVICE_NAME, mNetdListener);
+        }
+        catch (Exception e) {
+            Slog.d(TAG, "luke5566 er"+ e);
+        }
+        registerNetdEventCallback();
         if (DBG) {
             final long start = System.currentTimeMillis();
             prepareNativeDaemon();
@@ -403,6 +416,115 @@ public class NetworkManagementService extends INetworkManagementService.Stub
             return;
         } else {
             prepareNativeDaemon();
+        }
+    }
+
+    @VisibleForTesting
+    protected final INetdUnsolicitedEventCallback mNetdEventCallback = new BaseNetdUnsolicitedEventCallback() {
+        @Override
+        public void onInterfaceClassActivityEvent(boolean isActive, String name, long timestamp , int uid) {
+            Slog.e(TAG, "luke 5566 onInterfaceClassActivityEvent "+isActive + " name:"+name + " timestamp:"+timestamp + " uid:"+uid);
+            long timestampNanos = 0;
+            if (timestamp == 0) {
+                timestampNanos = SystemClock.elapsedRealtimeNanos();
+            } else {
+                timestampNanos = timestamp;
+            }
+            notifyInterfaceClassActivity(Integer.parseInt(name),
+            isActive ? DataConnectionRealTimeInfo.DC_POWER_STATE_HIGH
+            : DataConnectionRealTimeInfo.DC_POWER_STATE_LOW,
+            timestampNanos, uid, false);
+        }
+
+        @Override
+        public void onQuotaLimitEvent(String alertName,  String ifName) {
+            Slog.e(TAG, "luke 5566 onQuotaLimitEvent "+alertName + " ifName:"+ifName);
+            notifyLimitReached(alertName, ifName);
+        }
+
+        @Override
+        public void onInterfaceDnsServersEvent(String ifName, long lifetime, String[] servers) {
+            Slog.e(TAG, "luke 5566 onInterfaceDnsServersEvent "+ifName + " lifetime:"+lifetime +" servers:" +Arrays.toString(servers));
+            notifyInterfaceDnsServerInfo(ifName, lifetime, servers);
+        }
+
+        @Override
+        public void onInterfaceAddressChangeEvent(boolean updated, String addr, String ifName, int flags, int scope) {
+            Slog.e(TAG, "luke 5566 onInterfaceAddressChangeEvent "+updated + " addr:"+addr +" ifName:" +ifName +" flags:" +flags +" scope:" +scope);
+            LinkAddress address;
+            try {
+                address = new LinkAddress(addr, flags, scope);
+            } catch(IllegalArgumentException e) {  // Malformed/invalid IP address.
+                throw new IllegalStateException(e);
+            }
+
+            if (updated) {
+                notifyAddressUpdated(ifName, address);
+            } else {
+                notifyAddressRemoved(ifName, address);
+            }
+        }
+
+        @Override
+        public void onInterfaceAddEvent(String ifName) {
+            Slog.e(TAG, "luke 5566 onInterfaceAddEvent "+ifName );
+            notifyInterfaceAdded(ifName);
+        }
+
+        @Override
+        public void onInterfaceRemoveEvent(String ifName) {
+            Slog.e(TAG, "luke 5566 onInterfaceRemoveEvent "+ifName);
+            notifyInterfaceRemoved(ifName);
+        }
+
+        @Override
+        public void onInterfaceChangedEvent(String ifName, boolean status) {
+            Slog.e(TAG, "luke 5566 onInterfaceChangedEvent "+ifName + " status:"+status);
+            notifyInterfaceStatusChanged(ifName, status);
+        }
+
+        @Override
+        public void onInterfaceLinkStatusEvent(String ifName, boolean status) {
+            Slog.e(TAG, "luke 5566 onInterfaceLinkStatusEvent "+ifName + " status:"+status);
+            notifyInterfaceLinkStateChanged(ifName, status);
+        }
+
+        @Override
+        public void onRouteChangeEvent(boolean updated, String route, String gateway, String ifName) {
+            Slog.e(TAG, "luke 5566 onRouteChangeEvent "+updated + " route:"+route +" gateway:" +gateway +" ifName:" +ifName);
+            try {
+                // InetAddress.parseNumericAddress(null) inexplicably returns ::1.
+                InetAddress processGateway = null;
+                processGateway = InetAddress.parseNumericAddress(gateway);
+                RouteInfo processRoute = new RouteInfo(new IpPrefix(route), processGateway, ifName);
+                notifyRouteChange(updated, processRoute);
+            } catch (IllegalArgumentException e) {Slog.e(TAG, "luke 5566 onRouteChangeEvent error");}
+        }
+
+        @Override
+        public void onStrictCleartextEvent(int uid, String hex) {
+            Slog.e(TAG, "luke 5566 onStrictCleartextEvent "+uid + " hex:"+hex);
+            final byte[] firstPacket = HexDump.hexStringToByteArray(hex);
+            Slog.e(TAG, "luke 5566 onStrictCleartextEvent "+firstPacket);
+            try {
+                ActivityManager.getService().notifyCleartextNetwork(uid, firstPacket);
+            } catch (RemoteException ignored) {
+            }
+        }
+    };
+
+    @VisibleForTesting
+    protected void registerNetdEventCallback() {
+        if (mNetdListener == null) {
+            Slog.wtf(TAG, "Missing mNetdListener");
+            return;
+        }
+        try {
+            mNetdListener.addNetdUnsolicitedEventCallback(
+                    INetdUnsolicitedEventCallback.CALLBACK_CALLER_NETWORKMANAGEMENT_SERVICE,
+                    mNetdEventCallback);
+        } catch (Exception e) {
+            Log.wtf(TAG, "Error registering netd callback: ", e);
         }
     }
 
@@ -754,8 +876,8 @@ public class NetworkManagementService extends INetworkManagementService.Stub
     /**
      * Notify our observers of a route change.
      */
-    private void notifyRouteChange(String action, RouteInfo route) {
-        if (action.equals("updated")) {
+    private void notifyRouteChange(boolean updated, RouteInfo route) {
+        if (updated) {
             invokeForAllObservers(o -> o.routeUpdated(route));
         } else {
             invokeForAllObservers(o -> o.routeRemoved(route));
@@ -859,10 +981,11 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                         timestampNanos = SystemClock.elapsedRealtimeNanos();
                     }
                     boolean isActive = cooked[2].equals("active");
-                    notifyInterfaceClassActivity(Integer.parseInt(cooked[3]),
-                            isActive ? DataConnectionRealTimeInfo.DC_POWER_STATE_HIGH
-                            : DataConnectionRealTimeInfo.DC_POWER_STATE_LOW,
-                            timestampNanos, processUid, false);
+                    Slog.e(TAG, "luke 5566 onEvent InterfaceClassActivity timestamp:"+timestampNanos +" uid:"+processUid);
+                    // notifyInterfaceClassActivity(Integer.parseInt(cooked[3]),
+                    //         isActive ? DataConnectionRealTimeInfo.DC_POWER_STATE_HIGH
+                    //         : DataConnectionRealTimeInfo.DC_POWER_STATE_LOW,
+                    //         timestampNanos, processUid, false);
                     return true;
                     // break;
             case NetdResponseCode.InterfaceAddressChange:
@@ -949,7 +1072,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                             InetAddress gateway = null;
                             if (via != null) gateway = InetAddress.parseNumericAddress(via);
                             RouteInfo route = new RouteInfo(new IpPrefix(cooked[3]), gateway, dev);
-                            notifyRouteChange(cooked[2], route);
+                            //notifyRouteChange(cooked[2], route);
                             return true;
                         } catch (IllegalArgumentException e) {}
                     }
@@ -958,10 +1081,11 @@ public class NetworkManagementService extends INetworkManagementService.Stub
             case NetdResponseCode.StrictCleartext:
                 final int uid = Integer.parseInt(cooked[1]);
                 final byte[] firstPacket = HexDump.hexStringToByteArray(cooked[2]);
-                try {
-                    ActivityManager.getService().notifyCleartextNetwork(uid, firstPacket);
-                } catch (RemoteException ignored) {
-                }
+                Slog.e(TAG, "luke 5566 onEvent strict :"+firstPacket );
+                // try {
+                //     ActivityManager.getService().notifyCleartextNetwork(uid, firstPacket);
+                // } catch (RemoteException ignored) {
+                // }
                 break;
             default: break;
             }
