@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c8921b3a_4af54b7a",
+        "filename": "telecomm/java/android/telecom/Connection.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1724,
+      "author": {
+        "id": 1087703
+      },
+      "writtenOn": "2018-09-07T01:21:56Z",
+      "side": 1,
+      "message": "Do you need to keep this in both the android.telecom.Connection object and the com.android.internal.telephony.Connection object? It\u0027s only being used to set the extra and it\u0027s not being parceled to leave the phone process. Might as well keep it in com.android.internal.telephony.Connection only.\n\n(Similar question for Conference)",
+      "range": {
+        "startLine": 1724,
+        "startChar": 49,
+        "endLine": 1724,
+        "endChar": 63
+      },
+      "revId": "dbcdcd14e71b1113366e3e71b139c81916a18e99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fee46f6c_6de8d774",
         "filename": "telecomm/java/android/telecom/TelecomManager.java",
         "patchSetId": 1
