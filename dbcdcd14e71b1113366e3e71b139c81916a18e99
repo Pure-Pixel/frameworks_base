@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fee46f6c_6de8d774",
+        "filename": "telecomm/java/android/telecom/TelecomManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1087703
+      },
+      "writtenOn": "2018-09-07T01:02:46Z",
+      "side": 1,
+      "message": "This\u0027ll probably be a broken link -- use android.telecom.Connection instead since it\u0027s in the public API",
+      "range": {
+        "startLine": 320,
+        "startChar": 14,
+        "endLine": 320,
+        "endChar": 55
+      },
+      "revId": "dbcdcd14e71b1113366e3e71b139c81916a18e99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
