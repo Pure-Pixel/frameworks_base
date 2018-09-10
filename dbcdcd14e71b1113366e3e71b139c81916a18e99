@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "39180688_cd30b05e",
+        "filename": "telecomm/java/android/telecom/Connection.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1724,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2018-09-10T10:52:43Z",
+      "side": 1,
+      "message": "Thank you for your comments.\n\nThere is no need o parcel this field to telecom and incallui process, as it will be put into extra at line#2343.\n\nBut I agree that we can limit this definition in telephony FWk only, so I\u0027ll remove this field.",
+      "parentUuid": "c8921b3a_4af54b7a",
+      "range": {
+        "startLine": 1724,
+        "startChar": 49,
+        "endLine": 1724,
+        "endChar": 63
+      },
+      "revId": "dbcdcd14e71b1113366e3e71b139c81916a18e99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fee46f6c_6de8d774",
         "filename": "telecomm/java/android/telecom/TelecomManager.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-09-07T01:02:46Z",
       "side": 1,
       "message": "This\u0027ll probably be a broken link -- use android.telecom.Connection instead since it\u0027s in the public API",
+      "range": {
+        "startLine": 320,
+        "startChar": 14,
+        "endLine": 320,
+        "endChar": 55
+      },
+      "revId": "dbcdcd14e71b1113366e3e71b139c81916a18e99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b80da112_799c4bdf",
+        "filename": "telecomm/java/android/telecom/TelecomManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2018-09-10T10:52:43Z",
+      "side": 1,
+      "message": "Thank you. I will update it.",
+      "parentUuid": "fee46f6c_6de8d774",
       "range": {
         "startLine": 320,
         "startChar": 14,
