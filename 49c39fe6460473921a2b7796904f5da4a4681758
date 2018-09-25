@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b50b0f6_46867c95",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1834,
+      "author": {
+        "id": 1087703
+      },
+      "writtenOn": "2018-09-25T00:06:16Z",
+      "side": 1,
+      "message": "Add this permission to the com.android.server.telecom manifest",
+      "range": {
+        "startLine": 1834,
+        "startChar": 30,
+        "endLine": 1834,
+        "endChar": 78
+      },
+      "revId": "49c39fe6460473921a2b7796904f5da4a4681758",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
