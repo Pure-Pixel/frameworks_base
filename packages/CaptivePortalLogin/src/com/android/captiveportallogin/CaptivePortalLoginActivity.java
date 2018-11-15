@@ -146,10 +146,12 @@ public class CaptivePortalLoginActivity extends Activity {
             return;
         }
 
-        // Also initializes proxy system properties.
-        mNetwork = mNetwork.getPrivateDnsBypassingCopy();
-        mCm.bindProcessToNetwork(mNetwork);
-        mCm.setProcessDefaultNetworkForHostResolution(mNetwork);
+        if (mNetwork != null) {
+            // Also initializes proxy system properties.
+            mCm.bindProcessToNetwork(mNetwork);
+            mCm.setProcessDefaultNetworkForHostResolution(
+                    ResolvUtil.getNetworkWithUseLocalNameserversFlag(mNetwork));
+        }
 
         // Proxy system properties must be initialized before setContentView is called because
         // setContentView initializes the WebView logic which in turn reads the system properties.
