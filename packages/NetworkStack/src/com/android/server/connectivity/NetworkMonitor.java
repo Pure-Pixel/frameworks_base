@@ -1342,14 +1342,6 @@ public class NetworkMonitor extends StateMachine {
                     validationLog(
                             probeType, url, "PAC fetch 200 response interpreted as 204 response.");
                     httpResponseCode = CaptivePortalProbeResult.SUCCESS_CODE;
-                } else if (urlConnection.getContentLengthLong() == 0) {
-                    // Consider 200 response with "Content-length=0" to not be a captive portal.
-                    // There's no point in considering this a captive portal as the user cannot
-                    // sign-in to an empty page. Probably the result of a broken transparent proxy.
-                    // See http://b/9972012.
-                    validationLog(probeType, url,
-                            "200 response with Content-length=0 interpreted as 204 response.");
-                    httpResponseCode = CaptivePortalProbeResult.SUCCESS_CODE;
                 } else if (urlConnection.getContentLengthLong() == -1) {
                     // When no Content-length (default value == -1), attempt to read a byte from the
                     // response. Do not use available() as it is unreliable. See http://b/33498325.
@@ -1358,6 +1350,14 @@ public class NetworkMonitor extends StateMachine {
                                 probeType, url, "Empty 200 response interpreted as 204 response.");
                         httpResponseCode = CaptivePortalProbeResult.SUCCESS_CODE;
                     }
+                } else if (urlConnection.getContentLengthLong() < 4) {
+                    // Consider 200 response with "Content-length < 4" to not be a captive portal.
+                    // There's no point in considering this a captive portal as the user cannot
+                    // sign-in to an empty page. Probably the result of a broken transparent proxy.
+                    // See http://b/9972012 and http://b/122999481.
+                    validationLog(probeType, url,
+                            "200 response with Content-length < 4 interpreted as failed response.");
+                    httpResponseCode = CaptivePortalProbeResult.FAILED_CODE;
                 }
             }
         } catch (IOException e) {
