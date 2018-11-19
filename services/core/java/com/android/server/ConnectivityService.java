@@ -4765,9 +4765,37 @@ public class ConnectivityService extends IConnectivityManager.Stub
         final String name = TextUtils.isEmpty(extraInfo)
                 ? nai.networkCapabilities.getSSID() : extraInfo;
         addValidationLogs(nai.networkMonitor.getValidationLogs(), nai.network, name);
+
+        // Create Network synchronously, ensuring that the netId is valid the moment we return.
+        createNetwork(nai);
+
         if (DBG) log("registerNetworkAgent " + nai);
         mHandler.sendMessage(mHandler.obtainMessage(EVENT_REGISTER_NETWORK_AGENT, nai));
         return nai.network.netId;
+    }
+
+    private void createNetwork(NetworkAgentInfo nai) {
+        if (!nai.created) {
+            // A network that has just connected has zero requests and is thus a foreground network.
+            nai.networkCapabilities.addCapability(NET_CAPABILITY_FOREGROUND);
+
+            try {
+                // This should never fail.  Specifying an already in use NetID will cause failure.
+                if (nai.isVPN() || nai.isTestNetwork()) {
+                    mNMS.createVirtualNetwork(
+                            nai.network.netId,
+                            !nai.linkProperties.getDnsServers().isEmpty(),
+                            (nai.networkMisc == null || !nai.networkMisc.allowBypass));
+                } else {
+                    mNMS.createPhysicalNetwork(
+                            nai.network.netId, getNetworkPermission(nai.networkCapabilities));
+                }
+            } catch (Exception e) {
+                loge("Error creating network " + nai.network.netId + ": " + e.getMessage());
+                return;
+            }
+            nai.created = true;
+        }
     }
 
     private void handleRegisterNetworkAgent(NetworkAgentInfo nai) {
@@ -4779,8 +4807,9 @@ public class ConnectivityService extends IConnectivityManager.Stub
         nai.asyncChannel.connect(mContext, mTrackerHandler, nai.messenger);
         NetworkInfo networkInfo = nai.networkInfo;
         nai.networkInfo = null;
-        updateNetworkInfo(nai, networkInfo);
+
         updateUids(nai, null, nai.networkCapabilities);
+        updateNetworkInfo(nai, networkInfo);
     }
 
     private void updateLinkProperties(NetworkAgentInfo networkAgent, LinkProperties newLp,
@@ -5671,32 +5700,6 @@ public class ConnectivityService extends IConnectivityManager.Stub
             log(networkAgent.name() + " EVENT_NETWORK_INFO_CHANGED, going from " +
                     (oldInfo == null ? "null" : oldInfo.getState()) +
                     " to " + state);
-        }
-
-        if (!networkAgent.created
-                && (state == NetworkInfo.State.CONNECTED
-                || (state == NetworkInfo.State.CONNECTING && networkAgent.isVPN()))) {
-
-            // A network that has just connected has zero requests and is thus a foreground network.
-            networkAgent.networkCapabilities.addCapability(NET_CAPABILITY_FOREGROUND);
-
-            try {
-                // This should never fail.  Specifying an already in use NetID will cause failure.
-                if (networkAgent.isVPN() || networkAgent.isTestNetwork()) {
-                    mNMS.createVirtualNetwork(networkAgent.network.netId,
-                            !networkAgent.linkProperties.getDnsServers().isEmpty(),
-                            (networkAgent.networkMisc == null ||
-                                !networkAgent.networkMisc.allowBypass));
-                } else {
-                    mNMS.createPhysicalNetwork(networkAgent.network.netId,
-                            getNetworkPermission(networkAgent.networkCapabilities));
-                }
-            } catch (Exception e) {
-                loge("Error creating network " + networkAgent.network.netId + ": "
-                        + e.getMessage());
-                return;
-            }
-            networkAgent.created = true;
         }
 
         if (!networkAgent.everConnected && state == NetworkInfo.State.CONNECTED) {
