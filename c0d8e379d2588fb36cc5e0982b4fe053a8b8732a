@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7e32aa00_0401c4bd",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4734,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2018-11-21T09:13:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e11089e8_09e9ae8a",
+      "revId": "c0d8e379d2588fb36cc5e0982b4fe053a8b8732a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "057e041f_88211da4",
         "filename": "services/core/java/com/android/server/ConnectivityService.java",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "c0d8e379d2588fb36cc5e0982b4fe053a8b8732a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a3e7af2_8b107162",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4736,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2018-11-21T09:13:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "057e041f_88211da4",
+      "revId": "c0d8e379d2588fb36cc5e0982b4fe053a8b8732a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -56,6 +92,30 @@
       "revId": "c0d8e379d2588fb36cc5e0982b4fe053a8b8732a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1c03725_5a8a8708",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4758,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2018-11-21T09:13:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d1c2ef5_fe2b8599",
+      "range": {
+        "startLine": 4755,
+        "startChar": 0,
+        "endLine": 4758,
+        "endChar": 50
+      },
+      "revId": "c0d8e379d2588fb36cc5e0982b4fe053a8b8732a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
