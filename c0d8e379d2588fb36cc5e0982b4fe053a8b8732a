@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e11089e8_09e9ae8a",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4734,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-11-21T09:00:31Z",
+      "side": 1,
+      "message": "While you\u0027re at it, rename this to \"nai\" and remove some line wrapping :)",
+      "revId": "c0d8e379d2588fb36cc5e0982b4fe053a8b8732a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "057e041f_88211da4",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4736,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-11-21T09:00:31Z",
+      "side": 1,
+      "message": "Remove this blank line?",
+      "revId": "c0d8e379d2588fb36cc5e0982b4fe053a8b8732a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d1c2ef5_fe2b8599",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4758,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-11-21T09:00:31Z",
+      "side": 1,
+      "message": "Fix indentation and line wrapping.",
+      "range": {
+        "startLine": 4755,
+        "startChar": 0,
+        "endLine": 4758,
+        "endChar": 50
+      },
+      "revId": "c0d8e379d2588fb36cc5e0982b4fe053a8b8732a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
