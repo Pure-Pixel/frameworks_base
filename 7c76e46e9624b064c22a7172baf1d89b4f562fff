@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7be40cef_c773f0ad",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 4728,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-12-06T15:20:53Z",
+      "side": 1,
+      "message": "Do you think you could put this even earlier, during registerNetworkAgent? That way, the NetworkAgent can used the returned netId as soon as registerNetworkAgent completes.\n\nWith the code as you have it now, the network actually gets created some unspecified time after registerNetworkAgent completes, so the transport has no idea when it can start using the netId it got. It should also allow you to remove the sleep from the test :)\n\nThis will change threading slightly, because:\n- It will cause us to send the binder IPC to netd while processing the incoming registerNetworkAgent IPC, but this should be safe in terms of binder thread pool use.\n- It will also call the networkCreatePhysical IPC on multiple threads concurrently, but netd should be able to handle that.\n\nMight want to note these two points in the commit description.",
+      "range": {
+        "startLine": 4728,
+        "startChar": 8,
+        "endLine": 4728,
+        "endChar": 27
+      },
+      "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3c53689_9651a087",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 4734,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-12-06T15:20:53Z",
+      "side": 1,
+      "message": "Do we still need this if?",
+      "range": {
+        "startLine": 4734,
+        "startChar": 8,
+        "endLine": 4734,
+        "endChar": 27
+      },
+      "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d5553bc_18fe0a6a",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 4741,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-12-06T15:20:53Z",
+      "side": 1,
+      "message": "While you\u0027re at it, directly call mNetd.networkCreateVpn() and delete NetworkManagementService#createVirtualNetwork? You might have to add a mock netd to ConnectivityServiceTest but that shouldn\u0027t be too hard. If it\u0027s a lot of work feel free to punt to another CL.",
+      "range": {
+        "startLine": 4741,
+        "startChar": 25,
+        "endLine": 4741,
+        "endChar": 45
+      },
+      "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "382686c8_b248115f",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 4746,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-12-06T15:20:53Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 4746,
+        "startChar": 25,
+        "endLine": 4746,
+        "endChar": 46
+      },
+      "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4799c205_0a96688b",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 4753,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-12-06T15:20:53Z",
+      "side": 1,
+      "message": "Maybe add a TODO to remove this field? I think that if we call createNetwork early enough then we won\u0027t need it any more.",
+      "range": {
+        "startLine": 4753,
+        "startChar": 12,
+        "endLine": 4753,
+        "endChar": 31
+      },
+      "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1f808ae_0f1ae206",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 4515,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2018-12-06T15:20:53Z",
+      "side": 1,
+      "message": "Does waitForIdle() not help here?",
+      "range": {
+        "startLine": 4515,
+        "startChar": 8,
+        "endLine": 4515,
+        "endChar": 65
+      },
+      "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
