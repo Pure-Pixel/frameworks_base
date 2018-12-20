@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1f3e854_3cf28fa2",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 4517,
+      "author": {
+        "id": 1308163
+      },
+      "writtenOn": "2018-12-20T06:30:34Z",
+      "side": 1,
+      "message": "Maybe you can insert \"waitForIdle()\" above this line and change it as below:\n\nwaitForIdle();\nverify(mNetworkManagementService)\n                .createVirtualNetwork(anyInt(), anyBoolean(), anyBoolean());",
+      "range": {
+        "startLine": 4516,
+        "startChar": 8,
+        "endLine": 4517,
+        "endChar": 76
+      },
+      "revId": "306e4216ca33f93ab7432f770806fb75d709cff8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5021d8c_682817e6",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 4528,
+      "author": {
+        "id": 1308163
+      },
+      "writtenOn": "2018-12-20T06:30:34Z",
+      "side": 1,
+      "message": "Same as above.",
+      "range": {
+        "startLine": 4527,
+        "startChar": 8,
+        "endLine": 4528,
+        "endChar": 59
+      },
+      "revId": "306e4216ca33f93ab7432f770806fb75d709cff8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
