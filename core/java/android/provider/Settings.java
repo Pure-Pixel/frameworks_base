@@ -10639,6 +10639,30 @@ public final class Settings {
                 BLUETOOTH_HEARING_AID_PRIORITY_PREFIX = "bluetooth_hearing_aid_priority_";
 
         /**
+         * Enable/disable radio error detection
+         *
+         * {@hide}
+         */
+        public static final String
+                ENABLE_RADIO_ERROR_DETECTION = "enable_radio_error_detection";
+
+        /**
+         * Threshold of RIL wakelock timeout count for radio error detection
+         *
+         * {@hide}
+         */
+        public static final String
+                RADIO_ERROR_WAKELOCK_TIMEOUT_THRESHOLD = "radio_error_wakelock_timeout_threshold";
+
+        /**
+         * Threshold of RIL system error count for radio error detection
+         *
+         * {@hide}
+         */
+        public static final String
+                RADIO_ERROR_SYSTEM_ERROR_THRESHOLD = "radio_error_system_error_threshold";
+
+        /**
          * Activity manager specific settings.
          * This is encoded as a key=value list, separated by commas. Ex:
          *
