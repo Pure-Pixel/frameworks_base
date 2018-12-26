@@ -493,12 +493,12 @@ public class TelephonyIntents {
             "com.android.internal.telephony.ACTION_CARRIER_CERTIFICATE_DOWNLOAD";
 
     /**
-     * Broadcast action to indicate an error related to Line1Number has been detected.
-     *
-     * Requires the READ_PRIVILEGED_PHONE_STATE permission.
-     *
-     * @hide
+     * Broadcast action to notify radio error.
      */
-    public static final String ACTION_LINE1_NUMBER_ERROR_DETECTED =
-            "com.android.internal.telephony.ACTION_LINE1_NUMBER_ERROR_DETECTED";
+    public static final String ACTION_RADIO_ERROR =
+            "com.android.internal.telephony.RADIO_ERROR";
+
+    // ACTION_RADIO_ERROR extra keys
+    public static final String EXTRA_SLOT_ID = "slotId";
+    public static final String EXTRA_RADIO_ERROR = "radioError";
 }
