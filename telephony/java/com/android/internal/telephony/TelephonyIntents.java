@@ -501,4 +501,14 @@ public class TelephonyIntents {
      */
     public static final String ACTION_LINE1_NUMBER_ERROR_DETECTED =
             "com.android.internal.telephony.ACTION_LINE1_NUMBER_ERROR_DETECTED";
+
+    /**
+     * Broadcast action to notify radio error.
+     */
+    public static final String ACTION_RADIO_ERROR =
+            "com.android.internal.telephony.RADIO_ERROR";
+
+    // ACTION_RADIO_ERROR extra keys
+    public static final String EXTRA_SLOT_ID = "slotId";
+    public static final String EXTRA_RADIO_ERROR = "radioError";
 }
