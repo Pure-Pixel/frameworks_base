@@ -108,28 +108,6 @@ public abstract class RcsThread implements Parcelable {
         return mThreadId;
     }
 
-    public static final Creator<RcsThread> CREATOR = new Creator<RcsThread>() {
-        @Override
-        public RcsThread createFromParcel(Parcel in) {
-            int type = in.readInt();
-
-            switch (type) {
-                case RCS_1_TO_1_TYPE:
-                    return new Rcs1To1Thread(in);
-                case RCS_GROUP_TYPE:
-                    return new RcsGroupThread(in);
-                default:
-                    Log.e(RcsMessageStore.TAG, "Cannot unparcel RcsThread, wrong type: " + type);
-            }
-            return null;
-        }
-
-        @Override
-        public RcsThread[] newArray(int size) {
-            return new RcsThread[0];
-        }
-    };
-
     @Override
     public int describeContents() {
         return 0;
