@@ -96,8 +96,6 @@ public class Rcs1To1Thread extends RcsThread {
     public static final Creator<Rcs1To1Thread> CREATOR = new Creator<Rcs1To1Thread>() {
         @Override
         public Rcs1To1Thread createFromParcel(Parcel in) {
-            // Do a dummy read to skip the type.
-            in.readInt();
             return new Rcs1To1Thread(in);
         }
 
@@ -120,7 +118,6 @@ public class Rcs1To1Thread extends RcsThread {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(RCS_1_TO_1_TYPE);
         super.writeToParcel(dest, flags);
         dest.writeParcelable(mRecipient, flags);
         dest.writeInt(mFallbackThreadId);

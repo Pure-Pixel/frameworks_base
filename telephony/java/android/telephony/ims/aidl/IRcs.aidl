@@ -122,4 +122,15 @@ interface IRcs {
     void setFileTransferPreviewUri(int partId, String uri);
 
     void setFileTransferPreviewType(int partId, String type);
+
+    // RcsEvent APIs
+    int createGroupThreadNameChangedEvent(long timestamp, int threadId, int originationParticipantId, String oldName, String newName);
+
+    int createGroupThreadIconChangedEvent(long timestamp, int threadId, int originationParticipantId, in Uri oldIcon, in Uri newIcon);
+
+    int createGroupThreadParticipantJoinedEvent(long timestamp, int threadId, int originationParticipantId, int participantId);
+
+    int createGroupThreadParticipantLeftEvent(long timestamp, int threadId, int originationParticipantId, int participantId);
+
+    int createParticipantAliasChangedEvent(long timestamp, int participantId, String oldAlias, String newAlias);
 }
