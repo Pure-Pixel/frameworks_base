@@ -17,4 +17,4 @@
 
 package android.telephony.ims;
 
-parcelable RcsParticipantEvent;
+parcelable RcsGroupThreadNameChangedEvent;

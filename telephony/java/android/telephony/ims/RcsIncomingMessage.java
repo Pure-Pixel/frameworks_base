@@ -153,6 +153,7 @@ public class RcsIncomingMessage extends RcsMessage {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(INCOMING_MESSAGE_TYPE);
+        super.writeToParcel(dest, flags);
         dest.writeLong(mArrivalTimestamp);
         dest.writeLong(mNotifiedTimestamp);
         dest.writeParcelable(mSenderParticipant, flags);

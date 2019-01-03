@@ -253,8 +253,6 @@ public class RcsGroupThread extends RcsThread {
     public static final Creator<RcsGroupThread> CREATOR = new Creator<RcsGroupThread>() {
         @Override
         public RcsGroupThread createFromParcel(Parcel in) {
-            // Do a dummy read to skip the type.
-            in.readInt();
             return new RcsGroupThread(in);
         }
 
@@ -267,11 +265,7 @@ public class RcsGroupThread extends RcsThread {
     protected RcsGroupThread(Parcel in) {
         super(in);
         mGroupName = in.readString();
-        String uriAsString = in.readString();
-
-        if (!TextUtils.isEmpty(uriAsString)) {
-            mGroupIcon = Uri.parse(uriAsString);
-        }
+        mGroupIcon = in.readParcelable(Uri.class.getClassLoader());
         mConferenceUri = in.readString();
         List<RcsParticipant> participantList = new ArrayList<>();
         in.readTypedList(participantList, RcsParticipant.CREATOR);
@@ -287,10 +281,9 @@ public class RcsGroupThread extends RcsThread {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(RCS_GROUP_TYPE);
         super.writeToParcel(dest, flags);
         dest.writeString(mGroupName);
-        dest.writeString(mGroupIcon.toString());
+        dest.writeParcelable(mGroupIcon, flags);
         dest.writeString(mConferenceUri);
 
         List<RcsParticipant> participantList = new ArrayList<>();
