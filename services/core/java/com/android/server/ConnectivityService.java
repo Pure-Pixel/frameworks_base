@@ -4816,7 +4816,6 @@ public class ConnectivityService extends IConnectivityManager.Stub
         NetworkInfo networkInfo = nai.networkInfo;
         nai.networkInfo = null;
         updateNetworkInfo(nai, networkInfo);
-        updateUids(nai, null, nai.networkCapabilities);
     }
 
     private void updateLinkProperties(NetworkAgentInfo networkAgent, LinkProperties newLp,
@@ -5086,6 +5085,7 @@ public class ConnectivityService extends IConnectivityManager.Stub
             nai.networkCapabilities = newNc;
         }
 
+        Log.d("TEST", "updateCapabilities called updateUids");
         updateUids(nai, prevNc, newNc);
 
         if (nai.getCurrentScore() == oldScore && newNc.equalRequestableCapabilities(prevNc)) {
@@ -5722,6 +5722,9 @@ public class ConnectivityService extends IConnectivityManager.Stub
                     mNMS.createVirtualNetwork(networkAgent.network.netId,
                             (networkAgent.networkMisc == null ||
                                 !networkAgent.networkMisc.allowBypass));
+
+                    Log.d("TEST", "updateNetworkInfo connected called updateUids");
+                    updateUids(networkAgent, null, networkAgent.networkCapabilities);
                 } else {
                     mNMS.createPhysicalNetwork(networkAgent.network.netId,
                             getNetworkPermission(networkAgent.networkCapabilities));
@@ -5773,6 +5776,7 @@ public class ConnectivityService extends IConnectivityManager.Stub
             networkAgent.asyncChannel.disconnect();
             if (networkAgent.isVPN()) {
                 mProxyTracker.setDefaultProxyEnabled(true);
+                Log.d("TEST", "updateNetworkInfo disconnected called updateUids");
                 updateUids(networkAgent, networkAgent.networkCapabilities, null);
             }
             disconnectAndDestroyNetwork(networkAgent);

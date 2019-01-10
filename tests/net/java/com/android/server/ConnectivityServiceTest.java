@@ -66,7 +66,9 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import static org.mockito.Matchers.anyBoolean;
 import static org.mockito.Matchers.anyInt;
+import static org.mockito.Matchers.anyObject;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.eq;
@@ -78,7 +80,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
-
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -185,7 +186,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Predicate;
-
 
 /**
  * Tests for {@link ConnectivityService}.
@@ -407,10 +407,21 @@ public class ConnectivityServiceTest {
         }
 
         MockNetworkAgent(int transport, LinkProperties linkProperties) {
-            final int type = transportToLegacyType(transport);
+            this(
+                    transport,
+                    linkProperties,
+                    getMockNetworkInfoForTransport(transport),
+                    new NetworkCapabilities());
+        }
+
+        MockNetworkAgent(
+                int transport,
+                LinkProperties linkProperties,
+                NetworkInfo networkInfo,
+                NetworkCapabilities networkCapabilities) {
             final String typeName = ConnectivityManager.getNetworkTypeName(transport);
-            mNetworkInfo = new NetworkInfo(type, 0, typeName, "Mock");
-            mNetworkCapabilities = new NetworkCapabilities();
+            mNetworkInfo = networkInfo;
+            mNetworkCapabilities = networkCapabilities;
             mNetworkCapabilities.addTransportType(transport);
             switch (transport) {
                 case TRANSPORT_ETHERNET:
@@ -558,6 +569,8 @@ public class ConnectivityServiceTest {
             if (hasInternet) {
                 addCapability(NET_CAPABILITY_INTERNET);
             }
+
+            Log.d("TEST", mNetworkCapabilities.toString());
 
             connectWithoutInternet();
 
@@ -1127,6 +1140,12 @@ public class ConnectivityServiceTest {
             mEthernetNetworkAgent = null;
         }
         FakeSettingsProvider.clearSettingsProvider();
+    }
+
+    private static NetworkInfo getMockNetworkInfoForTransport(int transport) {
+        final int type = transportToLegacyType(transport);
+        final String typeName = ConnectivityManager.getNetworkTypeName(transport);
+        return new NetworkInfo(type, 0, typeName, "Mock");
     }
 
     private static int transportToLegacyType(int transport) {
@@ -4253,6 +4272,40 @@ public class ConnectivityServiceTest {
             }
             return;
         }
+    }
+
+    @Test
+    public void testRegisteringConnectedVpnNetworkAgentSetsUids() throws Exception {
+        // Register a networkAgent
+        final int uid = Process.myUid();
+        final ArraySet<UidRange> ranges = new ArraySet<>();
+        ranges.add(new UidRange(uid, uid));
+
+        NetworkInfo ni = getMockNetworkInfoForTransport(TRANSPORT_VPN);
+        ni.setDetailedState(DetailedState.CONNECTED, null, null);
+
+        NetworkCapabilities nc = new NetworkCapabilities();
+        nc.setUids(ranges);
+
+        MockNetworkAgent vpnNetworkAgent =
+                new MockNetworkAgent(TRANSPORT_VPN, new LinkProperties(), ni, nc);
+        waitForIdle();
+
+        // Verify that network is created in netd, and UIDs updated
+        verify(mNetworkManagementService).createVirtualNetwork(anyInt(), anyBoolean());
+        verify(mNetworkManagementService).addVpnUidRanges(anyInt(), anyObject());
+    }
+
+    @Test
+    public void testRegisteringConnectedWifiNetworkAgentDoesNotSetUids() throws Exception {
+        // Register a networkAgent
+        MockNetworkAgent vpnNetworkAgent = new MockNetworkAgent(TRANSPORT_WIFI);
+        vpnNetworkAgent.connect(true);
+        waitForIdle();
+
+        // Verify that network is created in netd
+        verify(mNetworkManagementService).createPhysicalNetwork(anyInt(), anyInt());
+        verify(mNetworkManagementService, never()).addVpnUidRanges(anyInt(), anyObject());
     }
 
     @Test
