@@ -4933,7 +4933,6 @@ public class ConnectivityService extends IConnectivityManager.Stub
         NetworkInfo networkInfo = nai.networkInfo;
         nai.networkInfo = null;
         updateNetworkInfo(nai, networkInfo);
-        updateUids(nai, null, nai.networkCapabilities);
     }
 
     private void updateLinkProperties(NetworkAgentInfo networkAgent, LinkProperties newLp,
@@ -5854,6 +5853,7 @@ public class ConnectivityService extends IConnectivityManager.Stub
                     mNMS.createVirtualNetwork(networkAgent.network.netId,
                             (networkAgent.networkMisc == null ||
                                 !networkAgent.networkMisc.allowBypass));
+                    updateUids(networkAgent, null, networkAgent.networkCapabilities);
                 } else {
                     mNMS.createPhysicalNetwork(networkAgent.network.netId,
                             getNetworkPermission(networkAgent.networkCapabilities));
