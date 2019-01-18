@@ -16,6 +16,24 @@
       "revId": "c8bcf5d334d48fa71de6265a2ec44b7546ca7490",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b56525bd_ee912aa1",
+        "filename": "packages/CaptivePortalLogin/src/com/android/captiveportallogin/CaptivePortalLoginActivity.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1259735
+      },
+      "writtenOn": "2019-01-18T07:08:34Z",
+      "side": 1,
+      "message": "Sorry, I checked latest code now. This issue can be fixed by below commit.\nhttps://android.googlesource.com/platform/frameworks/base/+/67c1d26a0771cab943dc68b03f34acb0b3a5882f%5E%21/#F0",
+      "parentUuid": "a95abf97_a8fa77b6",
+      "revId": "c8bcf5d334d48fa71de6265a2ec44b7546ca7490",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
