@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a95abf97_a8fa77b6",
+        "filename": "packages/CaptivePortalLogin/src/com/android/captiveportallogin/CaptivePortalLoginActivity.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-01-18T06:47:36Z",
+      "side": 1,
+      "message": "mNetwork can\u0027t be null here. If mNetwork is null, then getNetworkCapabilities(mNetwork) will be null so we\u0027ll have returned at line 150.",
+      "revId": "c8bcf5d334d48fa71de6265a2ec44b7546ca7490",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
