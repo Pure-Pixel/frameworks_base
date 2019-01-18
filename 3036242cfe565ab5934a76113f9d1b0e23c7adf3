@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40659754_19262120",
+        "filename": "packages/NetworkStack/src/com/android/server/connectivity/NetworkMonitor.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1288034
+      },
+      "writtenOn": "2019-01-18T09:46:11Z",
+      "side": 1,
+      "message": "Can this be de-duplicated with the code above ?\nI\u0027m also thinking 1 is a little too restrictive, any page with less than say, 3 or 4 bytes will not let the user login.",
+      "range": {
+        "startLine": 1353,
+        "startChar": 18,
+        "endLine": 1360,
+        "endChar": 77
+      },
+      "revId": "3036242cfe565ab5934a76113f9d1b0e23c7adf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24f87150_21a50178",
+        "filename": "packages/NetworkStack/src/com/android/server/connectivity/NetworkMonitor.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1288034
+      },
+      "writtenOn": "2019-01-18T09:46:11Z",
+      "side": 1,
+      "message": "We should probably use FAILED_CODE here, otherwise our new partial connectivity detection may see partial connectivity. This applies to the condition above as well. It did not matter until now since the HTTP probe is only used for portal detection (so FAILED and SUCCESS had the same effect), but it will matter after aosp/842735.",
+      "range": {
+        "startLine": 1360,
+        "startChar": 20,
+        "endLine": 1360,
+        "endChar": 77
+      },
+      "revId": "3036242cfe565ab5934a76113f9d1b0e23c7adf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
