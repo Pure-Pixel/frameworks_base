@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "97b041c5_dbb1af46",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 4517,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2019-01-23T02:32:26Z",
+      "side": 1,
+      "message": "Ack; Retooled CL, no longer necessary",
+      "parentUuid": "b1f3e854_3cf28fa2",
+      "range": {
+        "startLine": 4516,
+        "startChar": 8,
+        "endLine": 4517,
+        "endChar": 76
+      },
+      "revId": "306e4216ca33f93ab7432f770806fb75d709cff8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5021d8c_682817e6",
         "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
         "patchSetId": 17
@@ -45,6 +69,30 @@
       "revId": "306e4216ca33f93ab7432f770806fb75d709cff8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b05aa719_b3c9f5e2",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 4528,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2019-01-23T02:32:26Z",
+      "side": 1,
+      "message": "Ack; retooled CL, no longer necessary",
+      "parentUuid": "d5021d8c_682817e6",
+      "range": {
+        "startLine": 4527,
+        "startChar": 8,
+        "endLine": 4528,
+        "endChar": 59
+      },
+      "revId": "306e4216ca33f93ab7432f770806fb75d709cff8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

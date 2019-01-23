@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dd1f844d_e4546f96",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 4728,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2019-01-23T02:32:26Z",
+      "side": 1,
+      "message": "Ack; retooled CL due to test failures that I had a hard time chasing down.",
+      "parentUuid": "7be40cef_c773f0ad",
+      "range": {
+        "startLine": 4728,
+        "startChar": 8,
+        "endLine": 4728,
+        "endChar": 27
+      },
+      "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3c53689_9651a087",
         "filename": "services/core/java/com/android/server/ConnectivityService.java",
         "patchSetId": 13
@@ -45,6 +69,30 @@
       "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "665a8847_773f3997",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 4734,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2019-01-23T02:32:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3c53689_9651a087",
+      "range": {
+        "startLine": 4734,
+        "startChar": 8,
+        "endLine": 4734,
+        "endChar": 27
+      },
+      "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5e5bed81_e5ce2d7b",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 4741,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2019-01-23T02:32:26Z",
+      "side": 1,
+      "message": "Ack. I\u0027ll add a todo for this, but it seems out of scope for this CL.",
+      "parentUuid": "5d5553bc_18fe0a6a",
+      "range": {
+        "startLine": 4741,
+        "startChar": 25,
+        "endLine": 4741,
+        "endChar": 45
+      },
+      "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "382686c8_b248115f",
         "filename": "services/core/java/com/android/server/ConnectivityService.java",
         "patchSetId": 13
@@ -91,6 +163,30 @@
       "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d722796a_552fc015",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 4746,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2019-01-23T02:32:26Z",
+      "side": 1,
+      "message": "Ack. As above.",
+      "parentUuid": "382686c8_b248115f",
+      "range": {
+        "startLine": 4746,
+        "startChar": 25,
+        "endLine": 4746,
+        "endChar": 46
+      },
+      "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "19bff8f8_64839e4a",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 4753,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2019-01-23T02:32:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4799c205_0a96688b",
+      "range": {
+        "startLine": 4753,
+        "startChar": 12,
+        "endLine": 4753,
+        "endChar": 31
+      },
+      "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1f808ae_0f1ae206",
         "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
         "patchSetId": 13
@@ -137,6 +257,30 @@
       "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2ed1a28_1e33123f",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 4515,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2019-01-23T02:32:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1f808ae_0f1ae206",
+      "range": {
+        "startLine": 4515,
+        "startChar": 8,
+        "endLine": 4515,
+        "endChar": 65
+      },
+      "revId": "7c76e46e9624b064c22a7172baf1d89b4f562fff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
