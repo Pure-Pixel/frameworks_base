@@ -22,6 +22,30 @@
       "revId": "02643e43bd1eba4e276be255ac2fd1b51c5adab1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cae1fad_51f49ecd",
+        "filename": "packages/NetworkStack/src/com/android/server/connectivity/NetworkMonitor.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1259735
+      },
+      "writtenOn": "2019-01-30T02:03:49Z",
+      "side": 1,
+      "message": "I don\u0027t know about history of \u0027Content-length \u003d\u003d -1\u0027 case.\nIf the code leave it where it is, below \"else if\" case will be meaningless.\n} else if (urlConnection.getContentLengthLong() \u003d\u003d -1)\n\nCan I merge \u0027Content-length \u003d\u003d -1\u0027 case to \u0027Content-length \u003c 4\u0027 case?\nCould you check about this?",
+      "parentUuid": "6e1136e6_e9b377af",
+      "range": {
+        "startLine": 1353,
+        "startChar": 0,
+        "endLine": 1360,
+        "endChar": 76
+      },
+      "revId": "02643e43bd1eba4e276be255ac2fd1b51c5adab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
