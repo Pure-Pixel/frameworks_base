@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e1136e6_e9b377af",
+        "filename": "packages/NetworkStack/src/com/android/server/connectivity/NetworkMonitor.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-01-30T00:50:40Z",
+      "side": 1,
+      "message": "Is there a reason to move this code? Can you leave it where it is?",
+      "range": {
+        "startLine": 1353,
+        "startChar": 0,
+        "endLine": 1360,
+        "endChar": 76
+      },
+      "revId": "02643e43bd1eba4e276be255ac2fd1b51c5adab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
