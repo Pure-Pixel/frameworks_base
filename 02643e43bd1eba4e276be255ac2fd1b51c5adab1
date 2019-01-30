@@ -46,6 +46,30 @@
       "revId": "02643e43bd1eba4e276be255ac2fd1b51c5adab1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "697c7bf4_e9450cbc",
+        "filename": "packages/NetworkStack/src/com/android/server/connectivity/NetworkMonitor.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1360,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-01-30T02:27:29Z",
+      "side": 1,
+      "message": "As the comment explains, -1 means that we don\u0027t know what the content length is. We issue a read to determine whether the content length is empty or not.\n\nMaybe merge the cases then?\n\n                long contentLength \u003d urlConnection.getContentLengthLong();\n                if (probeType \u003d\u003d ValidationProbeEvent.PROBE_PAC) {\n                    ...\n                } else if (contentLength \u003c\u003d 4) {\n                    if (contentLength \u003d\u003d -1) {\n                        if (urlConnection.getInputStream().read() \u003d\u003d -1) {\n                            contentLength \u003d 0;\n                        }\n                    }\n                    ...\n                }",
+      "parentUuid": "3cae1fad_51f49ecd",
+      "range": {
+        "startLine": 1353,
+        "startChar": 0,
+        "endLine": 1360,
+        "endChar": 76
+      },
+      "revId": "02643e43bd1eba4e276be255ac2fd1b51c5adab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
