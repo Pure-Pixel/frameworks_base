@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06fc2224_311069e0",
+        "filename": "packages/NetworkStack/src/com/android/server/connectivity/NetworkMonitor.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 1348,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-02-12T03:49:50Z",
+      "side": 1,
+      "message": "Instead of nesting these if statements, can we do something like:\n\n    if (probeType \u003d\u003d ValidationProbeEvent.PROBE_PAC) {\n        ...\n    } else if (contentLength \u003d\u003d -1) {\n        ...\n    } else if (contentLength \u003c\u003d 4) {\n        ...\n    }",
+      "range": {
+        "startLine": 1347,
+        "startChar": 0,
+        "endLine": 1348,
+        "endChar": 46
+      },
+      "revId": "77f4abaead8d88828d79035c8d5ba2a328529739",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
