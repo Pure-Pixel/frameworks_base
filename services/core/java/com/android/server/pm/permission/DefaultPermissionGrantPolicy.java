@@ -138,6 +138,11 @@ public final class DefaultPermissionGrantPolicy {
         COARSE_LOCATION_PERMISSIONS.add(Manifest.permission.ACCESS_COARSE_LOCATION);
     }
 
+    private static final Set<String> FINE_LOCATION_PERMISSIONS = new ArraySet<>();
+    static {
+        FINE_LOCATION_PERMISSIONS.add(Manifest.permission.ACCESS_FINE_LOCATION);
+    }
+
     private static final Set<String> CALENDAR_PERMISSIONS = new ArraySet<>();
     static {
         CALENDAR_PERMISSIONS.add(Manifest.permission.READ_CALENDAR);
@@ -883,7 +888,10 @@ public final class DefaultPermissionGrantPolicy {
     private void grantDefaultPermissionsToDefaultSystemUseOpenWifiApp(
             PackageParser.Package useOpenWifiPackage, int userId) {
         if (doesPackageSupportRuntimePermissions(useOpenWifiPackage)) {
-            grantRuntimePermissions(useOpenWifiPackage, COARSE_LOCATION_PERMISSIONS, userId);
+            grantRuntimePermissions(
+                    useOpenWifiPackage,
+                    getPermissionsForUseOpenWifiApp(useOpenWifiPackage),
+                    userId);
         }
     }
 
@@ -928,7 +936,11 @@ public final class DefaultPermissionGrantPolicy {
         if (useOpenWifiPackage != null
                 && doesPackageSupportRuntimePermissions(useOpenWifiPackage)) {
             grantRuntimePermissions(
-                    useOpenWifiPackage, COARSE_LOCATION_PERMISSIONS, false, true, userId);
+                    useOpenWifiPackage,
+                    getPermissionsForUseOpenWifiApp(useOpenWifiPackage),
+                    false,
+                    true,
+                    userId);
         }
     }
 
@@ -1490,6 +1502,13 @@ public final class DefaultPermissionGrantPolicy {
 
     private static boolean doesPackageSupportRuntimePermissions(PackageParser.Package pkg) {
         return pkg.applicationInfo.targetSdkVersion > Build.VERSION_CODES.LOLLIPOP_MR1;
+    }
+
+    private static Set<String> getPermissionsForUseOpenWifiApp(PackageParser.Package pkg) {
+        if (pkg.applicationInfo.targetSdkVersion >= Build.VERSION_CODES.Q) {
+            return FINE_LOCATION_PERMISSIONS;
+        }
+        return COARSE_LOCATION_PERMISSIONS;
     }
 
     private static final class DefaultPermissionGrant {
