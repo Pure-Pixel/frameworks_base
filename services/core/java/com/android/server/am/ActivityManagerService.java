@@ -318,7 +318,6 @@ import android.location.LocationManager;
 import android.media.audiofx.AudioEffect;
 import android.metrics.LogMaker;
 import android.net.Proxy;
-import android.net.ProxyInfo;
 import android.net.Uri;
 import android.os.BatteryStats;
 import android.os.Binder;
@@ -2252,19 +2251,34 @@ public class ActivityManagerService extends IActivityManager.Stub
                 }
             } break;
             case UPDATE_HTTP_PROXY_MSG: {
+                // Update http proxy for each application thread. Exclude system server to update
+                // outside the AMS lock.
+                ProcessRecord systemServer = null;
                 synchronized (ActivityManagerService.this) {
                     for (int i = mLruProcesses.size() - 1 ; i >= 0 ; i--) {
                         ProcessRecord r = mLruProcesses.get(i);
                         // Don't dispatch to isolated processes as they can't access
                         // ConnectivityManager and don't have network privileges anyway.
-                        if (r.thread != null && !r.isolated) {
+                        if (r.pid != MY_PID && r.thread != null && !r.isolated) {
                             try {
                                 r.thread.updateHttpProxy();
                             } catch (RemoteException ex) {
-                                Slog.w(TAG, "Failed to update http proxy for: " +
-                                        r.info.processName);
+                                Slog.w(TAG, "Failed to update http proxy for: "
+                                        + r.info.processName);
                             }
+                        } else if (r.pid == MY_PID) {
+                            systemServer = r;
                         }
+                    }
+                }
+                if (systemServer != null) {
+                    // Manually update http proxy for the System Server thread outside of the AMS
+                    // lock, to avoid deadlock with Connectivity Service.
+                    try {
+                        systemServer.thread.updateHttpProxy();
+                    } catch (RemoteException ex) {
+                        Slog.w(TAG, "Failed to update http proxy for: "
+                                + systemServer.info.processName);
                     }
                 }
             } break;
