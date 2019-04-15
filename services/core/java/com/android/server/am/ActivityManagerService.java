@@ -318,7 +318,6 @@ import android.location.LocationManager;
 import android.media.audiofx.AudioEffect;
 import android.metrics.LogMaker;
 import android.net.Proxy;
-import android.net.ProxyInfo;
 import android.net.Uri;
 import android.os.BatteryStats;
 import android.os.Binder;
@@ -2257,7 +2256,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                         ProcessRecord r = mLruProcesses.get(i);
                         // Don't dispatch to isolated processes as they can't access
                         // ConnectivityManager and don't have network privileges anyway.
-                        if (r.thread != null && !r.isolated) {
+                        if (r.pid != MY_PID && r.thread != null && !r.isolated) {
                             try {
                                 r.thread.updateHttpProxy();
                             } catch (RemoteException ex) {
