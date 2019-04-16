@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49b0a5c9_22777d30",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2259,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-04-16T10:56:08Z",
+      "side": 1,
+      "message": "I think you still need to do this for the system server. I suspect there may actually be multiple activity threads running in the same PID, in which case you need to remember them all and call to them outside of this.\n\nThis is assuming the threads can\u0027t go away if they are in the same process, but unfortunately I\u0027m not even sure this is true \u003c.\u003c",
+      "range": {
+        "startLine": 2259,
+        "startChar": 28,
+        "endLine": 2259,
+        "endChar": 43
+      },
+      "revId": "e5627c1cfecf8a9386e884e6c2d188d6a574038e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
