@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f6eb70b_0a90392c",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1131829
+      },
+      "writtenOn": "2019-04-16T14:10:39Z",
+      "side": 1,
+      "message": "I don\u0027t think this detail is relevant here.",
+      "range": {
+        "startLine": 2254,
+        "startChar": 65,
+        "endLine": 2255,
+        "endChar": 38
+      },
+      "revId": "a7c1e48c5a22f4484069c3ddf6cf888f363143e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cb84eb5_53d20111",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2275,
+      "author": {
+        "id": 1131829
+      },
+      "writtenOn": "2019-04-16T14:10:39Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 2275,
+        "startChar": 100,
+        "endLine": 2275,
+        "endChar": 103
+      },
+      "revId": "a7c1e48c5a22f4484069c3ddf6cf888f363143e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
