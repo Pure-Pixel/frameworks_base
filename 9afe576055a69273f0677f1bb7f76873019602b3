@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3a39eeb9_b79b0b59",
+        "filename": "services/net/java/android/net/ip/IpClientManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-05-09T07:02:02Z",
+      "side": 1,
+      "message": "Per in-person discussion: as is, we cannot do this because the methods return boolean instead of void. This is a useful feature because it frees callers from the need to catch RemoteException, but still allows them to know if a RemoteException was thrown.\n\nIt\u0027s true that it would be useful to get a compile error if we add a method to the aidl but forget to add the same method to the wrapper. However, nothing bad/incorrect will happen if we do this; it\u0027s just an inconvenience to callers that is easily fixed: at worst, callers can directly call the method on the wrapped IIpClient (they have access to it, because they passed it in at creation time).",
+      "parentUuid": "6493820b_adca2bd0",
+      "range": {
+        "startLine": 41,
+        "startChar": 13,
+        "endLine": 41,
+        "endChar": 28
+      },
+      "revId": "9afe576055a69273f0677f1bb7f76873019602b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1bb288ee_0b3a48b3",
         "filename": "services/net/java/android/net/ip/IpClientManager.java",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "9afe576055a69273f0677f1bb7f76873019602b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62fee25e_f28d2583",
+        "filename": "services/net/java/android/net/ip/IpClientManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-05-09T07:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bb288ee_0b3a48b3",
+      "range": {
+        "startLine": 42,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 27
+      },
+      "revId": "9afe576055a69273f0677f1bb7f76873019602b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
