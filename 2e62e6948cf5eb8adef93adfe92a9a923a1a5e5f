@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "d78e701f_d830a0e8",
+        "filename": "services/net/java/android/net/ip/IpClientManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-05-09T09:00:52Z",
+      "side": 1,
+      "message": "Oops! Done.",
+      "parentUuid": "f7c7881c_60adcbd4",
+      "revId": "2e62e6948cf5eb8adef93adfe92a9a923a1a5e5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9eb334de_3beaee33",
         "filename": "services/net/java/android/net/ip/IpClientManager.java",
         "patchSetId": 3
@@ -53,6 +71,24 @@
       "writtenOn": "2019-05-09T08:26:59Z",
       "side": 1,
       "message": "notice that setHttpProxy in IIpClient interface just takes proxyInfo as argument instead of stableParcelable?",
+      "revId": "2e62e6948cf5eb8adef93adfe92a9a923a1a5e5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f91270f7_243afdbc",
+        "filename": "services/net/java/android/net/ip/IpClientManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2019-05-09T09:00:52Z",
+      "side": 1,
+      "message": "Good catch! Done.",
+      "parentUuid": "9eb334de_3beaee33",
       "revId": "2e62e6948cf5eb8adef93adfe92a9a923a1a5e5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
