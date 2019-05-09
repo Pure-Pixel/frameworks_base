@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6493820b_adca2bd0",
+        "filename": "services/net/java/android/net/ip/IpClientManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-05-09T04:46:18Z",
+      "side": 1,
+      "message": "Do you want this class to implement IIpClient ? That sounds like a reasonable move. It forces anyone who adds a method to IIpClient to also implement a wrapper here.\n\n(If you\u0027re wondering what it means for checked RemoteException : implementations will see RemoteException thrown or not depending on the static type.\n\n  final IIpClient interfaceClient \u003d new IpClientManager(aidl, TAG);\n  final IpClientManager concreteClient \u003d new IpClientManager(aidl, TAG);\n  interfaceClient.confirmConfiguration(); // RemoteException must be thrown or caught\n  concreteClient.confirmConfiguration(); // compiles cleanly",
+      "range": {
+        "startLine": 41,
+        "startChar": 13,
+        "endLine": 41,
+        "endChar": 28
+      },
+      "revId": "9afe576055a69273f0677f1bb7f76873019602b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bb288ee_0b3a48b3",
+        "filename": "services/net/java/android/net/ip/IpClientManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-05-09T04:46:18Z",
+      "side": 1,
+      "message": "@NonNull",
+      "range": {
+        "startLine": 42,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 27
+      },
+      "revId": "9afe576055a69273f0677f1bb7f76873019602b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
