@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7c7881c_60adcbd4",
+        "filename": "services/net/java/android/net/ip/IpClientManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1406251
+      },
+      "writtenOn": "2019-05-09T08:26:59Z",
+      "side": 1,
+      "message": "seems no argument (callbacks) for shutdown API.",
+      "revId": "2e62e6948cf5eb8adef93adfe92a9a923a1a5e5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eb334de_3beaee33",
+        "filename": "services/net/java/android/net/ip/IpClientManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1406251
+      },
+      "writtenOn": "2019-05-09T08:26:59Z",
+      "side": 1,
+      "message": "notice that setHttpProxy in IIpClient interface just takes proxyInfo as argument instead of stableParcelable?",
+      "revId": "2e62e6948cf5eb8adef93adfe92a9a923a1a5e5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
