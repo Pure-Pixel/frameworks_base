@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e349bf2a_5c93e5cb",
+        "filename": "services/net/java/android/net/ip/IpClientManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1288034
+      },
+      "writtenOn": "2019-05-10T01:49:38Z",
+      "side": 1,
+      "message": "Looking at this after it\u0027s merged, but LGTM too. I think this could be integrated with IpClientUtil, and possibly change onIpClientCreated in IpClientCallbacks to take a IpClientManager instead of a IIpClient (or use generics to support both ?). This way there is a full set of convenience wrappers for calls and callbacks (IpClientManager and IpClientCallbacks).\n\nThe TODO in IpClientUtil#makeIpClient (removing the Context arg from callers) could also be addressed when migrating callers to the new wrapper.\n\nI think some code duplication could have been avoided with lambdas but there\u0027s minor performance implications; this looks fine too.",
+      "range": {
+        "startLine": 40,
+        "startChar": 13,
+        "endLine": 40,
+        "endChar": 28
+      },
+      "revId": "e9da42203f6d9d375cc813be817e5338c8226c6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
