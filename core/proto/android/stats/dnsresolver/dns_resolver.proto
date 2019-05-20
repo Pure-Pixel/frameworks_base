@@ -158,8 +158,9 @@ enum PrivateDnsModes {
 }
 
 enum Transport {
+    TRANSPORT__UNKNOWN = 0;
     // Indicates this network uses a Cellular transport.
-    TRANSPORT_DEFAULT = 0;  // TRANSPORT_CELLULAR
+    TRANSPORT_CELLULAR = 1;
     // Indicates this network uses a Wi-Fi transport.
     TRANSPORT_WIFI = 1;
     // Indicates this network uses a Bluetooth transport.
