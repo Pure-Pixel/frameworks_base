@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c538e7f_8d09dde9",
+        "filename": "core/proto/android/stats/dnsresolver/dns_resolver.proto",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1273909
+      },
+      "writtenOn": "2019-05-23T10:32:25Z",
+      "side": 1,
+      "message": "Use a single underscore.",
+      "range": {
+        "startLine": 161,
+        "startChar": 4,
+        "endLine": 161,
+        "endChar": 22
+      },
+      "revId": "eeb439105639039c824c89d9d05a83164015165f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
