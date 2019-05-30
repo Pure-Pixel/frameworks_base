@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f17a4b0_b1c6985a",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2019-05-30T20:53:10Z",
+      "side": 1,
+      "message": "identation",
+      "range": {
+        "startLine": 961,
+        "startChar": 8,
+        "endLine": 961,
+        "endChar": 12
+      },
+      "revId": "a51ca49bcf22b4e819e06a70e0cde0234761d396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98245ed8_5df002b4",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2019-05-30T20:53:10Z",
+      "side": 1,
+      "message": "I don\u0027t think this actually intercepts the key",
+      "range": {
+        "startLine": 1150,
+        "startChar": 17,
+        "endLine": 1150,
+        "endChar": 26
+      },
+      "revId": "a51ca49bcf22b4e819e06a70e0cde0234761d396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f94db8e_dc84ef9c",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2019-05-30T20:53:10Z",
+      "side": 1,
+      "message": "Just \u0027Reset\u0027?",
+      "range": {
+        "startLine": 1165,
+        "startChar": 11,
+        "endLine": 1165,
+        "endChar": 21
+      },
+      "revId": "a51ca49bcf22b4e819e06a70e0cde0234761d396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d8cddee_f9517e08",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1520,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2019-05-30T20:53:10Z",
+      "side": 1,
+      "message": "Why is this being set to true?",
+      "range": {
+        "startLine": 1520,
+        "startChar": 32,
+        "endLine": 1520,
+        "endChar": 36
+      },
+      "revId": "a51ca49bcf22b4e819e06a70e0cde0234761d396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c5d826e_c57c56c1",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1702,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2019-05-30T20:53:10Z",
+      "side": 1,
+      "message": "unused?",
+      "range": {
+        "startLine": 1702,
+        "startChar": 33,
+        "endLine": 1702,
+        "endChar": 47
+      },
+      "revId": "a51ca49bcf22b4e819e06a70e0cde0234761d396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bd4a0ee_a56c22d8",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 6457,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2019-05-30T20:53:10Z",
+      "side": 1,
+      "message": "For this case, it looks like the app would first get KEYCODE_CAMERA with ACTION_DOWN, and then later KEYCODE_CAMERA with ACTION_CANCEL, when the long press handler runs.\nThis is probably okay, but I\u0027d like to have a test that ensures this behaviour. This can probably be done in KeyEventInterceptTest",
+      "range": {
+        "startLine": 6457,
+        "startChar": 24,
+        "endLine": 6457,
+        "endChar": 55
+      },
+      "revId": "a51ca49bcf22b4e819e06a70e0cde0234761d396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
