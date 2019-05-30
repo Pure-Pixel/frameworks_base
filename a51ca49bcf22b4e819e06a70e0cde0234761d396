@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b30532d5_fafce037",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-05-30T21:50:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f17a4b0_b1c6985a",
+      "range": {
+        "startLine": 961,
+        "startChar": 8,
+        "endLine": 961,
+        "endChar": 12
+      },
+      "revId": "a51ca49bcf22b4e819e06a70e0cde0234761d396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98245ed8_5df002b4",
         "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "576d61aa_2b3c25d6",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-05-30T21:50:05Z",
+      "side": 1,
+      "message": "Inlined the two functions",
+      "parentUuid": "98245ed8_5df002b4",
+      "range": {
+        "startLine": 1150,
+        "startChar": 17,
+        "endLine": 1150,
+        "endChar": 26
+      },
+      "revId": "a51ca49bcf22b4e819e06a70e0cde0234761d396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f94db8e_dc84ef9c",
         "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "a51ca49bcf22b4e819e06a70e0cde0234761d396",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fecbb06_91d4a2e9",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-05-30T21:50:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f94db8e_dc84ef9c",
+      "range": {
+        "startLine": 1165,
+        "startChar": 11,
+        "endLine": 1165,
+        "endChar": 21
+      },
+      "revId": "a51ca49bcf22b4e819e06a70e0cde0234761d396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "bcaede05_86fa06cc",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1702,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-05-30T21:50:05Z",
+      "side": 1,
+      "message": "Dropped",
+      "parentUuid": "5c5d826e_c57c56c1",
+      "range": {
+        "startLine": 1702,
+        "startChar": 33,
+        "endLine": 1702,
+        "endChar": 47
+      },
+      "revId": "a51ca49bcf22b4e819e06a70e0cde0234761d396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bd4a0ee_a56c22d8",
         "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
         "patchSetId": 3
@@ -128,6 +224,30 @@
       "writtenOn": "2019-05-30T20:53:10Z",
       "side": 1,
       "message": "For this case, it looks like the app would first get KEYCODE_CAMERA with ACTION_DOWN, and then later KEYCODE_CAMERA with ACTION_CANCEL, when the long press handler runs.\nThis is probably okay, but I\u0027d like to have a test that ensures this behaviour. This can probably be done in KeyEventInterceptTest",
+      "range": {
+        "startLine": 6457,
+        "startChar": 24,
+        "endLine": 6457,
+        "endChar": 55
+      },
+      "revId": "a51ca49bcf22b4e819e06a70e0cde0234761d396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "462249a8_42eab76b",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 6457,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-05-30T21:50:05Z",
+      "side": 1,
+      "message": "Will get on that after the next push, probably tomorrow",
+      "parentUuid": "2bd4a0ee_a56c22d8",
       "range": {
         "startLine": 6457,
         "startChar": 24,
