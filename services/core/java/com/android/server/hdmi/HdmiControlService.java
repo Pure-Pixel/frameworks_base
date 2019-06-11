@@ -18,6 +18,7 @@ package com.android.server.hdmi;
 
 import static android.hardware.hdmi.HdmiControlManager.DEVICE_EVENT_ADD_DEVICE;
 import static android.hardware.hdmi.HdmiControlManager.DEVICE_EVENT_REMOVE_DEVICE;
+
 import static com.android.server.hdmi.Constants.DISABLED;
 import static com.android.server.hdmi.Constants.ENABLED;
 import static com.android.server.hdmi.Constants.OPTION_MHL_ENABLE;
@@ -67,6 +68,7 @@ import android.util.ArraySet;
 import android.util.Slog;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
+
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.util.DumpUtils;
 import com.android.internal.util.IndentingPrintWriter;
@@ -75,6 +77,9 @@ import com.android.server.hdmi.HdmiAnnotations.ServiceThreadOnly;
 import com.android.server.hdmi.HdmiCecController.AllocateAddressCallback;
 import com.android.server.hdmi.HdmiCecLocalDevice.ActiveSource;
 import com.android.server.hdmi.HdmiCecLocalDevice.PendingActionClearedCallback;
+
+import libcore.util.EmptyArray;
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -84,7 +89,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import libcore.util.EmptyArray;
 
 /**
  * Provides a service for sending and processing HDMI control messages,
@@ -344,8 +348,12 @@ public final class HdmiControlService extends SystemService {
         public boolean bufferMessage(HdmiCecMessage message) {
             switch (message.getOpcode()) {
                 case Constants.MESSAGE_ACTIVE_SOURCE:
-                    bufferActiveSource(message);
-                    return true;
+                    if (mWakeUpMessageReceived || isPowerOnOrTransient()) {
+                        bufferActiveSource(message);
+                        return true;
+                    }
+                    Slog.i(TAG, "Calling bufferActiveSource is skipped due to the sleep state");
+                    return false;
                 case Constants.MESSAGE_IMAGE_VIEW_ON:
                 case Constants.MESSAGE_TEXT_VIEW_ON:
                     bufferImageOrTextViewOn(message);
