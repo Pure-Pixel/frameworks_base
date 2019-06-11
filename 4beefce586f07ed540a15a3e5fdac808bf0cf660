@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46b0dcf2_7863a8ca",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 6433,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2019-06-11T16:35:25Z",
+      "side": 1,
+      "message": "If event is not needed, can you use\n\n    public final Message obtainMessage (int what)?",
+      "range": {
+        "startLine": 6433,
+        "startChar": 43,
+        "endLine": 6433,
+        "endChar": 86
+      },
+      "revId": "4beefce586f07ed540a15a3e5fdac808bf0cf660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b57af80_47f754d3",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 6441,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2019-06-11T16:35:25Z",
+      "side": 1,
+      "message": "This is only called once currently, and is just a 2-line function. I think you can eliminate \u0027handled\u0027 variable if you inline the function.",
+      "range": {
+        "startLine": 6441,
+        "startChar": 20,
+        "endLine": 6441,
+        "endChar": 48
+      },
+      "revId": "4beefce586f07ed540a15a3e5fdac808bf0cf660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
