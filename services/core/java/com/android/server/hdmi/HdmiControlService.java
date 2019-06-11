@@ -378,8 +378,12 @@ public class HdmiControlService extends SystemService {
         public boolean bufferMessage(HdmiCecMessage message) {
             switch (message.getOpcode()) {
                 case Constants.MESSAGE_ACTIVE_SOURCE:
-                    bufferActiveSource(message);
-                    return true;
+                    if (mWakeUpMessageReceived || isPowerOnOrTransient()) {
+                        bufferActiveSource(message);
+                        return true;
+                    }
+                    Slog.i(TAG, "Calling bufferActiveSource is skipped due to the sleep state");
+                    return false;
                 case Constants.MESSAGE_IMAGE_VIEW_ON:
                 case Constants.MESSAGE_TEXT_VIEW_ON:
                     bufferImageOrTextViewOn(message);
