@@ -16,6 +16,24 @@
       "revId": "f01854742538b2e5d40cdc948e8cf127e8009e8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57a11923_16ac8b26",
+        "filename": "telephony/java/android/telephony/SmsMessage.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1121603
+      },
+      "writtenOn": "2019-06-13T05:04:58Z",
+      "side": 1,
+      "message": "Yes. But only default status is changed if there is no status field in the report PDU.",
+      "parentUuid": "93b2233e_f659607b",
+      "revId": "f01854742538b2e5d40cdc948e8cf127e8009e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
