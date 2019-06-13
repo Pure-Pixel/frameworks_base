@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2be29f89_712dc83f",
+        "filename": "telephony/java/android/telephony/SmsMessage.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1121603
+      },
+      "writtenOn": "2019-06-13T05:28:56Z",
+      "side": 0,
+      "message": "As we know,\nBearerData.ERROR_NONE \u003d 0x00\nBearerData.STATUS_DELIVERED \u003d 0x02;\n\nTherefor, the status is 0x0200. Not 0x0000 for CDMA. I think description of return value should be fixed.",
+      "range": {
+        "startLine": 854,
+        "startChar": 7,
+        "endLine": 854,
+        "endChar": 91
+      },
+      "revId": "11d96c6de83c48e964c7a758de75b6cae67a6f2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
