@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93b2233e_f659607b",
+        "filename": "telephony/java/android/telephony/SmsMessage.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2019-06-13T04:58:32Z",
+      "side": 1,
+      "message": "Actually this is a change in behavior of a public API. This will have backward compatibility issues.",
+      "revId": "f01854742538b2e5d40cdc948e8cf127e8009e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
