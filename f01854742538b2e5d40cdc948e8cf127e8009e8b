@@ -34,6 +34,24 @@
       "revId": "f01854742538b2e5d40cdc948e8cf127e8009e8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "280710df_65aaf8db",
+        "filename": "telephony/java/android/telephony/SmsMessage.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2019-06-13T17:58:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "57a11923_16ac8b26",
+      "revId": "f01854742538b2e5d40cdc948e8cf127e8009e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
