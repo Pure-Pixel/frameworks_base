@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d63c28cc_eb3b6bc8",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1288034
+      },
+      "writtenOn": "2019-06-24T07:51:57Z",
+      "side": 1,
+      "message": "While I think it\u0027s good for test methods to have the \"throws\" clause and avoid having try { } catch (...) { fail() } constructs, I\u0027m not sure having utility methods declare \"throws\" is a net improvement. It forces other utilities using them to also declare the exception, so that adds a lot of \"throws ...\" to the code.\n\nIf you prefer this style that\u0027s fine by me, I\u0027m just personally not bothered by the current style.",
+      "range": {
+        "startLine": 342,
+        "startChar": 63,
+        "endLine": 342,
+        "endChar": 90
+      },
+      "revId": "074ed302956c53594c75ec20eb739f9c2d705b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
