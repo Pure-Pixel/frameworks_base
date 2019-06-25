@@ -22,6 +22,30 @@
       "revId": "074ed302956c53594c75ec20eb739f9c2d705b93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb21ef27_eb2ae583",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-06-25T11:42:52Z",
+      "side": 1,
+      "message": "I think you make a fair point. I think the main standpoint to remove this is that generally, all test methods tend to throw Exception anyway. It may be worth noting that in this case :\n• expectNoStartActivityIntent throwing has moved testCaptivePortalApp() from throws RemoteException to throw Exception\n• expectStartActivityIntent throwing has caused no changes in the code. For good reason : it\u0027s not used. Removed :)",
+      "parentUuid": "d63c28cc_eb3b6bc8",
+      "range": {
+        "startLine": 342,
+        "startChar": 63,
+        "endLine": 342,
+        "endChar": 90
+      },
+      "revId": "074ed302956c53594c75ec20eb739f9c2d705b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
