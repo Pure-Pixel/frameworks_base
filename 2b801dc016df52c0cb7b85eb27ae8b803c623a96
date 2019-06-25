@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8e5b5e5_9d9bf9c9",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 6498,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2019-06-25T01:17:58Z",
+      "side": 0,
+      "message": "We can make this (and the KeyEvent) change a separate CL, for easier approval process and to separate the wake policy discussion from the key handling discussion.",
+      "range": {
+        "startLine": 6498,
+        "startChar": 12,
+        "endLine": 6498,
+        "endChar": 41
+      },
+      "revId": "2b801dc016df52c0cb7b85eb27ae8b803c623a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
