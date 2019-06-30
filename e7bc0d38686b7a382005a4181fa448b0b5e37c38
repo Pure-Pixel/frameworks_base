@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26a15c63_b764d1f1",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 1680,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-06-30T04:58:11Z",
+      "side": 1,
+      "message": "Currently there aren\u0027t any handlers for for KEYCODE_CAMERA in StatusBar components, but maybe someone wants to log this stuff there?",
+      "revId": "e7bc0d38686b7a382005a4181fa448b0b5e37c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe659697_87f17516",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 1684,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-06-30T04:58:11Z",
+      "side": 1,
+      "message": "Since KEYCODE_CAMERA is a wake key now, does it make sense to acquire a wakelock here? The power key handling acquires one in case of non-interactivity...",
+      "revId": "e7bc0d38686b7a382005a4181fa448b0b5e37c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37f9266f_a7c73b55",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 1703,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-06-30T04:58:11Z",
+      "side": 1,
+      "message": "Would sharing an \"mGestureService\" with interceptPowerKeyDown() make sense here?",
+      "revId": "e7bc0d38686b7a382005a4181fa448b0b5e37c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
