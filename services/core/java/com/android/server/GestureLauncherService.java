@@ -126,6 +126,7 @@ public class GestureLauncherService extends SystemService {
      * Whether camera double tap power button gesture is currently enabled;
      */
     private boolean mCameraDoubleTapPowerEnabled;
+    private boolean mCameraButtonLaunchEnabled;
     private long mLastPowerDown;
     private int mPowerButtonConsecutiveTaps;
 
@@ -159,6 +160,7 @@ public class GestureLauncherService extends SystemService {
                     "GestureLauncherService");
             updateCameraRegistered();
             updateCameraDoubleTapPowerEnabled();
+            mCameraButtonLaunchEnabled = isCameraButtonLaunchEnabled(resources);
 
             mUserId = ActivityManager.getCurrentUser();
             mContext.registerReceiver(mUserReceiver, new IntentFilter(Intent.ACTION_USER_SWITCHED));
@@ -346,12 +348,17 @@ public class GestureLauncherService extends SystemService {
         return configSet;
     }
 
+    public static boolean isCameraButtonLaunchEnabled(Resources resources) {
+        return resources.getBoolean(
+                com.android.internal.R.bool.config_cameraButtonLaunchEnabled);
+    }
+
     /**
      * Whether GestureLauncherService should be enabled according to system properties.
      */
     public static boolean isGestureLauncherEnabled(Resources resources) {
         return isCameraLaunchEnabled(resources) || isCameraDoubleTapPowerEnabled(resources) ||
-                isCameraLiftTriggerEnabled(resources);
+                isCameraLiftTriggerEnabled(resources) || isCameraButtonLaunchEnabled(resources);
     }
 
     public boolean interceptPowerKeyDown(KeyEvent event, boolean interactive,
@@ -391,6 +398,15 @@ public class GestureLauncherService extends SystemService {
         mMetricsLogger.histogram("power_double_tap_interval", (int) powerTapInterval);
         outLaunched.value = launched;
         return intercept && launched;
+    }
+
+    public boolean interceptCameraKeyPress() {
+        if (!mCameraButtonLaunchEnabled) {
+            return false;
+        }
+        Slog.i(TAG, "Camera button long-press detected, launching camera.");
+        return handleCameraGesture(false /* useWakelock */,
+                StatusBarManager.CAMERA_LAUNCH_SOURCE_CAMERA_BUTTON);
     }
 
     /**
