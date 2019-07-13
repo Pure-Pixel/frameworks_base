@@ -541,6 +541,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     // to hold wakelocks during dispatch and eliminating the critical path.
     volatile boolean mPowerKeyHandled;
     volatile boolean mBackKeyHandled;
+    volatile boolean mCameraKeyHandled;
+    volatile boolean mCameraLongPressMsgSent = false;
     volatile boolean mBeganFromNonInteractive;
     volatile int mPowerKeyPressCounter;
     volatile boolean mEndCallKeyHandled;
@@ -760,6 +762,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     // Whether to support long press from power button in non-interactive mode
     private boolean mSupportLongPressPowerWhenNonInteractive;
 
+    // Whether to launch the camera application on camera button long-press
+    private boolean mCameraButtonLaunchEnabled;
+
     // Whether to go to sleep entering theater mode from power button
     private boolean mGoToSleepOnButtonPressTheaterMode;
 
@@ -794,6 +799,14 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     /* The number of steps between min and max brightness */
     private static final int BRIGHTNESS_STEPS = 10;
+
+
+    /* Extra intents for launching camera by gesture
+     * Keep in sync with:
+     * packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java */
+    public static final String EXTRA_CAMERA_LAUNCH_SOURCE
+            = "com.android.systemui.camera_launch_source";
+    public static final String CAMERA_LAUNCH_SOURCE_CAMERA_BUTTON = "camera_button";
 
     SettingsObserver mSettingsObserver;
     ShortcutManager mShortcutManager;
@@ -846,6 +859,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_POWER_VERY_LONG_PRESS = 28;
     private static final int MSG_NOTIFY_USER_ACTIVITY = 29;
     private static final int MSG_RINGER_TOGGLE_CHORD = 30;
+    private static final int MSG_CAMERA_LONG_PRESS = 31;
 
     private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_STATUS = 0;
     private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_NAVIGATION = 1;
@@ -955,6 +969,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                             android.Manifest.permission.USER_ACTIVITY);
                 case MSG_RINGER_TOGGLE_CHORD:
                     handleRingerChordGesture();
+                    break;
+                case MSG_CAMERA_LONG_PRESS:
+                    cameraLongPress();
                     break;
             }
         }
@@ -1666,6 +1683,40 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     }
 
+    private void cameraLongPress() {
+        final boolean keyguardActive = mKeyguardDelegate == null
+                ? false
+                : mKeyguardDelegate.isShowing();
+        if (!keyguardActive) {
+            // Abort possibly stuck animations.
+            mHandler.post(mWindowManagerFuncs::triggerAnimationFailsafe);
+            Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+            intent.putExtra(EXTRA_CAMERA_LAUNCH_SOURCE, CAMERA_LAUNCH_SOURCE_CAMERA_BUTTON);
+            ResolveInfo resolveInfo = mContext.getPackageManager().resolveActivityAsUser(
+                    intent, PackageManager.MATCH_DEFAULT_ONLY, mCurrentUserId);
+            String packageToLaunch = (resolveInfo == null || resolveInfo.activityInfo == null)
+                    ? null : resolveInfo.activityInfo.packageName;
+            List<ActivityManager.RunningTaskInfo> tasks =
+                    mContext.getSystemService(ActivityManager.class).getRunningTasks(1);
+            if (packageToLaunch != null && (tasks.isEmpty() ||
+                    !packageToLaunch.equals(tasks.get(0).topActivity.getPackageName()))) {
+                startActivityAsUser(intent, UserHandle.CURRENT_OR_SELF);
+                mCameraKeyHandled = true;
+            }
+        } else {
+            GestureLauncherService gestureService = LocalServices.getService(
+                    GestureLauncherService.class);
+            boolean gesturedServiceIntercepted = false;
+            if (gestureService != null) {
+                gesturedServiceIntercepted = gestureService.interceptCameraKeyPress();
+                if (gesturedServiceIntercepted && mRequestedOrGoingToSleep) {
+                    mCameraGestureTriggeredDuringGoingToSleep = true;
+                }
+                mCameraKeyHandled = gesturedServiceIntercepted;
+            }
+        }
+    }
+
     private void accessibilityShortcutActivated() {
         mAccessibilityShortcutController.performAccessibilityShortcut();
     }
@@ -2125,6 +2176,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         mSupportLongPressPowerWhenNonInteractive = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_supportLongPressPowerWhenNonInteractive);
+
+        mCameraButtonLaunchEnabled = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_cameraButtonLaunchEnabled);
 
         mLongPressOnBackBehavior = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_longPressOnBackBehavior);
@@ -6385,6 +6439,35 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         if (!down) {
                             showPictureInPictureMenu(event);
                         }
+                        result &= ~ACTION_PASS_TO_USER;
+                    }
+                }
+                break;
+            }
+            case KeyEvent.KEYCODE_CAMERA: {
+                if (!mCameraButtonLaunchEnabled) {
+                    break;
+                } else if (down) {
+                    // Reset camera key state for long press
+                    mCameraKeyHandled = false;
+
+                    if (!mCameraLongPressMsgSent) {
+                        // Only initiate sending MSG_CAMERA_LONG_PRESS once per key down
+                        mCameraLongPressMsgSent = true;
+                        Message msg = mHandler.obtainMessage(MSG_CAMERA_LONG_PRESS);
+                        msg.setAsynchronous(true);
+                        mHandler.sendMessageDelayed(msg,
+                                ViewConfiguration.get(mContext).getDeviceGlobalActionKeyTimeout());
+                    }
+                } else {
+                    mCameraLongPressMsgSent = false;
+                    if (!mCameraKeyHandled) {
+                        // Reset long press state
+                        mCameraKeyHandled = true;
+                        mHandler.removeMessages(MSG_CAMERA_LONG_PRESS);
+                    } else {
+                        // Don't pass camera press to app if we've already
+                        // handled it via long press
                         result &= ~ACTION_PASS_TO_USER;
                     }
                 }
