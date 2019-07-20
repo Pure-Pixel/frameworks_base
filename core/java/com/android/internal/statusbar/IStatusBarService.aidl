@@ -43,6 +43,7 @@ interface IStatusBarService
     void setIcon(String slot, String iconPackage, int iconId, int iconLevel, String contentDescription);
     @UnsupportedAppUsage
     void setIconVisibility(String slot, boolean visible);
+    void onCameraLaunchGestureDetected(int source);
     @UnsupportedAppUsage
     void removeIcon(String slot);
     void setImeWindowStatus(in IBinder token, int vis, int backDisposition,

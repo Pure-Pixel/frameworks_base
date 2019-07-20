@@ -19,13 +19,16 @@ package com.android.internal.policy;
 import android.annotation.UnsupportedAppUsage;
 import android.app.KeyguardManager;
 import android.app.SearchManager;
+import android.app.StatusBarManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.media.session.MediaSessionManager;
+//import android.os.Handler;
 import android.os.UserHandle;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -52,6 +55,19 @@ public class PhoneFallbackEventHandler implements FallbackEventHandler {
     SearchManager mSearchManager;
     TelephonyManager mTelephonyManager;
     MediaSessionManager mMediaSessionManager;
+    StatusBarManager mStatusBarManager;
+    //Handler mHandler;
+
+    // Whether to launch the camera application on camera button long-press
+    private boolean mCameraButtonLaunchEnabled = mContext.getResources().getBoolean(
+            com.android.internal.R.bool.config_cameraButtonLaunchEnabled);
+
+    /* Extra intents for launching camera by gesture
+     * Keep in sync with:
+     * packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java */
+    public static final String EXTRA_CAMERA_LAUNCH_SOURCE
+            = "com.android.systemui.camera_launch_source";
+    public static final String CAMERA_LAUNCH_SOURCE_CAMERA_BUTTON = "camera_button";
 
     @UnsupportedAppUsage
     public PhoneFallbackEventHandler(Context context) {
@@ -144,22 +160,35 @@ public class PhoneFallbackEventHandler implements FallbackEventHandler {
             }
 
             case KeyEvent.KEYCODE_CAMERA: {
+                // TODO: Why were instant apps exempted? Security? Instant apps
+                // can't capture this button anyway, no?
+                // In either case, we don't need to check for keyguard here
+                // since it's handled in cameraLongPress()
+                /*
                 if (isNotInstantAppAndKeyguardRestricted(dispatcher)) {
                     break;
                 }
+                */
                 if (event.getRepeatCount() == 0) {
                     dispatcher.startTracking(event, this);
                 } else if (event.isLongPress() && dispatcher.isTracking(event)) {
                     dispatcher.performedLongPress(event);
                     if (isUserSetupComplete()) {
-                        mView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-                        sendCloseSystemWindows();
-                        // Broadcast an intent that the Camera button was longpressed
-                        Intent intent = new Intent(Intent.ACTION_CAMERA_BUTTON, null);
-                        intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
-                        intent.putExtra(Intent.EXTRA_KEY_EVENT, event);
-                        mContext.sendOrderedBroadcastAsUser(intent, UserHandle.CURRENT_OR_SELF,
-                                null, null, null, 0, null, null);
+                        if (mCameraButtonLaunchEnabled) {
+                            cameraLongPress(dispatcher);
+                        } else {
+                            // TODO(@Sony): Get rid of this block entirely?
+                            // TODO: Don't trigger haptic feedback twice
+                            // StatusBar.java:vibrateForCameraGesture already does the job
+                            mView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                            sendCloseSystemWindows();
+                            // Broadcast an intent that the Camera button was longpressed
+                            Intent intent = new Intent(Intent.ACTION_CAMERA_BUTTON, null);
+                            intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+                            intent.putExtra(Intent.EXTRA_KEY_EVENT, event);
+                            mContext.sendOrderedBroadcastAsUser(intent, UserHandle.CURRENT_OR_SELF,
+                                    null, null, null, 0, null, null);
+                        }
                     } else {
                         Log.i(TAG, "Not dispatching CAMERA long press because user "
                                 + "setup is in progress.");
@@ -252,6 +281,7 @@ public class PhoneFallbackEventHandler implements FallbackEventHandler {
                 if (isNotInstantAppAndKeyguardRestricted(dispatcher)) {
                     break;
                 }
+                // TODO: Cancel event before onKeyUp when camera is launched
                 if (event.isTracking() && !event.isCanceled()) {
                     // Add short press behavior here if desired
                 }
@@ -325,6 +355,14 @@ public class PhoneFallbackEventHandler implements FallbackEventHandler {
         return mMediaSessionManager;
     }
 
+    StatusBarManager getStatusBarManager() {
+        if (mStatusBarManager == null) {
+            mStatusBarManager = (StatusBarManager) mContext.getSystemService(
+                    android.app.Service.STATUS_BAR_SERVICE);
+        }
+        return mStatusBarManager;
+    }
+
     void sendCloseSystemWindows() {
         PhoneWindow.sendCloseSystemWindows(mContext, null);
     }
@@ -337,6 +375,33 @@ public class PhoneFallbackEventHandler implements FallbackEventHandler {
     private void handleMediaKeyEvent(KeyEvent keyEvent) {
         getMediaSessionManager().dispatchMediaKeyEventAsSystemService(keyEvent);
     }
+
+    private void cameraLongPress(KeyEvent.DispatcherState dispatcher) {
+
+        final boolean keyguardActive = (getKeyguardManager().inKeyguardRestrictedInputMode()
+                || dispatcher == null);
+        if (!keyguardActive) {
+            // Abort possibly stuck animations.
+            // TODO: Need to steal from PhoneWindowManager because we don't get
+            // the windowManagerFuncs that its init() gets
+            //mHandler.post(mWindowManagerFuncs::triggerAnimationFailsafe);
+            // TODO: "Propose" new camera intent only for camera button
+            // Maybe make the intent generic("gesture_*") and let camera
+            // application decide based on extra intent
+            Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+            intent.putExtra(EXTRA_CAMERA_LAUNCH_SOURCE, CAMERA_LAUNCH_SOURCE_CAMERA_BUTTON);
+            try {
+                mContext.startActivityAsUser(intent, UserHandle.CURRENT_OR_SELF);
+            } catch (ActivityNotFoundException e) {
+                Log.w(TAG, "No activity found for MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA");
+            }
+        } else {
+            // Use the StatusBarManager interface to handle keyguard and intent resolving
+            getStatusBarManager().onCameraLaunchGestureDetected(
+                    StatusBarManager.CAMERA_LAUNCH_SOURCE_CAMERA_BUTTON);
+        }
+    }
+
 
     private boolean isUserSetupComplete() {
         return Settings.Secure.getInt(mContext.getContentResolver(),
