@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb5fd534_82fbe841",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-07-20T22:19:44Z",
+      "side": 1,
+      "message": "Would like to get an answer from the Google guys on whether this check can be dropped",
+      "revId": "921dcc222d3a049b013382c65d0ad590cd140715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e175c34_f9090d26",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-07-20T22:19:44Z",
+      "side": 1,
+      "message": "@Eiichi do you depend on this? Else I\u0027d like to drop this block entirely.",
+      "revId": "921dcc222d3a049b013382c65d0ad590cd140715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07648e59_d12f8920",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-07-20T22:19:44Z",
+      "side": 1,
+      "message": "@Eiichi do you have any custom handling here? I would like to avoid the case where the user holds the camera button down, the camera launches, user releases button, KEY_UP gets sent to application.",
+      "revId": "921dcc222d3a049b013382c65d0ad590cd140715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58f1aa64_3573ff6f",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-07-20T22:19:44Z",
+      "side": 1,
+      "message": "TODO: Maybe send messages via own message handler, but where to?",
+      "revId": "921dcc222d3a049b013382c65d0ad590cd140715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a325a79_7d2143dd",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-07-20T22:19:44Z",
+      "side": 1,
+      "message": "@Eiichi what do you propose for the intent name?\nMy proposal:\nINTENT_ACTION_STILL_IMAGE_CAMERA_GESTURE \u003d \"android.media.action.STILL_IMAGE_CAMERA_GESTURE\"\n\nI\u0027d like to keep this generic since camera application could then react to any type of gesture.",
+      "revId": "921dcc222d3a049b013382c65d0ad590cd140715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
