@@ -4303,6 +4303,14 @@ public abstract class Context {
     @SystemApi
     public static final String DYNAMIC_ANDROID_SERVICE = "dynamic_android";
 
+     /**
+     * Use with {@link #getSystemService(String)} to retrieve an
+     * {@link android.os.GestureLauncher}.
+     * @hide
+     */
+    @SystemApi
+    public static final String GESTURE_LAUNCHER_SERVICE = "gesture_launcher";
+
     /**
      * Determine whether the given permission is allowed for a particular
      * process and user ID running in the system.

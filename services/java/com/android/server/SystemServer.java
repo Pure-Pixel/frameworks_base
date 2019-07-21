@@ -44,6 +44,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.FactoryTest;
 import android.os.FileUtils;
+import android.os.GestureLauncherManager;
 import android.os.IIncidentManager;
 import android.os.Looper;
 import android.os.Message;
@@ -73,6 +74,7 @@ import com.android.internal.os.BinderInternal;
 import com.android.internal.util.ConcurrentUtils;
 import com.android.internal.util.EmergencyAffordanceManager;
 import com.android.internal.widget.ILockSettings;
+import com.android.server.GestureLauncherService;
 import com.android.server.accessibility.AccessibilityManagerService;
 import com.android.server.am.ActivityManagerService;
 import com.android.server.audio.AudioService;
@@ -993,6 +995,7 @@ public final class SystemServer {
         }
 
         StatusBarManagerService statusBar = null;
+        GestureLauncherService gestureLauncher = null;
         INotificationManager notification = null;
         LocationManagerService location = null;
         CountryDetectorService countryDetector = null;
@@ -1265,6 +1268,19 @@ public final class SystemServer {
             }
             traceEnd();
 
+            if (GestureLauncherService.isGestureLauncherEnabled(context.getResources())) {
+                traceBeginAndSlog("StartGestureLauncherService");
+                try {
+                    gestureLauncher = new GestureLauncherService(context);
+                    ServiceManager.addService(Context.GESTURE_LAUNCHER_SERVICE,
+                            gestureLauncher);
+                } catch (Throwable e) {
+                    reportWtf("starting GestureLauncher", e);
+                }
+                traceEnd();
+            }
+            traceEnd();
+
             traceBeginAndSlog("StartUpdateLockService");
             try {
                 ServiceManager.addService(Context.UPDATE_LOCK_SERVICE,
@@ -1442,11 +1458,13 @@ public final class SystemServer {
             mSystemServiceManager.startService(VOICE_RECOGNITION_MANAGER_SERVICE_CLASS);
             traceEnd();
 
+            /*
             if (GestureLauncherService.isGestureLauncherEnabled(context.getResources())) {
                 traceBeginAndSlog("StartGestureLauncher");
                 mSystemServiceManager.startService(GestureLauncherService.class);
                 traceEnd();
             }
+            */
             traceBeginAndSlog("StartSensorNotification");
             mSystemServiceManager.startService(SensorNotificationService.class);
             traceEnd();
