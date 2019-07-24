@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "96ec9535_5382e361",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-07-24T07:22:07Z",
+      "side": 1,
+      "message": "So far we keep compatibility CAMERA_BUTTON behavior\n\nhttps://developer.android.com/reference/android/content/Intent#ACTION_CAMERA_BUTTON\n\nOur implementation below\n\n```\nif (isUserSetupComplete) {\nmView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);\nsendCloseSystemWindows();\n// Broadcast an intent that the Camera button was longpressed\n\nIntent intent \u003d new Intent(Intent.ACTION_CAMERA_BUTTON, null);\nintent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);\nintent.putExtra(Intent.EXTRA_KEY_EVENT, event);\nBroadcastReceiver receiver \u003d new BroadcastReceiver() {\n    @Override\n    public void onReceive(Context context, Intent intent) {\n        if (isCameraKeyLongPressGestureEnabled()) { // See the settings secure\n            intent \u003d new Intent(\n                     MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);\n            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);\n            intent.putExtra(EXTRA_CAMERA_LAUNCH_SOURCE,\n                     CAMERA_LAUNCH_SOURCE_CAMERA_LONG_PRESS);\n            intent.setPackage(getCameraKeyLaunchPackage()); # So far we use explicit intent\n            try {\n                 mContext.startActivity(intent);\n            } catch (ActivityNotFoundException e) {\n                 Log.w(TAG, \"No activity found for android.media.action.\"\n                     + \"STILL_IMAGE_CAMERA.\");\n            }\n        }\n    }\n};\nContext.sendOrderedBroadcastAsUser(intent, UserHandle.CURRENT_OR_SELF,\n        null, receiver, null, 0, null, null);\n} else {\n...\n}",
+      "parentUuid": "7e175c34_f9090d26",
+      "revId": "921dcc222d3a049b013382c65d0ad590cd140715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07648e59_d12f8920",
         "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
         "patchSetId": 15
@@ -47,6 +65,24 @@
       "writtenOn": "2019-07-20T22:19:44Z",
       "side": 1,
       "message": "@Eiichi do you have any custom handling here? I would like to avoid the case where the user holds the camera button down, the camera launches, user releases button, KEY_UP gets sent to application.",
+      "revId": "921dcc222d3a049b013382c65d0ad590cd140715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15865250_db6ba4ac",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-07-24T07:22:07Z",
+      "side": 1,
+      "message": "So far we do not handle here. \"KEY_UP gets sent to application\" means launched application ? \n\nIf yes, our application handles combination with KEYCODE_FOCUS and KEYCODE_CAMERA, then our camera application does not take picture by KEYCODE_CAMERA only.\n\nIn our understanding, launched application gets onKeyDown of KEYCODE_CAMERA while user holds the camera button down. Then it needs onKeyUp of KEYCODE_CAMERA",
+      "parentUuid": "07648e59_d12f8920",
       "revId": "921dcc222d3a049b013382c65d0ad590cd140715",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -81,6 +117,24 @@
       "writtenOn": "2019-07-20T22:19:44Z",
       "side": 1,
       "message": "@Eiichi what do you propose for the intent name?\nMy proposal:\nINTENT_ACTION_STILL_IMAGE_CAMERA_GESTURE \u003d \"android.media.action.STILL_IMAGE_CAMERA_GESTURE\"\n\nI\u0027d like to keep this generic since camera application could then react to any type of gesture.",
+      "revId": "921dcc222d3a049b013382c65d0ad590cd140715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d489ba3_471a9cb8",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-07-24T07:22:07Z",
+      "side": 1,
+      "message": "It looks good for us.",
+      "parentUuid": "1a325a79_7d2143dd",
       "revId": "921dcc222d3a049b013382c65d0ad590cd140715",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
