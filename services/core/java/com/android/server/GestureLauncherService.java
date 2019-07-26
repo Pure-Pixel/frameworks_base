@@ -30,9 +30,11 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.hardware.TriggerEvent;
 import android.hardware.TriggerEventListener;
+import android.os.Binder;
 import android.os.Handler;
-import android.os.PowerManager;
+import android.os.IGestureLauncher;
 import android.os.PowerManager.WakeLock;
+import android.os.PowerManager;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -56,6 +58,7 @@ import com.android.server.wm.WindowManagerInternal;
  * @hide
  */
 public class GestureLauncherService extends SystemService {
+
     private static final boolean DBG = false;
     private static final boolean DBG_CAMERA_LIFT = false;
     private static final String TAG = "GestureLauncherService";
@@ -73,6 +76,7 @@ public class GestureLauncherService extends SystemService {
      * frequency of consecutive taps, for evaluation for future gestures.
      */
     @VisibleForTesting static final long POWER_SHORT_TAP_SEQUENCE_MAX_INTERVAL_MS = 500;
+
 
     /** The listener that receives the gesture event. */
     private final GestureEventListener mGestureListener = new GestureEventListener();
@@ -126,6 +130,7 @@ public class GestureLauncherService extends SystemService {
      * Whether camera double tap power button gesture is currently enabled;
      */
     private boolean mCameraDoubleTapPowerEnabled;
+    private boolean mCameraButtonLaunchEnabled;
     private long mLastPowerDown;
     private int mPowerButtonConsecutiveTaps;
 
@@ -140,7 +145,11 @@ public class GestureLauncherService extends SystemService {
         mMetricsLogger = metricsLogger;
     }
 
+
+    @Override
     public void onStart() {
+        BinderService mService = new BinderService(mContext);
+        publishBinderService(Context.GESTURE_LAUNCHER_SERVICE, mService);
         LocalServices.addService(GestureLauncherService.class, this);
     }
 
@@ -159,11 +168,46 @@ public class GestureLauncherService extends SystemService {
                     "GestureLauncherService");
             updateCameraRegistered();
             updateCameraDoubleTapPowerEnabled();
+            mCameraButtonLaunchEnabled = isCameraButtonLaunchEnabled(resources);
 
             mUserId = ActivityManager.getCurrentUser();
             mContext.registerReceiver(mUserReceiver, new IntentFilter(Intent.ACTION_USER_SWITCHED));
             registerContentObservers();
         }
+    }
+
+    private final class BinderService extends IGestureLauncher.Stub {
+
+        Context mServiceContext;
+
+        public BinderService(Context context) {
+            super();
+            mServiceContext = context;
+        }
+
+        @Override // Binder call
+        public void onCameraLaunchGestureDetected(int source) {
+            final long ident = Binder.clearCallingIdentity();
+            try {
+                StatusBarManagerInternal service = LocalServices.getService(
+                        StatusBarManagerInternal.class);
+                service.onCameraLaunchGestureDetected(source);
+            } finally {
+                Binder.restoreCallingIdentity(ident);
+            }
+        }
+
+        @Override // Binder call
+        public boolean isCameraButtonLaunchSettingEnabled() {
+            final long ident = Binder.clearCallingIdentity();
+            try {
+                return isCameraButtonLaunchSettingEnabledInternal(
+                        mServiceContext, mUserId);
+            } finally {
+                Binder.restoreCallingIdentity(ident);
+            }
+        }
+
     }
 
     private void registerContentObservers() {
@@ -175,6 +219,9 @@ public class GestureLauncherService extends SystemService {
                 false, mSettingObserver, mUserId);
         mContext.getContentResolver().registerContentObserver(
                 Settings.Secure.getUriFor(Settings.Secure.CAMERA_LIFT_TRIGGER_ENABLED),
+                false, mSettingObserver, mUserId);
+        mContext.getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor(Settings.Secure.CAMERA_LONG_PRESS_GESTURE_DISABLED),
                 false, mSettingObserver, mUserId);
     }
 
@@ -325,6 +372,13 @@ public class GestureLauncherService extends SystemService {
                         Settings.Secure.CAMERA_LIFT_TRIGGER_ENABLED_DEFAULT, userId) != 0);
     }
 
+    public static boolean isCameraButtonLaunchSettingEnabledInternal(Context context, int userId) {
+        return isCameraButtonLaunchEnabled(context.getResources())
+                && (Settings.Secure.getIntForUser(context.getContentResolver(),
+                        Settings.Secure.CAMERA_LONG_PRESS_GESTURE_DISABLED, 0, userId) == 0);
+    }
+
+
     /**
      * Whether to enable the camera launch gesture.
      */
@@ -346,12 +400,17 @@ public class GestureLauncherService extends SystemService {
         return configSet;
     }
 
+    public static boolean isCameraButtonLaunchEnabled(Resources resources) {
+        return resources.getBoolean(
+                com.android.internal.R.bool.config_cameraButtonLaunchEnabled);
+    }
+
     /**
      * Whether GestureLauncherService should be enabled according to system properties.
      */
     public static boolean isGestureLauncherEnabled(Resources resources) {
         return isCameraLaunchEnabled(resources) || isCameraDoubleTapPowerEnabled(resources) ||
-                isCameraLiftTriggerEnabled(resources);
+                isCameraLiftTriggerEnabled(resources) || isCameraButtonLaunchEnabled(resources);
     }
 
     public boolean interceptPowerKeyDown(KeyEvent event, boolean interactive,
@@ -397,7 +456,7 @@ public class GestureLauncherService extends SystemService {
      * @return true if camera was launched, false otherwise.
      */
     @VisibleForTesting
-    boolean handleCameraGesture(boolean useWakelock, int source) {
+    public boolean handleCameraGesture(boolean useWakelock, int source) {
         boolean userSetupComplete = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 Settings.Secure.USER_SETUP_COMPLETE, 0, UserHandle.USER_CURRENT) != 0;
         if (!userSetupComplete) {
@@ -556,4 +615,9 @@ public class GestureLauncherService extends SystemService {
             }
         }
     }
+
+    /*
+    private static final Context getUiContext() {
+        return ActivityThread.currentActivityThread().getSystemUiContext();
+    */
 }

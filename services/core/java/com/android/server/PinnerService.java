@@ -363,6 +363,10 @@ public final class PinnerService extends SystemService {
     }
 
     private ApplicationInfo getCameraInfo(int userHandle) {
+        //
+        // TODO @Sony: By using a special intent rather than the default
+        // INTENT_ACTION_STILL_IMAGE_CAMERA[_SECURE], we lose the prewarm functionality
+
         Intent cameraIntent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
         ApplicationInfo info = getApplicationInfoForIntent(cameraIntent, userHandle,
             false /* defaultToSystemApp */);

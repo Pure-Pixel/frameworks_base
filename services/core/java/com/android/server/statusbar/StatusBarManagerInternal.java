@@ -69,6 +69,7 @@ public interface StatusBarManagerInternal {
 
     void startAssist(Bundle args);
     void onCameraLaunchGestureDetected(int source);
+    void vibrateForCameraGesture();
     void topAppWindowChanged(boolean menuVisible);
     void setSystemUiVisibility(int vis, int fullscreenStackVis, int dockedStackVis, int mask,
             Rect fullscreenBounds, Rect dockedBounds, String cause);
