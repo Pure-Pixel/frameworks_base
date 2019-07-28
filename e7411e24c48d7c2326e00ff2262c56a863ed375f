@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be74f0e4_a0270b8b",
+        "filename": "core/java/android/provider/MediaStore.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-07-28T20:51:07Z",
+      "side": 1,
+      "message": "@Eiichi: On second thought, I really don\u0027t like introducing a new intent here. Because Android pre-warms the camera app via the \"INTENT_ACTION_STILL_IMAGE_CAMERA_GESTURE\" intent in the pinner service, we would have to amend that one as well.\n\n```\n// services/core/java/com/android/server/PinnerService.java\n\n    private ApplicationInfo getCameraInfo(int userHandle) {\n        Intent cameraIntent \u003d new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);\n        ApplicationInfo info \u003d getApplicationInfoForIntent(cameraIntent, userHandle,\n            false /* defaultToSystemApp */);\n```",
+      "revId": "e7411e24c48d7c2326e00ff2262c56a863ed375f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3d29bfc_6144b3da",
+        "filename": "core/java/android/provider/MediaStore.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-07-28T20:51:07Z",
+      "side": 1,
+      "message": "@Eiichi: Maybe we can settle on only introducing this new secure gesture intent and doing away with INTENT_ACTION_STILL_IMAGE_CAMERA_GESTURE.\nThis would allay your concerns about accidental in-pocket launches sufficiently without restricting users in their choice of camera app when the screen is unlocked.",
+      "revId": "e7411e24c48d7c2326e00ff2262c56a863ed375f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

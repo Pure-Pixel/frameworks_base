@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30676b17_4c0162ac",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 1687,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-07-28T20:51:07Z",
+      "side": 1,
+      "message": "@Eiichi: I hope this settles your concerns with accidental wakeups. Only on long-press will the camera button wake up the device.\nIf a short-press is detected, the WakeLock is released again and the device will continue to sleep.",
+      "revId": "43d881242c90ec6132af2be5a9c6c939738a5974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
