@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "7e43d4a3_252885c2",
+        "filename": "core/java/android/provider/MediaStore.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-02T13:08:15Z",
+      "side": 1,
+      "message": "Updated the intent description with warning about battery drain.\n\nYou are mostly right, the application that is pinned will most likely be the one that handles gesture intents as well. But I don\u0027t like having a sprawl of intents and applications to manage.",
+      "parentUuid": "f262a30b_10a5f18e",
+      "revId": "e7411e24c48d7c2326e00ff2262c56a863ed375f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3d29bfc_6144b3da",
         "filename": "core/java/android/provider/MediaStore.java",
         "patchSetId": 19
@@ -69,6 +87,24 @@
       "revId": "e7411e24c48d7c2326e00ff2262c56a863ed375f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56f15baa_0b9db0f0",
+        "filename": "core/java/android/provider/MediaStore.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-02T13:08:15Z",
+      "side": 1,
+      "message": "Updated the intent description with a warning about battery drain.\n\n\u003e We need the not secure intent. Because we need to care about the case that user does not set secure lock. In such case, application will be launched IMAGE_CAMERA_GESTURE in pocket.\n\nI meant that instead of the IMAGE_CAMERA_GESTURE intent we could just use the regular IMAGE_CAMERA one, because in an unlocked context we can assume that the user is paying attention and battery should not be a concern. But then again, we would still need the auto-shutoff if a user has not set any lockscreen security.\nSo I yield to your suggestion, let\u0027s keep the GESTURE intents.",
+      "parentUuid": "cf9486af_b544b995",
+      "revId": "e7411e24c48d7c2326e00ff2262c56a863ed375f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
