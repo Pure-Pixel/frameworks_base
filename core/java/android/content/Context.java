@@ -3088,6 +3088,7 @@ public abstract class Context {
             CROSS_PROFILE_APPS_SERVICE,
             //@hide: SYSTEM_UPDATE_SERVICE,
             //@hide: TIME_DETECTOR_SERVICE,
+            //@hide: GESTURE_LAUNCHER_SERVICE,
     })
     @Retention(RetentionPolicy.SOURCE)
     public @interface ServiceName {}
@@ -4302,6 +4303,14 @@ public abstract class Context {
      */
     @SystemApi
     public static final String DYNAMIC_ANDROID_SERVICE = "dynamic_android";
+
+     /**
+     * Use with {@link #getSystemService(String)} to retrieve an
+     * {@link android.os.GestureLauncher}.
+     * @hide
+     */
+    @SystemApi
+    public static final String GESTURE_LAUNCHER_SERVICE = "gesture_launcher";
 
     /**
      * Determine whether the given permission is allowed for a particular
