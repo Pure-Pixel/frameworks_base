@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f262a30b_10a5f18e",
+        "filename": "core/java/android/provider/MediaStore.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-08-02T08:48:21Z",
+      "side": 1,
+      "message": "Thanks for your info. I understand. Basically I thought application which handle IMAGE_CAMERA_GESTURE must also handle IMAGE_CAMERA. So no need to change PinnerService.java.\n\nIn addition, I think please add the description about preventing battery drain as you commented https://android-review.googlesource.com/c/platform/frameworks/base/+/973723/18#message-5acf13fb3f3785087d7992c47876c61abf87fe1f",
+      "parentUuid": "be74f0e4_a0270b8b",
+      "revId": "e7411e24c48d7c2326e00ff2262c56a863ed375f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3d29bfc_6144b3da",
         "filename": "core/java/android/provider/MediaStore.java",
         "patchSetId": 19
@@ -30,6 +48,24 @@
       "writtenOn": "2019-07-28T20:51:07Z",
       "side": 1,
       "message": "@Eiichi: Maybe we can settle on only introducing this new secure gesture intent and doing away with INTENT_ACTION_STILL_IMAGE_CAMERA_GESTURE.\nThis would allay your concerns about accidental in-pocket launches sufficiently without restricting users in their choice of camera app when the screen is unlocked.",
+      "revId": "e7411e24c48d7c2326e00ff2262c56a863ed375f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf9486af_b544b995",
+        "filename": "core/java/android/provider/MediaStore.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-08-02T08:48:21Z",
+      "side": 1,
+      "message": "We need the not secure intent. Because we need to care about the case that user does not set secure lock. in such case, application will be launched IMAGE_CAMERA_GESTURE in pocket.",
+      "parentUuid": "c3d29bfc_6144b3da",
       "revId": "e7411e24c48d7c2326e00ff2262c56a863ed375f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true

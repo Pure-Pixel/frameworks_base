@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "651d537c_5a2efc88",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-08-02T08:48:21Z",
+      "side": 1,
+      "message": "Redundant semicolon is added",
+      "range": {
+        "startLine": 57,
+        "startChar": 39,
+        "endLine": 57,
+        "endChar": 40
+      },
+      "revId": "aa3055c2d28b2cb1f853e590473d1fdb3711ddbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a09c6f19_b555d624",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 4687,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-08-02T08:48:21Z",
+      "side": 1,
+      "message": "Could you add the launch_source extra for this intent ?",
+      "range": {
+        "startLine": 4687,
+        "startChar": 44,
+        "endLine": 4687,
+        "endChar": 56
+      },
+      "revId": "aa3055c2d28b2cb1f853e590473d1fdb3711ddbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
