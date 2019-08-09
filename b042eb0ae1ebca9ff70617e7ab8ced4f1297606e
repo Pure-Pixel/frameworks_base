@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc54c265_39553ac7",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 24
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-08-09T07:10:44Z",
+      "side": 1,
+      "message": "It makes compile error due to index is not integer.\n\nfollowing is correct ?\n\nintent.putExtra(EXTRA_CAMERA_LAUNCH_SOURCE, source);",
+      "range": {
+        "startLine": 537,
+        "startChar": 74,
+        "endLine": 537,
+        "endChar": 80
+      },
+      "revId": "b042eb0ae1ebca9ff70617e7ab8ced4f1297606e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bd89e9b_063a731d",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 24
+      },
+      "lineNbr": 4671,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-08-09T07:10:44Z",
+      "side": 1,
+      "message": "this makes compile error.\n\nfollowing is correct ?\n\nfinal Intent intent \u003d new Intent(cameraIntent)\n      .putExtra(EXTRA_CAMERA_LAUNCH_SOURCE, CAMERA_LAUNCH_SOURCES[source]);\n\nTo avoid overwrite extra for static instance, I thought copy is needed.",
+      "range": {
+        "startLine": 4671,
+        "startChar": 8,
+        "endLine": 4671,
+        "endChar": 14
+      },
+      "revId": "b042eb0ae1ebca9ff70617e7ab8ced4f1297606e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
