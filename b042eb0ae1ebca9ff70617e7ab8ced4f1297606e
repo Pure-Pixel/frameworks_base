@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1712f55b_2e768c32",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java",
+        "patchSetId": 24
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-10T22:20:12Z",
+      "side": 1,
+      "message": "You are right of course. Changed to follow your fix.",
+      "parentUuid": "dc54c265_39553ac7",
+      "range": {
+        "startLine": 537,
+        "startChar": 74,
+        "endLine": 537,
+        "endChar": 80
+      },
+      "revId": "b042eb0ae1ebca9ff70617e7ab8ced4f1297606e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4bd89e9b_063a731d",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
         "patchSetId": 24
@@ -45,6 +69,30 @@
       "revId": "b042eb0ae1ebca9ff70617e7ab8ced4f1297606e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cc32568_fa07d769",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 24
+      },
+      "lineNbr": 4671,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-10T22:20:12Z",
+      "side": 1,
+      "message": "Are you sure you\u0027re getting a compile error here? Seems fine for me.\nAs far as I understand Java, \"final\" only means that you cannot reassign the variable. Calling object methods on itself seems ok.\n\nhttps://stackoverflow.com/questions/3271287/final-object-in-java/3271296#3271296\n\u003e Using the \"final\" keyword makes the the variable you are declaring immutable. Once initially assigned it cannot be re-assigned.\n\u003e However, this does not necessarily mean the state of the instance being referred to by the variable is immutable, only the reference itself.",
+      "parentUuid": "4bd89e9b_063a731d",
+      "range": {
+        "startLine": 4671,
+        "startChar": 8,
+        "endLine": 4671,
+        "endChar": 14
+      },
+      "revId": "b042eb0ae1ebca9ff70617e7ab8ced4f1297606e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
