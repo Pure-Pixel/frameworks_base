@@ -22,6 +22,30 @@
       "revId": "c84e47cb6a6e188ce4620ca3a2f006a71ccc057d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "749a6fad_bcebedaf",
+        "filename": "core/java/android/app/StatusBarManager.java",
+        "patchSetId": 28
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-13T15:49:26Z",
+      "side": 1,
+      "message": "Good catch! Fixed.",
+      "parentUuid": "7f820215_f4a999c4",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 67
+      },
+      "revId": "c84e47cb6a6e188ce4620ca3a2f006a71ccc057d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

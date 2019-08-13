@@ -117,6 +117,30 @@
       "revId": "b042eb0ae1ebca9ff70617e7ab8ced4f1297606e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea9de7f8_669e7418",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 24
+      },
+      "lineNbr": 4671,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-13T15:49:26Z",
+      "side": 1,
+      "message": "Good to hear.",
+      "parentUuid": "9a426af8_c07323a9",
+      "range": {
+        "startLine": 4671,
+        "startChar": 8,
+        "endLine": 4671,
+        "endChar": 14
+      },
+      "revId": "b042eb0ae1ebca9ff70617e7ab8ced4f1297606e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
