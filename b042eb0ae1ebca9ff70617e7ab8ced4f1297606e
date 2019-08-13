@@ -93,6 +93,30 @@
       "revId": "b042eb0ae1ebca9ff70617e7ab8ced4f1297606e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a426af8_c07323a9",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 24
+      },
+      "lineNbr": 4671,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-08-13T10:16:30Z",
+      "side": 1,
+      "message": "Compile error means \"intent\" is undefined. Latest patch was already fixed by \"cameraIntent\"\n\nAnd my another concern has been no problem. Because EXTRA_CAMERA_LAUNCH_SOURCE always overwrite before launching application. I thought it might extra remains if SECURE_CAMERA_INTENT/INSECURE_CAMERA_XXXX in KeyguardBottomAreaView is used in other places.",
+      "parentUuid": "5cc32568_fa07d769",
+      "range": {
+        "startLine": 4671,
+        "startChar": 8,
+        "endLine": 4671,
+        "endChar": 14
+      },
+      "revId": "b042eb0ae1ebca9ff70617e7ab8ced4f1297606e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
