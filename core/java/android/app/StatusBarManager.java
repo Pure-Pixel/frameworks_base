@@ -110,6 +110,8 @@ public class StatusBarManager {
     public static final int CAMERA_LAUNCH_SOURCE_WIGGLE = 0;
     public static final int CAMERA_LAUNCH_SOURCE_POWER_DOUBLE_TAP = 1;
     public static final int CAMERA_LAUNCH_SOURCE_LIFT_TRIGGER = 2;
+    public static final int CAMERA_LAUNCH_SOURCE_AFFORDANCE = 3;
+    public static final int CAMERA_LAUNCH_SOURCE_CAMERA_BUTTON = 4;
 
     @UnsupportedAppUsage
     private Context mContext;
@@ -253,6 +255,30 @@ public class StatusBarManager {
             final IStatusBarService svc = getService();
             if (svc != null) {
                 svc.setIconVisibility(slot, visible);
+            }
+        } catch (RemoteException ex) {
+            throw ex.rethrowFromSystemServer();
+        }
+    }
+
+    @UnsupportedAppUsage
+    public void onCameraLaunchGestureDetected(int source) {
+        try {
+            final IStatusBarService svc = getService();
+            if (svc != null) {
+                svc.onCameraLaunchGestureDetected(source);
+            }
+        } catch (RemoteException ex) {
+            throw ex.rethrowFromSystemServer();
+        }
+    }
+
+    @UnsupportedAppUsage
+    public void vibrateForCameraGesture() {
+        try {
+            final IStatusBarService svc = getService();
+            if (svc != null) {
+                svc.vibrateForCameraGesture();
             }
         } catch (RemoteException ex) {
             throw ex.rethrowFromSystemServer();
