@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f206d67a_7930fcaa",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 30
+      },
+      "lineNbr": 4605,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-08-23T12:03:25Z",
+      "side": 1,
+      "message": "Could you align the camera button vibrate feedback as other key long press pattern ?\n\nAnd it looks me this function does not need to export as IStatusBar.\nThere is no call from other files. \n\nimport android.view.HapticFeedbackConstants;\n\nprivate void vibrateForCameraGesture(int source) {\n    if (source \u003d\u003d StatusBarManager.CAMERA_LAUNCH_SOURCE_CAMERA_LONG_PRESS) {\n       // Same effect as HapticFeedbackConstants.LONG_PRESS in PhoneWindowMnager\n       mVibratorHelper.vibrate(VibrationEffect.EFFECT_HEAVY_CLICK);\n\n       \u003cor\u003e \n\n       mStatusBarView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);\n   } else {\n       // Make sure to pass -1 for repeat so VibratorService doesn\u0027t stop us\n       // when going to sleep.\n       mVibrator.vibrate(mCameraLaunchGestureVibePattern, -1 /* repeat */);\n   }\n}\n\nIn current our implementation use mVibratorHelper. It looks me mStatusBarView can be used.",
+      "revId": "3edba59c18f21297ecef14069c701e628d4e2b13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
