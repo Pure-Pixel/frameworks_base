@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0791e9f0_5d9579e6",
+        "filename": "core/java/android/app/SystemServiceRegistry.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2019-08-30T10:39:23Z",
+      "side": 1,
+      "message": "Nit:\nreturn new GestureLauncherManager(IGestureLauncher.Stub.asInterface(b));\n\nMatches other services",
+      "range": {
+        "startLine": 1086,
+        "startChar": 0,
+        "endLine": 1087,
+        "endChar": 67
+      },
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a15bb0e7_fcffecbc",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2019-08-30T10:39:23Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 29
+      },
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddfab4fa_adb58312",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2019-08-30T10:39:23Z",
+      "side": 1,
+      "message": "final",
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c62969f7_72c97eab",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2019-08-30T10:39:23Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 5
+      },
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79ac0fcf_ab1c2795",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2019-08-30T10:39:23Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 9
+      },
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85cdf272_1904aeae",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2019-08-30T10:39:23Z",
+      "side": 1,
+      "message": "GestureLauncherManager getGestureLauncherManager() {\n        if (GestureLauncherManager \u003d\u003d null) {\n            GestureLauncherManager \u003d\n                    (GestureLauncherManager) mContext.getSystemService(Context.GESTURE_LAUNCHER_SERVICE);\n        }\n        return GestureLauncherManager;\n    }",
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0e704b3_eaa77fe4",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2019-08-30T10:39:23Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 364,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 24
+      },
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30773da0_0b17765e",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2019-08-30T10:39:23Z",
+      "side": 1,
+      "message": "private",
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fa37dc9_3db785f1",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2019-08-30T10:39:23Z",
+      "side": 1,
+      "message": "booleans defaults to false, can be removed",
+      "range": {
+        "startLine": 546,
+        "startChar": 44,
+        "endLine": 546,
+        "endChar": 52
+      },
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
