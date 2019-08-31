@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "61c11270_a3dd21bc",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-31T17:49:07Z",
+      "side": 1,
+      "message": "See below",
+      "parentUuid": "a15bb0e7_fcffecbc",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 29
+      },
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddfab4fa_adb58312",
         "filename": "core/java/android/os/GestureLauncherManager.java",
         "patchSetId": 31
@@ -62,6 +86,24 @@
       "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5584c608_15ec9932",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-31T17:49:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddfab4fa_adb58312",
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "bb70ed7f_d97711e4",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-31T17:49:07Z",
+      "side": 1,
+      "message": "Needed because the invocation in core/java/com/android/internal/policy/PhoneFallbackEventHandler.java needs to pass the context.\nThis is identical to how it is done in StatusBarManager.java.",
+      "parentUuid": "c62969f7_72c97eab",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 5
+      },
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79ac0fcf_ab1c2795",
         "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
         "patchSetId": 31
@@ -111,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "f4c5819d_e1b6ea83",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-31T17:49:07Z",
+      "side": 1,
+      "message": "Moved into own function further below",
+      "parentUuid": "79ac0fcf_ab1c2795",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 9
+      },
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85cdf272_1904aeae",
         "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
         "patchSetId": 31
@@ -125,6 +215,24 @@
       "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbd2e4a0_41291692",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-31T17:49:07Z",
+      "side": 1,
+      "message": "Used your suggestion, but keeping mGestureLauncherManager like mStatusBarManager.",
+      "parentUuid": "85cdf272_1904aeae",
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "774eeca2_affe8e2e",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-31T17:49:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0e704b3_eaa77fe4",
+      "range": {
+        "startLine": 364,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 24
+      },
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30773da0_0b17765e",
         "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
         "patchSetId": 31
@@ -165,6 +297,24 @@
       "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02ec7aa5_a69c1c00",
+        "filename": "core/java/com/android/internal/policy/PhoneFallbackEventHandler.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-31T17:49:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30773da0_0b17765e",
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -188,6 +338,30 @@
       "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2eab9d3f_da4cc174",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-31T17:49:07Z",
+      "side": 1,
+      "message": "I like to initialize variables and you should too ;)",
+      "parentUuid": "1fa37dc9_3db785f1",
+      "range": {
+        "startLine": 546,
+        "startChar": 44,
+        "endLine": 546,
+        "endChar": 52
+      },
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
