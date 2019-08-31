@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6aac2ac8_fccfba13",
+        "filename": "core/java/android/app/SystemServiceRegistry.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-31T18:05:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0791e9f0_5d9579e6",
+      "range": {
+        "startLine": 1086,
+        "startChar": 0,
+        "endLine": 1087,
+        "endChar": 67
+      },
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a15bb0e7_fcffecbc",
         "filename": "core/java/android/os/GestureLauncherManager.java",
         "patchSetId": 31
@@ -166,6 +190,24 @@
       "side": 1,
       "message": "not anymore by retrying the system service like you now do\ndon\u0027t think this is used anywhere now",
       "parentUuid": "",
+      "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84d46376_ef6b828d",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-08-31T18:05:35Z",
+      "side": 1,
+      "message": "True, removed.",
+      "parentUuid": "ce21f41d_8a101c0d",
       "revId": "9ff9727775df2bd8a35b30718bc39f53770dd213",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
