@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16759e37_c33ecea1",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-09-02T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8cf247f_0c49f923",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 5
+      },
+      "revId": "4a2d2bc8bd78d926df339aa81b98028a5762c239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdaf41ab_5a6505ae",
         "filename": "core/java/android/os/GestureLauncherManager.java",
         "patchSetId": 33
@@ -45,6 +69,30 @@
       "revId": "4a2d2bc8bd78d926df339aa81b98028a5762c239",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c725e90_808c2f22",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-09-02T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdaf41ab_5a6505ae",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 54
+      },
+      "revId": "4a2d2bc8bd78d926df339aa81b98028a5762c239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "f8bfaed1_42726004",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-09-02T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "618ffda0_5fb587be",
+      "range": {
+        "startLine": 57,
+        "startChar": 16,
+        "endLine": 57,
+        "endChar": 19
+      },
+      "revId": "4a2d2bc8bd78d926df339aa81b98028a5762c239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef681c07_eea580c8",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-09-02T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86a5814b_cd37b4c2",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 30
+      },
+      "revId": "4a2d2bc8bd78d926df339aa81b98028a5762c239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eabb70d0_61a76e88",
         "filename": "core/java/android/os/GestureLauncherManager.java",
         "patchSetId": 33
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d652fdce_3a9e9c52",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-09-02T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eabb70d0_61a76e88",
+      "range": {
+        "startLine": 58,
+        "startChar": 23,
+        "endLine": 58,
+        "endChar": 26
+      },
+      "revId": "4a2d2bc8bd78d926df339aa81b98028a5762c239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83544638_fa3bd1b9",
         "filename": "core/java/android/os/GestureLauncherManager.java",
         "patchSetId": 33
@@ -137,6 +257,30 @@
       "revId": "4a2d2bc8bd78d926df339aa81b98028a5762c239",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79dbb0b3_dbeda141",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-09-02T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83544638_fa3bd1b9",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 54
+      },
+      "revId": "4a2d2bc8bd78d926df339aa81b98028a5762c239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -186,6 +330,54 @@
     },
     {
       "key": {
+        "uuid": "f401a5fc_871d5c47",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-09-02T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8dd86e5_9dad4066",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 30
+      },
+      "revId": "4a2d2bc8bd78d926df339aa81b98028a5762c239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51a476d0_8f90d30f",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-09-02T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12896038_b89cb71c",
+      "range": {
+        "startLine": 69,
+        "startChar": 16,
+        "endLine": 69,
+        "endChar": 19
+      },
+      "revId": "4a2d2bc8bd78d926df339aa81b98028a5762c239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169c8cec_908e81a1",
         "filename": "core/java/android/os/GestureLauncherManager.java",
         "patchSetId": 33
@@ -206,6 +398,30 @@
       "revId": "4a2d2bc8bd78d926df339aa81b98028a5762c239",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4de172f_649f87ea",
+        "filename": "core/java/android/os/GestureLauncherManager.java",
+        "patchSetId": 33
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-09-02T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "169c8cec_908e81a1",
+      "range": {
+        "startLine": 70,
+        "startChar": 23,
+        "endLine": 70,
+        "endChar": 26
+      },
+      "revId": "4a2d2bc8bd78d926df339aa81b98028a5762c239",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
