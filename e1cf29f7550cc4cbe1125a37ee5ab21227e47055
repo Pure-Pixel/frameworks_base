@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5ee1aa04_37a18cea",
+        "filename": "proto/src/metrics_constants.proto",
+        "patchSetId": 34
+      },
+      "lineNbr": 6505,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-09-03T18:37:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fdc94979_7aa11586",
+      "revId": "e1cf29f7550cc4cbe1125a37ee5ab21227e47055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddffae9c_796ea735",
         "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
         "patchSetId": 34
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "de4461cf_560c898c",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 34
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-09-03T18:37:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddffae9c_796ea735",
+      "revId": "e1cf29f7550cc4cbe1125a37ee5ab21227e47055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d72230f_f3febbed",
         "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
         "patchSetId": 34
@@ -50,6 +86,24 @@
       "revId": "e1cf29f7550cc4cbe1125a37ee5ab21227e47055",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc3dab31_27996fcd",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 34
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-09-03T18:37:53Z",
+      "side": 1,
+      "message": "expandNotificationsPanel() is not part of this CL. Please file a separate CL if you intend to address this.",
+      "parentUuid": "7d72230f_f3febbed",
+      "revId": "e1cf29f7550cc4cbe1125a37ee5ab21227e47055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
