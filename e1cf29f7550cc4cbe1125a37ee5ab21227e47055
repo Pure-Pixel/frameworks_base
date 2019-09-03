@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fdc94979_7aa11586",
+        "filename": "proto/src/metrics_constants.proto",
+        "patchSetId": 34
+      },
+      "lineNbr": 6505,
+      "author": {
+        "id": 1319385
+      },
+      "writtenOn": "2019-09-03T08:10:52Z",
+      "side": 1,
+      "message": "sadly this is not Q",
+      "revId": "e1cf29f7550cc4cbe1125a37ee5ab21227e47055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddffae9c_796ea735",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 34
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1319385
+      },
+      "writtenOn": "2019-09-03T08:10:52Z",
+      "side": 1,
+      "message": "ex makes it consistent",
+      "revId": "e1cf29f7550cc4cbe1125a37ee5ab21227e47055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d72230f_f3febbed",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 34
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1319385
+      },
+      "writtenOn": "2019-09-03T08:10:52Z",
+      "side": 1,
+      "message": "override",
+      "revId": "e1cf29f7550cc4cbe1125a37ee5ab21227e47055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
