@@ -122,6 +122,24 @@
       "revId": "e1cf29f7550cc4cbe1125a37ee5ab21227e47055",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57946ce7_11303cc9",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 34
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-09-05T16:30:59Z",
+      "side": 1,
+      "message": "Ah sure, overlooked that part, diffs are weird. Thanks Wang \u0026 Eiichi!",
+      "parentUuid": "2b4c2dc5_58caec5e",
+      "revId": "e1cf29f7550cc4cbe1125a37ee5ab21227e47055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
