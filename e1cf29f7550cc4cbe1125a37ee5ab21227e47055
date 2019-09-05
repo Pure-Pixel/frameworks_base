@@ -104,6 +104,24 @@
       "revId": "e1cf29f7550cc4cbe1125a37ee5ab21227e47055",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b4c2dc5_58caec5e",
+        "filename": "services/core/java/com/android/server/statusbar/StatusBarManagerService.java",
+        "patchSetId": 34
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-09-05T04:51:58Z",
+      "side": 1,
+      "message": "@Override for expandNotificationPanel() is lost by this change",
+      "parentUuid": "dc3dab31_27996fcd",
+      "revId": "e1cf29f7550cc4cbe1125a37ee5ab21227e47055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
