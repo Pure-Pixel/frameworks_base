@@ -7415,6 +7415,11 @@ message MetricsEvent {
     SETTINGS_GESTURE_NAV_BACK_SENSITIVITY_DLG = 1748;
 
     // ---- End Q Constants, all Q constants go above this line ----
+
+    // OPEN: Settings > System > Gestures > Camera button long-press gesture
+    // CATEGORY: SETTINGS
+    SETTINGS_GESTURE_LONG_PRESS_CAMERA = 1749;
+
     // Add new aosp constants above this line.
     // END OF AOSP CONSTANTS
   }

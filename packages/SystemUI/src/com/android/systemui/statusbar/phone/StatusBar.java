@@ -18,6 +18,7 @@ package com.android.systemui.statusbar.phone;
 
 import static android.app.ActivityTaskManager.SPLIT_SCREEN_CREATE_MODE_BOTTOM_OR_RIGHT;
 import static android.app.ActivityTaskManager.SPLIT_SCREEN_CREATE_MODE_TOP_OR_LEFT;
+import static android.app.StatusBarManager.CAMERA_LAUNCH_SOURCE_CAMERA_BUTTON;
 import static android.app.StatusBarManager.WINDOW_STATE_HIDDEN;
 import static android.app.StatusBarManager.WINDOW_STATE_SHOWING;
 import static android.app.StatusBarManager.WindowType;
@@ -41,6 +42,10 @@ import static com.android.systemui.statusbar.phone.BarTransitions.MODE_TRANSLUCE
 import static com.android.systemui.statusbar.phone.BarTransitions.MODE_TRANSPARENT;
 import static com.android.systemui.statusbar.phone.BarTransitions.MODE_WARNING;
 import static com.android.systemui.statusbar.phone.BarTransitions.TransitionMode;
+import static com.android.systemui.statusbar.phone.KeyguardBottomAreaView.INSECURE_CAMERA_INTENT;
+import static com.android.systemui.statusbar.phone.KeyguardBottomAreaView.INSECURE_CAMERA_GESTURE_INTENT;
+import static com.android.systemui.statusbar.phone.KeyguardBottomAreaView.EXTRA_CAMERA_LAUNCH_SOURCE;
+import static com.android.systemui.statusbar.phone.KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCES;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -102,6 +107,7 @@ import android.util.EventLog;
 import android.util.Log;
 import android.util.Slog;
 import android.view.Display;
+import android.view.HapticFeedbackConstants;
 import android.view.IWindowManager;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -2455,7 +2461,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     null /* remoteAnimation */));
             options.setDisallowEnterPictureInPictureWhileLaunching(
                     disallowEnterPictureInPictureWhileLaunching);
-            if (intent == KeyguardBottomAreaView.INSECURE_CAMERA_INTENT) {
+            if (intent == INSECURE_CAMERA_INTENT
+                    || intent == INSECURE_CAMERA_GESTURE_INTENT) {
                 // Normally an activity will set it's requested rotation
                 // animation on its window. However when launching an activity
                 // causes the orientation to change this is too late. In these cases
@@ -3687,9 +3694,15 @@ public class StatusBar extends SystemUI implements DemoMode,
         return mWakefulnessLifecycle.getWakefulness();
     }
 
-    private void vibrateForCameraGesture() {
-        // Make sure to pass -1 for repeat so VibratorService doesn't stop us when going to sleep.
-        mVibrator.vibrate(mCameraLaunchGestureVibePattern, -1 /* repeat */);
+    private void vibrateForCameraGesture(int source) {
+        if (source == CAMERA_LAUNCH_SOURCE_CAMERA_BUTTON) {
+            // Align with long-press effect in PhoneWindowManager
+            mStatusBarView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+        } else {
+            // Make sure to pass -1 for repeat so VibratorService doesn't stop
+            // us when going to sleep.
+            mVibrator.vibrate(mCameraLaunchGestureVibePattern, -1 /* repeat */);
+        }
     }
 
     /**
@@ -3735,6 +3748,10 @@ public class StatusBar extends SystemUI implements DemoMode,
     @Override
     public void onCameraLaunchGestureDetected(int source) {
         mLastCameraLaunchSource = source;
+        final Intent cameraIntent = source == CAMERA_LAUNCH_SOURCE_CAMERA_BUTTON
+                ? INSECURE_CAMERA_GESTURE_INTENT
+                : INSECURE_CAMERA_INTENT;
+        cameraIntent.putExtra(EXTRA_CAMERA_LAUNCH_SOURCE, CAMERA_LAUNCH_SOURCES[source]);
         if (isGoingToSleep()) {
             if (DEBUG_CAMERA_LIFT) Slog.d(TAG, "Finish going to sleep before launching camera");
             mLaunchCameraOnFinishedGoingToSleep = true;
@@ -3751,9 +3768,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             pm.wakeUp(SystemClock.uptimeMillis(), PowerManager.WAKE_REASON_CAMERA_LAUNCH,
                     "com.android.systemui:CAMERA_GESTURE");
         }
-        vibrateForCameraGesture();
+        vibrateForCameraGesture(source);
         if (!mStatusBarKeyguardViewManager.isShowing()) {
-            startActivityDismissingKeyguard(KeyguardBottomAreaView.INSECURE_CAMERA_INTENT,
+            startActivityDismissingKeyguard(cameraIntent,
                     false /* onlyProvisioned */, true /* dismissShade */,
                     true /* disallowEnterPictureInPictureWhileLaunching */, null /* callback */, 0);
         } else {

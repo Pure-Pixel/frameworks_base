@@ -132,6 +132,7 @@ import android.os.BugreportManager;
 import android.os.Build;
 import android.os.DeviceIdleManager;
 import android.os.DropBoxManager;
+import android.os.GestureLauncherManager;
 import android.os.HardwarePropertiesManager;
 import android.os.IBatteryPropertiesRegistrar;
 import android.os.IBinder;
@@ -141,6 +142,7 @@ import android.os.IHardwarePropertiesManager;
 import android.os.IPowerManager;
 import android.os.IRecoverySystem;
 import android.os.ISystemUpdateManager;
+import android.os.IGestureLauncher;
 import android.os.IUserManager;
 import android.os.IncidentManager;
 import android.os.PowerManager;
@@ -1287,6 +1289,17 @@ final class SystemServiceRegistry {
                                 Context.DYNAMIC_SYSTEM_SERVICE);
                         return new DynamicSystemManager(
                                 IDynamicSystemService.Stub.asInterface(b));
+                    }});
+
+        registerService(Context.GESTURE_LAUNCHER_SERVICE, GestureLauncherManager.class,
+                new CachedServiceFetcher<GestureLauncherManager>() {
+                    @Override
+                    public GestureLauncherManager createService(ContextImpl ctx)
+                            throws ServiceNotFoundException {
+                        IBinder b = ServiceManager.getServiceOrThrow(
+                                Context.GESTURE_LAUNCHER_SERVICE);
+                        return new GestureLauncherManager(
+                                IGestureLauncher.Stub.asInterface(b));
                     }});
         //CHECKSTYLE:ON IndentationCheck
     }
