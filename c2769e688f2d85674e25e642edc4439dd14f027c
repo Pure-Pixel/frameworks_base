@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60862cd7_85cc5e73",
+        "filename": "tests/FlickerTests/lib/src/com/android/server/wm/flicker/monitor/ScreenRecorder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1170688
+      },
+      "writtenOn": "2019-09-11T19:41:24Z",
+      "side": 1,
+      "message": "Should this be info?",
+      "range": {
+        "startLine": 74,
+        "startChar": 16,
+        "endLine": 74,
+        "endChar": 17
+      },
+      "revId": "c2769e688f2d85674e25e642edc4439dd14f027c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
