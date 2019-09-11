@@ -22,6 +22,30 @@
       "revId": "c2769e688f2d85674e25e642edc4439dd14f027c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92b0cd9e_f80b7995",
+        "filename": "tests/FlickerTests/lib/src/com/android/server/wm/flicker/monitor/ScreenRecorder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1010211
+      },
+      "writtenOn": "2019-09-11T20:12:08Z",
+      "side": 1,
+      "message": "Ah yeah, I just moved it from LayersTraceMonitor, but info makes more sense",
+      "parentUuid": "60862cd7_85cc5e73",
+      "range": {
+        "startLine": 74,
+        "startChar": 16,
+        "endLine": 74,
+        "endChar": 17
+      },
+      "revId": "c2769e688f2d85674e25e642edc4439dd14f027c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
