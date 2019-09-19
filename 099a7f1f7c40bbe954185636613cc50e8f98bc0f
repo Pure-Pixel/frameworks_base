@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e26017f_3db112a1",
+        "filename": "core/java/android/provider/Settings.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 9017,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-09-19T06:20:06Z",
+      "side": 1,
+      "message": "Compile error.   \u0027,\u0027 is needed",
+      "range": {
+        "startLine": 9017,
+        "startChar": 12,
+        "endLine": 9017,
+        "endChar": 30
+      },
+      "revId": "099a7f1f7c40bbe954185636613cc50e8f98bc0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "744b9309_5fccb485",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 1325,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-09-19T06:20:06Z",
+      "side": 1,
+      "message": "compile error here due to argument is changed since Android 10\n\nPowerManager.WAKE_REASON_GESTURE, \"android.policy:GESTURE\" /*reason*/);",
+      "range": {
+        "startLine": 1325,
+        "startChar": 24,
+        "endLine": 1325,
+        "endChar": 25
+      },
+      "revId": "099a7f1f7c40bbe954185636613cc50e8f98bc0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc1cc537_0ad02b53",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1525250
+      },
+      "writtenOn": "2019-09-19T06:20:06Z",
+      "side": 1,
+      "message": "compile error here due to removed import android.app.StatusBarManager by 7c610aa \"Let System UI show on external displays (1/3)\"\n\nimport static android.app.StatusBarManager.CAMERA_LAUNCH_SORUCE_CAMERA_BUTTON;\n\nis needed ?",
+      "range": {
+        "startLine": 1329,
+        "startChar": 28,
+        "endLine": 1329,
+        "endChar": 79
+      },
+      "revId": "099a7f1f7c40bbe954185636613cc50e8f98bc0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
