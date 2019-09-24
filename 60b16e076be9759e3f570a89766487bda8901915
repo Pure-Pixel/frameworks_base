@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08d5e019_07469e85",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5784,
+      "author": {
+        "id": 1045544
+      },
+      "writtenOn": "2019-09-24T11:40:53Z",
+      "side": 1,
+      "message": "[nit] updateWakeOnLan",
+      "range": {
+        "startLine": 5784,
+        "startChar": 17,
+        "endLine": 5784,
+        "endChar": 32
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
