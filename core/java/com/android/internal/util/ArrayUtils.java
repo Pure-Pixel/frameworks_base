@@ -760,4 +760,14 @@ public class ArrayUtils {
     public static @Nullable <T> T firstOrNull(T[] items) {
         return items.length > 0 ? items[0] : null;
     }
+
+    /** Returns an {@link ArraySet} initialized with {@code array} */
+    public static <T> ArraySet<T> toArraySet(T[] array) {
+        ArraySet<T> arraySet = new ArraySet<>(array.length);
+        for (T value : array) {
+            arraySet.add(value);
+        }
+        return arraySet;
+    }
+
 }

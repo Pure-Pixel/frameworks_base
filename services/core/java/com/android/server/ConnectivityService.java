@@ -5608,6 +5608,9 @@ public class ConnectivityService extends IConnectivityManager.Stub
         } else {
             updateProxy(newLp, oldLp);
         }
+
+        updateWakeOnLAN(newLp);
+
         // TODO - move this check to cover the whole function
         if (!Objects.equals(newLp, oldLp)) {
             synchronized (networkAgent) {
@@ -5776,6 +5779,13 @@ public class ConnectivityService extends IConnectivityManager.Stub
         if (needsFiltering) {
             mPermissionMonitor.onVpnUidRangesAdded(newIface, ranges, vpnAppUid);
         }
+    }
+
+    private void updateWakeOnLAN(LinkProperties lp) {
+        ArraySet<String> wolSupportedInterfaces = ArrayUtils.toArraySet(
+                mContext.getResources().getStringArray(
+                        com.android.internal.R.array.config_wakeonlan_enabled_interfaces));
+        lp.setWakeOnLanEnabled(wolSupportedInterfaces.contains(lp.getInterfaceName()));
     }
 
     private int getNetworkPermission(NetworkCapabilities nc) {
