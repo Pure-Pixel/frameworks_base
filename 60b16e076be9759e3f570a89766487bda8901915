@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "9e7e0fef_b469b0ff",
+        "filename": "core/java/android/net/LinkProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1462,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-09-26T04:50:33Z",
+      "side": 1,
+      "message": "How does wake-on-lan behave with 464xlat ? If I send a wakeup packet to the v4 interface of a clatted network (e.g. wlan0-v4), this will arrive to the device with the v6 address on the v6 interface. Will this wake up the device ? If so should we have the stacked interfaces inherit this or something ?",
+      "range": {
+        "startLine": 1462,
+        "startChar": 15,
+        "endLine": 1462,
+        "endChar": 32
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26e36cb4_7b54a1d6",
+        "filename": "core/java/com/android/internal/util/ArrayUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-09-26T04:50:33Z",
+      "side": 1,
+      "message": "This is fine, but I guess optionally we could simply add a public constructor to ArraySet. You\u0027re unlikely to be the first or the last one to need this :)",
+      "range": {
+        "startLine": 765,
+        "startChar": 34,
+        "endLine": 765,
+        "endChar": 44
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08d5e019_07469e85",
         "filename": "services/core/java/com/android/server/ConnectivityService.java",
         "patchSetId": 1
@@ -18,6 +64,98 @@
         "startChar": 17,
         "endLine": 5784,
         "endChar": 32
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a30af4d_4224b928",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5784,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-09-26T04:50:33Z",
+      "side": 1,
+      "message": "@NonNull",
+      "range": {
+        "startLine": 5784,
+        "startChar": 33,
+        "endLine": 5784,
+        "endChar": 47
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9d5b8d8_cfe68dd8",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5785,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-09-26T04:50:33Z",
+      "side": 1,
+      "message": "Maybe this should be initialized once and for all instead of re-read from resources every time.",
+      "range": {
+        "startLine": 5785,
+        "startChar": 25,
+        "endLine": 5785,
+        "endChar": 47
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ddfd826_d52ca434",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5963,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-09-26T04:50:33Z",
+      "side": 1,
+      "message": "Not sure how that tests your new code. updateLinkProperties() is supposed to manage the new property and to overwrite it. Shouldn\u0027t you instead make sure that a LP with the WIFI_WOL_IFNAME interface gets this new property set, and that one with some other interface name gets it cleared, regardless of what was sent through sendLinkProperties ?",
+      "range": {
+        "startLine": 5954,
+        "startChar": 0,
+        "endLine": 5963,
+        "endChar": 65
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c272cb7a_cc0c0bd3",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5964,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-09-26T04:50:33Z",
+      "side": 1,
+      "message": "Sorry I fail to understand why you do this, can you add a comment about why it\u0027s necessary ?",
+      "range": {
+        "startLine": 5964,
+        "startChar": 8,
+        "endLine": 5964,
+        "endChar": 13
       },
       "revId": "60b16e076be9759e3f570a89766487bda8901915",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
