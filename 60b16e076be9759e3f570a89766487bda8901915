@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "46e7a45d_4c5b10c7",
+        "filename": "core/java/android/net/LinkProperties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1462,
+      "author": {
+        "id": 1347262
+      },
+      "writtenOn": "2019-09-30T07:50:08Z",
+      "side": 1,
+      "message": "The WoL flag is currently planned to be used for the DIAL protocol which appears to be IPv4 only (https://docs.google.com/viewer?a\u003dv\u0026pid\u003dsites\u0026srcid\u003dZGlhbC1tdWx0aXNjcmVlbi5vcmd8ZGlhbHxneDoxOWFiYWMxMDQ4YmI4MWE2 , b/37510952).\n\nWe think this is an implementation issue for the SoC, not the API : eg. if a device reports WoL support for a network interface, then it should wake up on receiving the wakeup packet on the v6 interface if it\u0027s translated to the v4 interface that reported the WoL support. If the wakeup does not occur then it\u0027s handled by the DIAL protocol (page 24 - 7.3 Using DIAL Wake-up)\n\nBut I think that\u0027s not part of this API extension, we\u0027re only trying to add support so that network interfaces have a means to report WoL support.",
+      "parentUuid": "9e7e0fef_b469b0ff",
+      "range": {
+        "startLine": 1462,
+        "startChar": 15,
+        "endLine": 1462,
+        "endChar": 32
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "26e36cb4_7b54a1d6",
         "filename": "core/java/com/android/internal/util/ArrayUtils.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-09-26T04:50:33Z",
       "side": 1,
       "message": "This is fine, but I guess optionally we could simply add a public constructor to ArraySet. You\u0027re unlikely to be the first or the last one to need this :)",
+      "range": {
+        "startLine": 765,
+        "startChar": 34,
+        "endLine": 765,
+        "endChar": 44
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2f094b5_91e3cf39",
+        "filename": "core/java/com/android/internal/util/ArrayUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1347262
+      },
+      "writtenOn": "2019-09-30T07:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26e36cb4_7b54a1d6",
       "range": {
         "startLine": 765,
         "startChar": 34,
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "31df671f_d8c91948",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5784,
+      "author": {
+        "id": 1347262
+      },
+      "writtenOn": "2019-09-30T07:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08d5e019_07469e85",
+      "range": {
+        "startLine": 5784,
+        "startChar": 17,
+        "endLine": 5784,
+        "endChar": 32
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ae9f51a_45011137",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5784,
+      "author": {
+        "id": 1347262
+      },
+      "writtenOn": "2019-09-30T07:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a30af4d_4224b928",
+      "range": {
+        "startLine": 5784,
+        "startChar": 33,
+        "endLine": 5784,
+        "endChar": 47
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9d5b8d8_cfe68dd8",
         "filename": "services/core/java/com/android/server/ConnectivityService.java",
         "patchSetId": 1
@@ -114,6 +210,30 @@
       "revId": "60b16e076be9759e3f570a89766487bda8901915",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd1befb2_65197ee8",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5785,
+      "author": {
+        "id": 1347262
+      },
+      "writtenOn": "2019-09-30T07:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9d5b8d8_cfe68dd8",
+      "range": {
+        "startLine": 5785,
+        "startChar": 25,
+        "endLine": 5785,
+        "endChar": 47
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "2da62692_7f778de9",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5963,
+      "author": {
+        "id": 1347262
+      },
+      "writtenOn": "2019-09-30T07:50:08Z",
+      "side": 1,
+      "message": "I agree it was not clear from the test what would happen, LP is cloned inside ConnectivityService and WoL flag is set regardless to prev. value. I\u0027ve changed the init. value to false for clarity.",
+      "parentUuid": "3ddfd826_d52ca434",
+      "range": {
+        "startLine": 5954,
+        "startChar": 0,
+        "endLine": 5963,
+        "endChar": 65
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c272cb7a_cc0c0bd3",
         "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
         "patchSetId": 1
@@ -160,6 +304,30 @@
       "revId": "60b16e076be9759e3f570a89766487bda8901915",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb98c9e6_b8eb965d",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5964,
+      "author": {
+        "id": 1347262
+      },
+      "writtenOn": "2019-09-30T07:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c272cb7a_cc0c0bd3",
+      "range": {
+        "startLine": 5964,
+        "startChar": 8,
+        "endLine": 5964,
+        "endChar": 13
+      },
+      "revId": "60b16e076be9759e3f570a89766487bda8901915",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
