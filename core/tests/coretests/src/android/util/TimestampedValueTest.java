@@ -18,6 +18,7 @@ package android.util;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
 import android.os.Parcel;
@@ -62,6 +63,22 @@ public class TimestampedValueTest {
             TimestampedValue<String> stringValueCopy =
                     TimestampedValue.readFromParcel(parcel, null /* classLoader */, String.class);
             assertEquals(stringValue, stringValueCopy);
+        } finally {
+            parcel.recycle();
+        }
+    }
+
+    @Test
+    public void testParceling_null() {
+        Parcel parcel = Parcel.obtain();
+        try {
+            TimestampedValue.writeToParcel(parcel, null);
+
+            parcel.setDataPosition(0);
+
+            TimestampedValue<String> actual =
+                    TimestampedValue.readFromParcel(parcel, null /* classLoader */, String.class);
+            assertNull(actual);
         } finally {
             parcel.recycle();
         }
