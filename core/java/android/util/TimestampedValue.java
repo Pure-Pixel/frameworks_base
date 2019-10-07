@@ -19,6 +19,7 @@ package android.util;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.os.Parcel;
+import android.os.ParcelFormatException;
 import android.os.SystemClock;
 
 import java.util.Objects;
@@ -38,6 +39,10 @@ import java.util.Objects;
  * @hide
  */
 public final class TimestampedValue<T> {
+
+    private static final int NULL_PARCEL_MARKER = 0;
+    private static final int NON_NULL_PARCEL_MARKER = 1;
+
     private final long mReferenceTimeMillis;
     private final T mValue;
 
@@ -92,18 +97,24 @@ public final class TimestampedValue<T> {
      * @param classLoader the ClassLoader to pass to {@link Parcel#readValue(ClassLoader)}
      * @param valueClass the expected type of the value, typically the same as {@code <T>} but can
      *     also be a subclass
-     * @throws RuntimeException if the value read is not compatible with {@code valueClass} or the
-     *     object could not be read
+     * @throws ParcelFormatException if the value read is not compatible with {@code valueClass} or
+     *     the object could not be read
      */
     @SuppressWarnings("unchecked")
-    @NonNull
+    @Nullable
     public static <T> TimestampedValue<T> readFromParcel(
             @NonNull Parcel in, @Nullable ClassLoader classLoader, Class<? extends T> valueClass) {
+        int nullMarker = in.readInt();
+        if (nullMarker == NULL_PARCEL_MARKER) {
+            return null;
+        } else if (nullMarker != NON_NULL_PARCEL_MARKER) {
+            throw new ParcelFormatException("nullMarker == " + nullMarker);
+        }
         long referenceTimeMillis = in.readLong();
         T value = (T) in.readValue(classLoader);
         // Equivalent to static code: if (!(value.getClass() instanceof {valueClass})) {
         if (value != null && !valueClass.isAssignableFrom(value.getClass())) {
-            throw new RuntimeException("Value was of type " + value.getClass()
+            throw new ParcelFormatException("Value was of type " + value.getClass()
                     + " is not assignable to " + valueClass);
         }
         return new TimestampedValue<>(referenceTimeMillis, value);
@@ -122,9 +133,14 @@ public final class TimestampedValue<T> {
      * @throws RuntimeException if the value could not be written to the Parcel
      */
     public static void writeToParcel(
-            @NonNull Parcel dest, @NonNull TimestampedValue<?> timestampedValue) {
-        dest.writeLong(timestampedValue.mReferenceTimeMillis);
-        dest.writeValue(timestampedValue.mValue);
+            @NonNull Parcel dest, @Nullable TimestampedValue<?> timestampedValue) {
+        if (timestampedValue == null) {
+            dest.writeInt(NULL_PARCEL_MARKER);
+        } else {
+            dest.writeInt(NON_NULL_PARCEL_MARKER);
+            dest.writeLong(timestampedValue.mReferenceTimeMillis);
+            dest.writeValue(timestampedValue.mValue);
+        }
     }
 
     /**
