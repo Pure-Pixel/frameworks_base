@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d3990dd_d79fce63",
+        "filename": "core/java/android/util/TimestampedValue.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2019-10-09T17:40:09Z",
+      "side": 1,
+      "message": "Random question, why isn\u0027t the class itself marked Parcelable?  (That\u0027s what would enable it to be easily added as an AIDL argument/return value.)",
+      "range": {
+        "startLine": 41,
+        "startChar": 19,
+        "endLine": 41,
+        "endChar": 35
+      },
+      "revId": "755d1d7ced2e41e9dec79ba7031617cc5c76aed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
