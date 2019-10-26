@@ -71,10 +71,11 @@ public class WirelessDebuggingManager {
     private byte[] mOurKey;
     private byte[] mTheirKey;
 
+    private static native boolean native_keystore_init();
     private static native boolean native_pairing_init(String password);
     private static native void native_pairing_destroy();
     // TODO: return the public key header to write into the keystore.
-    private static native boolean native_pairing_parse_request(byte[] theirKey);
+    private static native byte[] native_pairing_parse_request(byte[] theirKey);
     private static native byte[] native_pairing_our_public_key();
 
     public WirelessDebuggingManager(Context context) {
@@ -306,6 +307,10 @@ public class WirelessDebuggingManager {
                     }
 
                     mAdbWirelessEnabled = true;
+                    if (!native_keystore_init()) {
+                        Slog.e(TAG, "Unable to initialize adbwifi keystore");
+                        // TODO: Should we leave it as disabled here?
+                    }
                     SystemProperties.set(WIRELESS_DEBUG_PERSISTENT_CONFIG_PROPERTY,
                             Boolean.toString(mAdbWirelessEnabled));
 
@@ -371,9 +376,18 @@ public class WirelessDebuggingManager {
                 case MSG_RESULT_CANCELLED:
                     updateUIResult(new String((byte[]) msg.obj), AdbManager.WIRELESS_STATUS_CANCELLED);
                     break;
-                case MSG_RESPONSE_PAIRING_CODE:
-                    validatePairingCode((byte[]) msg.obj);
+                case MSG_RESPONSE_PAIRING_CODE: {
+                    byte[] outPairingRequest = validatePairingCode((byte[]) msg.obj);
+                    String cmdStr = "PR";
+                    ByteArrayOutputStream b = new ByteArrayOutputStream();
+                    b.write(cmdStr.getBytes(), 0, cmdStr.getBytes().length);
+                    // Send to adbd to send to the client
+                    if (outPairingRequest != null) {
+                        b.write(outPairingRequest, 0, outPairingRequest.length);
+                    }
+                    mThread.sendMessage(b.toByteArray());
                     break;
+                }
                 case MSG_QUERY_SET_DEVICE_NAME:
                     mDeviceName = new String((byte[]) msg.obj);
                     if (mThread != null) {
@@ -453,17 +467,20 @@ public class WirelessDebuggingManager {
             Slog.i(TAG, "=======================================");
         }
 
-        private void validatePairingCode(byte[] msg) {
+        // Returns the pairing request to send to the client in order to complete the autheniation
+        // on both ends.
+        private byte[] validatePairingCode(byte[] msg) {
             // Format is: CD<data>
             dumpBytes(msg);
             byte[] data = Arrays.copyOfRange(msg, 2, 2 + msg.length);
-            if (!native_pairing_parse_request(data)) {
+            byte[] outPairingRequest = native_pairing_parse_request(data);
+            if (outPairingRequest == null) {
                 Slog.e(TAG, "Unable to parse pairing request: " + msg);
                 // TODO: should we allow multiple attempts here?
                 Intent intent = new Intent(AdbManager.WIRELESS_DEBUG_PAIRING_RESULT_ACTION);
                 intent.putExtra(AdbManager.WIRELESS_STATUS_EXTRA, AdbManager.WIRELESS_STATUS_FAIL);
                 mContext.sendBroadcastAsUser(intent, UserHandle.ALL);
-                return;
+                return null;
             }
 
             Intent intent = new Intent(AdbManager.WIRELESS_DEBUG_PAIRING_RESULT_ACTION);
@@ -472,6 +489,7 @@ public class WirelessDebuggingManager {
             PairDevice device = new PairDevice(0, "", "", false);
             intent.putExtra(AdbManager.WIRELESS_PAIR_DEVICE_EXTRA, device);
             mContext.sendBroadcastAsUser(intent, UserHandle.ALL);
+            return outPairingRequest;
         }
 
         private void parseDevices(String devices, boolean isPaired) {

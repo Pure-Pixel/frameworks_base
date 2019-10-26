@@ -18,6 +18,7 @@
 
 #define LOG_NDEBUG 0
 
+#include <crypto/key_store.h>
 #include "pairing/pairing_auth.h"
 
 #include <nativehelper/JNIHelp.h>
@@ -89,8 +90,24 @@ public:
 }; // JByteArrayWrapper
 
 PairingAuthCtx sPairingCtx = nullptr;
+KeyStoreCtx sKeyStoreCtx = nullptr;
+const char kKeystorePath[] = "/data/misc/adb";
 
 }  // namespace
+
+static jboolean native_keystore_init(JNIEnv* env,
+                                     jclass /* clazz */) {
+    sKeyStoreCtx = keystore_init(kKeystorePath,
+                                 nullptr,
+            [](KeyStoreCtx k, void* /* opaque */) {
+                if (k == nullptr) {
+                    ALOGE("Unable to create keystore");
+                    return;
+                }
+                sKeyStoreCtx = k;
+            });
+    return sKeyStoreCtx == nullptr ? JNI_FALSE : JNI_TRUE;
+}
 
 static jboolean native_pairing_init(JNIEnv* env,
                                     jclass /* clazz */,
@@ -141,30 +158,74 @@ static jbyteArray native_pairing_our_public_key(JNIEnv* env,
     return jkey;
 }
 
-static jboolean native_pairing_parse_request(JNIEnv* env,
-                                             jclass /* clazz */,
-                                             jbyteArray publicKeyHeader) {
+// Parse a pairing request from the client. On success, return a pairing request
+// of our own for the client to store our public certificate. If we failed do
+// store it, return an empty byte array.
+static jbyteArray native_pairing_parse_request(JNIEnv* env,
+                                               jclass /* clazz */,
+                                               jbyteArray pairing_request) {
     if (!sPairingCtx) {
         ALOGE("Pairing context is null. Cannot register their key.");
-        return JNI_FALSE;
+        return nullptr;
     }
 
-    JByteArrayWrapper publicKeyWrapper(env, &publicKeyHeader);
-    if (publicKeyWrapper.data() == NULL) {
-        return JNI_FALSE;
+    JByteArrayWrapper request_wrapper(env, &pairing_request);
+    if (request_wrapper.data() == NULL) {
+        return nullptr;
     }
 
     PublicKeyHeader header;
+    std::vector<char> public_key(keystore_max_certificate_size(sKeyStoreCtx), '\0');
     bool valid = pairing_auth_parse_request(
                          sPairingCtx,
-                         reinterpret_cast<const uint8_t*>(publicKeyWrapper.data()),
-                         publicKeyWrapper.length(),
-                         &header);
+                         reinterpret_cast<const uint8_t*>(request_wrapper.data()),
+                         request_wrapper.length(),
+                         &header,
+                         public_key.data());
 
-    if (valid) {
-        ALOGW("Got header");
+    if (!valid) {
+        ALOGW("Unable to parse pairing request. Rejecting the pairing.");
+        return nullptr;
     }
-    return valid ? JNI_TRUE : JNI_FALSE;
+
+    public_key.resize(header.payload);
+    // We got a valid pairing! Let's add it to the keystore and send our pairing
+    // reuqest to the client.
+    bool stored = keystore_store_public_key(sKeyStoreCtx,
+                                            &header,
+                                            public_key.data());
+    if (!stored) {
+        ALOGE("Unable to store the client's public certificate.");
+        return nullptr;
+    }
+
+    // Get the system's PublicKeyHeader and public key from the keystore
+    // to build a pairing request.
+    PublicKeyHeader system_key_header;
+    keystore_public_key_header(sKeyStoreCtx, &system_key_header);
+    std::vector<char> system_key(keystore_max_certificate_size(sKeyStoreCtx));
+    uint32_t system_key_sz = keystore_system_public_key(sKeyStoreCtx, system_key.data());
+    if (system_key_sz == 0) {
+        ALOGE("Unable to retrieve the system's public certificate.");
+        return nullptr;
+    }
+    system_key.resize(system_key_sz);
+    uint32_t pktSize = pairing_auth_request_max_size();
+    std::vector<uint8_t> pkt(pktSize);
+    if (!pairing_auth_create_request(sPairingCtx,
+                                     &system_key_header,
+                                     system_key.data(),
+                                     pkt.data(),
+                                     &pktSize)) {
+        ALOGE("Unable to create pairing request packet.");
+        return nullptr;
+    }
+    pkt.resize(pktSize);
+
+    jbyteArray jrequest = nullptr;
+    jrequest = env->NewByteArray(pktSize);
+    env->SetByteArrayRegion(jrequest, 0, pktSize, reinterpret_cast<jbyte*>(pkt.data()));
+    return jrequest;
 }
 
 //static jboolean native_pairing_register_their_key(JNIEnv* env,
@@ -259,11 +320,13 @@ static jboolean native_pairing_parse_request(JNIEnv* env,
 
 static const JNINativeMethod gWirelessDebuggingManagerMethods[] = {
     /* name, signature, funcPtr */
+    { "native_keystore_init", "()Z",
+            (void*) native_keystore_init },
     { "native_pairing_init", "(Ljava/lang/String;)Z",
             (void*) native_pairing_init },
     { "native_pairing_destroy", "()V",
             (void*) native_pairing_destroy },
-    { "native_pairing_parse_request", "([B)Z",
+    { "native_pairing_parse_request", "([B)[B",
             (void*) native_pairing_parse_request },
     { "native_pairing_our_public_key", "()[B",
             (void*) native_pairing_our_public_key },
