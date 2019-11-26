@@ -6991,6 +6991,8 @@ public class DevicePolicyManager {
      * @param userHandle The user for whom to check the caller-id permission
      * @hide
      */
+    @SystemApi
+    @RequiresPermission(permission.INTERACT_ACROSS_USERS)
     public boolean getBluetoothContactSharingDisabled(UserHandle userHandle) {
         if (mService != null) {
             try {
