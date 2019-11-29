@@ -69,6 +69,30 @@
       "revId": "fc4bd97125606930e096f7c50590e8644743830a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ac1c7a0_1438c65e",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2019-11-29T17:44:30Z",
+      "side": 1,
+      "message": "yeah, leaving a comment looks good here",
+      "parentUuid": "3b86230e_dd9394ba",
+      "range": {
+        "startLine": 428,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 6
+      },
+      "revId": "fc4bd97125606930e096f7c50590e8644743830a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
