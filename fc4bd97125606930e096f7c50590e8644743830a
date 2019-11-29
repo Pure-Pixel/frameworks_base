@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7a896a23_a07b82c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-11-29T19:43:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f62de5fb_85445c10",
+      "range": {
+        "startLine": 12,
+        "startChar": 46,
+        "endLine": 15,
+        "endChar": 10
+      },
+      "revId": "fc4bd97125606930e096f7c50590e8644743830a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "501bde04_6c84451b",
         "filename": "Android.bp",
         "patchSetId": 1
