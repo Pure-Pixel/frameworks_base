@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ee99a5f_7721d1d4",
+        "filename": "data/etc/privapp-permissions-platform.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-11-29T10:47:25Z",
+      "side": 1,
+      "message": "Is this to send stats ? I seem to remember that puzzlingly this READ permission is what\u0027s needed to supply stats",
+      "range": {
+        "startLine": 240,
+        "startChar": 45,
+        "endLine": 240,
+        "endChar": 71
+      },
+      "revId": "03e10045a610c3dc3fe8129801006fe276f44c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
