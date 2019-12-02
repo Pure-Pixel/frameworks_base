@@ -6285,6 +6285,32 @@ public class ConnectivityService extends IConnectivityManager.Stub
         }
     }
 
+    // An accumulator class to gather the list of changes that result from a rematch.
+    // TODO : enrich to represent an entire set of changes to apply.
+    private static class NetworkReassignment {
+        static class AffectedNetwork {
+            @NonNull final NetworkAgentInfo mNetwork;
+            final boolean mOldBackground;
+            AffectedNetwork(@NonNull final NetworkAgentInfo network,
+                    final boolean oldBackground) {
+                mNetwork = network;
+                mOldBackground = oldBackground;
+            }
+        }
+
+        @NonNull private final Set<AffectedNetwork> mAffectedNetworks = new ArraySet<>();
+
+        void addAffectedNetwork(@NonNull final AffectedNetwork network) {
+            mAffectedNetworks.add(network);
+        }
+
+        @NonNull NetworkReassignment merge(@Nullable final NetworkReassignment other) {
+            if (null == other) return this;
+            mAffectedNetworks.addAll(other.mAffectedNetworks);
+            return this;
+        }
+    }
+
     private ArrayMap<NetworkRequestInfo, NetworkAgentInfo> computeRequestReassignmentForNetwork(
             @NonNull final NetworkAgentInfo newNetwork) {
         final int score = newNetwork.getCurrentScore();
@@ -6341,13 +6367,19 @@ public class ConnectivityService extends IConnectivityManager.Stub
     //
     // @param newNetwork is the network to be matched against NetworkRequests.
     // @param now the time the rematch starts, as returned by SystemClock.elapsedRealtime();
-    private void rematchNetworkAndRequests(NetworkAgentInfo newNetwork, long now) {
+    // @return a NetworkReassignment describing changes to make, or null if none
+    @Nullable
+    private NetworkReassignment rematchNetworkAndRequests(NetworkAgentInfo newNetwork, long now) {
         ensureRunningOnConnectivityServiceThread();
-        if (!newNetwork.everConnected) return;
+        if (!newNetwork.everConnected) return null;
         boolean isNewDefault = false;
         NetworkAgentInfo oldDefaultNetwork = null;
 
         final boolean wasBackgroundNetwork = newNetwork.isBackgroundNetwork();
+        final NetworkReassignment reassignment = new NetworkReassignment();
+        reassignment.addAffectedNetwork(new NetworkReassignment.AffectedNetwork(newNetwork,
+                wasBackgroundNetwork));
+
         final int score = newNetwork.getCurrentScore();
 
         if (VDBG || DDBG) log("rematching " + newNetwork.name());
@@ -6483,6 +6515,8 @@ public class ConnectivityService extends IConnectivityManager.Stub
         }
 
         processNewlySatisfiedListenRequests(newNetwork);
+
+        return reassignment;
     }
 
     /**
