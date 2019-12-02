@@ -22,6 +22,30 @@
       "revId": "03e10045a610c3dc3fe8129801006fe276f44c27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c351fb0_e3fa47c6",
+        "filename": "data/etc/privapp-permissions-platform.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1308504
+      },
+      "writtenOn": "2019-12-02T12:47:12Z",
+      "side": 1,
+      "message": "Yes, this is used to trigger NetworkStatsServices to update stats. NetworkStatsServices would get stats from netd and tethering offload.",
+      "parentUuid": "7ee99a5f_7721d1d4",
+      "range": {
+        "startLine": 240,
+        "startChar": 45,
+        "endLine": 240,
+        "endChar": 71
+      },
+      "revId": "03e10045a610c3dc3fe8129801006fe276f44c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
