@@ -22,6 +22,30 @@
       "revId": "eae2f1597819ac845cdcdecec9e99352aad5b11e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff28a1c7_918510e1",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 6368,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-12-09T03:09:06Z",
+      "side": 1,
+      "message": "Originally I did it that way and had to change it later, so I came back to have this design from the start.\nNote that it\u0027s required that this object accumulates the changes, so I wrote a \u0027merge\u0027 function when I returning a new object everytime. This function had to account for more and more things going forward until it stopped being sustainable. I thought it was better not to put reviewers through this shift in paradigm twice.\n\nNote that I have a comment about this in l.6362. This is temporary though it will persist for a fairly long time throughout the refactoring.",
+      "parentUuid": "7d44a1f0_63f6a7ac",
+      "range": {
+        "startLine": 6368,
+        "startChar": 12,
+        "endLine": 6368,
+        "endChar": 16
+      },
+      "revId": "eae2f1597819ac845cdcdecec9e99352aad5b11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
