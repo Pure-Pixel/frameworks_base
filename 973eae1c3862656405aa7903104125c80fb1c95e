@@ -39,6 +39,30 @@
       "revId": "973eae1c3862656405aa7903104125c80fb1c95e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab401cff_48e8d4e8",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 6302,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-12-10T13:41:48Z",
+      "side": 1,
+      "message": "That\u0027s the only thing this will contain.\n\nThis doesn\u0027t really store a config ; it really represents a network bundled with its old state for comparison.\n\nWhat about AffectedNetworkPlusState ?",
+      "parentUuid": "e08a9b5b_5fdb4f44",
+      "range": {
+        "startLine": 6302,
+        "startChar": 21,
+        "endLine": 6302,
+        "endChar": 36
+      },
+      "revId": "973eae1c3862656405aa7903104125c80fb1c95e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
