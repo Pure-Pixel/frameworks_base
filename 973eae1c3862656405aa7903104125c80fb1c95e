@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f50660e3_b621bcc2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2019-12-10T07:33:49Z",
+      "side": 1,
+      "message": "nit: Don\u0027t see how this object is going to help us in future.\nmaybe a brief description to explain that?",
+      "revId": "973eae1c3862656405aa7903104125c80fb1c95e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e08a9b5b_5fdb4f44",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 6302,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2019-12-10T07:33:49Z",
+      "side": 1,
+      "message": "nit: Given that the affected network contains not only network,\nbut also oldBackground (maybe more things in future),\nthe name is confusing me.\nMaybe renamed to AffectedConfig or something else?",
+      "range": {
+        "startLine": 6302,
+        "startChar": 21,
+        "endLine": 6302,
+        "endChar": 36
+      },
+      "revId": "973eae1c3862656405aa7903104125c80fb1c95e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
