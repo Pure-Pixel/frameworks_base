@@ -63,6 +63,30 @@
       "revId": "973eae1c3862656405aa7903104125c80fb1c95e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73bf8558_bea2764f",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 6302,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2019-12-10T14:33:32Z",
+      "side": 1,
+      "message": "Renamed to AffectedNetworkPlusState, see if you like it",
+      "parentUuid": "ab401cff_48e8d4e8",
+      "range": {
+        "startLine": 6302,
+        "startChar": 21,
+        "endLine": 6302,
+        "endChar": 36
+      },
+      "revId": "973eae1c3862656405aa7903104125c80fb1c95e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
