@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b63cd13_2a8a1215",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 6314,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2019-12-11T04:03:36Z",
+      "side": 1,
+      "message": "Do we also want to change this?",
+      "range": {
+        "startLine": 6314,
+        "startChar": 13,
+        "endLine": 6314,
+        "endChar": 31
+      },
+      "revId": "ada2a9d16e29731e0b2246b648ce4a074758d2f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c5270b2_2ebc7d35",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 6314,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2019-12-11T04:03:36Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 6314,
+        "startChar": 72,
+        "endLine": 6314,
+        "endChar": 79
+      },
+      "revId": "ada2a9d16e29731e0b2246b648ce4a074758d2f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

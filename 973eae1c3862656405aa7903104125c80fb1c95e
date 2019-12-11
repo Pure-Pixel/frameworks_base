@@ -87,6 +87,30 @@
       "revId": "973eae1c3862656405aa7903104125c80fb1c95e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bfff3ee_b51fcd6a",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 6302,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2019-12-11T04:03:36Z",
+      "side": 1,
+      "message": "Hmmm.\nGiven that the method decides whats inside the class, not the class itself.\nAnd it contains only the Background state.\nmaybe NetworkPlusBgState or NetworkBgStatePair?",
+      "parentUuid": "73bf8558_bea2764f",
+      "range": {
+        "startLine": 6302,
+        "startChar": 21,
+        "endLine": 6302,
+        "endChar": 36
+      },
+      "revId": "973eae1c3862656405aa7903104125c80fb1c95e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
