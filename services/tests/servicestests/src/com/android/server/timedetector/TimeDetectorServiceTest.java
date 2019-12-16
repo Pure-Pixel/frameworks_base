@@ -27,6 +27,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import android.app.timedetector.ManualTimeSuggestion;
+import android.app.timedetector.NetworkTimeSuggestion;
 import android.app.timedetector.PhoneTimeSuggestion;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -109,6 +110,36 @@ public class TimeDetectorServiceTest {
         mStubbedTimeDetectorStrategy.verifySuggestManualTimeCalled(manualTimeSuggestion);
     }
 
+    @Test(expected = SecurityException.class)
+    public void testSuggestNetworkTime_withoutPermission() {
+        doThrow(new SecurityException("Mock"))
+                .when(mMockContext).enforceCallingOrSelfPermission(anyString(), any());
+        NetworkTimeSuggestion NetworkTimeSuggestion = createNetworkTimeSuggestion();
+
+        try {
+            mTimeDetectorService.suggestNetworkTime(NetworkTimeSuggestion);
+            fail();
+        } finally {
+            verify(mMockContext).enforceCallingOrSelfPermission(
+                    eq(android.Manifest.permission.SET_TIME), anyString());
+        }
+    }
+
+    @Test
+    public void testSuggestNetworkTime() throws Exception {
+        doNothing().when(mMockContext).enforceCallingOrSelfPermission(anyString(), any());
+
+        NetworkTimeSuggestion NetworkTimeSuggestion = createNetworkTimeSuggestion();
+        mTimeDetectorService.suggestNetworkTime(NetworkTimeSuggestion);
+        mTestHandler.assertTotalMessagesEnqueued(1);
+
+        verify(mMockContext).enforceCallingOrSelfPermission(
+                eq(android.Manifest.permission.SET_TIME), anyString());
+
+        mTestHandler.waitForEmptyQueue();
+        mStubbedTimeDetectorStrategy.verifySuggestNetworkTimeCalled(NetworkTimeSuggestion);
+    }
+
     @Test
     public void testDump() {
         when(mMockContext.checkCallingOrSelfPermission(android.Manifest.permission.DUMP))
@@ -146,11 +177,17 @@ public class TimeDetectorServiceTest {
         return new ManualTimeSuggestion(timeValue);
     }
 
+    private static NetworkTimeSuggestion createNetworkTimeSuggestion() {
+        TimestampedValue<Long> timeValue = new TimestampedValue<>(100L, 1_000_000L);
+        return new NetworkTimeSuggestion(timeValue);
+    }
+
     private static class StubbedTimeDetectorStrategy implements TimeDetectorStrategy {
 
         // Call tracking.
         private PhoneTimeSuggestion mLastPhoneSuggestion;
         private ManualTimeSuggestion mLastManualSuggestion;
+        private NetworkTimeSuggestion mLastNetworkSuggestion;
         private boolean mLastAutoTimeDetectionToggleCalled;
         private boolean mDumpCalled;
 
@@ -171,6 +208,12 @@ public class TimeDetectorServiceTest {
         }
 
         @Override
+        public void suggestNetworkTime(NetworkTimeSuggestion timeSuggestion) {
+            resetCallTracking();
+            mLastNetworkSuggestion = timeSuggestion;
+        }
+
+        @Override
         public void handleAutoTimeDetectionChanged() {
             resetCallTracking();
             mLastAutoTimeDetectionToggleCalled = true;
@@ -185,6 +228,7 @@ public class TimeDetectorServiceTest {
         void resetCallTracking() {
             mLastPhoneSuggestion = null;
             mLastManualSuggestion = null;
+            mLastNetworkSuggestion = null;
             mLastAutoTimeDetectionToggleCalled = false;
             mDumpCalled = false;
         }
@@ -195,6 +239,10 @@ public class TimeDetectorServiceTest {
 
         public void verifySuggestManualTimeCalled(ManualTimeSuggestion expectedSuggestion) {
             assertEquals(expectedSuggestion, mLastManualSuggestion);
+        }
+
+        public void verifySuggestNetworkTimeCalled(NetworkTimeSuggestion expectedSuggestion) {
+            assertEquals(expectedSuggestion, mLastNetworkSuggestion);
         }
 
         void verifyHandleAutoTimeDetectionToggleCalled() {
