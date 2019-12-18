@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f105454b_dc4eee59",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 12802,
+      "author": {
+        "id": 1003801
+      },
+      "writtenOn": "2019-12-18T22:30:17Z",
+      "side": 1,
+      "message": "Could they all be final?",
+      "revId": "953f8bc2e4f71326e179c9ffb6e4c1e4e272fb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "021c2ea0_9aa9e35e",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 13545,
+      "author": {
+        "id": 1003801
+      },
+      "writtenOn": "2019-12-18T22:30:17Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "953f8bc2e4f71326e179c9ffb6e4c1e4e272fb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
