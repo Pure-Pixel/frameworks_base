@@ -285,7 +285,7 @@ public class Vpn {
         mSystemServices = systemServices;
         mIkev2SessionCreator = ikev2SessionCreator;
 
-        mPackage = VpnConfig.LEGACY_VPN;
+        mPackage = VpnConfig.SETTINGS_VPN;
         mOwnerUID = getAppUid(mPackage, mUserHandle);
         mIsPackageTargetingAtLeastQ = doesPackageTargetAtLeastQ(mPackage);
 
@@ -544,7 +544,7 @@ public class Vpn {
     @GuardedBy("this")
     private boolean setAlwaysOnPackageInternal(
             String packageName, boolean lockdown, List<String> lockdownWhitelist) {
-        if (VpnConfig.LEGACY_VPN.equals(packageName)) {
+        if (VpnConfig.SETTINGS_VPN.equals(packageName)) {
             Log.w(TAG, "Not setting legacy VPN \"" + packageName + "\" as always-on.");
             return false;
         }
@@ -568,7 +568,7 @@ public class Vpn {
             }
             mAlwaysOn = true;
         } else {
-            packageName = VpnConfig.LEGACY_VPN;
+            packageName = VpnConfig.SETTINGS_VPN;
             mAlwaysOn = false;
         }
 
@@ -589,7 +589,7 @@ public class Vpn {
     }
 
     private static boolean isNullOrLegacyVpn(String packageName) {
-        return packageName == null || VpnConfig.LEGACY_VPN.equals(packageName);
+        return packageName == null || VpnConfig.SETTINGS_VPN.equals(packageName);
     }
 
     /**
@@ -749,23 +749,23 @@ public class Vpn {
             if (!isCurrentPreparedPackage(oldPackage)) {
                 // The package doesn't match. We return false (to obtain user consent) unless the
                 // user has already consented to that VPN package.
-                if (!oldPackage.equals(VpnConfig.LEGACY_VPN)
+                if (!oldPackage.equals(VpnConfig.SETTINGS_VPN)
                         && isVpnPreConsented(oldPackage, isPlatformVpn)) {
                     prepareInternal(oldPackage);
                     return true;
                 }
                 return false;
-            } else if (!oldPackage.equals(VpnConfig.LEGACY_VPN)
+            } else if (!oldPackage.equals(VpnConfig.SETTINGS_VPN)
                     && !isVpnPreConsented(oldPackage, isPlatformVpn)) {
                 // Currently prepared VPN is revoked, so unprepare it and return false.
-                prepareInternal(VpnConfig.LEGACY_VPN);
+                prepareInternal(VpnConfig.SETTINGS_VPN);
                 return false;
             }
         }
 
         // Return true if we do not need to revoke.
-        if (newPackage == null || (!newPackage.equals(VpnConfig.LEGACY_VPN) &&
-                isCurrentPreparedPackage(newPackage))) {
+        if (newPackage == null || (!newPackage.equals(VpnConfig.SETTINGS_VPN)
+                && isCurrentPreparedPackage(newPackage))) {
             return true;
         }
 
@@ -845,7 +845,7 @@ public class Vpn {
         enforceControlPermissionOrInternalCaller();
 
         final int uid = getAppUid(packageName, mUserHandle);
-        if (uid == -1 || VpnConfig.LEGACY_VPN.equals(packageName)) {
+        if (uid == -1 || VpnConfig.SETTINGS_VPN.equals(packageName)) {
             // Authorization for nonexistent packages (or fake ones) can't be updated.
             return false;
         }
@@ -911,7 +911,7 @@ public class Vpn {
     }
 
     private int getAppUid(String app, int userHandle) {
-        if (VpnConfig.LEGACY_VPN.equals(app)) {
+        if (VpnConfig.SETTINGS_VPN.equals(app)) {
             return Process.myUid();
         }
         PackageManager pm = mContext.getPackageManager();
@@ -925,7 +925,7 @@ public class Vpn {
     }
 
     private boolean doesPackageTargetAtLeastQ(String packageName) {
-        if (VpnConfig.LEGACY_VPN.equals(packageName)) {
+        if (VpnConfig.SETTINGS_VPN.equals(packageName)) {
             return true;
         }
         PackageManager pm = mContext.getPackageManager();
@@ -1937,7 +1937,7 @@ public class Vpn {
         stopVpnRunnerPrivileged();
 
         // Prepare for the new request.
-        prepareInternal(VpnConfig.LEGACY_VPN);
+        prepareInternal(VpnConfig.SETTINGS_VPN);
         updateState(DetailedState.CONNECTING, "startLegacyVpn");
 
         // Start a new LegacyVpnRunner and we are done!
@@ -1947,7 +1947,7 @@ public class Vpn {
 
     /** Stop legacy VPN. Permissions must be checked by callers. */
     public synchronized void stopVpnRunnerPrivileged() {
-        if (mVpnRunner != null && mPackage.equals(VpnConfig.LEGACY_VPN)) {
+        if (mVpnRunner != null && mPackage.equals(VpnConfig.SETTINGS_VPN)) {
             boolean isLegacyVpn = mVpnRunner instanceof LegacyVpnRunner;
 
             mVpnRunner.exit();
@@ -3036,7 +3036,7 @@ public class Vpn {
 
         Binder.withCleanCallingIdentity(
                 () -> {
-                    prepareInternal(VpnConfig.LEGACY_VPN);
+                    prepareInternal(VpnConfig.SETTINGS_VPN);
                 });
     }
 
