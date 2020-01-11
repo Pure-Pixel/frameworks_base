@@ -4278,7 +4278,7 @@ public class ConnectivityService extends IConnectivityManager.Stub
      *
      * @param oldPackage Package name of the application which currently controls VPN, which will
      *                   be replaced. If there is no such application, this should should either be
-     *                   {@code null} or {@link VpnConfig.LEGACY_VPN}.
+     *                   {@code null} or {@link VpnConfig.SETTINGS_VPN}.
      * @param newPackage Package name of the application which should gain control of VPN, or
      *                   {@code null} to disable.
      * @param userId User for whom to prepare the new VPN.
@@ -7217,14 +7217,14 @@ public class ConnectivityService extends IConnectivityManager.Stub
                 VpnConfig vpnConfig = getVpnConfig(userId);
                 if (vpnConfig != null) {
                     if (vpnConfig.legacy) {
-                        prepareVpn(VpnConfig.LEGACY_VPN, VpnConfig.LEGACY_VPN, userId);
+                        prepareVpn(null, VpnConfig.SETTINGS_VPN, userId);
                     } else {
                         // Prevent this app (packagename = vpnConfig.user) from initiating
                         // VPN connections in the future without user intervention.
                         setVpnPackageAuthorization(
                                 vpnConfig.user, userId, false, VpnManager.TYPE_VPN_NONE);
 
-                        prepareVpn(null, VpnConfig.LEGACY_VPN, userId);
+                        prepareVpn(null, VpnConfig.SETTINGS_VPN, userId);
                     }
                 }
             }
