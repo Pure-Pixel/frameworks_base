@@ -52,8 +52,8 @@ public class VpnConfig implements Parcelable {
 
     public static final String DIALOGS_PACKAGE = "com.android.vpndialogs";
 
-    // TODO: Rename this to something that encompasses Settings-based Platform VPNs as well.
-    public static final String LEGACY_VPN = "[Legacy VPN]";
+    // TODO: Remove this and make Settings use the VpnManager APIs once Racoon/LegacyVpn is removed.
+    public static final String SETTINGS_VPN = "[Settings VPN]";
 
     public static Intent getIntentForConfirmation() {
         Intent intent = new Intent();
@@ -64,7 +64,7 @@ public class VpnConfig implements Parcelable {
         return intent;
     }
 
-    /** NOTE: This should only be used for legacy VPN. */
+    /** NOTE: This should only be used for settings VPN. */
     public static PendingIntent getIntentForStatusPanel(Context context) {
         Intent intent = new Intent();
         intent.setClassName(DIALOGS_PACKAGE, DIALOGS_PACKAGE + ".ManageDialog");
