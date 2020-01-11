@@ -122,6 +122,6 @@ cc_library {
         "liblog",
         "libcutils",
     ],
-    static_libs: ["libstatssocket"],
+    static_libs: ["libstatspush"],
 }
 
