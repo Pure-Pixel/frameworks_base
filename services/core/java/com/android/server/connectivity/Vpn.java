@@ -269,7 +269,7 @@ public class Vpn {
         mSystemServices = systemServices;
         mIkev2SessionCreator = ikev2SessionCreator;
 
-        mPackage = VpnConfig.LEGACY_VPN;
+        mPackage = VpnConfig.SETTINGS_VPN;
         mOwnerUID = getAppUid(mPackage, mUserHandle);
         mIsPackageTargetingAtLeastQ = doesPackageTargetAtLeastQ(mPackage);
 
@@ -528,7 +528,7 @@ public class Vpn {
     @GuardedBy("this")
     private boolean setAlwaysOnPackageInternal(
             String packageName, boolean lockdown, List<String> lockdownWhitelist) {
-        if (VpnConfig.LEGACY_VPN.equals(packageName)) {
+        if (VpnConfig.SETTINGS_VPN.equals(packageName)) {
             Log.w(TAG, "Not setting legacy VPN \"" + packageName + "\" as always-on.");
             return false;
         }
@@ -552,7 +552,7 @@ public class Vpn {
             }
             mAlwaysOn = true;
         } else {
-            packageName = VpnConfig.LEGACY_VPN;
+            packageName = VpnConfig.SETTINGS_VPN;
             mAlwaysOn = false;
         }
 
@@ -573,7 +573,7 @@ public class Vpn {
     }
 
     private static boolean isNullOrLegacyVpn(String packageName) {
-        return packageName == null || VpnConfig.LEGACY_VPN.equals(packageName);
+        return packageName == null || VpnConfig.SETTINGS_VPN.equals(packageName);
     }
 
     /**
@@ -692,7 +692,7 @@ public class Vpn {
      * operation is succeeded.
      *
      * Legacy VPN is handled specially since it is not a real package.
-     * It uses {@link VpnConfig#LEGACY_VPN} as its package name, and
+     * It uses {@link VpnConfig#SETTINGS_VPN} as its package name, and
      * it can be revoked by itself.
      *
      * The permission checks to verify that the VPN has already been granted
@@ -709,12 +709,12 @@ public class Vpn {
      *
      * - oldPackage non-null, newPackage null: App calling VpnService#prepare().
      * - oldPackage null, newPackage non-null: ConfirmDialog calling prepareVpn().
-     * - oldPackage null, newPackage=LEGACY_VPN: Used internally to disconnect
+     * - oldPackage null, newPackage=SETTINGS_VPN: Used internally to disconnect
      *   and revoke any current app VPN and re-prepare legacy vpn.
      *
      * TODO: Rename the variables - or split this method into two - and end this confusion.
-     * TODO: b/29032008 Migrate code from prepare(oldPackage=non-null, newPackage=LEGACY_VPN)
-     * to prepare(oldPackage=null, newPackage=LEGACY_VPN)
+     * TODO: b/29032008 Migrate code from prepare(oldPackage=non-null, newPackage=SETTINGS_VPN)
+     * to prepare(oldPackage=null, newPackage=SETTINGS_VPN)
      *
      * @param oldPackage The package name of the old VPN application
      * @param newPackage The package name of the new VPN application
@@ -734,23 +734,23 @@ public class Vpn {
             if (!isCurrentPreparedPackage(oldPackage)) {
                 // The package doesn't match. We return false (to obtain user consent) unless the
                 // user has already consented to that VPN package.
-                if (!oldPackage.equals(VpnConfig.LEGACY_VPN)
+                if (!oldPackage.equals(VpnConfig.SETTINGS_VPN)
                         && isVpnPreConsented(mContext, oldPackage, vpnType)) {
                     prepareInternal(oldPackage);
                     return true;
                 }
                 return false;
-            } else if (!oldPackage.equals(VpnConfig.LEGACY_VPN)
+            } else if (!oldPackage.equals(VpnConfig.SETTINGS_VPN)
                     && !isVpnPreConsented(mContext, oldPackage, vpnType)) {
                 // Currently prepared VPN is revoked, so unprepare it and return false.
-                prepareInternal(VpnConfig.LEGACY_VPN);
+                prepareInternal(VpnConfig.SETTINGS_VPN);
                 return false;
             }
         }
 
         // Return true if we do not need to revoke.
-        if (newPackage == null || (!newPackage.equals(VpnConfig.LEGACY_VPN) &&
-                isCurrentPreparedPackage(newPackage))) {
+        if (newPackage == null || (!newPackage.equals(VpnConfig.SETTINGS_VPN)
+                && isCurrentPreparedPackage(newPackage))) {
             return true;
         }
 
@@ -831,7 +831,7 @@ public class Vpn {
         enforceControlPermissionOrInternalCaller();
 
         final int uid = getAppUid(packageName, mUserHandle);
-        if (uid == -1 || VpnConfig.LEGACY_VPN.equals(packageName)) {
+        if (uid == -1 || VpnConfig.SETTINGS_VPN.equals(packageName)) {
             // Authorization for nonexistent packages (or fake ones) can't be updated.
             return false;
         }
@@ -903,7 +903,7 @@ public class Vpn {
     }
 
     private int getAppUid(String app, int userHandle) {
-        if (VpnConfig.LEGACY_VPN.equals(app)) {
+        if (VpnConfig.SETTINGS_VPN.equals(app)) {
             return Process.myUid();
         }
         PackageManager pm = mContext.getPackageManager();
@@ -917,7 +917,7 @@ public class Vpn {
     }
 
     private boolean doesPackageTargetAtLeastQ(String packageName) {
-        if (VpnConfig.LEGACY_VPN.equals(packageName)) {
+        if (VpnConfig.SETTINGS_VPN.equals(packageName)) {
             return true;
         }
         PackageManager pm = mContext.getPackageManager();
@@ -1968,7 +1968,7 @@ public class Vpn {
         stopVpnRunnerPrivileged();
 
         // Prepare for the new request.
-        prepareInternal(VpnConfig.LEGACY_VPN);
+        prepareInternal(VpnConfig.SETTINGS_VPN);
         updateState(DetailedState.CONNECTING, "startLegacyVpn");
 
         // Start a new LegacyVpnRunner and we are done!
@@ -1977,7 +1977,7 @@ public class Vpn {
     }
 
     private boolean isSettingsVpn() {
-        return mVpnRunner != null && VpnConfig.LEGACY_VPN.equals(mPackage);
+        return mVpnRunner != null && VpnConfig.SETTINGS_VPN.equals(mPackage);
     }
 
     /** Stop VPN runner. Permissions must be checked by callers. */
@@ -2826,7 +2826,7 @@ public class Vpn {
      * Stops an already running VPN Profile for the given package.
      *
      * <p>This method is meant to be called by apps (via VpnManager and ConnectivityService).
-     * Privileged (system) callers should (re-)prepare the LEGACY_VPN instead.
+     * Privileged (system) callers should (re-)prepare the SETTINGS_VPN instead.
      *
      * @param packageName the package name of the app provisioning this profile
      */
@@ -2841,7 +2841,7 @@ public class Vpn {
             return;
         }
 
-        prepareInternal(VpnConfig.LEGACY_VPN);
+        prepareInternal(VpnConfig.SETTINGS_VPN);
     }
 
     /**
