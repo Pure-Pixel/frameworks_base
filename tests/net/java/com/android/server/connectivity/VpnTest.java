@@ -558,7 +558,7 @@ public class VpnTest {
         order.verify(mNetService).setAllowOnlyVpnForUids(eq(true), aryEq(exceptPkg0));
 
         // When that VPN package is unset, everything should be undone again in reverse.
-        vpn.prepare(null, VpnConfig.LEGACY_VPN, VpnManager.TYPE_VPN_SERVICE);
+        vpn.prepare(null, VpnConfig.SETTINGS_VPN, VpnManager.TYPE_VPN_SERVICE);
         order.verify(mNetService).setAllowOnlyVpnForUids(eq(false), aryEq(exceptPkg0));
         order.verify(mNetService).setAllowOnlyVpnForUids(eq(true), aryEq(entireUser));
     }
@@ -1038,7 +1038,7 @@ public class VpnTest {
             assertNull(vpn.mInterface);
             assertNull(vpn.mNetworkAgent);
             assertNull(vpn.mVpnRunner);
-            assertEquals(VpnConfig.LEGACY_VPN, vpn.mPackage);
+            assertEquals(VpnConfig.SETTINGS_VPN, vpn.mPackage);
         }
     }
 
