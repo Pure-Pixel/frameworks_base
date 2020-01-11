@@ -116,12 +116,7 @@ public class ManageDialog extends AlertActivity implements
             if (which == DialogInterface.BUTTON_POSITIVE) {
                 mConfig.configureIntent.send();
             } else if (which == DialogInterface.BUTTON_NEUTRAL) {
-                final int myUserId = UserHandle.myUserId();
-                if (mConfig.legacy) {
-                    mService.prepareVpn(VpnConfig.LEGACY_VPN, VpnConfig.LEGACY_VPN, myUserId);
-                } else {
-                    mService.prepareVpn(mConfig.user, VpnConfig.LEGACY_VPN, myUserId);
-                }
+                mService.prepareVpn(null, VpnConfig.SETTINGS_VPN, UserHandle.myUserId());
             }
         } catch (Exception e) {
             Log.e(TAG, "onClick", e);
