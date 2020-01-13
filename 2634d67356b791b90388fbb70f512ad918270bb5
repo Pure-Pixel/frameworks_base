@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b7f4a49_cf24e8ba",
+        "filename": "packages/Tethering/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-01-13T06:35:59Z",
+      "side": 1,
+      "message": "Consider changing this to \"Hotspot \u0026amp; tethering status\". Rationale: the settings menu item for this is \"Hotspot \u0026 tethering\". Also consider:\n\nThis string should be consistent with the \"Hotspot \u0026 tethering\" text in the \"Network  and Internet\" settings page. That is currently the tether_settings_title_all string.",
+      "range": {
+        "startLine": 32,
+        "startChar": 57,
+        "endLine": 32,
+        "endChar": 73
+      },
+      "revId": "2634d67356b791b90388fbb70f512ad918270bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cef2665_047a33bd",
+        "filename": "packages/Tethering/src/com/android/server/connectivity/tethering/Tethering.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-01-13T06:35:59Z",
+      "side": 1,
+      "message": "Nit: the system notification channels are generally ALL_CAPS. Maybe TETHERING_STATUS, which is consistent with the notification_channel_tethering_status resource name?",
+      "range": {
+        "startLine": 696,
+        "startChar": 17,
+        "endLine": 696,
+        "endChar": 45
+      },
+      "revId": "2634d67356b791b90388fbb70f512ad918270bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
