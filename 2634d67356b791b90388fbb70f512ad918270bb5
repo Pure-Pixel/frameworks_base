@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "822f6bb9_dd1f4e37",
+        "filename": "packages/Tethering/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-01-13T09:10:24Z",
+      "side": 1,
+      "message": "Actually what I was suggesting is to put the \"This string should be consistent...\" in the text of the comment. But we can do that in another CL.",
+      "parentUuid": "d505f00a_ddac0099",
+      "range": {
+        "startLine": 32,
+        "startChar": 57,
+        "endLine": 32,
+        "endChar": 73
+      },
+      "revId": "2634d67356b791b90388fbb70f512ad918270bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2cef2665_047a33bd",
         "filename": "packages/Tethering/src/com/android/server/connectivity/tethering/Tethering.java",
         "patchSetId": 2
