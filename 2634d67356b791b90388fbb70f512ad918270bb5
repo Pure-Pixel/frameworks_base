@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4636dded_94da5d2d",
+        "filename": "packages/Tethering/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2020-01-14T08:10:04Z",
+      "side": 1,
+      "message": "Add the comment on aosp/1137358.",
+      "parentUuid": "822f6bb9_dd1f4e37",
+      "range": {
+        "startLine": 32,
+        "startChar": 57,
+        "endLine": 32,
+        "endChar": 73
+      },
+      "revId": "2634d67356b791b90388fbb70f512ad918270bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2cef2665_047a33bd",
         "filename": "packages/Tethering/src/com/android/server/connectivity/tethering/Tethering.java",
         "patchSetId": 2
