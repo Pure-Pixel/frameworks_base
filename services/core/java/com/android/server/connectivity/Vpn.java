@@ -1897,6 +1897,18 @@ public class Vpn {
         // Prepare arguments for racoon.
         String[] racoon = null;
         switch (profile.type) {
+            case VpnProfile.TYPE_IKEV2_IPSEC_USER_PASS: // Fallthrough
+            case VpnProfile.TYPE_IKEV2_IPSEC_PSK: // Fallthrough
+            case VpnProfile.TYPE_IKEV2_IPSEC_RSA:
+                // Update certs from keystore
+                profile.ipsecSecret = privateKey;
+                profile.ipsecUserCert = userCert;
+                profile.ipsecCaCert = caCert;
+                profile.ipsecServerCert = serverCert;
+
+                // Start VPN profile
+                startVpnProfilePrivileged(profile, VpnConfig.LEGACY_VPN);
+                return;
             case VpnProfile.TYPE_L2TP_IPSEC_PSK:
                 racoon = new String[] {
                     iface, profile.server, "udppsk", profile.ipsecIdentifier,
@@ -2844,11 +2856,11 @@ public class Vpn {
 
     private void startVpnProfilePrivileged(
             @NonNull VpnProfile profile, @NonNull String packageName) {
-        // Ensure that no other previous instance is running.
-        if (mVpnRunner != null) {
-            mVpnRunner.exit();
-            mVpnRunner = null;
-        }
+        // Make sure VPN is prepared. This method can be called by user apps via startVpnProfile(),
+        // by the Setting app via startLegacyVpn(), or by ConnectivityService via
+        // startAlwaysOnVpn(), so this is the common place to prepare the VPN. This also has the
+        // nice property of ensuring there are no other VpnRunner instances running.
+        prepareInternal(packageName);
         updateState(DetailedState.CONNECTING, "startPlatformVpn");
 
         try {
