@@ -68,6 +68,7 @@ import android.content.pm.UserInfo;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.Ikev2VpnProfile;
+import android.net.InetAddresses;
 import android.net.IpPrefix;
 import android.net.IpSecConfig;
 import android.net.IpSecManager;
@@ -75,6 +76,7 @@ import android.net.IpSecTransform;
 import android.net.IpSecTunnelInterfaceResponse;
 import android.net.IpSecUdpEncapResponse;
 import android.net.LinkAddress;
+import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo.DetailedState;
@@ -117,6 +119,7 @@ import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -1139,6 +1142,37 @@ public class VpnTest {
                         eq(Process.myUid()),
                         eq(TEST_VPN_PKG),
                         eq(AppOpsManager.MODE_IGNORED));
+    }
+
+    @Test
+    public void testStartLegacyVpn() throws Exception {
+        final Vpn vpn = createVpn(primaryUser.id);
+        setMockedUsers(primaryUser);
+
+        // Dummy egress interface
+        final String egressIface = "DUMMY0";
+        final LinkProperties lp = new LinkProperties();
+        lp.setInterfaceName(egressIface);
+
+        final RouteInfo defaultRoute = new RouteInfo(
+                new IpPrefix(Inet4Address.ANY, 0), InetAddresses.parseNumericAddress("192.0.2.0"),
+                egressIface);
+        lp.addRoute(defaultRoute);
+
+        vpn.startLegacyVpn(mVpnProfile, mKeyStore, lp);
+
+        // Trigger the onAvailable callback
+        final NetworkCallback networkCb = verifyAndCaptureNetworkCallback();
+        networkCb.onAvailable(TEST_NETWORK);
+
+        // Verify that the IKE session has started.
+        verify(mIkev2SessionCreator, timeout(TEST_TIMEOUT_MS))
+                .createIkeSession(any(), any(), any(), any(), any(), any());
+
+        synchronized (vpn) {
+            assertTrue(vpn.mVpnRunner instanceof IkeV2VpnRunner);
+            assertEquals(VpnConfig.LEGACY_VPN, vpn.mPackage);
+        }
     }
 
     /**
