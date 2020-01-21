@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03e82bc1_bbb74336",
+        "filename": "core/java/android/net/ConnectivityManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3188,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-01-21T15:04:04Z",
+      "side": 1,
+      "message": "Why this blank line?",
+      "range": {
+        "startLine": 3188,
+        "startChar": 0,
+        "endLine": 3188,
+        "endChar": 0
+      },
+      "revId": "2dda9e0627148207a8c80b226c4ed4a3682f7b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
