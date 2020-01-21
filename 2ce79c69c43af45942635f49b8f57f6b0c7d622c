@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6909277_23a99f92",
+        "filename": "telephony/java/android/telephony/CellIdentityNr.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2020-01-21T20:36:58Z",
+      "side": 1,
+      "message": "or {@link CellInfo@UNAVAILABLE} if unknown?",
+      "range": {
+        "startLine": 156,
+        "startChar": 15,
+        "endLine": 156,
+        "endChar": 26
+      },
+      "revId": "2ce79c69c43af45942635f49b8f57f6b0c7d622c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
