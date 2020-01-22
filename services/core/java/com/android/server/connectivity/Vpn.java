@@ -70,7 +70,6 @@ import android.net.UidRange;
 import android.net.VpnManager;
 import android.net.VpnService;
 import android.net.ipsec.ike.ChildSessionCallback;
-import android.net.ipsec.ike.ChildSessionConfiguration;
 import android.net.ipsec.ike.ChildSessionParams;
 import android.net.ipsec.ike.IkeSession;
 import android.net.ipsec.ike.IkeSessionCallback;
@@ -192,7 +191,7 @@ public class Vpn {
     @VisibleForTesting protected String mPackage;
     private int mOwnerUID;
     private boolean mIsPackageTargetingAtLeastQ;
-    private String mInterface;
+    @VisibleForTesting protected String mInterface;
     private Connection mConnection;
 
     /** Tracks the runners for all VPN types managed by the platform (eg. LegacyVpn, PlatformVpn) */
@@ -779,7 +778,7 @@ public class Vpn {
             if (mInterface != null) {
                 mStatusIntent = null;
                 agentDisconnect();
-                jniReset(mInterface);
+                mSystemServices.resetInterface(mInterface);
                 mInterface = null;
                 mNetworkCapabilities.setUids(null);
             }
@@ -1192,7 +1191,7 @@ public class Vpn {
             }
 
             if (oldInterface != null && !oldInterface.equals(interfaze)) {
-                jniReset(oldInterface);
+                mSystemServices.resetInterface(oldInterface);
             }
 
             try {
@@ -1525,7 +1524,8 @@ public class Vpn {
         }
     }
 
-    private INetworkManagementEventObserver mObserver = new BaseNetworkObserver() {
+    @VisibleForTesting
+    INetworkManagementEventObserver mObserver = new BaseNetworkObserver() {
         @Override
         public void interfaceStatusChanged(String interfaze, boolean up) {
             synchronized (Vpn.this) {
@@ -1799,12 +1799,17 @@ public class Vpn {
         public boolean isCallerSystem() {
             return Binder.getCallingUid() == Process.SYSTEM_UID;
         }
+
+        /** Resets and removes a interface */
+        public void resetInterface(String iface) {
+            jniReset(iface);
+        }
     }
 
     private native int jniCreate(int mtu);
     private native String jniGetName(int tun);
     private native int jniSetAddresses(String interfaze, String addresses);
-    private native void jniReset(String interfaze);
+    private static native void jniReset(String interfaze);
     private native int jniCheck(String interfaze);
     private native boolean jniAddAddress(String interfaze, String address, int prefixLen);
     private native boolean jniDelAddress(String interfaze, String address, int prefixLen);
@@ -2046,7 +2051,8 @@ public class Vpn {
     }
 
     /** This class represents the common interface for all VPN runners. */
-    private abstract class VpnRunner extends Thread {
+    @VisibleForTesting
+    abstract class VpnRunner extends Thread {
 
         protected VpnRunner(String name) {
             super(name);
@@ -2068,8 +2074,8 @@ public class Vpn {
     interface IkeV2VpnRunnerCallback {
         void onNetworkConnected(@NonNull Network network);
 
-        void onChildOpened(
-                @NonNull Network network, @NonNull ChildSessionConfiguration childConfig);
+        void onChildOpened(@NonNull Network network,
+                @NonNull List<LinkAddress> linkAddresses, @NonNull Collection<RouteInfo> routes);
 
         void onChildTransformCreated(
                 @NonNull Network network, @NonNull IpSecTransform transform, int direction);
@@ -2104,15 +2110,15 @@ public class Vpn {
          * of the mutable Ikev2VpnRunner fields. The Ikev2VpnRunner is built mostly lock-free by
          * virtue of everything being seralized on this executor.
          */
-        @NonNull private final Executor mExecutor = Executors.newSingleThreadExecutor();
+        @VisibleForTesting @NonNull final Executor mExecutor = Executors.newSingleThreadExecutor();
 
         /** Signal to ensure shutdown is honored even if a new Network is connected. */
-        private boolean mIsRunning = true;
+        @VisibleForTesting boolean mIsRunning = true;
 
-        @Nullable private UdpEncapsulationSocket mEncapSocket;
-        @Nullable private IpSecTunnelInterface mTunnelIface;
-        @Nullable private IkeSession mSession;
-        @Nullable private Network mActiveNetwork;
+        @VisibleForTesting @Nullable UdpEncapsulationSocket mEncapSocket;
+        @VisibleForTesting @Nullable IpSecTunnelInterface mTunnelIface;
+        @VisibleForTesting @Nullable IkeSession mSession;
+        @VisibleForTesting @Nullable Network mActiveNetwork;
 
         IkeV2VpnRunner(@NonNull Ikev2VpnProfile profile) {
             super(TAG);
@@ -2131,8 +2137,8 @@ public class Vpn {
          * <p>This method is only ever called once per IkeSession, and MUST run on the mExecutor
          * thread in order to ensure consistency of the Ikev2VpnRunner fields.
          */
-        public void onChildOpened(
-                @NonNull Network network, @NonNull ChildSessionConfiguration childConfig) {
+        public void onChildOpened(@NonNull Network network,
+                @NonNull List<LinkAddress> linkAddresses, @NonNull Collection<RouteInfo> routes) {
             if (!isActiveNetwork(network)) {
                 Log.d(TAG, "onOpened called for obsolete network " + network);
 
@@ -2144,9 +2150,7 @@ public class Vpn {
             }
 
             try {
-                final Collection<RouteInfo> newRoutes = VpnIkev2Utils.getRoutesFromTrafficSelectors(
-                        childConfig.getOutboundTrafficSelectors());
-                for (final LinkAddress address : childConfig.getInternalAddresses()) {
+                for (final LinkAddress address : linkAddresses) {
                     mTunnelIface.addAddress(address.getAddress(), address.getPrefixLength());
                 }
 
@@ -2159,10 +2163,10 @@ public class Vpn {
                     mConfig.interfaze = mInterface;
 
                     mConfig.addresses.clear();
-                    mConfig.addresses.addAll(childConfig.getInternalAddresses());
+                    mConfig.addresses.addAll(linkAddresses);
 
                     mConfig.routes.clear();
-                    mConfig.routes.addAll(newRoutes);
+                    mConfig.routes.addAll(routes);
 
                     // TODO: Add DNS servers from negotiation
 
