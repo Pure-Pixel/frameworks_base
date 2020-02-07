@@ -30,6 +30,7 @@ java_library_static {
         "android.hardware.vibrator-java",
         "app-compat-annotations",
         "framework-tethering",
+        "ike-stubs",
     ],
 
     required: [
