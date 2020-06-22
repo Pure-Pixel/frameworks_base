@@ -217,7 +217,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.android.lotsofapps.activity20" android:icon="@drawable/ic_launcher_slideshow_default_sms">
+        <activity android:name="com.android.lotsofapps.activity30" android:icon="@drawable/ic_launcher_slideshow_default_sms">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
