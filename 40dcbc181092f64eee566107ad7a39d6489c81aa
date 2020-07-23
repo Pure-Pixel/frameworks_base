@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7a95ebd_f206e56a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-23T22:53:33Z",
+      "side": 1,
+      "message": "Makoto, I think it\u0027s unlikely I could enable this. What would you think of enabling warning lints for Andorid for a while or do you know anyone on frameworks side who would be interesting?",
+      "revId": "40dcbc181092f64eee566107ad7a39d6489c81aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
