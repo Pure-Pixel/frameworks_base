@@ -1127,6 +1127,7 @@ metalava_framework_docs_args = "--manifest $(location core/res/AndroidManifest.x
     "--ignore-classes-on-classpath " +
     "--hide-package com.android.server " +
     "--error UnhiddenSystemApi " +
+    "--error WrongConstant " +
     "--hide RequiresPermission " +
     "--hide CallbackInterface " +
     "--hide MissingPermission --hide BroadcastBehavior " +
