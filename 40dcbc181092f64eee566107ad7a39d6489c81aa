@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3939b104_b51190ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-07-24T02:06:15Z",
+      "side": 1,
+      "message": "I wonder what they are :)",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 26
+      },
+      "revId": "40dcbc181092f64eee566107ad7a39d6489c81aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7a95ebd_f206e56a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
