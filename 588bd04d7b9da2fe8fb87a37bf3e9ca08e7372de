@@ -16,6 +16,29 @@
       "revId": "588bd04d7b9da2fe8fb87a37bf3e9ca08e7372de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1e2bd20_4306fc01",
+        "filename": "services/usb/java/com/android/server/usb/UsbHostManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1060750
+      },
+      "writtenOn": "2020-07-30T21:47:30Z",
+      "side": 1,
+      "message": "minor inconsistency in Case",
+      "range": {
+        "startLine": 360,
+        "startChar": 47,
+        "endLine": 360,
+        "endChar": 51
+      },
+      "revId": "588bd04d7b9da2fe8fb87a37bf3e9ca08e7372de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
