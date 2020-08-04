@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a32e8005_df833d80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004395
+      },
+      "writtenOn": "2020-08-04T00:09:12Z",
+      "side": 1,
+      "message": "Paul - if you do update the CL per Jiabin\u0027s comment, please also\ntake the new edited commit message from patchset 4. Thanks!",
+      "revId": "3719a354eeefd174877490cd39b869449eb9fdc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
