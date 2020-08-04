@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "f8f1971e_473c8285",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2020-08-04T00:06:43Z",
+      "side": 1,
+      "message": "Paul, from the build error link, there is a merge conflict.",
+      "revId": "588bd04d7b9da2fe8fb87a37bf3e9ca08e7372de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1e2bd20_4306fc01",
         "filename": "services/usb/java/com/android/server/usb/UsbHostManager.java",
         "patchSetId": 2
