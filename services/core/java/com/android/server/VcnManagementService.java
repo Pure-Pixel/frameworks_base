@@ -213,8 +213,12 @@ public class VcnManagementService extends IVcnManagementService.Stub {
         // TODO: Clear VCN configuration, trigger teardown as necessary
     }
 
-    @VisibleForTesting(visibility = Visibility.PRIVATE)
-    class VcnNetworkProvider extends NetworkProvider {
+    /**
+     * Network provider for VCN networks.
+     *
+     * @hide
+     */
+    public class VcnNetworkProvider extends NetworkProvider {
         VcnNetworkProvider(Context context, Looper looper) {
             super(context, looper, VcnNetworkProvider.class.getSimpleName());
         }
