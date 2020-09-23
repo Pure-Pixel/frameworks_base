@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea8feff8_4913ea61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1069898
+      },
+      "writtenOn": "2020-09-23T18:35:09Z",
+      "side": 1,
+      "message": "Verified that native bridge (arm on x86) tests pass with this CL.",
+      "revId": "daed646e47b2095941318da4cbd92befad77e991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
