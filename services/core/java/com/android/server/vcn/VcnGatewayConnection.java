@@ -117,6 +117,7 @@ public class VcnGatewayConnection extends StateMachine {
     private static final String TAG = VcnGatewayConnection.class.getSimpleName();
 
     private static final InetAddress DUMMY_ADDR = InetAddresses.parseNumericAddress("192.0.2.0");
+
     private static final int ARG_NOT_PRESENT = Integer.MIN_VALUE;
 
     private static final String DISCONNECT_REASON_INTERNAL_ERROR = "Uncaught exception: ";
@@ -360,11 +361,25 @@ public class VcnGatewayConnection extends StateMachine {
      */
     private static final int EVENT_TEARDOWN_TIMEOUT_EXPIRED = 8;
 
-    @NonNull private final DisconnectedState mDisconnectedState = new DisconnectedState();
-    @NonNull private final DisconnectingState mDisconnectingState = new DisconnectingState();
-    @NonNull private final ConnectingState mConnectingState = new ConnectingState();
-    @NonNull private final ConnectedState mConnectedState = new ConnectedState();
-    @NonNull private final RetryTimeoutState mRetryTimeoutState = new RetryTimeoutState();
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    @NonNull
+    final DisconnectedState mDisconnectedState = new DisconnectedState();
+
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    @NonNull
+    final DisconnectingState mDisconnectingState = new DisconnectingState();
+
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    @NonNull
+    final ConnectingState mConnectingState = new ConnectingState();
+
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    @NonNull
+    final ConnectedState mConnectedState = new ConnectedState();
+
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    @NonNull
+    final RetryTimeoutState mRetryTimeoutState = new RetryTimeoutState();
 
     @NonNull private final VcnContext mVcnContext;
     @NonNull private final ParcelUuid mSubscriptionGroup;
@@ -455,7 +470,8 @@ public class VcnGatewayConnection extends StateMachine {
         this(vcnContext, subscriptionGroup, connectionConfig, new Dependencies());
     }
 
-    private VcnGatewayConnection(
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    VcnGatewayConnection(
             @NonNull VcnContext vcnContext,
             @NonNull ParcelUuid subscriptionGroup,
             @NonNull VcnGatewayConnectionConfig connectionConfig,
@@ -508,7 +524,6 @@ public class VcnGatewayConnection extends StateMachine {
                 EVENT_DISCONNECT_REQUESTED,
                 TOKEN_ALL,
                 new EventDisconnectRequestedInfo(DISCONNECT_REASON_TEARDOWN));
-        quit();
 
         // TODO: Notify VcnInstance (via callbacks) of permanent teardown of this tunnel, since this
         // is also called asynchronously when a NetworkAgent becomes unwanted
@@ -667,6 +682,8 @@ public class VcnGatewayConnection extends StateMachine {
 
         protected void handleDisconnectRequested(String msg) {
             Slog.v(TAG, "Tearing down. Cause: " + msg);
+            mIsRunning = false;
+
             teardownNetwork();
             teardownIke();
 
@@ -697,7 +714,31 @@ public class VcnGatewayConnection extends StateMachine {
      */
     private class DisconnectedState extends BaseState {
         @Override
-        protected void processStateMsg(Message msg) {}
+        protected void enterState() {
+            if (!mIsRunning) {
+                quitNow(); // Ignore all queued events; cleanup is complete.
+            }
+        }
+
+        @Override
+        protected void processStateMsg(Message msg) {
+            switch (msg.what) {
+                case EVENT_UNDERLYING_NETWORK_CHANGED:
+                    // First network found; start tunnel
+                    mUnderlying = ((EventUnderlyingNetworkChangedInfo) msg.obj).newUnderlying;
+
+                    if (mUnderlying != null) {
+                        transitionTo(mConnectingState);
+                    }
+                    break;
+                case EVENT_DISCONNECT_REQUESTED:
+                    handleDisconnectRequested(((EventDisconnectRequestedInfo) msg.obj).reason);
+                    break;
+                default:
+                    logUnhandledMessage(msg);
+                    break;
+            }
+        }
     }
 
     private abstract class ActiveBaseState extends BaseState {
@@ -893,7 +934,22 @@ public class VcnGatewayConnection extends StateMachine {
         }
     }
 
-    /** External dependencies used by VcnGatewayConnection, for injection in tests. */
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    UnderlyingNetworkTrackerCallback getUnderlyingNetworkTrackerCallback() {
+        return mUnderlyingNetworkTrackerCallback;
+    }
+
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    UnderlyingNetworkRecord getUnderlyingNetwork() {
+        return mUnderlying;
+    }
+
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    void setUnderlyingNetwork(@Nullable UnderlyingNetworkRecord record) {
+        mUnderlying = record;
+    }
+
+    /** External dependencies used by VcnGatewayConnection, for injection in tests */
     @VisibleForTesting(visibility = Visibility.PRIVATE)
     public static class Dependencies {
         /** Builds a new UnderlyingNetworkTracker. */
