@@ -642,6 +642,22 @@ public class VcnGatewayConnection extends StateMachine {
 
         protected abstract void processStateMsg(Message msg) throws Exception;
 
+        @Override
+        public void exit() {
+            try {
+                exitState();
+            } catch (Exception e) {
+                Slog.wtf(TAG, "Uncaught exception", e);
+                sendMessage(
+                        EVENT_DISCONNECT_REQUESTED,
+                        TOKEN_ALL,
+                        new EventDisconnectRequestedInfo(
+                                DISCONNECT_REASON_INTERNAL_ERROR + e.toString()));
+            }
+        }
+
+        protected void exitState() throws Exception {}
+
         protected void logUnhandledMessage(Message msg) {
             // Log as unexpected all known messages, and log all else as unknown.
             switch (msg.what) {
@@ -772,6 +788,19 @@ public class VcnGatewayConnection extends StateMachine {
      * does not complete teardown in a timely fashion, it will be killed (forcibly closed).
      */
     private class DisconnectingState extends ActiveBaseState {
+        /**
+         * Whether to skip the RetryTimeoutState and go straight to the ConnectingState.
+         *
+         * <p>This is used when an underlying network change triggered a restart on a new network.
+         *
+         * <p>Reset (to false) upon exit of the DisconnectingState.
+         */
+        private boolean mSkipRetryTimeout = false;
+
+        public void setSkipRetryTimeout(boolean shouldSkip) {
+            mSkipRetryTimeout = shouldSkip;
+        }
+
         @Override
         protected void enterState() throws Exception {
             if (mIkeSession == null) {
@@ -825,7 +854,7 @@ public class VcnGatewayConnection extends StateMachine {
                     mIkeSession = null;
 
                     if (mIsRunning && mUnderlying != null) {
-                        transitionTo(mRetryTimeoutState);
+                        transitionTo(mSkipRetryTimeout ? mConnectingState : mRetryTimeoutState);
                     } else {
                         teardownNetwork();
                         transitionTo(mDisconnectedState);
@@ -835,6 +864,11 @@ public class VcnGatewayConnection extends StateMachine {
                     logUnhandledMessage(msg);
                     break;
             }
+        }
+
+        @Override
+        protected void exitState() throws Exception {
+            mSkipRetryTimeout = false;
         }
     }
 
@@ -846,7 +880,66 @@ public class VcnGatewayConnection extends StateMachine {
      */
     private class ConnectingState extends ActiveBaseState {
         @Override
-        protected void processStateMsg(Message msg) {}
+        protected void enterState() {
+            final int token = incrementAndGetNewToken();
+
+            if (mIkeSession == null) {
+                final IkeSessionParams ikeSessionParams = buildIkeParams();
+                final ChildSessionParams childSessionParams = buildChildParams();
+
+                mIkeSession =
+                        mDeps.newIkeSession(
+                                mVcnContext,
+                                ikeSessionParams,
+                                childSessionParams,
+                                new IkeSessionCallbackImpl(token),
+                                new ChildSessionCallbackImpl(token));
+            }
+        }
+
+        @Override
+        protected void processStateMsg(Message msg) {
+            switch (msg.what) {
+                case EVENT_UNDERLYING_NETWORK_CHANGED:
+                    final UnderlyingNetworkRecord oldUnderlying = mUnderlying;
+                    mUnderlying = ((EventUnderlyingNetworkChangedInfo) msg.obj).newUnderlying;
+
+                    // If new underlying is null, all underlying networks have been lost; disconnect
+                    if (mUnderlying == null) {
+                        teardownIke();
+                        transitionTo(mDisconnectingState);
+                        break;
+                    } else if (oldUnderlying == null) {
+                        Slog.wtf(TAG, "Old underlying network was null in ConnectingState");
+                    } else if (mUnderlying.network.equals(oldUnderlying.network)) {
+                        // Actual network did not change; skip.
+                        break;
+                    }
+
+                    // Immediately come back to the ConnectingState (skip RetryTimeout, since this
+                    // isn't a failure)
+                    mDisconnectingState.setSkipRetryTimeout(true);
+
+                    // fallthrough
+                case EVENT_SESSION_LOST:
+                    teardownIke();
+                    transitionTo(mDisconnectingState);
+
+                    break;
+                case EVENT_SETUP_COMPLETED: // fallthrough
+                case EVENT_TRANSFORM_CREATED:
+                    // Child setup complete; move to ConnectedState for NetworkAgent registration
+                    deferMessage(msg);
+                    transitionTo(mConnectedState);
+                    break;
+                case EVENT_DISCONNECT_REQUESTED:
+                    handleDisconnectRequested(((EventDisconnectRequestedInfo) msg.obj).reason);
+                    break;
+                default:
+                    logUnhandledMessage(msg);
+                    break;
+            }
+        }
     }
 
     private abstract class ConnectedStateBase extends ActiveBaseState {}
@@ -1032,12 +1125,12 @@ public class VcnGatewayConnection extends StateMachine {
     }
 
     private IkeSessionParams buildIkeParams() {
-        // TODO: Implement this with ConnectingState
+        // TODO: Implement this once IkeSessionParams is persisted
         return null;
     }
 
     private ChildSessionParams buildChildParams() {
-        // TODO: Implement this with ConnectingState
+        // TODO: Implement this once IkeSessionParams is persisted
         return null;
     }
 
