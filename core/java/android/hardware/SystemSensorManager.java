@@ -78,6 +78,7 @@ public class SystemSensorManager extends SensorManager {
     private static InjectEventQueue sInjectEventQueue = null;
 
     private final ArrayList<Sensor> mFullSensorsList = new ArrayList<>();
+    private static final Object mFullDynamicSensorsListLock = new Object();
     private List<Sensor> mFullDynamicSensorsList = new ArrayList<>();
     private boolean mDynamicSensorListDirty = true;
 
@@ -368,7 +369,7 @@ public class SystemSensorManager extends SensorManager {
     }
 
     private void updateDynamicSensorList() {
-        synchronized (mFullDynamicSensorsList) {
+        synchronized (mFullDynamicSensorsListLock) {
             if (mDynamicSensorListDirty) {
                 List<Sensor> list = new ArrayList<>();
                 nativeGetDynamicSensors(mNativeInstance, list);
