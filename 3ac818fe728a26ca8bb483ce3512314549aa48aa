@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e099076_cc12a580",
+        "filename": "core/java/android/hardware/SystemSensorManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1768450
+      },
+      "writtenOn": "2020-10-13T05:38:27Z",
+      "side": 1,
+      "message": "Yes. Thanks",
+      "parentUuid": "71cec173_fbd95a48",
+      "range": {
+        "startLine": 80,
+        "startChar": 4,
+        "endLine": 80,
+        "endChar": 11
+      },
+      "revId": "3ac818fe728a26ca8bb483ce3512314549aa48aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "156264d6_27fcee41",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-12T21:34:12Z",
       "side": 1,
       "message": "Does this has to be static if the variable it protects is not?",
+      "range": {
+        "startLine": 81,
+        "startChar": 12,
+        "endLine": 81,
+        "endChar": 18
+      },
+      "revId": "3ac818fe728a26ca8bb483ce3512314549aa48aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d73dd78c_5e09a4c9",
+        "filename": "core/java/android/hardware/SystemSensorManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1768450
+      },
+      "writtenOn": "2020-10-13T05:38:27Z",
+      "side": 1,
+      "message": "static is not needed and fixed.",
+      "parentUuid": "156264d6_27fcee41",
       "range": {
         "startLine": 81,
         "startChar": 12,
