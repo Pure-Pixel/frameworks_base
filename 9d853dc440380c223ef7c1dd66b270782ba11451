@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccc13ad1_20f83670",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2020-10-14T22:38:33Z",
+      "side": 1,
+      "message": "Thanks for the contribution!",
+      "revId": "9d853dc440380c223ef7c1dd66b270782ba11451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe3083b9_db76c782",
+        "filename": "core/java/android/hardware/SystemSensorManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2020-10-14T22:38:33Z",
+      "side": 1,
+      "message": "To adhere to the @GuardedBy, we should hold the mDynamicSensorListLock when setting this field.",
+      "range": {
+        "startLine": 437,
+        "startChar": 24,
+        "endLine": 437,
+        "endChar": 55
+      },
+      "revId": "9d853dc440380c223ef7c1dd66b270782ba11451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
