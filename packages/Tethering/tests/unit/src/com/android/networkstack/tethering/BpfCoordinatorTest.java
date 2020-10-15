@@ -52,6 +52,7 @@ import android.net.MacAddress;
 import android.net.NetworkStats;
 import android.net.TetherOffloadRuleParcel;
 import android.net.TetherStatsParcel;
+import android.net.ip.ConntrackMonitor;
 import android.net.ip.IpServer;
 import android.net.util.SharedLog;
 import android.os.Handler;
@@ -94,6 +95,7 @@ public class BpfCoordinatorTest {
     @Mock private INetd mNetd;
     @Mock private IpServer mIpServer;
     @Mock private TetheringConfiguration mTetherConfig;
+    @Mock private ConntrackMonitor mConntrackMonitor;
 
     // Late init since methods must be called by the thread that created this object.
     private TestableNetworkStatsProviderCbBinder mTetherStatsProviderCb;
@@ -126,6 +128,12 @@ public class BpfCoordinatorTest {
             @Nullable
             public TetheringConfiguration getTetherConfig() {
                 return mTetherConfig;
+            }
+
+            @NonNull
+            public ConntrackMonitor getConntrackMonitor(Handler handler, SharedLog log,
+                    ConntrackMonitor.ConntrackEventConsumer consumer) {
+                return mConntrackMonitor;
             }
     };
 
