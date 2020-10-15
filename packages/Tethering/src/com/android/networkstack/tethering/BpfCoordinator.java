@@ -34,6 +34,7 @@ import android.net.NetworkStats;
 import android.net.NetworkStats.Entry;
 import android.net.TetherOffloadRuleParcel;
 import android.net.TetherStatsParcel;
+import android.net.ip.ConntrackMonitor;
 import android.net.ip.IpServer;
 import android.net.netstats.provider.NetworkStatsProvider;
 import android.net.util.SharedLog;
@@ -86,6 +87,8 @@ public class BpfCoordinator {
     private final SharedLog mLog;
     @NonNull
     private final Dependencies mDeps;
+    @NonNull
+    private final ConntrackMonitor mConntrackMonitor;
     @Nullable
     private final BpfTetherStatsProvider mStatsProvider;
 
@@ -168,6 +171,12 @@ public class BpfCoordinator {
 
         /** Get tethering configuration. */
         @Nullable public abstract TetheringConfiguration getTetherConfig();
+
+        /** Get conntrack monitor. */
+        @NonNull public ConntrackMonitor getConntrackMonitor(Handler handler, SharedLog log,
+                ConntrackMonitor.ConntrackEventConsumer consumer) {
+            return new ConntrackMonitor(handler, log, consumer);
+        }
     }
 
     @VisibleForTesting
@@ -177,6 +186,8 @@ public class BpfCoordinator {
         mNetd = mDeps.getNetd();
         mLog = mDeps.getSharedLog().forSubComponent(TAG);
         mIsBpfEnabled = isBpfEnabled();
+        mConntrackMonitor = mDeps.getConntrackMonitor(mHandler, mLog,
+            new BpfConntrackEventConsumer());
         BpfTetherStatsProvider provider = new BpfTetherStatsProvider();
         try {
             mDeps.getNetworkStatsManager().registerNetworkStatsProvider(
@@ -207,6 +218,10 @@ public class BpfCoordinator {
         mPollingStarted = true;
         maybeSchedulePollingStats();
 
+        // TODO: Figure out a better trigger point to start monitoring once conntrack events are
+        // used by tethering offload.
+        mConntrackMonitor.start();
+
         mLog.i("Polling started");
     }
 
@@ -220,6 +235,10 @@ public class BpfCoordinator {
      */
     public void stopPolling() {
         if (!mPollingStarted) return;
+
+        // TODO: Figure out a better trigger point to stop monitoring once conntrack events are
+        // used by tethering offload.
+        mConntrackMonitor.stop();
 
         // Stop scheduled polling tasks and poll the latest stats from BPF maps.
         if (mHandler.hasCallbacks(mScheduledPollingTask)) {
@@ -580,6 +599,10 @@ public class BpfCoordinator {
             mIfaceStats = mIfaceStats.add(ifaceDiff);
             mUidStats = mUidStats.add(uidDiff);
         }
+    }
+
+    private class BpfConntrackEventConsumer implements ConntrackMonitor.ConntrackEventConsumer {
+        public void accept(ConntrackMonitor.ConntrackEvent e) { /* TODO */ }
     }
 
     private boolean isBpfEnabled() {
