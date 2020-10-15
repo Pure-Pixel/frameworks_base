@@ -39,6 +39,30 @@
       },
       "revId": "9d853dc440380c223ef7c1dd66b270782ba11451",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d010b67_0f63f5d2",
+        "filename": "core/java/android/hardware/SystemSensorManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1768450
+      },
+      "writtenOn": "2020-10-15T08:13:39Z",
+      "side": 1,
+      "message": "How about creating a patch set by modifying it like this?\n\ndiff --git a/core/java/android/hardware/SystemSensorManager.java b/core/java/android/hardware/SystemSensorManager.java\nindex 5f600bfebbb..a90c6e15744 100644\n--- a/core/java/android/hardware/SystemSensorManager.java\n+++ b/core/java/android/hardware/SystemSensorManager.java\n@@ -434,8 +434,10 @@ public class SystemSensorManager extends SensorManager {\n                             Log.i(TAG, \"DYNS received DYNAMIC_SENSOR_CHANED broadcast\");\n                         }\n                         // Dynamic sensors probably changed\n-                        mDynamicSensorListDirty \u003d true;\n-                        updateDynamicSensorList();\n+                        synchronized (mDynamicSensorListLock) {\n+                            mDynamicSensorListDirty \u003d true;\n+                            updateDynamicSensorList();\n+                        }\n                     }\n                 }\n             };",
+      "parentUuid": "fe3083b9_db76c782",
+      "range": {
+        "startLine": 437,
+        "startChar": 24,
+        "endLine": 437,
+        "endChar": 55
+      },
+      "revId": "9d853dc440380c223ef7c1dd66b270782ba11451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
