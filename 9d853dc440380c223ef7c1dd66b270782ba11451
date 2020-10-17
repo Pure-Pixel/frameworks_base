@@ -63,6 +63,30 @@
       },
       "revId": "9d853dc440380c223ef7c1dd66b270782ba11451",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3878b354_ed0a954b",
+        "filename": "core/java/android/hardware/SystemSensorManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1768450
+      },
+      "writtenOn": "2020-10-17T02:12:01Z",
+      "side": 1,
+      "message": "If the additional patch set above is okay, I will include this as well.",
+      "parentUuid": "6d010b67_0f63f5d2",
+      "range": {
+        "startLine": 437,
+        "startChar": 24,
+        "endLine": 437,
+        "endChar": 55
+      },
+      "revId": "9d853dc440380c223ef7c1dd66b270782ba11451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
