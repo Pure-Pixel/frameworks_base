@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0b5b2bc_fd0046b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1768450
+      },
+      "writtenOn": "2020-10-17T03:23:19Z",
+      "side": 1,
+      "message": "I don\u0027t have permission to submit.\n\n\nLet me know if you think we need to add an additional patch set. \nIf not, please submit this commit.\n\nThanks.",
+      "revId": "9d853dc440380c223ef7c1dd66b270782ba11451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe3083b9_db76c782",
