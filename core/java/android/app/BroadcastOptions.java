@@ -127,6 +127,7 @@ public class BroadcastOptions {
      * them.  This only applies to receivers declared in the app's AndroidManifest.xml.
      * @hide
      */
+    @SystemApi(client = SystemApi.Client.SYSTEM_SERVER)
     public void setMaxManifestReceiverApiLevel(int apiLevel) {
         mMaxManifestReceiverApiLevel = apiLevel;
     }
