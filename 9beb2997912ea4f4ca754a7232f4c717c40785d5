@@ -22,6 +22,30 @@
       },
       "revId": "9beb2997912ea4f4ca754a7232f4c717c40785d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a7b2cf0_4ed8ec58",
+        "filename": "core/java/android/app/BroadcastOptions.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2020-10-20T07:49:23Z",
+      "side": 1,
+      "message": "It has. Like this one\nhttps://source.corp.google.com/aosp-master/frameworks/base/apex/permission/service/java/com/android/role/persistence/RolesPersistence.java",
+      "parentUuid": "db802185_681d7688",
+      "range": {
+        "startLine": 130,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 55
+      },
+      "revId": "9beb2997912ea4f4ca754a7232f4c717c40785d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
