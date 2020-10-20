@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db802185_681d7688",
+        "filename": "core/java/android/app/BroadcastOptions.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1385042
+      },
+      "writtenOn": "2020-10-20T04:43:04Z",
+      "side": 1,
+      "message": "I don\u0027t see this kind of SystemApi was exposed from framework. Exposing this type here might be wrong.\nSee go/android-api-types",
+      "range": {
+        "startLine": 130,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 55
+      },
+      "revId": "9beb2997912ea4f4ca754a7232f4c717c40785d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
