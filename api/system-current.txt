@@ -587,6 +587,7 @@ package android.app {
     method public static android.app.BroadcastOptions makeBasic();
     method @RequiresPermission("android.permission.START_ACTIVITIES_FROM_BACKGROUND") public void setBackgroundActivityStartsAllowed(boolean);
     method public void setDontSendToRestrictedApps(boolean);
+    method public void setMaxManifestReceiverApiLevel(int);
     method @RequiresPermission(android.Manifest.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST) public void setTemporaryAppWhitelistDuration(long);
     method public android.os.Bundle toBundle();
   }
