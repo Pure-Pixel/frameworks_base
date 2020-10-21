@@ -109,6 +109,7 @@ public class BroadcastOptions {
      * them.  This only applies to receivers declared in the app's AndroidManifest.xml.
      * @hide
      */
+    @SystemApi
     public void setMinManifestReceiverApiLevel(int apiLevel) {
         mMinManifestReceiverApiLevel = apiLevel;
     }
