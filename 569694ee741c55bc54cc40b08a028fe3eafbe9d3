@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5ed3ed7_6bc9f1a2",
+        "filename": "core/java/android/app/BroadcastOptions.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1304263
+      },
+      "writtenOn": "2020-10-21T09:24:39Z",
+      "side": 1,
+      "message": "I think you expose a wrong API",
+      "range": {
+        "startLine": 113,
+        "startChar": 16,
+        "endLine": 113,
+        "endChar": 46
+      },
+      "revId": "569694ee741c55bc54cc40b08a028fe3eafbe9d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
