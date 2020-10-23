@@ -39,6 +39,30 @@
       },
       "revId": "acb737d43fcfd1d460fdd7d2767658635b380670",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7de4ad49_6c525dc6",
+        "filename": "packages/Tethering/src/com/android/networkstack/tethering/BpfCoordinator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-10-23T10:14:25Z",
+      "side": 1,
+      "message": "+1 on changing the name. If this is only used for BPF, maybe rename to startBpf / stopBpf and mBpfStarted?",
+      "parentUuid": "62c3c884_9238b850",
+      "range": {
+        "startLine": 220,
+        "startChar": 8,
+        "endLine": 221,
+        "endChar": 37
+      },
+      "revId": "acb737d43fcfd1d460fdd7d2767658635b380670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
