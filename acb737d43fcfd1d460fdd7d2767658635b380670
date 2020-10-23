@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a8f104f_03c5b7d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1308504
+      },
+      "writtenOn": "2020-10-23T06:51:12Z",
+      "side": 1,
+      "message": "LGTM if Lorenzo don\u0027t have other objection.",
+      "revId": "acb737d43fcfd1d460fdd7d2767658635b380670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62c3c884_9238b850",
+        "filename": "packages/Tethering/src/com/android/networkstack/tethering/BpfCoordinator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1308504
+      },
+      "writtenOn": "2020-10-23T06:51:12Z",
+      "side": 1,
+      "message": "startPolling is called when main SM enter TetherModeAliveState and stopPolling is called when leaving TetherModeAliveState. Although this may be a little bit late after IpServer(downstream interface setup) be Tethered, but this seems fine because tethering won\u0027t have upstream before enter TetherModeAliveState. Maybe we just need to rename startPolling()/stopPolling() to other proper name.",
+      "range": {
+        "startLine": 220,
+        "startChar": 8,
+        "endLine": 221,
+        "endChar": 37
+      },
+      "revId": "acb737d43fcfd1d460fdd7d2767658635b380670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
