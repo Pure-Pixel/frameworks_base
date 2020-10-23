@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5958ab06_aed76751",
+        "filename": "core/java/android/app/BroadcastOptions.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2020-10-23T06:14:58Z",
+      "side": 1,
+      "message": "Please specify the client. In this case I think we want client \u003d PRIVILEGED_APPS, but MODULES_LIBRARIES may also make sense.",
+      "range": {
+        "startLine": 130,
+        "startChar": 5,
+        "endLine": 130,
+        "endChar": 14
+      },
+      "revId": "55c3c2942a9e45293d09f1c697611db636cbf876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
