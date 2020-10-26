@@ -6260,8 +6260,7 @@ public class ConnectivityServiceTest {
         // The interface removed callback happens but has no effect after stop is called.
         clat.interfaceRemoved(CLAT_PREFIX + MOBILE_IFNAME);
         networkCallback.assertNoCallback();
-
-        verifyNoMoreInteractions(mMockNetd);
+        verify(mMockNetd, times(1)).networkRemoveInterface(cellNetId, CLAT_PREFIX + MOBILE_IFNAME);
         verifyNoMoreInteractions(mMockDnsResolver);
         reset(mNetworkManagementService);
         reset(mMockNetd);
@@ -6305,7 +6304,7 @@ public class ConnectivityServiceTest {
         verify(mMockNetd, times(1)).clatdStop(MOBILE_IFNAME);
         networkCallback.expectLinkPropertiesThat(mCellNetworkAgent,
                 (lp) -> lp.getStackedLinks().size() == 0);
-        verifyNoMoreInteractions(mMockNetd);
+        verify(mMockNetd, times(1)).networkRemoveInterface(cellNetId, CLAT_PREFIX + MOBILE_IFNAME);
 
         // Clean up.
         mCellNetworkAgent.disconnect();
