@@ -46,6 +46,30 @@
       },
       "revId": "034b847e8f51180fed5030cfeacf96223cb3d0d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcfa2983_a63b44d6",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 6263,
+      "author": {
+        "id": 1308163
+      },
+      "writtenOn": "2020-10-28T05:44:46Z",
+      "side": 1,
+      "message": "For example, there should be an interface being added between line#6235 and line#6238.",
+      "parentUuid": "2b16e5f7_939cdac0",
+      "range": {
+        "startLine": 6263,
+        "startChar": 8,
+        "endLine": 6263,
+        "endChar": 99
+      },
+      "revId": "034b847e8f51180fed5030cfeacf96223cb3d0d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
