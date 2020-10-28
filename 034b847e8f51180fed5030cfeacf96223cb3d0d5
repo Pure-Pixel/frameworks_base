@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a302ced3_1206e139",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 6263,
+      "author": {
+        "id": 1308163
+      },
+      "writtenOn": "2020-10-28T04:42:56Z",
+      "side": 1,
+      "message": "Do you want to verify networkAddInterface() as well?\nI think we can verify it when any interface is added.",
+      "range": {
+        "startLine": 6263,
+        "startChar": 8,
+        "endLine": 6263,
+        "endChar": 99
+      },
+      "revId": "034b847e8f51180fed5030cfeacf96223cb3d0d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

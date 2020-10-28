@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fa659b7_b8f8acf4",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 6308,
+      "author": {
+        "id": 1308163
+      },
+      "writtenOn": "2020-10-28T04:42:56Z",
+      "side": 0,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 6308,
+        "startChar": 8,
+        "endLine": 6308,
+        "endChar": 44
+      },
+      "revId": "92b4cd1267cf48b403a45922af9ac2f50cee7b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
