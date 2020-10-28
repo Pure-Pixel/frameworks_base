@@ -22,6 +22,30 @@
       },
       "revId": "034b847e8f51180fed5030cfeacf96223cb3d0d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b16e5f7_939cdac0",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 6263,
+      "author": {
+        "id": 1304263
+      },
+      "writtenOn": "2020-10-28T05:16:46Z",
+      "side": 1,
+      "message": "There is no add here. what do you mean by verifying networkAddInterface()?",
+      "parentUuid": "a302ced3_1206e139",
+      "range": {
+        "startLine": 6263,
+        "startChar": 8,
+        "endLine": 6263,
+        "endChar": 99
+      },
+      "revId": "034b847e8f51180fed5030cfeacf96223cb3d0d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
