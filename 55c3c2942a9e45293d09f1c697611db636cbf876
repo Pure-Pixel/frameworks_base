@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab887518_4b38c19e",
+        "filename": "core/java/android/app/BroadcastOptions.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2020-10-28T16:59:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5958ab06_aed76751",
+      "range": {
+        "startLine": 130,
+        "startChar": 5,
+        "endLine": 130,
+        "endChar": 14
+      },
+      "revId": "55c3c2942a9e45293d09f1c697611db636cbf876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1808545d_eb8366e9",
@@ -37,6 +61,30 @@
       "writtenOn": "2020-10-23T06:15:57Z",
       "side": 1,
       "message": "Also please make the getter as visible as the setter.",
+      "range": {
+        "startLine": 139,
+        "startChar": 15,
+        "endLine": 139,
+        "endChar": 45
+      },
+      "revId": "55c3c2942a9e45293d09f1c697611db636cbf876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "240041ce_13c9e13c",
+        "filename": "core/java/android/app/BroadcastOptions.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2020-10-28T16:59:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1808545d_eb8366e9",
       "range": {
         "startLine": 139,
         "startChar": 15,
