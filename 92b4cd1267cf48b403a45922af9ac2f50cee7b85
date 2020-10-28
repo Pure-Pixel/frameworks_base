@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b35bc2c_040ffcba",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 6264,
+      "author": {
+        "id": 1308163
+      },
+      "writtenOn": "2020-10-28T04:45:49Z",
+      "side": 0,
+      "message": "Why did you remove this?\nI think it\u0027s fine to keep this to ensure that we have verified every verifications of mMockNetd.",
+      "range": {
+        "startLine": 6264,
+        "startChar": 8,
+        "endLine": 6264,
+        "endChar": 44
+      },
+      "revId": "92b4cd1267cf48b403a45922af9ac2f50cee7b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fa659b7_b8f8acf4",
         "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
         "patchSetId": 2
@@ -14,6 +37,30 @@
       "writtenOn": "2020-10-28T04:42:56Z",
       "side": 0,
       "message": "Ditto.",
+      "range": {
+        "startLine": 6308,
+        "startChar": 8,
+        "endLine": 6308,
+        "endChar": 44
+      },
+      "revId": "92b4cd1267cf48b403a45922af9ac2f50cee7b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9deca2d_3fe8f062",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 6308,
+      "author": {
+        "id": 1308163
+      },
+      "writtenOn": "2020-10-28T04:45:49Z",
+      "side": 0,
+      "message": "The \"ditto\" means line#6264 verifyNoMoreInteractions(mMockNetd);.\n(Not sure why the comment at line#6264 is not stored in previous round when I sent.)",
+      "parentUuid": "6fa659b7_b8f8acf4",
       "range": {
         "startLine": 6308,
         "startChar": 8,
