@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f235fe0_3f07da09",
+        "filename": "tests/net/java/com/android/server/ConnectivityServiceTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 6264,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2020-10-29T04:56:04Z",
+      "side": 0,
+      "message": "You should have had a strong feeling. This was exactly the right thing to point out :) Thanks for the high-quality review Lucas.",
+      "parentUuid": "c05f4026_9d213c34",
+      "range": {
+        "startLine": 6264,
+        "startChar": 8,
+        "endLine": 6264,
+        "endChar": 44
+      },
+      "revId": "92b4cd1267cf48b403a45922af9ac2f50cee7b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fa659b7_b8f8acf4",
