@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6179ac7_c33eb28c",
+        "filename": "services/core/java/com/android/server/vcn/VcnContext.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-11-11T21:26:05Z",
+      "side": 1,
+      "message": "I think I commented elsewhere to suggest a different keyword.",
+      "range": {
+        "startLine": 54,
+        "startChar": 21,
+        "endLine": 54,
+        "endChar": 29
+      },
+      "revId": "b094187111bea13a3e9174bd171170da0771a5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dd47914_1748da2b",
+        "filename": "services/core/java/com/android/server/vcn/VcnInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-11-11T21:26:05Z",
+      "side": 1,
+      "message": "I think the keyword you want here is probably VcnController? I know... two hard problems in computer science.",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 24
+      },
+      "revId": "b094187111bea13a3e9174bd171170da0771a5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10e05f92_21ab14ee",
+        "filename": "services/core/java/com/android/server/vcn/VcnInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-11-11T21:26:05Z",
+      "side": 1,
+      "message": "This is going to be tricky. Is there any way to dynamically get the score from the underlying networks so we can ensure that we outscore them that way?\n\nAlternatively, is there a way to not rely on the score at all? That would be ideal. Suggest to brainstorm with Jean on the right path.",
+      "range": {
+        "startLine": 39,
+        "startChar": 20,
+        "endLine": 39,
+        "endChar": 53
+      },
+      "revId": "b094187111bea13a3e9174bd171170da0771a5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
