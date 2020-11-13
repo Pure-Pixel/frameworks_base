@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3492dae_bd75eeed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2020-11-13T17:37:15Z",
+      "side": 1,
+      "message": "If you\u0027re able to set Autosubmit +1 then that\u0027s the way to submit patches on AOSP, but I added it here in case you don\u0027t have permission",
+      "parentUuid": "c0b5b2bc_fd0046b0",
+      "revId": "9d853dc440380c223ef7c1dd66b270782ba11451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe3083b9_db76c782",
@@ -96,6 +114,30 @@
       "side": 1,
       "message": "If the additional patch set above is okay, I will include this as well.",
       "parentUuid": "6d010b67_0f63f5d2",
+      "range": {
+        "startLine": 437,
+        "startChar": 24,
+        "endLine": 437,
+        "endChar": 55
+      },
+      "revId": "9d853dc440380c223ef7c1dd66b270782ba11451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1207757c_2c991b1d",
+        "filename": "core/java/android/hardware/SystemSensorManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2020-11-13T17:37:15Z",
+      "side": 1,
+      "message": "Yes, that\u0027s OK.",
+      "parentUuid": "3878b354_ed0a954b",
       "range": {
         "startLine": 437,
         "startChar": 24,
