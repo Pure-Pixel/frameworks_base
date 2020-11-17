@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "032a33e7_c772b466",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2020-11-17T10:55:38Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 11,
+        "startChar": 70,
+        "endLine": 11,
+        "endChar": 77
+      },
+      "revId": "78f60b774a6b33aed74c026a29bb9c12455c9b90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1759324_bfaff4d5",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 5353,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2020-11-17T10:55:38Z",
+      "side": 1,
+      "message": "Maybe ensureAllNetworkRequestsHaveType ?",
+      "range": {
+        "startLine": 5353,
+        "startChar": 17,
+        "endLine": 5353,
+        "endChar": 44
+      },
+      "revId": "78f60b774a6b33aed74c026a29bb9c12455c9b90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
