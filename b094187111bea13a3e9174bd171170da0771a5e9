@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5cd4037_2b52c335",
+        "filename": "services/core/java/com/android/server/vcn/VcnInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2020-11-17T22:25:26Z",
+      "side": 1,
+      "message": "Done; renamed to vcn.java",
+      "parentUuid": "968ab0b0_f30d781e",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 24
+      },
+      "revId": "b094187111bea13a3e9174bd171170da0771a5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10e05f92_21ab14ee",
@@ -204,6 +228,30 @@
       "side": 1,
       "message": "So yes, this is a nasty problem. I think we need to do something less brittle though.\n\nI fully expect that this is going to break on random gold devices. However we do this, we need to make sure that it\u0027s going to outscore anything else. There\u0027s also a problem with potential races.\n\nI know that Jean is also making changes here, so something that \"just works\" once he updates the scoring mechanism is fine.\n\nI\u0027m also OK with some kind of a placeholder/stub here that we can handle in a follow-up CL, but we need be confident that we have a shippable solution first.\n\nPlease sync with M. Chalard on this.",
       "parentUuid": "e6b0ac87_595ab92a",
+      "range": {
+        "startLine": 39,
+        "startChar": 20,
+        "endLine": 39,
+        "endChar": 53
+      },
+      "revId": "b094187111bea13a3e9174bd171170da0771a5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "295a84da_051dfa75",
+        "filename": "services/core/java/com/android/server/vcn/VcnInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2020-11-17T22:25:26Z",
+      "side": 1,
+      "message": "Done. Moved to a stub method.\n\nPer jchalard@, hopefully we don\u0027t even need this by S launch. But for the meantime, he suggested using 52 (Base cell + 2). Depending on the outcome of the discussion on defaults, we might even be able to push this down to 51 or 50, since the mechanism we use to prioritize the VCN over the underlying network is not based on score, but rather the \"default\" capabilities.",
+      "parentUuid": "d3a82224_1a16e1a3",
       "range": {
         "startLine": 39,
         "startChar": 20,
