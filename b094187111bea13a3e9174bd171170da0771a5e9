@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "409c0c3d_2f8c6e93",
+        "filename": "services/core/java/com/android/server/vcn/VcnContext.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-11-17T02:41:09Z",
+      "side": 1,
+      "message": "groan, if it\u0027s consistent with the parent, then nothing we can do.",
+      "parentUuid": "e5e1b4e5_5b341ca7",
+      "range": {
+        "startLine": 54,
+        "startChar": 21,
+        "endLine": 54,
+        "endChar": 29
+      },
+      "revId": "b094187111bea13a3e9174bd171170da0771a5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6dd47914_1748da2b",
@@ -97,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "968ab0b0_f30d781e",
+        "filename": "services/core/java/com/android/server/vcn/VcnInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-11-17T02:41:09Z",
+      "side": 1,
+      "message": "1) doesn\u0027t have to be a DSDA phone.\n2) I don\u0027t see a problem having multiple VcnControllers. The problem with Instance is that as a keyword it\u0027s pretty much used for reflection-related stuff/metaclasses.\n\nhttps://source.corp.google.com/search?q\u003dfile:%5E*Instance.java\u0026ct\u003dos\u0026sq\u003dpackage:%5Eandroid$\u0026start\u003d1\n\nI don\u0027t think you want to have multiple VcnInstance instances. Then it might as well just be called VCN and have multiple instances (which isn\u0027t the worst thing if that\u0027s really the \"main\" class that\u0027s running the whole show). You could just call it Vcn.java",
+      "parentUuid": "0eae9608_4488dc1c",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 24
+      },
+      "revId": "b094187111bea13a3e9174bd171170da0771a5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10e05f92_21ab14ee",
         "filename": "services/core/java/com/android/server/vcn/VcnInstance.java",
         "patchSetId": 1
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "Luckily, we aren\u0027t actually relying on the score here to \"outscore\" the underlying networks; we\u0027re using the TRUSTED bit to ensure that only we become the default, and satisfy unmodified network requests. And I think in a verbal discussion we came to the conclusion that the case where an app goes out of their way to allow untrusted/underlying networks is negligible for the moment.\n\nIn future iterations of the scoring logic (such as the selection algorithm that Jean is designing), I think it would make sense to prioritize a trusted network above an untrusted one. I\u0027ll raise that with Jean.\n\nRegarding the getting access to scores, there\u0027s no way to dynamically do so at the moment; the score\u0027s exclusively for ConnectivityService usage at the moment, so it\u0027s hard to get access to without building new APIs.",
       "parentUuid": "10e05f92_21ab14ee",
+      "range": {
+        "startLine": 39,
+        "startChar": 20,
+        "endLine": 39,
+        "endChar": 53
+      },
+      "revId": "b094187111bea13a3e9174bd171170da0771a5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3a82224_1a16e1a3",
+        "filename": "services/core/java/com/android/server/vcn/VcnInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-11-17T02:41:09Z",
+      "side": 1,
+      "message": "So yes, this is a nasty problem. I think we need to do something less brittle though.\n\nI fully expect that this is going to break on random gold devices. However we do this, we need to make sure that it\u0027s going to outscore anything else. There\u0027s also a problem with potential races.\n\nI know that Jean is also making changes here, so something that \"just works\" once he updates the scoring mechanism is fine.\n\nI\u0027m also OK with some kind of a placeholder/stub here that we can handle in a follow-up CL, but we need be confident that we have a shippable solution first.\n\nPlease sync with M. Chalard on this.",
+      "parentUuid": "e6b0ac87_595ab92a",
       "range": {
         "startLine": 39,
         "startChar": 20,
