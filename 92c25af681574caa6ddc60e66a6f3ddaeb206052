@@ -22,6 +22,30 @@
       },
       "revId": "92c25af681574caa6ddc60e66a6f3ddaeb206052",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5560f03_c53aa2b0",
+        "filename": "services/core/java/com/android/server/vcn/Vcn.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1221725
+      },
+      "writtenOn": "2020-11-19T08:13:55Z",
+      "side": 1,
+      "message": "Done. b/173549607 filed, will add in a follow-up patch.",
+      "parentUuid": "625b2894_e4283d45",
+      "range": {
+        "startLine": 90,
+        "startChar": 16,
+        "endLine": 90,
+        "endChar": 17
+      },
+      "revId": "92c25af681574caa6ddc60e66a6f3ddaeb206052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
