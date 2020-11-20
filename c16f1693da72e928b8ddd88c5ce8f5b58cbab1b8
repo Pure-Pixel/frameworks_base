@@ -142,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9128106_3341b39e",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 5434,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2020-11-20T06:34:39Z",
+      "side": 1,
+      "message": "That\u0027s what we always do in our code. If you worry about performance I think the better shortcut would be something like\n\n if (mRequests.size() \u003d\u003d 1) return mRequests.get(0);\n\n(because you know mSatisfier is not null)",
+      "parentUuid": "d884c203_4308673a",
+      "range": {
+        "startLine": 5434,
+        "startChar": 21,
+        "endLine": 5434,
+        "endChar": 58
+      },
+      "revId": "c16f1693da72e928b8ddd88c5ce8f5b58cbab1b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2108f651_810de2a6",
@@ -189,6 +213,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ea2c282_091ca29c",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 5435,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2020-11-20T06:34:39Z",
+      "side": 1,
+      "message": "Yes. At least the code now is simple. We can keep it is mind, but we don\u0027t need to eagerly optimize.",
+      "parentUuid": "ea9e8953_b4884f77",
+      "range": {
+        "startLine": 5435,
+        "startChar": 24,
+        "endLine": 5435,
+        "endChar": 82
+      },
+      "revId": "c16f1693da72e928b8ddd88c5ce8f5b58cbab1b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fbb082d_5d6f7ba6",
@@ -226,6 +274,30 @@
       "side": 1,
       "message": "Done however I still need the final `return null` so all code paths have a return value.",
       "parentUuid": "6fbb082d_5d6f7ba6",
+      "range": {
+        "startLine": 5441,
+        "startChar": 12,
+        "endLine": 5441,
+        "endChar": 24
+      },
+      "revId": "c16f1693da72e928b8ddd88c5ce8f5b58cbab1b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3f1e67a_9f3a3f55",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 5441,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2020-11-20T06:34:39Z",
+      "side": 1,
+      "message": "That\u0027s fine of course. To my mind the general guidance is as follows. A code base should be written consistently in one of two styles : return-early or single-return.\n\nReturn-early means you test for nullity and the like upfront to return as early as possible syntactically. You strive to keep nestedness to a minimum.\n\nSingle-return means you only have one place in the function where you return, normally at the end. If need be, have variables to hold the return value. Make it so that readers don\u0027t have to care about early unbranching.\n\nBoth styles have advantages, but our code uses the return-early policy. I am seeing less and less code out there using single-return.",
+      "parentUuid": "5eb5d7ad_d56f5580",
       "range": {
         "startLine": 5441,
         "startChar": 12,

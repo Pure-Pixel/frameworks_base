@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bee2511_ba3a731d",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 5787,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2020-11-20T06:34:39Z",
+      "side": 1,
+      "message": "Requests plural\n\n(you can submit and fold that into a next change if you prefer)",
+      "range": {
+        "startLine": 5787,
+        "startChar": 31,
+        "endLine": 5787,
+        "endChar": 38
+      },
+      "revId": "000865a22eaedb9f0588ecee45a526a2e110ac7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
