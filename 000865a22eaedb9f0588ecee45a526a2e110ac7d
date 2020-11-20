@@ -22,6 +22,30 @@
       },
       "revId": "000865a22eaedb9f0588ecee45a526a2e110ac7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6803de0_ed308b78",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 5787,
+      "author": {
+        "id": 1470463
+      },
+      "writtenOn": "2020-11-20T18:19:39Z",
+      "side": 1,
+      "message": "Got it. I\u0027ll create a separate CL as you mention with the nit changes across the current relation chain to avoid having to revisit each CL for nit changes to make everyone\u0027s lives easier.",
+      "parentUuid": "6bee2511_ba3a731d",
+      "range": {
+        "startLine": 5787,
+        "startChar": 31,
+        "endLine": 5787,
+        "endChar": 38
+      },
+      "revId": "000865a22eaedb9f0588ecee45a526a2e110ac7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

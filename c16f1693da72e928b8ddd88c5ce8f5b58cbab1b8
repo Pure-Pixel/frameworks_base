@@ -166,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "930ad30d_bfcab42c",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 5434,
+      "author": {
+        "id": 1470463
+      },
+      "writtenOn": "2020-11-20T18:19:39Z",
+      "side": 1,
+      "message": "Got it. In this case, as the data set is fairly small, I\u0027ll leave as-is as to not overly optimize at the cost of code complexity. I can revisit when we do the CLs for mSatisfier and if we decide we\u0027re using this function often, it\u0027ll most likely in any case go away when we create a small data structure for the mSatisfier to NetworkRequest.",
+      "parentUuid": "a9128106_3341b39e",
+      "range": {
+        "startLine": 5434,
+        "startChar": 21,
+        "endLine": 5434,
+        "endChar": 58
+      },
+      "revId": "c16f1693da72e928b8ddd88c5ce8f5b58cbab1b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2108f651_810de2a6",
@@ -298,6 +322,30 @@
       "side": 1,
       "message": "That\u0027s fine of course. To my mind the general guidance is as follows. A code base should be written consistently in one of two styles : return-early or single-return.\n\nReturn-early means you test for nullity and the like upfront to return as early as possible syntactically. You strive to keep nestedness to a minimum.\n\nSingle-return means you only have one place in the function where you return, normally at the end. If need be, have variables to hold the return value. Make it so that readers don\u0027t have to care about early unbranching.\n\nBoth styles have advantages, but our code uses the return-early policy. I am seeing less and less code out there using single-return.",
       "parentUuid": "5eb5d7ad_d56f5580",
+      "range": {
+        "startLine": 5441,
+        "startChar": 12,
+        "endLine": 5441,
+        "endChar": 24
+      },
+      "revId": "c16f1693da72e928b8ddd88c5ce8f5b58cbab1b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ce0eb9a_335ea41f",
+        "filename": "services/core/java/com/android/server/ConnectivityService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 5441,
+      "author": {
+        "id": 1470463
+      },
+      "writtenOn": "2020-11-20T18:19:39Z",
+      "side": 1,
+      "message": "Yes, makes sense and I agree on the approach using guard clauses. I\u0027ll keep that approach in mind going forward.",
+      "parentUuid": "c3f1e67a_9f3a3f55",
       "range": {
         "startLine": 5441,
         "startChar": 12,
