@@ -22,6 +22,7 @@ import static android.net.NetworkStats.SET_DEFAULT;
 import static android.net.NetworkStats.TAG_NONE;
 import static android.net.NetworkStats.UID_ALL;
 import static android.net.NetworkStatsHistory.FIELD_ALL;
+import static android.net.NetworkTemplate.OEM_MANAGED_ALL;
 import static android.net.NetworkTemplate.buildTemplateMobileAll;
 import static android.os.Process.myUid;
 import static android.text.format.DateUtils.HOUR_IN_MILLIS;
@@ -213,7 +214,7 @@ public class NetworkStatsCollectionTest {
         final NetworkStats.Entry entry = new NetworkStats.Entry();
         final NetworkIdentitySet identSet = new NetworkIdentitySet();
         identSet.add(new NetworkIdentity(TYPE_MOBILE, TelephonyManager.NETWORK_TYPE_UNKNOWN,
-                TEST_IMSI, null, false, true, true));
+                TEST_IMSI, null, false, true, true, OEM_MANAGED_ALL));
 
         int myUid = Process.myUid();
         int otherUidInSameUser = Process.myUid() + 1;
@@ -468,7 +469,7 @@ public class NetworkStatsCollectionTest {
         final NetworkStatsCollection large = new NetworkStatsCollection(HOUR_IN_MILLIS);
         final NetworkIdentitySet ident = new NetworkIdentitySet();
         ident.add(new NetworkIdentity(ConnectivityManager.TYPE_MOBILE, -1, TEST_IMSI, null,
-                false, true, true));
+                false, true, true, OEM_MANAGED_ALL));
         large.recordData(ident, UID_ALL, SET_ALL, TAG_NONE, TIME_A, TIME_B,
                 new NetworkStats.Entry(12_730_893_164L, 1, 0, 0, 0));
 

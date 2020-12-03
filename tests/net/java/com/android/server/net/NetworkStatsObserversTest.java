@@ -23,6 +23,7 @@ import static android.net.NetworkStats.METERED_NO;
 import static android.net.NetworkStats.ROAMING_NO;
 import static android.net.NetworkStats.SET_DEFAULT;
 import static android.net.NetworkStats.TAG_NONE;
+import static android.net.NetworkTemplate.OEM_MANAGED_ALL;
 import static android.net.NetworkTemplate.buildTemplateMobileAll;
 import static android.net.NetworkTemplate.buildTemplateWifiWildcard;
 import static android.net.TrafficStats.MB_IN_BYTES;
@@ -220,7 +221,7 @@ public class NetworkStatsObserversTest {
         identSet.add(new NetworkIdentity(
                 TYPE_MOBILE, TelephonyManager.NETWORK_TYPE_UNKNOWN,
                 IMSI_1, null /* networkId */, false /* roaming */, true /* metered */,
-                true /* defaultNetwork */));
+                true /* defaultNetwork */, OEM_MANAGED_ALL));
         return identSet;
     }
 
