@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c2d85fe_f412dee1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1768450
+      },
+      "writtenOn": "2020-12-09T23:24:40Z",
+      "side": 1,
+      "message": "Patchset uploaded with additional fixes.\nIf there is no problem after review, I do not have the right to merge, so I would appreciate it if you merge it.",
+      "revId": "2c74e8904f2133950003e93b36198fe20046859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
