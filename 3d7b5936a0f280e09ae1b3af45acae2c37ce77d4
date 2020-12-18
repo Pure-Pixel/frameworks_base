@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aef428ce_f8c1a318",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1198173
+      },
+      "writtenOn": "2020-12-18T18:35:06Z",
+      "side": 1,
+      "message": "Actually, this CL shouldnt be causing the boot loop in b/175198007, since that\u0027s based on the Shell having non-whitelisted permissions. I think only aosp/1532968 needs to be reverted.",
+      "revId": "3d7b5936a0f280e09ae1b3af45acae2c37ce77d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
