@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee0d5a77_86b66e43",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1308163
+      },
+      "writtenOn": "2020-12-30T05:31:18Z",
+      "side": 1,
+      "message": "Since you are trying to expose getUid() and getUserId() in aosp/1535723, do you want to expose this one as well?\nOtherwise, if the logic inside UserHandle#isApp() has changed in the future, we may loss it.",
+      "range": {
+        "startLine": 458,
+        "startChar": 27,
+        "endLine": 458,
+        "endChar": 32
+      },
+      "revId": "3068e7352843b32610aed11bb4a8133fbae97740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
