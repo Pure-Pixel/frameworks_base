@@ -19,6 +19,7 @@ package com.android.server.compat;
 import android.annotation.Nullable;
 import android.compat.annotation.ChangeId;
 import android.compat.annotation.EnabledSince;
+import android.compat.annotation.Overridable;
 import android.content.pm.ApplicationInfo;
 
 import com.android.internal.compat.CompatibilityChangeInfo;
@@ -44,6 +45,7 @@ public final class CompatChange extends CompatibilityChangeInfo {
      */
     @ChangeId
     @EnabledSince(targetSdkVersion = 1235) // Needs to be > test APK targetSdkVersion.
+    @Overridable
     static final long CTS_SYSTEM_API_CHANGEID = 149391281; // This is a bug id.
 
     /**
@@ -63,7 +65,7 @@ public final class CompatChange extends CompatibilityChangeInfo {
     private Map<String, Boolean> mPackageOverrides;
 
     public CompatChange(long changeId) {
-        this(changeId, null, -1, -1, false, false, null);
+        this(changeId, null, -1, -1, false, false, null, false);
     }
 
     /**
@@ -76,9 +78,10 @@ public final class CompatChange extends CompatibilityChangeInfo {
      * @param disabled If {@code true}, overrides any {@code enableAfterTargetSdk} set.
      */
     public CompatChange(long changeId, @Nullable String name, int enableAfterTargetSdk,
-            int enableSinceTargetSdk, boolean disabled, boolean loggingOnly, String description) {
+            int enableSinceTargetSdk, boolean disabled, boolean loggingOnly, String description,
+            boolean overridable) {
         super(changeId, name, enableAfterTargetSdk, enableSinceTargetSdk, disabled, loggingOnly,
-              description);
+              description, overridable);
     }
 
     /**
@@ -87,7 +90,7 @@ public final class CompatChange extends CompatibilityChangeInfo {
     public CompatChange(Change change) {
         super(change.getId(), change.getName(), change.getEnableAfterTargetSdk(),
                 change.getEnableSinceTargetSdk(), change.getDisabled(), change.getLoggingOnly(),
-                change.getDescription());
+                change.getDescription(), change.getOverridable());
     }
 
     void registerListener(ChangeListener listener) {
@@ -182,6 +185,9 @@ public final class CompatChange extends CompatibilityChangeInfo {
         }
         if (mPackageOverrides != null && mPackageOverrides.size() > 0) {
             sb.append("; packageOverrides=").append(mPackageOverrides);
+        }
+        if (getOverridable()) {
+            sb.append("; overridable");
         }
         return sb.append(")").toString();
     }
