@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a25399fa_4df4d52f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2021-01-06T11:59:52Z",
+      "side": 1,
+      "message": "Looks good, just one comment.",
+      "revId": "f711cca1bdae3b06e54d2a14cb6e8cc6415f6fd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5334b8b_9808ce36",
+        "filename": "services/core/java/com/android/server/compat/CompatChange.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2021-01-06T11:59:52Z",
+      "side": 1,
+      "message": "This will probably fail CTS for now, due to the CompatChangesValidConfigTest not accounting for the new property. I think you should only add this once the behavior is added.",
+      "range": {
+        "startLine": 48,
+        "startChar": 5,
+        "endLine": 48,
+        "endChar": 16
+      },
+      "revId": "f711cca1bdae3b06e54d2a14cb6e8cc6415f6fd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
