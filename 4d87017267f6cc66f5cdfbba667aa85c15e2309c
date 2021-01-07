@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18d94bb3_d1aaf2dd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2021-01-07T01:15:20Z",
+      "side": 1,
+      "message": "Can you run CtsNetTestCases as well? And NetworkStatsManagerTest?",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 30
+      },
+      "revId": "4d87017267f6cc66f5cdfbba667aa85c15e2309c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

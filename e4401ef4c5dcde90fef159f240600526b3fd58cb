@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "544da02f_2261cc72",
+        "filename": "services/core/java/com/android/server/net/NetworkStatsCollection.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2021-01-07T01:15:20Z",
+      "side": 0,
+      "message": "Is there a reason you didn\u0027t leave the flush here and instead put it on the API method? IOW, why don\u0027t we have:\n\n    @Override\n    public void write(OutputStream out) throws IOException {\n        write((DataOutput) new DataOutputStream(out));\n        out.flush();\n    }\n\n    public void write(DataOutput out) throws IOException {\n        // ... all the code...\n        out.flush();\n    }\n\nIs it because DataOutput doesn\u0027t have a flush method but always implictly flushes?",
+      "range": {
+        "startLine": 501,
+        "startChar": 8,
+        "endLine": 501,
+        "endChar": 20
+      },
+      "revId": "e4401ef4c5dcde90fef159f240600526b3fd58cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
