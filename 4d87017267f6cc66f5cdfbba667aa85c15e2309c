@@ -39,6 +39,29 @@
       "message": "(LGTM, but Junyu should look at it.)",
       "revId": "4d87017267f6cc66f5cdfbba667aa85c15e2309c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f2681b9_27a14e11",
+        "filename": "services/core/java/com/android/server/net/NetworkStatsCollection.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1015428
+      },
+      "writtenOn": "2021-01-07T01:18:48Z",
+      "side": 1,
+      "message": "Should this be private ? Likewise for read.",
+      "range": {
+        "startLine": 480,
+        "startChar": 4,
+        "endLine": 480,
+        "endChar": 10
+      },
+      "revId": "4d87017267f6cc66f5cdfbba667aa85c15e2309c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
