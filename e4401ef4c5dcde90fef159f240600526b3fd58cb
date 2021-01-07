@@ -22,6 +22,30 @@
       },
       "revId": "e4401ef4c5dcde90fef159f240600526b3fd58cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b98468a_79922710",
+        "filename": "services/core/java/com/android/server/net/NetworkStatsCollection.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2021-01-07T01:48:50Z",
+      "side": 0,
+      "message": "Because DataOutput itself isn\u0027t Flushable.  I\u0027ve helped make this safer by adjusting this method to be \"private\", to ensure that all external callers go through write(OutputSteam) which ensures all data is flushed before returning.",
+      "parentUuid": "544da02f_2261cc72",
+      "range": {
+        "startLine": 501,
+        "startChar": 8,
+        "endLine": 501,
+        "endChar": 20
+      },
+      "revId": "e4401ef4c5dcde90fef159f240600526b3fd58cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

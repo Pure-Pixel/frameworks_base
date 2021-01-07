@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6e174f0b_9a7baa22",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2021-01-07T01:48:50Z",
+      "side": 1,
+      "message": "Sure, I\u0027ll kick off the CTS tests; NetworkStatsManagerTest should already be included in the entire FrameworksNetTests suite.",
+      "parentUuid": "18d94bb3_d1aaf2dd",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 30
+      },
+      "revId": "4d87017267f6cc66f5cdfbba667aa85c15e2309c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "52ea5248_0c8f8637",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -58,6 +82,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "febd3944_72e56476",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2021-01-07T01:48:50Z",
+      "side": 1,
+      "message": "Thanks for the review; PTAL  😊",
+      "revId": "4d87017267f6cc66f5cdfbba667aa85c15e2309c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f2681b9_27a14e11",
@@ -71,6 +112,30 @@
       "writtenOn": "2021-01-07T01:18:48Z",
       "side": 1,
       "message": "Should this be private ? Likewise for read.",
+      "range": {
+        "startLine": 480,
+        "startChar": 4,
+        "endLine": 480,
+        "endChar": 10
+      },
+      "revId": "4d87017267f6cc66f5cdfbba667aa85c15e2309c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a157c319_81715a10",
+        "filename": "services/core/java/com/android/server/net/NetworkStatsCollection.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2021-01-07T01:48:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f2681b9_27a14e11",
       "range": {
         "startLine": 480,
         "startChar": 4,
