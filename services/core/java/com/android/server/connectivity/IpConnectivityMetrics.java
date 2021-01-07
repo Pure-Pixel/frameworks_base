@@ -36,7 +36,6 @@ import com.android.internal.annotations.GuardedBy;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.util.RingBuffer;
 import com.android.internal.util.TokenBucket;
-import com.android.server.LocalServices;
 import com.android.server.SystemService;
 import com.android.server.connectivity.metrics.nano.IpConnectivityLogClass.IpConnectivityEvent;
 
@@ -117,9 +116,6 @@ final public class IpConnectivityMetrics extends SystemService {
 
     private final ToIntFunction<Context> mCapacityGetter;
 
-    @VisibleForTesting
-    final DefaultNetworkMetrics mDefaultNetworkMetrics = new DefaultNetworkMetrics();
-
     public IpConnectivityMetrics(Context ctx, ToIntFunction<Context> capacityGetter) {
         super(ctx);
         mCapacityGetter = capacityGetter;
@@ -143,8 +139,6 @@ final public class IpConnectivityMetrics extends SystemService {
 
             publishBinderService(SERVICE_NAME, impl);
             publishBinderService(mNetdListener.SERVICE_NAME, mNetdListener);
-
-            LocalServices.addService(Logger.class, new LoggerImpl());
         }
     }
 
@@ -198,8 +192,6 @@ final public class IpConnectivityMetrics extends SystemService {
 
         final List<IpConnectivityEvent> protoEvents = IpConnectivityEventBuilder.toProto(events);
 
-        mDefaultNetworkMetrics.flushEvents(protoEvents);
-
         if (mNetdListener != null) {
             mNetdListener.flushStatistics(protoEvents);
         }
@@ -237,8 +229,6 @@ final public class IpConnectivityMetrics extends SystemService {
         if (mNetdListener != null) {
             mNetdListener.list(pw);
         }
-        pw.println("");
-        mDefaultNetworkMetrics.listEvents(pw);
     }
 
     private List<IpConnectivityEvent> listEventsAsProtos() {
@@ -246,7 +236,6 @@ final public class IpConnectivityMetrics extends SystemService {
         if (mNetdListener != null) {
             events.addAll(mNetdListener.listAsProtos());
         }
-        events.addAll(mDefaultNetworkMetrics.listEventsAsProto());
         return events;
     }
 
@@ -377,16 +366,5 @@ final public class IpConnectivityMetrics extends SystemService {
         // one token every minute, 50 tokens max: burst of ~50 events every hour.
         map.put(ApfProgramEvent.class, new TokenBucket((int)DateUtils.MINUTE_IN_MILLIS, 50));
         return map;
-    }
-
-    /** Direct non-Binder interface for event producer clients within the system servers. */
-    public interface Logger {
-        DefaultNetworkMetrics defaultNetworkMetrics();
-    }
-
-    private class LoggerImpl implements Logger {
-        public DefaultNetworkMetrics defaultNetworkMetrics() {
-            return mDefaultNetworkMetrics;
-        }
     }
 }
