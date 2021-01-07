@@ -914,14 +914,6 @@ public class ConnectivityService extends IConnectivityManager.Stub
         }
 
         /**
-         * @see IpConnectivityMetrics.Logger
-         */
-        public IpConnectivityMetrics.Logger getMetricsLogger() {
-            return Objects.requireNonNull(LocalServices.getService(IpConnectivityMetrics.Logger.class),
-                    "no IpConnectivityMetrics service");
-        }
-
-        /**
          * @see IpConnectivityMetrics
          */
         public IIpConnectivityMetrics getIpConnectivityMetrics() {
@@ -2963,11 +2955,6 @@ public class ConnectivityService extends IConnectivityManager.Stub
                 log(nai.toShortString() + " validation " + (valid ? "passed" : "failed") + logMsg);
             }
             if (valid != nai.lastValidated) {
-                if (wasDefault) {
-                    mDeps.getMetricsLogger()
-                            .defaultNetworkMetrics().logDefaultNetworkValidity(
-                            SystemClock.elapsedRealtime(), valid);
-                }
                 final int oldScore = nai.getCurrentScore();
                 nai.lastValidated = valid;
                 nai.everValidated |= valid;
@@ -3389,12 +3376,6 @@ public class ConnectivityService extends IConnectivityManager.Stub
         final boolean wasDefault = isDefaultNetwork(nai);
         if (wasDefault) {
             mDefaultInetConditionPublished = 0;
-            // Log default network disconnection before required book-keeping.
-            // Let rematchAllNetworksAndRequests() below record a new default network event
-            // if there is a fallback. Taken together, the two form a X -> 0, 0 -> Y sequence
-            // whose timestamps tell how long it takes to recover a default network.
-            long now = SystemClock.elapsedRealtime();
-            mDeps.getMetricsLogger().defaultNetworkMetrics().logDefaultNetworkEvent(now, null, nai);
         }
         notifyIfacesChangedForNetworkStats();
         // TODO - we shouldn't send CALLBACK_LOST to requests that can be satisfied
@@ -7080,9 +7061,6 @@ public class ConnectivityService extends IConnectivityManager.Stub
             updateDataActivityTracking(newDefaultNetwork, oldDefaultNetwork);
             // Notify system services of the new default.
             makeDefault(newDefaultNetwork);
-            // Log 0 -> X and Y -> X default network transitions, where X is the new default.
-            mDeps.getMetricsLogger().defaultNetworkMetrics().logDefaultNetworkEvent(
-                    now, newDefaultNetwork, oldDefaultNetwork);
             // Have a new default network, release the transition wakelock in
             scheduleReleaseNetworkTransitionWakelock();
         }
