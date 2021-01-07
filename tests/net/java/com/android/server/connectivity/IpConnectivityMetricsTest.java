@@ -125,124 +125,6 @@ public class IpConnectivityMetricsTest {
     }
 
     @Test
-    public void testDefaultNetworkEvents() throws Exception {
-        final long cell = BitUtils.packBits(new int[]{NetworkCapabilities.TRANSPORT_CELLULAR});
-        final long wifi = BitUtils.packBits(new int[]{NetworkCapabilities.TRANSPORT_WIFI});
-
-        NetworkAgentInfo[][] defaultNetworks = {
-            // nothing -> cell
-            {null, makeNai(100, 10, false, true, cell)},
-            // cell -> wifi
-            {makeNai(100, 50, true, true, cell), makeNai(101, 20, true, false, wifi)},
-            // wifi -> nothing
-            {makeNai(101, 60, true, false, wifi), null},
-            // nothing -> cell
-            {null, makeNai(102, 10, true, true, cell)},
-            // cell -> wifi
-            {makeNai(102, 50, true, true, cell), makeNai(103, 20, true, false, wifi)},
-        };
-
-        long timeMs = mService.mDefaultNetworkMetrics.creationTimeMs;
-        long durationMs = 1001;
-        for (NetworkAgentInfo[] pair : defaultNetworks) {
-            timeMs += durationMs;
-            durationMs += durationMs;
-            mService.mDefaultNetworkMetrics.logDefaultNetworkEvent(timeMs, pair[1], pair[0]);
-        }
-
-        String want = String.join("\n",
-                "dropped_events: 0",
-                "events <",
-                "  if_name: \"\"",
-                "  link_layer: 5",
-                "  network_id: 0",
-                "  time_ms: 0",
-                "  transports: 0",
-                "  default_network_event <",
-                "    default_network_duration_ms: 1001",
-                "    final_score: 0",
-                "    initial_score: 0",
-                "    ip_support: 0",
-                "    no_default_network_duration_ms: 0",
-                "    previous_default_network_link_layer: 0",
-                "    previous_network_ip_support: 0",
-                "    validation_duration_ms: 0",
-                "  >",
-                ">",
-                "events <",
-                "  if_name: \"\"",
-                "  link_layer: 2",
-                "  network_id: 100",
-                "  time_ms: 0",
-                "  transports: 1",
-                "  default_network_event <",
-                "    default_network_duration_ms: 2002",
-                "    final_score: 50",
-                "    initial_score: 10",
-                "    ip_support: 3",
-                "    no_default_network_duration_ms: 0",
-                "    previous_default_network_link_layer: 0",
-                "    previous_network_ip_support: 0",
-                "    validation_duration_ms: 2002",
-                "  >",
-                ">",
-                "events <",
-                "  if_name: \"\"",
-                "  link_layer: 4",
-                "  network_id: 101",
-                "  time_ms: 0",
-                "  transports: 2",
-                "  default_network_event <",
-                "    default_network_duration_ms: 4004",
-                "    final_score: 60",
-                "    initial_score: 20",
-                "    ip_support: 1",
-                "    no_default_network_duration_ms: 0",
-                "    previous_default_network_link_layer: 2",
-                "    previous_network_ip_support: 0",
-                "    validation_duration_ms: 4004",
-                "  >",
-                ">",
-                "events <",
-                "  if_name: \"\"",
-                "  link_layer: 5",
-                "  network_id: 0",
-                "  time_ms: 0",
-                "  transports: 0",
-                "  default_network_event <",
-                "    default_network_duration_ms: 8008",
-                "    final_score: 0",
-                "    initial_score: 0",
-                "    ip_support: 0",
-                "    no_default_network_duration_ms: 0",
-                "    previous_default_network_link_layer: 4",
-                "    previous_network_ip_support: 0",
-                "    validation_duration_ms: 0",
-                "  >",
-                ">",
-                "events <",
-                "  if_name: \"\"",
-                "  link_layer: 2",
-                "  network_id: 102",
-                "  time_ms: 0",
-                "  transports: 1",
-                "  default_network_event <",
-                "    default_network_duration_ms: 16016",
-                "    final_score: 50",
-                "    initial_score: 10",
-                "    ip_support: 3",
-                "    no_default_network_duration_ms: 0",
-                "    previous_default_network_link_layer: 4",
-                "    previous_network_ip_support: 0",
-                "    validation_duration_ms: 16016",
-                "  >",
-                ">",
-                "version: 2\n");
-
-        verifySerialization(want, getdump("flush"));
-    }
-
-    @Test
     public void testEndToEndLogging() throws Exception {
         // TODO: instead of comparing textpb to textpb, parse textpb and compare proto to proto.
         IpConnectivityLog logger = new IpConnectivityLog(mService.impl);
@@ -326,13 +208,10 @@ public class IpConnectivityMetricsTest {
         wakeupEvent("wlan0", -1, v4, udp, mac, srcIp, dstIp, sport, dport, 1001L);
         wakeupEvent("wlan0", 10008, v4, tcp, mac, srcIp, dstIp, sport, dport, 1001L);
 
-        long timeMs = mService.mDefaultNetworkMetrics.creationTimeMs;
         final long cell = BitUtils.packBits(new int[]{NetworkCapabilities.TRANSPORT_CELLULAR});
         final long wifi = BitUtils.packBits(new int[]{NetworkCapabilities.TRANSPORT_WIFI});
         NetworkAgentInfo cellNai = makeNai(100, 50, false, true, cell);
         NetworkAgentInfo wifiNai = makeNai(101, 60, true, false, wifi);
-        mService.mDefaultNetworkMetrics.logDefaultNetworkEvent(timeMs + 200, cellNai, null);
-        mService.mDefaultNetworkMetrics.logDefaultNetworkEvent(timeMs + 300, wifiNai, cellNai);
 
         String want = String.join("\n",
                 "dropped_events: 0",
@@ -417,40 +296,6 @@ public class IpConnectivityMetricsTest {
                 "    rdnss_lifetime: 1000",
                 "    route_info_lifetime: -1",
                 "    router_lifetime: 2000",
-                "  >",
-                ">",
-                "events <",
-                "  if_name: \"\"",
-                "  link_layer: 5",
-                "  network_id: 0",
-                "  time_ms: 0",
-                "  transports: 0",
-                "  default_network_event <",
-                "    default_network_duration_ms: 200",
-                "    final_score: 0",
-                "    initial_score: 0",
-                "    ip_support: 0",
-                "    no_default_network_duration_ms: 0",
-                "    previous_default_network_link_layer: 0",
-                "    previous_network_ip_support: 0",
-                "    validation_duration_ms: 0",
-                "  >",
-                ">",
-                "events <",
-                "  if_name: \"\"",
-                "  link_layer: 2",
-                "  network_id: 100",
-                "  time_ms: 0",
-                "  transports: 1",
-                "  default_network_event <",
-                "    default_network_duration_ms: 100",
-                "    final_score: 50",
-                "    initial_score: 50",
-                "    ip_support: 2",
-                "    no_default_network_duration_ms: 0",
-                "    previous_default_network_link_layer: 0",
-                "    previous_network_ip_support: 0",
-                "    validation_duration_ms: 100",
                 "  >",
                 ">",
                 "events <",
