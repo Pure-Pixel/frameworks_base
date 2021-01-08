@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b5ceef0_bbdaebd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2021-01-08T10:33:03Z",
+      "side": 1,
+      "message": "Still LGTM assuming others don\u0027t have other concerns.",
+      "revId": "6b773549e3d8067988d1612859bb902a2330b393",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
