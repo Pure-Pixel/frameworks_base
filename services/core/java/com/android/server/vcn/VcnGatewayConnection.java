@@ -128,7 +128,9 @@ public class VcnGatewayConnection extends StateMachine {
     private static final int TOKEN_ANY = Integer.MIN_VALUE;
 
     private static final int NETWORK_LOSS_DISCONNECT_TIMEOUT_SECONDS = 30;
-    private static final int TEARDOWN_TIMEOUT_SECONDS = 5;
+
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    static final int TEARDOWN_TIMEOUT_SECONDS = 5;
 
     private interface EventInfo {}
 
@@ -446,7 +448,7 @@ public class VcnGatewayConnection extends StateMachine {
      * <p>Set in Connecting or Migrating States, always @NonNull in Connecting, Connected, and
      * Migrating states, null otherwise.
      */
-    private IkeSession mIkeSession;
+    private VcnIkeSession mIkeSession;
 
     /**
      * The last known child configuration.
@@ -773,7 +775,69 @@ public class VcnGatewayConnection extends StateMachine {
      */
     private class DisconnectingState extends ActiveBaseState {
         @Override
-        protected void processStateMsg(Message msg) {}
+        protected void enterState() throws Exception {
+            if (mIkeSession == null) {
+                Slog.wtf(TAG, "IKE session was already closed when entering Disconnecting state.");
+                sendMessage(EVENT_SESSION_CLOSED, mCurrentToken);
+                return;
+            }
+
+            // If underlying network has already been lost, save some time and just kill the session
+            if (mUnderlying == null) {
+                mIkeSession.kill();
+                return;
+            }
+
+            sendMessageDelayed(
+                    EVENT_TEARDOWN_TIMEOUT_EXPIRED,
+                    mCurrentToken,
+                    TimeUnit.SECONDS.toMillis(TEARDOWN_TIMEOUT_SECONDS));
+        }
+
+        @Override
+        protected void processStateMsg(Message msg) {
+            switch (msg.what) {
+                case EVENT_UNDERLYING_NETWORK_CHANGED: // Fallthrough
+                    mUnderlying = ((EventUnderlyingNetworkChangedInfo) msg.obj).newUnderlying;
+
+                    // If we received a new underlying network, continue.
+                    if (mUnderlying != null) {
+                        break;
+                    }
+
+                    // Fallthrough; no network exists to send IKE close session requests.
+                case EVENT_TEARDOWN_TIMEOUT_EXPIRED:
+                    // Grace period ended. Kill session, triggering EVENT_SESSION_CLOSED
+                    mIkeSession.kill();
+
+                    break;
+                case EVENT_DISCONNECT_REQUESTED:
+                    teardownNetwork();
+
+                    String reason = ((EventDisconnectRequestedInfo) msg.obj).reason;
+                    if (reason.equals(DISCONNECT_REASON_UNDERLYING_NETWORK_LOST)) {
+                        // Will trigger EVENT_SESSION_CLOSED immediately.
+                        mIkeSession.kill();
+                        break;
+                    }
+
+                    // Otherwise we are already in the process of shutting down.
+                    break;
+                case EVENT_SESSION_CLOSED:
+                    mIkeSession = null;
+
+                    if (mIsRunning && mUnderlying != null) {
+                        transitionTo(mRetryTimeoutState);
+                    } else {
+                        teardownNetwork();
+                        transitionTo(mDisconnectedState);
+                    }
+                    break;
+                default:
+                    logUnhandledMessage(msg);
+                    break;
+            }
+        }
     }
 
     /**
@@ -819,7 +883,7 @@ public class VcnGatewayConnection extends StateMachine {
                     final UnderlyingNetworkRecord oldUnderlying = mUnderlying;
                     mUnderlying = ((EventUnderlyingNetworkChangedInfo) msg.obj).newUnderlying;
 
-                    // If new underlying is null, we've lost all networks; go back to disconnected.
+                    // If new underlying is null, all network have been lost; go to Disconnected.
                     if (mUnderlying == null) {
                         handleDisconnectRequested(DISCONNECT_REASON_UNDERLYING_NETWORK_LOST);
                         return;
@@ -1000,6 +1064,43 @@ public class VcnGatewayConnection extends StateMachine {
         mUnderlying = record;
     }
 
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    VcnIkeSession getIkeSession() {
+        return mIkeSession;
+    }
+
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    void setIkeSession(@Nullable VcnIkeSession session) {
+        mIkeSession = session;
+    }
+
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    int incrementAndGetNewToken() {
+        mCurrentToken = mNextToken;
+        mNextToken++;
+        return mCurrentToken;
+    }
+
+    private IkeSessionParams buildIkeParams() {
+        // TODO: Implement this with ConnectingState
+        return null;
+    }
+
+    private ChildSessionParams buildChildParams() {
+        // TODO: Implement this with ConnectingState
+        return null;
+    }
+
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    VcnIkeSession buildIkeSession(int token) {
+        return mDeps.newIkeSession(
+                mVcnContext,
+                buildIkeParams(),
+                buildChildParams(),
+                new IkeSessionCallbackImpl(token),
+                new ChildSessionCallbackImpl(token));
+    }
+
     /** External dependencies used by VcnGatewayConnection, for injection in tests */
     @VisibleForTesting(visibility = Visibility.PRIVATE)
     public static class Dependencies {
@@ -1012,19 +1113,67 @@ public class VcnGatewayConnection extends StateMachine {
         }
 
         /** Builds a new IkeSession. */
-        public IkeSession newIkeSession(
+        public VcnIkeSession newIkeSession(
                 VcnContext vcnContext,
                 IkeSessionParams ikeSessionParams,
                 ChildSessionParams childSessionParams,
                 IkeSessionCallback ikeSessionCallback,
                 ChildSessionCallback childSessionCallback) {
-            return new IkeSession(
-                    vcnContext.getContext(),
+            return new VcnIkeSession(
+                    vcnContext,
                     ikeSessionParams,
                     childSessionParams,
-                    new HandlerExecutor(new Handler(vcnContext.getLooper())),
                     ikeSessionCallback,
                     childSessionCallback);
+        }
+    }
+
+    /** Proxy implementation of IKE session, used for testing. */
+    @VisibleForTesting(visibility = Visibility.PRIVATE)
+    public static class VcnIkeSession {
+        private final IkeSession mImpl;
+
+        public VcnIkeSession(
+                VcnContext vcnContext,
+                IkeSessionParams ikeSessionParams,
+                ChildSessionParams childSessionParams,
+                IkeSessionCallback ikeSessionCallback,
+                ChildSessionCallback childSessionCallback) {
+            mImpl =
+                    new IkeSession(
+                            vcnContext.getContext(),
+                            ikeSessionParams,
+                            childSessionParams,
+                            new HandlerExecutor(new Handler(vcnContext.getLooper())),
+                            ikeSessionCallback,
+                            childSessionCallback);
+        }
+
+        /** Creates a new IKE Child session. */
+        public void openChildSession(
+                @NonNull ChildSessionParams childSessionParams,
+                @NonNull ChildSessionCallback childSessionCallback) {
+            mImpl.openChildSession(childSessionParams, childSessionCallback);
+        }
+
+        /** Closes an IKE session as identified by the ChildSessionCallback. */
+        public void closeChildSession(@NonNull ChildSessionCallback childSessionCallback) {
+            mImpl.closeChildSession(childSessionCallback);
+        }
+
+        /** Gracefully closes this IKE Session, waiting for remote acknowledgement. */
+        public void close() {
+            mImpl.close();
+        }
+
+        /** Forcibly kills this IKE Session, without waiting for a closure confirmation. */
+        public void kill() {
+            mImpl.kill();
+        }
+
+        /** Sets the underlying network used by the IkeSession. */
+        public void setNetwork(@NonNull Network network) {
+            mImpl.setNetwork(network);
         }
     }
 }
