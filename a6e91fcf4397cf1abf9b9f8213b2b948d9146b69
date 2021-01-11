@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "778bf372_07beea73",
+        "filename": "telephony/common/com/android/internal/telephony/SipMessageParsingUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1098053
+      },
+      "writtenOn": "2021-01-11T21:42:48Z",
+      "side": 1,
+      "message": "Need to also remove these whitespace chars from the line",
+      "range": {
+        "startLine": 177,
+        "startChar": 17,
+        "endLine": 177,
+        "endChar": 61
+      },
+      "revId": "a6e91fcf4397cf1abf9b9f8213b2b948d9146b69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
