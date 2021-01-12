@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbe04c55_f6abce67",
+        "filename": "core/java/android/apphibernation/AppHibernationManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1248808
+      },
+      "writtenOn": "2021-01-12T20:22:19Z",
+      "side": 1,
+      "message": "Could this be final ?",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 29
+      },
+      "revId": "62a5d1214eb4f89b53cecdccefec77e8dd656ccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
