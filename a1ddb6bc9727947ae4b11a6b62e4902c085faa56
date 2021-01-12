@@ -18,6 +18,46 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3379214_7ff4de16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1248808
+      },
+      "writtenOn": "2021-01-12T17:29:36Z",
+      "side": 1,
+      "message": "We should consider adding unit tests for the classes we are adding for app hibernation feature. ",
+      "revId": "a1ddb6bc9727947ae4b11a6b62e4902c085faa56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93079adf_a17f2c93",
+        "filename": "core/java/android/apphibernation/AppHibernationManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1248808
+      },
+      "writtenOn": "2021-01-12T17:29:36Z",
+      "side": 1,
+      "message": "Could this be a final class ?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 36
+      },
+      "revId": "a1ddb6bc9727947ae4b11a6b62e4902c085faa56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be66efd6_ac933feb",
@@ -36,6 +76,98 @@
         "startChar": 0,
         "endLine": 25,
         "endChar": 0
+      },
+      "revId": "a1ddb6bc9727947ae4b11a6b62e4902c085faa56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7aedd8f3_4315130d",
+        "filename": "services/core/java/com/android/server/apphibernation/AppHibernationService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1248808
+      },
+      "writtenOn": "2021-01-12T17:29:36Z",
+      "side": 1,
+      "message": "Could this be a final class ?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 58
+      },
+      "revId": "a1ddb6bc9727947ae4b11a6b62e4902c085faa56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48e5b9e7_de4d9f25",
+        "filename": "services/core/java/com/android/server/apphibernation/AppHibernationService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1248808
+      },
+      "writtenOn": "2021-01-12T17:29:36Z",
+      "side": 1,
+      "message": "Could this be a final class ?",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 80
+      },
+      "revId": "a1ddb6bc9727947ae4b11a6b62e4902c085faa56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25b20305_0c6cfcdb",
+        "filename": "services/core/java/com/android/server/apphibernation/AppHibernationService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1248808
+      },
+      "writtenOn": "2021-01-12T17:29:36Z",
+      "side": 1,
+      "message": "Could this have final modifier ?",
+      "range": {
+        "startLine": 83,
+        "startChar": 8,
+        "endLine": 83,
+        "endChar": 39
+      },
+      "revId": "a1ddb6bc9727947ae4b11a6b62e4902c085faa56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a40e6f49_8ffd14b4",
+        "filename": "services/core/java/com/android/server/apphibernation/AppHibernationService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1248808
+      },
+      "writtenOn": "2021-01-12T17:29:36Z",
+      "side": 1,
+      "message": "Style Nit: Consider putting a linebreak above.",
+      "range": {
+        "startLine": 102,
+        "startChar": 7,
+        "endLine": 102,
+        "endChar": 47
       },
       "revId": "a1ddb6bc9727947ae4b11a6b62e4902c085faa56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
