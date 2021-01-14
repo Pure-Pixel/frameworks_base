@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3514ed9_d317874a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1293785
+      },
+      "writtenOn": "2021-01-14T20:14:14Z",
+      "side": 1,
+      "message": "As far as I can tell, none of the test failures are related to the CL except the build failure on git_rvc-qpr-dev-plus-aosp. \n\nMy guess is that http://aosp/1542244 had not merged at the time for some reason. A quick check on \"Where is my CL\" shows that it should be merged now, so retrying presubmit.",
+      "revId": "63576ff7d376a7db8acc84fbd50f3f46c5a0171c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
