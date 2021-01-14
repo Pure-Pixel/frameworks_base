@@ -123,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbff2dad_18cdd1ed",
+        "filename": "core/java/android/apphibernation/AppHibernationManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1293785
+      },
+      "writtenOn": "2021-01-14T01:41:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "886ea3ee_4216cda4",
+      "range": {
+        "startLine": 71,
+        "startChar": 16,
+        "endLine": 71,
+        "endChar": 35
+      },
+      "revId": "a1ddb6bc9727947ae4b11a6b62e4902c085faa56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5eca646_a9865d99",
@@ -136,6 +160,30 @@
       "writtenOn": "2021-01-13T23:59:47Z",
       "side": 1,
       "message": "Ideally userId should be right after packageName, and then the rest of the arguments, as they are technically a tuple.",
+      "range": {
+        "startLine": 24,
+        "startChar": 29,
+        "endLine": 24,
+        "endChar": 82
+      },
+      "revId": "a1ddb6bc9727947ae4b11a6b62e4902c085faa56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06d4758b_bf1c1037",
+        "filename": "core/java/android/apphibernation/IAppHibernationService.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1293785
+      },
+      "writtenOn": "2021-01-14T01:41:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5eca646_a9865d99",
       "range": {
         "startLine": 24,
         "startChar": 29,
