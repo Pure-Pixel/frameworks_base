@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87450c26_9f05b132",
+        "filename": "services/core/java/com/android/server/vcn/VcnGatewayConnection.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2021-01-27T00:49:02Z",
+      "side": 1,
+      "message": "It took me a couple seconds to parse the cheeky if/else-if combined with the fallthrough logic.\n\nOne simple change would be to reorder the 2 else-ifs to put the non-breaking ones at the end and then add a comment that the lack of a \"break\" in that case is intentional (even though your comment does say that we\u0027re going to attempt a transition to connecting... knowing that we should skip the retry timeout and then execute the Session Lost code is really reaching).\n\nIn general, unless there\u0027s a meaningful amount of code savings and the actual messages are related-enough, I\u0027d like to discourage the pattern of cheeky fallthroughs and if/breaks. It\u0027s very easy for someone else to come along and screw this up in a way that isn\u0027t obvious. Once in a while it\u0027s the right decision, but usually it a foot gun for the next programmer.",
+      "range": {
+        "startLine": 898,
+        "startChar": 22,
+        "endLine": 898,
+        "endChar": 26
+      },
+      "revId": "7a12c66975cdc0be35d99230bc3bca09c4c706ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
