@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d67d6fa4_a66f2426",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2021-02-02T15:19:03Z",
+      "side": 1,
+      "message": "Carrying over approvals from ag/12900567",
+      "revId": "3c2fc6f7427e84d32a8c0ca59b4b0b981da2f1a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
