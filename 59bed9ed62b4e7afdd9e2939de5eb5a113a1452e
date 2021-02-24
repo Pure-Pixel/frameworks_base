@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cafc7f7_74b38e16",
+        "filename": "tests/net/java/android/net/NetworkTemplateTest.kt",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2021-02-24T06:18:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6495ab66_3ef3f979",
+      "range": {
+        "startLine": 72,
+        "startChar": 26,
+        "endLine": 72,
+        "endChar": 27
+      },
+      "revId": "59bed9ed62b4e7afdd9e2939de5eb5a113a1452e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6f627cc_e5f65177",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-02-15T12:27:47Z",
       "side": 1,
       "message": "I might be missing something but IIUC this is an identity and in an identity you\u0027re supposed to use one of the identity constants (NONE, PAID, PRIVATE, PAID | PRIVATE).",
+      "range": {
+        "startLine": 217,
+        "startChar": 52,
+        "endLine": 217,
+        "endChar": 67
+      },
+      "revId": "59bed9ed62b4e7afdd9e2939de5eb5a113a1452e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f5549a5_01c7bd29",
+        "filename": "tests/net/java/com/android/server/net/NetworkStatsCollectionTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2021-02-24T06:18:22Z",
+      "side": 1,
+      "message": "You\u0027re correct, this should be OEM_NONE",
+      "parentUuid": "a6f627cc_e5f65177",
       "range": {
         "startLine": 217,
         "startChar": 52,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9efadc19_7d6518f3",
+        "filename": "tests/net/java/com/android/server/net/NetworkStatsCollectionTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2021-02-24T06:18:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e51ba5fa_231d6901",
+      "range": {
+        "startLine": 472,
+        "startChar": 35,
+        "endLine": 472,
+        "endChar": 50
+      },
+      "revId": "59bed9ed62b4e7afdd9e2939de5eb5a113a1452e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e15d8073_f6888202",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42155ec1_e130b31a",
+        "filename": "tests/net/java/com/android/server/net/NetworkStatsObserversTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2021-02-24T06:18:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e15d8073_f6888202",
+      "range": {
+        "startLine": 224,
+        "startChar": 43,
+        "endLine": 224,
+        "endChar": 58
+      },
+      "revId": "59bed9ed62b4e7afdd9e2939de5eb5a113a1452e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84a6839b_f5487fa5",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-02-15T12:27:47Z",
       "side": 1,
       "message": "I get that they are equal, but this should be OEM_MANAGED_NO, as it\u0027s the template constant right ?",
+      "range": {
+        "startLine": 672,
+        "startChar": 81,
+        "endLine": 672,
+        "endChar": 89
+      },
+      "revId": "59bed9ed62b4e7afdd9e2939de5eb5a113a1452e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eb2f0a5_cf1006ab",
+        "filename": "tests/net/java/com/android/server/net/NetworkStatsServiceTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2021-02-24T06:18:22Z",
+      "side": 1,
+      "message": "Yup, it should be OEM_MANAGED_NO.",
+      "parentUuid": "84a6839b_f5487fa5",
       "range": {
         "startLine": 672,
         "startChar": 81,
