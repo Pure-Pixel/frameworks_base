@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e787833b_51eb3491",
+        "filename": "core/java/android/os/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2021-03-09T18:02:27Z",
+      "side": 1,
+      "message": "Is it possible to write this in terms of a \"file:\" statement that includes an specific OWNERS file from elsewhere in the tree to help future maintenance/consistency?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 114
+      },
+      "revId": "d385e3b8545522219c526538716d7c122afedc00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
