@@ -3296,7 +3296,9 @@ public class ConnectivityManager {
         }
 
         public NetworkCallback(@Flag int flags) {
-            Preconditions.checkArgument((flags & VALID_FLAGS) == flags);
+            if ((flags & VALID_FLAGS) != flags) {
+                throw new IllegalArgumentException("Invalid flags");
+            }
             mFlags = flags;
         }
 
