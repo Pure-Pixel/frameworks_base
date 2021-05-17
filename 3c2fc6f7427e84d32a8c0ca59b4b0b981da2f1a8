@@ -16,6 +16,23 @@
       "message": "Carrying over approvals from ag/12900567",
       "revId": "3c2fc6f7427e84d32a8c0ca59b4b0b981da2f1a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa6c2174_664e0010",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1707593
+      },
+      "writtenOn": "2021-05-17T06:47:35Z",
+      "side": 1,
+      "message": "Hi Jack\n\nIt looks like nfc-power-state-control feature is blocked by below commit,\ncould you help to hava a double check ?\n\nhttps://partner-android.googlesource.com/platform/frameworks/base/+/ca3b4f76335fcb2ecf09a244f8f95baf56969a12\n\n\n",
+      "revId": "3c2fc6f7427e84d32a8c0ca59b4b0b981da2f1a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
