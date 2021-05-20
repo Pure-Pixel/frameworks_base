@@ -62,6 +62,8 @@ public class PlatLogoActivity extends Activity {
     
     private int screenOrientation;
 
+    private int screenOrientation;
+
     BigDialView mDialView;
 
     // capture the orientation changes.    
@@ -79,7 +81,6 @@ public class PlatLogoActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
         // get initial screen orientation on activity creation.
         screenOrientation = this.getResources().getConfiguration().orientation;
 
@@ -356,7 +357,6 @@ public class PlatLogoActivity extends Activity {
 
                 canvas.save();
                 canvas.rotate(45, w2, h2);
-                
                 // adjust the dimensions of clip rectangle and shader to work for both orientations.
                 canvas.clipRect(w2, h2 - radius, w2 + Math.min(w2,h2), h2 + radius);
                 final int gradientColor = mNightMode ? 0x60000020 : (0x10FFFFFF & COLOR_NAVY);
@@ -388,7 +388,6 @@ public class PlatLogoActivity extends Activity {
 
                 if (mElevenAnim > 0f) {
                     final int color = COLOR_ORANGE;
-                    
                     // size of 11 animation should change for orientation changes.
                     final int size2;
                     if (screenOrientation == Configuration.ORIENTATION_LANDSCAPE) {
