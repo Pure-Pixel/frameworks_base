@@ -1,0 +1,160 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011347194",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1722624?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "57d575f4_d6f6b1c3",
+        "filename": "core/java/com/android/internal/app/PlatLogoActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-01T14:49:57Z",
+      "side": 1,
+      "message": "Please remove the trailing whitespace.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 4
+      },
+      "revId": "8b4423b5ded2c71459c94c5ac2f5f9350a946ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011347194",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1722624?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "60d70bb3_a5979922",
+        "filename": "core/java/com/android/internal/app/PlatLogoActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-01T14:49:57Z",
+      "side": 1,
+      "message": "Please remove the trailing whitespace.",
+      "range": {
+        "startLine": 67,
+        "startChar": 39,
+        "endLine": 67,
+        "endChar": 43
+      },
+      "revId": "8b4423b5ded2c71459c94c5ac2f5f9350a946ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011347194",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1722624?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "b30fdc93_c29ea7fd",
+        "filename": "core/java/com/android/internal/app/PlatLogoActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-01T14:49:57Z",
+      "side": 1,
+      "message": "Please remove the trailing whitespace.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 8
+      },
+      "revId": "8b4423b5ded2c71459c94c5ac2f5f9350a946ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011347194",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1722624?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "5156cdd6_7c6e875d",
+        "filename": "core/java/com/android/internal/app/PlatLogoActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-01T14:49:57Z",
+      "side": 1,
+      "message": "Please remove the trailing whitespace.",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 16
+      },
+      "revId": "8b4423b5ded2c71459c94c5ac2f5f9350a946ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011347194",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1722624?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "f5a69060_aa46bfb3",
+        "filename": "core/java/com/android/internal/app/PlatLogoActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-01T14:49:57Z",
+      "side": 1,
+      "message": "Lines longer than 100 characters should be wrapped to improve readability; see https://source.android.com/setup/contribute/code-style#limit-line-length for more details.",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 378,
+        "endChar": 105
+      },
+      "revId": "8b4423b5ded2c71459c94c5ac2f5f9350a946ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011347194",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1722624?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "5a2c3779_7a195d6d",
+        "filename": "core/java/com/android/internal/app/PlatLogoActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-01T14:49:57Z",
+      "side": 1,
+      "message": "Please remove the trailing whitespace.",
+      "range": {
+        "startLine": 391,
+        "startChar": 0,
+        "endLine": 391,
+        "endChar": 20
+      },
+      "revId": "8b4423b5ded2c71459c94c5ac2f5f9350a946ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
