@@ -105,7 +105,7 @@ public abstract class AutofillFieldClassificationService extends Service {
 
     private void calculateScores(RemoteCallback callback, List<AutofillValue> actualValues,
             String[] userDataValues, String[] categoryIds, String defaultAlgorithm,
-            Bundle defaultArgs, Map algorithms, Map args) {
+            Bundle defaultArgs, Map<String, String> algorithms, Map<String, Bundle> args) {
         final Bundle data = new Bundle();
         final float[][] scores = onCalculateScores(actualValues, Arrays.asList(userDataValues),
                 Arrays.asList(categoryIds), defaultAlgorithm, defaultArgs, algorithms, args);
@@ -279,7 +279,7 @@ public abstract class AutofillFieldClassificationService extends Service {
     public float[][] onCalculateScores(@NonNull List<AutofillValue> actualValues,
             @NonNull List<String> userDataValues, @NonNull List<String> categoryIds,
             @Nullable String defaultAlgorithm, @Nullable Bundle defaultArgs,
-            @Nullable Map algorithms, @Nullable Map args) {
+            @Nullable Map<String, String> algorithms, @Nullable Map<String, Bundle> args) {
         Log.e(TAG, "service implementation (" + getClass()
                 + " does not implement onCalculateScore()");
         return null;
@@ -290,7 +290,7 @@ public abstract class AutofillFieldClassificationService extends Service {
         @Override
         public void calculateScores(RemoteCallback callback, List<AutofillValue> actualValues,
                 String[] userDataValues, String[] categoryIds, String defaultAlgorithm,
-                Bundle defaultArgs, Map algorithms, Map args)
+                Bundle defaultArgs, Map<String, String> algorithms, Map<String, Bundle> args)
                 throws RemoteException {
             mHandler.sendMessage(obtainMessage(
                     AutofillFieldClassificationService::calculateScores,
