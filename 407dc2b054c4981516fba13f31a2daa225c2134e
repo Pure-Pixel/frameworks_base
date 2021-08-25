@@ -60,6 +60,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aee73865_ede8b7f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-08-25T08:44:26Z",
+      "side": 1,
+      "message": "It\u0027s because many .aidl files are maintained in AOSP as well. I\u0027m tidying up AIDL files and fixing the usage of raw Map/List types before turning it into an error. Feel free to take this over and work in the internal branch. ;-)",
+      "parentUuid": "d61215af_6ccbe730",
+      "revId": "407dc2b054c4981516fba13f31a2daa225c2134e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a0fe85a_d4bd5793",
         "filename": "core/java/android/service/autofill/AutofillFieldClassificationService.java",
         "patchSetId": 1
