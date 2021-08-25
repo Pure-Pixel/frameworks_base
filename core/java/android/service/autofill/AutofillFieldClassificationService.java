@@ -290,7 +290,7 @@ public abstract class AutofillFieldClassificationService extends Service {
         @Override
         public void calculateScores(RemoteCallback callback, List<AutofillValue> actualValues,
                 String[] userDataValues, String[] categoryIds, String defaultAlgorithm,
-                Bundle defaultArgs, Map algorithms, Map args)
+                Bundle defaultArgs, Map<String, String> algorithms, Map<String, Bundle> args)
                 throws RemoteException {
             mHandler.sendMessage(obtainMessage(
                     AutofillFieldClassificationService::calculateScores,
