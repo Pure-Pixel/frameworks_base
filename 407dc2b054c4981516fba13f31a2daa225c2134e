@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cfeedac8_4edddfb9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-08-25T11:23:10Z",
+      "side": 1,
+      "message": "All tests passed. But the results says two tests were flaky.",
+      "parentUuid": "5feec0c2_94ff3f3f",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "407dc2b054c4981516fba13f31a2daa225c2134e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "dc3beb57_18d56c64",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
