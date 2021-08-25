@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc3beb57_18d56c64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1381966
+      },
+      "writtenOn": "2021-08-25T07:23:22Z",
+      "side": 1,
+      "message": "+ team to aware about the change.\n\nThanks for the fixing! some comments below :)\n\n",
+      "revId": "407dc2b054c4981516fba13f31a2daa225c2134e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a0fe85a_d4bd5793",
+        "filename": "core/java/android/service/autofill/AutofillFieldClassificationService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1381966
+      },
+      "writtenOn": "2021-08-25T07:23:22Z",
+      "side": 1,
+      "message": "Also add Map\u003cString, String\u003e here?",
+      "range": {
+        "startLine": 108,
+        "startChar": 35,
+        "endLine": 108,
+        "endChar": 36
+      },
+      "revId": "407dc2b054c4981516fba13f31a2daa225c2134e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ba9b785_6f72b661",
+        "filename": "core/java/android/service/autofill/AutofillFieldClassificationService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1381966
+      },
+      "writtenOn": "2021-08-25T07:23:22Z",
+      "side": 1,
+      "message": "Also add Map\u003cString, Bundle\u003e here?",
+      "range": {
+        "startLine": 108,
+        "startChar": 51,
+        "endLine": 108,
+        "endChar": 52
+      },
+      "revId": "407dc2b054c4981516fba13f31a2daa225c2134e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
