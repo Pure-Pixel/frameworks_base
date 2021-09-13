@@ -46,6 +46,14 @@ java_sdk_library {
     api_packages: [
         "android.test.mock",
     ],
+    // Only include android.test.mock.* classes. Jarjar rules below removes
+    // classes in other packages like android.content. In order to keep the
+    // list up-to-date, permitted_packages ensures that the library contains
+    // clases under android.test.mock after the jarjar rules are applied.
+    jarjar_rules: "jarjar-rules.txt",
+    permitted_packages: [
+        "android.test.mock",
+    ],
     compile_dex: true,
     default_to_stubs: true,
     dist_group: "android",
