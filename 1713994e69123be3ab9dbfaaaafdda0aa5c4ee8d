@@ -22,6 +22,30 @@
       },
       "revId": "1713994e69123be3ab9dbfaaaafdda0aa5c4ee8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0e2e512_a90e5928",
+        "filename": "test-mock/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-09-14T12:41:20Z",
+      "side": 1,
+      "message": "This was introduced in https://r.android.com/1155983. Would it make sense to re-add the Api_srcs property and use that for these files?",
+      "parentUuid": "99167a0b_d55f30e0",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "1713994e69123be3ab9dbfaaaafdda0aa5c4ee8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
