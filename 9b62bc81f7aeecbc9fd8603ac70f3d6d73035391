@@ -16,6 +16,24 @@
       "message": "Is it possible to rewrite these rules so that they zap everything unless it is in the android.test.mock.** package?\n\nI think that would be more robust as it would prevent classes from accidentally slipping through to the implementation if someone added a mock of a class in a different package that requires those sources to be included in the \"srcs\" property.",
       "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a3227e_2d7b2a83",
+        "filename": "test-mock/jarjar-rules.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-09-14T23:09:24Z",
+      "side": 1,
+      "message": "The pattern language in jarjar doesn\u0027t support it. See https://source.corp.google.com/android/external/jarjar/res/com/tonicsystems/jarjar/help.txt\n\nThat\u0027s why I added \u0027permitted_packages\u0027 to prevent such a mistake. If you add more source files in a new package without touching the jarjar rule file, the build will fail.",
+      "parentUuid": "66996577_d69a857a",
+      "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
