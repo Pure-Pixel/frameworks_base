@@ -46,6 +46,30 @@
       },
       "revId": "1713994e69123be3ab9dbfaaaafdda0aa5c4ee8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fd29ba4_e4556c42",
+        "filename": "test-mock/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2021-09-14T15:57:41Z",
+      "side": 1,
+      "message": "Yeah, I\u0027m not convinced this CL is a better solution than api_srcs. I don\u0027t have a big problem with this CL though: this library is dead and is at this point just a maintenance burden.",
+      "parentUuid": "e0e2e512_a90e5928",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "1713994e69123be3ab9dbfaaaafdda0aa5c4ee8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
