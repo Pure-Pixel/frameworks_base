@@ -94,6 +94,30 @@
       },
       "revId": "1713994e69123be3ab9dbfaaaafdda0aa5c4ee8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2bcf389_8f12350f",
+        "filename": "test-mock/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-09-14T16:28:45Z",
+      "side": 1,
+      "message": "This library is not dead. It is still required for androidx.test.*.\n\nandroid.test.base and android.test.runner are both deprecated but this is not.",
+      "parentUuid": "844cff49_d7b7de11",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "1713994e69123be3ab9dbfaaaafdda0aa5c4ee8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
