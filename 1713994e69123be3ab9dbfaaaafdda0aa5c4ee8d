@@ -70,6 +70,30 @@
       },
       "revId": "1713994e69123be3ab9dbfaaaafdda0aa5c4ee8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "844cff49_d7b7de11",
+        "filename": "test-mock/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-09-14T16:06:24Z",
+      "side": 1,
+      "message": "Updated the comment.\n\nThis CL might not be enough to justify reviving api_srcs, IMO.",
+      "parentUuid": "9fd29ba4_e4556c42",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "1713994e69123be3ab9dbfaaaafdda0aa5c4ee8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
