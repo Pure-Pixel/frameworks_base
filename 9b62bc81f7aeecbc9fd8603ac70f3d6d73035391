@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d06e772_2b879070",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-09-15T09:05:56Z",
+      "side": 1,
+      "message": "Given it a +2 under the assumption that you did test that permitted_packages caught it.",
+      "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66996577_d69a857a",
@@ -32,6 +49,24 @@
       "side": 1,
       "message": "The pattern language in jarjar doesn\u0027t support it. See https://source.corp.google.com/android/external/jarjar/res/com/tonicsystems/jarjar/help.txt\n\nThat\u0027s why I added \u0027permitted_packages\u0027 to prevent such a mistake. If you add more source files in a new package without touching the jarjar rule file, the build will fail.",
       "parentUuid": "66996577_d69a857a",
+      "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "212ac595_7f53f18e",
+        "filename": "test-mock/jarjar-rules.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-09-15T09:05:56Z",
+      "side": 1,
+      "message": "That\u0027s annoying. Did you test that the permitted_packages caught leakage of non android.test.mock classes? Does that cause a build failure or a runtime failure?",
+      "parentUuid": "37a3227e_2d7b2a83",
       "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
