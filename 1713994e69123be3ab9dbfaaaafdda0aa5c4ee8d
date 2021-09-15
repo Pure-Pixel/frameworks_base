@@ -118,6 +118,30 @@
       },
       "revId": "1713994e69123be3ab9dbfaaaafdda0aa5c4ee8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d17ff14d_5fe86eab",
+        "filename": "test-mock/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2021-09-15T16:13:03Z",
+      "side": 1,
+      "message": "Just FYI, I think I have to bring back api_srcs for java_sdk_library for reasons unrelated to this CL (randomly occurred to me today).\n\n(if that changes the decision -- I don\u0027t have a problem with this CL as-is)",
+      "parentUuid": "e2bcf389_8f12350f",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "1713994e69123be3ab9dbfaaaafdda0aa5c4ee8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
