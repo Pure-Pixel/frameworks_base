@@ -122,6 +122,24 @@
       "parentUuid": "f9289a45_6f829a38",
       "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c5d9885_74faac43",
+        "filename": "test-mock/jarjar-rules.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-09-15T09:29:51Z",
+      "side": 1,
+      "message": "Just to clarify the reason why something like this will not work is because the zap instructions are processed before keep instructions.\n\nkeep android.test.mock.**\nzap **",
+      "parentUuid": "1950581f_1df542c6",
+      "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
