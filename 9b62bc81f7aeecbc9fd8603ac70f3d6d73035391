@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8f7d1f8_fc92dbf6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-09-15T09:24:58Z",
+      "side": 1,
+      "message": "It looks like the new jarjar file needs ORV from other owners. Narayan, could you take a look?",
+      "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66996577_d69a857a",
@@ -85,6 +102,24 @@
       "side": 1,
       "message": "I think it\u0027s a checkbuild build failure",
       "parentUuid": "212ac595_7f53f18e",
+      "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1950581f_1df542c6",
+        "filename": "test-mock/jarjar-rules.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-09-15T09:24:58Z",
+      "side": 1,
+      "message": "Yes, I confirmed that the build failed when I removed a line from this file.",
+      "parentUuid": "f9289a45_6f829a38",
       "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
