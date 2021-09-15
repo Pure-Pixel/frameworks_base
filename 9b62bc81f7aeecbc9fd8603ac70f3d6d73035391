@@ -140,6 +140,24 @@
       "parentUuid": "1950581f_1df542c6",
       "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58a690ea_8fd06e21",
+        "filename": "test-mock/jarjar-rules.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-09-15T09:41:31Z",
+      "side": 1,
+      "message": "Even if the order was reversed, it would\u0027t work... because the keep command keeps not only the mentioned clases, but also other classes referenced from them.",
+      "parentUuid": "8c5d9885_74faac43",
+      "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
