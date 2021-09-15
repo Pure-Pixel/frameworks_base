@@ -69,6 +69,24 @@
       "parentUuid": "37a3227e_2d7b2a83",
       "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9289a45_6f829a38",
+        "filename": "test-mock/jarjar-rules.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2021-09-15T09:21:28Z",
+      "side": 1,
+      "message": "I think it\u0027s a checkbuild build failure",
+      "parentUuid": "212ac595_7f53f18e",
+      "revId": "9b62bc81f7aeecbc9fd8603ac70f3d6d73035391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
