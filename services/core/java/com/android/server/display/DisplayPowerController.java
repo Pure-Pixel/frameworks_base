@@ -1270,7 +1270,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
                 brightnessState = Math.max(
                         Math.min(brightnessState - SCREEN_DIM_MINIMUM_REDUCTION_FLOAT,
                                 mScreenBrightnessDimConfig),
-                        PowerManager.BRIGHTNESS_MIN);
+                        mScreenBrightnessRangeMinimum);
                 mBrightnessReasonTemp.addModifier(BrightnessReason.MODIFIER_DIMMED);
             }
             if (!mAppliedDimming) {
