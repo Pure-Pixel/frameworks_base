@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b98d86f_3aa46ac2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2021-10-13T12:55:46Z",
+      "side": 1,
+      "message": "PS3:\n\nI realised that android/service/ uses \"timezone\" not \"timezonedetector\", which is an inconsistency that cannot be changed, since it\u0027s an SDK package. This affects the path of the added file.\n\nAdded changes for android/service/timezone/OWNERS, which I had missed.",
+      "revId": "ec4d47ebd5546a3c2a8af1f89638476aea6ffbbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
