@@ -16,6 +16,24 @@
       "message": "Hi,\nIn R, use BrightnessSynchronizer.floatEquals() to compare at this, it\u0027s OK.\nBut ,in S, remove BrightnessSynchronizer.floatEquals()  and use \"\u003d\u003d\" to compare, when initing, these two values are NaN, this will set display state off firstly.",
       "revId": "991ad17fd8fc3b050212bbad11073f314738eb12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2420082_3b04f153",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1895294
+      },
+      "writtenOn": "2021-10-13T13:02:39Z",
+      "side": 1,
+      "message": "As a result, When booting up, it will flash once",
+      "parentUuid": "05708219_4d3b530b",
+      "revId": "991ad17fd8fc3b050212bbad11073f314738eb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
