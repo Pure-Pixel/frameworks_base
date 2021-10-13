@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d463fb3b_f615dcb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2021-10-13T12:59:05Z",
+      "side": 1,
+      "message": "PS4: Correct the OWNERS link from the android/service/timezone tests to point to the OWNERS for the code under test.",
+      "revId": "e26bbeb94aefdbbb86f70c2eea0db81361af6367",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
