@@ -1,0 +1,143 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a76cc98_3944af55",
+        "filename": "services/core/java/com/android/server/audio/AudioDeviceBroker.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 1615,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-10-15T12:56:49Z",
+      "side": 1,
+      "message": "Not from this CL but I think this message and MSG_L_LE_AUDIO_DEVICE_OUT_CONNECTION_CHANGE_EXT should be added to the MESSAGES_MUTE_MUSIC set of messages that cause a temporary mute of music stream when processed",
+      "range": {
+        "startLine": 1615,
+        "startChar": 29,
+        "endLine": 1615,
+        "endChar": 69
+      },
+      "revId": "4c11c4d1b7b2a33f2c5247d902de841db5195f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38946adb_70908b6a",
+        "filename": "services/core/java/com/android/server/audio/AudioDeviceInventory.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-10-15T12:56:49Z",
+      "side": 1,
+      "message": "\u003e Lines longer than 100 characters should be wrapped to improve readability; see https://source.android.com/setup/contribute/code-style#limit-line-length for more details.\n\nPlease fix.",
+      "parentUuid": "5391e4f7_f8b3ecb7",
+      "range": {
+        "startLine": 905,
+        "startChar": 0,
+        "endLine": 905,
+        "endChar": 103
+      },
+      "revId": "4c11c4d1b7b2a33f2c5247d902de841db5195f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2a13eea_d04ebad0",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 2956,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-10-15T12:56:49Z",
+      "side": 1,
+      "message": "missing call to if (streamType \u003d\u003d getBluetoothContextualVolumeStream())",
+      "range": {
+        "startLine": 2956,
+        "startChar": 0,
+        "endLine": 2956,
+        "endChar": 32
+      },
+      "revId": "4c11c4d1b7b2a33f2c5247d902de841db5195f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c178305d_07df504e",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 3591,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-10-15T12:56:49Z",
+      "side": 1,
+      "message": "missing \n \u0026\u0026 streamType \u003d\u003d getBluetoothContextualVolumeStream()",
+      "range": {
+        "startLine": 3591,
+        "startChar": 0,
+        "endLine": 3591,
+        "endChar": 63
+      },
+      "revId": "4c11c4d1b7b2a33f2c5247d902de841db5195f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5da78c7f_7f5f6166",
+        "filename": "services/core/java/com/android/server/audio/BtHelper.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-10-15T12:56:49Z",
+      "side": 1,
+      "message": "index is in the range 0 to 100. It must be rescaled before sending to BLe profile",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 78
+      },
+      "revId": "4c11c4d1b7b2a33f2c5247d902de841db5195f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e11d4b2f_1e9dc801",
+        "filename": "services/core/java/com/android/server/media/BluetoothRouteProvider.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-10-15T12:56:49Z",
+      "side": 1,
+      "message": "This log is redundant and should be removed",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 76
+      },
+      "revId": "4c11c4d1b7b2a33f2c5247d902de841db5195f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
