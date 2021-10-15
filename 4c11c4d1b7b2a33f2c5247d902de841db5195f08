@@ -311,6 +311,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2759db97_c3890fb6",
+        "filename": "services/core/java/com/android/server/audio/BtHelper.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1085519
+      },
+      "writtenOn": "2021-10-15T23:22:03Z",
+      "side": 1,
+      "message": "yes, leAudio volume is not db. It is just 0x00-0xff\n\nErik, where can I get this maxIndex? I see from the comment above that this is 25, but I don\u0027t think I want to use fix value here.",
+      "parentUuid": "42d24e56_8fde351f",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 78
+      },
+      "revId": "4c11c4d1b7b2a33f2c5247d902de841db5195f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e11d4b2f_1e9dc801",
         "filename": "services/core/java/com/android/server/media/BluetoothRouteProvider.java",
         "patchSetId": 13
