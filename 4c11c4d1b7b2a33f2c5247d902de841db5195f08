@@ -239,6 +239,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8b3d02a_f555c74d",
+        "filename": "services/core/java/com/android/server/audio/BtHelper.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-10-15T15:04:18Z",
+      "side": 1,
+      "message": "my bad, it is 10 x max media volume index which is 25 but can be set by a property.\nI think Audioservice should also pass the max volume index and re scaling to whatever range is expected by LE should happen here.\ndon;t forget that this is not always media volume but can also be call volume in which case the range is from 0 to 7",
+      "parentUuid": "b065f377_8e22f218",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 78
+      },
+      "revId": "4c11c4d1b7b2a33f2c5247d902de841db5195f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e11d4b2f_1e9dc801",
         "filename": "services/core/java/com/android/server/media/BluetoothRouteProvider.java",
         "patchSetId": 13
