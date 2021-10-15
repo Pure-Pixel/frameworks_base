@@ -287,6 +287,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "42d24e56_8fde351f",
+        "filename": "services/core/java/com/android/server/audio/BtHelper.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-10-15T15:26:32Z",
+      "side": 1,
+      "message": "similar but hearing aid volume is in dB whereas LE volume does not seem to be in dB (do you confirm?)\nIn which case a simple rescaling like this is enouhg:\n\nleVolume \u003d index / maxIndex * (BT_LE_AUDIO_MAX_VOL - BT_LE_AUDIO_MIN_VOL) + BT_LE_AUDIO_MIN_VOL",
+      "parentUuid": "7a32a298_24e7fe19",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 78
+      },
+      "revId": "4c11c4d1b7b2a33f2c5247d902de841db5195f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e11d4b2f_1e9dc801",
         "filename": "services/core/java/com/android/server/media/BluetoothRouteProvider.java",
         "patchSetId": 13
