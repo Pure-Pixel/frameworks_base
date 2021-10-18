@@ -238,6 +238,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "698363c7_6511fcd6",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 2960,
+      "author": {
+        "id": 1085519
+      },
+      "writtenOn": "2021-10-18T10:40:08Z",
+      "side": 1,
+      "message": "That should work. Thanks.",
+      "parentUuid": "bb60b0fd_b7e878f1",
+      "range": {
+        "startLine": 2960,
+        "startChar": 0,
+        "endLine": 2960,
+        "endChar": 78
+      },
+      "revId": "4c11c4d1b7b2a33f2c5247d902de841db5195f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c178305d_07df504e",
@@ -442,6 +466,30 @@
       "side": 1,
       "message": "Max volume changes with stream types. getStreamMaxVolume should return it.\nYou will have to somehow expose it to BtHelpr, maybe as a static method in AudioSystem ?\n\nhttps://cs.android.com/search?q\u003dgetStreamMaxVolume\u0026ss\u003dandroid%2Fplatform%2Fsuperproject:frameworks%2Fbase%2Fmedia%2Fjava%2Fandroid%2Fmedia%2F",
       "parentUuid": "2759db97_c3890fb6",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 78
+      },
+      "revId": "4c11c4d1b7b2a33f2c5247d902de841db5195f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "214d1dde_b2f23ccf",
+        "filename": "services/core/java/com/android/server/audio/BtHelper.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1085519
+      },
+      "writtenOn": "2021-10-18T10:40:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9094b7bd_fcf0b9da",
       "range": {
         "startLine": 407,
         "startChar": 0,
