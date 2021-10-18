@@ -216,6 +216,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb60b0fd_b7e878f1",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 2960,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2021-10-18T09:38:00Z",
+      "side": 1,
+      "message": "What we do in this case it to use the msg obj argument and create a specific data struct for this message:\nFor instance BtDeviceConnectionInfo for msg MSG_SET_A2DP_DEV_CONNECTION_STATE\nHere it would be \n\nstatic final class BleVolumeInfo {\n        final int mIndex;\n        final int mIndexMax;\n        final int mSgreamType;\n}",
+      "parentUuid": "14119a73_85a24820",
+      "range": {
+        "startLine": 2960,
+        "startChar": 0,
+        "endLine": 2960,
+        "endChar": 78
+      },
+      "revId": "4c11c4d1b7b2a33f2c5247d902de841db5195f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c178305d_07df504e",
         "filename": "services/core/java/com/android/server/audio/AudioService.java",
         "patchSetId": 13
