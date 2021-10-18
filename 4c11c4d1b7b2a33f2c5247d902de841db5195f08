@@ -168,6 +168,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14119a73_85a24820",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 2960,
+      "author": {
+        "id": 1085519
+      },
+      "writtenOn": "2021-10-18T09:28:50Z",
+      "side": 1,
+      "message": "I like it, but that would required some more changes in order to create message with 3 arguments. \"(mBrokerHandler.obtainMessage(msg, arg1, arg2, arg3, obj).\nBasically it requires changes also in os/Handler.java.\n\nDo you want me to proceed this way or maybe expose some other function for BtHelper to use by btHelper?",
+      "parentUuid": "a67dfe41_73b0bb23",
+      "range": {
+        "startLine": 2960,
+        "startChar": 0,
+        "endLine": 2960,
+        "endChar": 78
+      },
+      "revId": "4c11c4d1b7b2a33f2c5247d902de841db5195f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c178305d_07df504e",
         "filename": "services/core/java/com/android/server/audio/AudioService.java",
         "patchSetId": 13
