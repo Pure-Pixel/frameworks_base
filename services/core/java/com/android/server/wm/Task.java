@@ -1464,6 +1464,8 @@ class Task extends WindowContainer<WindowContainer> {
         adjustBoundsForDisplayChangeIfNeeded(getDisplayContent());
 
         mRootWindowContainer.updateUIDsPresentOnDisplay();
+
+        forAllActivities(ActivityRecord::updateAnimatingActivityRegistry);
     }
 
     void cleanUpActivityReferences(ActivityRecord r) {
