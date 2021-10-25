@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "678f7435_a72ad552",
+        "filename": "services/core/java/com/android/server/wm/Task.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1315793
+      },
+      "writtenOn": "2021-10-25T08:16:39Z",
+      "side": 1,
+      "message": "Please add a comment for why we need this.",
+      "range": {
+        "startLine": 1468,
+        "startChar": 7,
+        "endLine": 1468,
+        "endChar": 74
+      },
+      "revId": "741383e3bafccafa8eec46eb65003b1d71b98c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
