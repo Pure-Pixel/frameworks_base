@@ -22,6 +22,30 @@
       },
       "revId": "741383e3bafccafa8eec46eb65003b1d71b98c2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3df66aea_2df433a9",
+        "filename": "services/core/java/com/android/server/wm/Task.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1901488
+      },
+      "writtenOn": "2021-10-25T08:38:17Z",
+      "side": 1,
+      "message": "Currently we only update mAnimatingActivityRegistry of ActivityRecord in onParentChanged of ActivityRecord. However in split screen mode, app\u0027s Task reparent to split-screen Task. This result in:\n1 mAnimatingActivityRegistry of already opened actvity come from the app\u0027s Task.\n2 mAnimatingActivityRegistry of newly opened Activity comes from the split-screen Task.\nThe different mAnimatingActivityRegistry of ActivityRecord will cause the animation-leash of the transition animation to be destroyed at different times, resulting in the wrong display order of the layer, which will lead to a splash screen.\nSo if we update mAnimatingActivityRegistry of already opened actvity to come from the split-screen Task when task reparents, we can fix this issue.",
+      "parentUuid": "678f7435_a72ad552",
+      "range": {
+        "startLine": 1468,
+        "startChar": 7,
+        "endLine": 1468,
+        "endChar": 74
+      },
+      "revId": "741383e3bafccafa8eec46eb65003b1d71b98c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
