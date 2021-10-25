@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "05b59c2b_26b24fae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1315793
+      },
+      "writtenOn": "2021-10-25T03:38:23Z",
+      "side": 1,
+      "message": "Please update the Bug ID and Test steps to know how to verify this issue with following format:\n\nBug: \u003cBug ID\u003e\nTest: \u003cTest steps\u003e",
+      "revId": "1c98686bd458f5916269654dda1d6e596b618ece",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e54025a3_9af2c042",
@@ -32,6 +49,52 @@
       "side": 1,
       "message": "Sorry, thanks for reminding me! I’m new here and I’m not too familiar with it, so I’ll pay attention next time.",
       "parentUuid": "e54025a3_9af2c042",
+      "revId": "1c98686bd458f5916269654dda1d6e596b618ece",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbd13c16_ba7b6d77",
+        "filename": "services/core/java/com/android/server/wm/ActivityRecord.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1370,
+      "author": {
+        "id": 1315793
+      },
+      "writtenOn": "2021-10-25T03:38:23Z",
+      "side": 1,
+      "message": "nit: Can refine with updateAnimatingActivityRegistryFromTask(rootTask), and make it as private method, so that we don\u0027t have to getRootTask again in this method",
+      "range": {
+        "startLine": 1370,
+        "startChar": 9,
+        "endLine": 1370,
+        "endChar": 40
+      },
+      "revId": "1c98686bd458f5916269654dda1d6e596b618ece",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f53f531_930a04b8",
+        "filename": "services/core/java/com/android/server/wm/ActivityRecord.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1315793
+      },
+      "writtenOn": "2021-10-25T03:38:23Z",
+      "side": 1,
+      "message": "final",
+      "range": {
+        "startLine": 1372,
+        "startChar": 8,
+        "endLine": 1372,
+        "endChar": 43
+      },
       "revId": "1c98686bd458f5916269654dda1d6e596b618ece",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
