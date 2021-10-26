@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15e668c3_08241b61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1315793
+      },
+      "writtenOn": "2021-10-26T10:58:50Z",
+      "side": 1,
+      "message": "The approach looks good to me.\n\nOver to Riddle or Jorim for the final view.",
+      "revId": "150a887780d6583e36d73c3e26772b943276fa04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
