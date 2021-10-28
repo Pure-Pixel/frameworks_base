@@ -16,6 +16,23 @@
       "message": "The approach looks good to me.\n\nOver to Riddle or Jorim for the final view.",
       "revId": "150a887780d6583e36d73c3e26772b943276fa04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5edcbac_ec3612d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1315793
+      },
+      "writtenOn": "2021-10-28T13:22:11Z",
+      "side": 1,
+      "message": "Thanks for the fix!",
+      "revId": "150a887780d6583e36d73c3e26772b943276fa04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
