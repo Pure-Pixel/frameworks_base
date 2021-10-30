@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5152b214_55984491",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2021-10-30T05:45:29Z",
+      "side": 1,
+      "message": "Hello Jeff, PTAL.\n\nContents of this package will be added in the next CL.",
+      "revId": "9b4bfc42a5813c13c3003089d1dde3263be40466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
