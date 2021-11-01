@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae300d2e_3d366403",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1010334
+      },
+      "writtenOn": "2021-11-01T22:30:41Z",
+      "side": 1,
+      "message": "suggest listing output from `time am instrument -w ...`, before and after the CL",
+      "revId": "6872039ad40dcdaa00a33b8e0f63f79103af807c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
