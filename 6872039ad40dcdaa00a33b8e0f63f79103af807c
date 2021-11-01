@@ -16,6 +16,23 @@
       "message": "suggest listing output from `time am instrument -w ...`, before and after the CL",
       "revId": "6872039ad40dcdaa00a33b8e0f63f79103af807c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e513713a_ba9ccc97",
+        "filename": "cmds/am/src/com/android/commands/am/Instrument.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-11-01T23:34:53Z",
+      "side": 1,
+      "message": "This works. Process.killProcess(Process.myPid() seems to be another common, more draconian option that\u0027s probably faster at the expense of even less cleanup. I don\u0027t know which is preferred here; probably this is safer.",
+      "revId": "6872039ad40dcdaa00a33b8e0f63f79103af807c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
