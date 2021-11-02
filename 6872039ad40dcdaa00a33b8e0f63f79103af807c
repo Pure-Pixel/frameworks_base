@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffb9360e_b374d4c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1561214
+      },
+      "writtenOn": "2021-11-02T17:20:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae300d2e_3d366403",
+      "revId": "6872039ad40dcdaa00a33b8e0f63f79103af807c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e513713a_ba9ccc97",
@@ -49,6 +67,24 @@
       "side": 1,
       "message": "It\u0027d be interesting to measure the difference between the two. But if this is safer, I\u0027d go with this for now, since this is used in a ton of test infra..",
       "parentUuid": "e513713a_ba9ccc97",
+      "revId": "6872039ad40dcdaa00a33b8e0f63f79103af807c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac0a5395_9941a13e",
+        "filename": "cmds/am/src/com/android/commands/am/Instrument.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1561214
+      },
+      "writtenOn": "2021-11-02T17:20:46Z",
+      "side": 1,
+      "message": "Yes, I feel exit() might be safer.\n\nTo the measurements of using kill, it\u0027ll be faster:\n\n[exit()]\n0m00.72s real     0m00.21s user     0m00.11s system\n\n[kill()]\n0m00.50s real     0m00.20s user     0m00.09s system",
+      "parentUuid": "0e284e03_b17ab3fd",
       "revId": "6872039ad40dcdaa00a33b8e0f63f79103af807c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
