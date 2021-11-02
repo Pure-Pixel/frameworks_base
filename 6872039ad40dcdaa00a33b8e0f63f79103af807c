@@ -33,6 +33,24 @@
       "message": "This works. Process.killProcess(Process.myPid() seems to be another common, more draconian option that\u0027s probably faster at the expense of even less cleanup. I don\u0027t know which is preferred here; probably this is safer.",
       "revId": "6872039ad40dcdaa00a33b8e0f63f79103af807c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e284e03_b17ab3fd",
+        "filename": "cmds/am/src/com/android/commands/am/Instrument.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2021-11-02T09:45:04Z",
+      "side": 1,
+      "message": "It\u0027d be interesting to measure the difference between the two. But if this is safer, I\u0027d go with this for now, since this is used in a ton of test infra..",
+      "parentUuid": "e513713a_ba9ccc97",
+      "revId": "6872039ad40dcdaa00a33b8e0f63f79103af807c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
