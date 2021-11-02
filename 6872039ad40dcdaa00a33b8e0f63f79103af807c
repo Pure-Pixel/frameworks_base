@@ -87,6 +87,24 @@
       "parentUuid": "0e284e03_b17ab3fd",
       "revId": "6872039ad40dcdaa00a33b8e0f63f79103af807c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8435e644_a53564d1",
+        "filename": "cmds/am/src/com/android/commands/am/Instrument.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-11-02T17:58:08Z",
+      "side": 1,
+      "message": "I agree that consistency with other test infrastructure is important, especially since there are some differences in which shutdown code gets run. If people think this difference is enough to matter, we could consider consistently switching everything to killProcess later.",
+      "parentUuid": "ac0a5395_9941a13e",
+      "revId": "6872039ad40dcdaa00a33b8e0f63f79103af807c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
