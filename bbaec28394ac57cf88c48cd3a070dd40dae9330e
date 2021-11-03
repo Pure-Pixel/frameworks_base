@@ -1,0 +1,82 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016850712",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1878224?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "7c0edfa9_3ebd4d25",
+        "filename": "core/java/android/nfc/INfcAdapter.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-03T10:44:34Z",
+      "side": 1,
+      "message": "Disapproved license (NOT_A_CONTRIBUTION) :\nNot a Contribution.\n",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 23
+      },
+      "revId": "bbaec28394ac57cf88c48cd3a070dd40dae9330e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016850712",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1878224?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "7bf84f99_34a6daf4",
+        "filename": "core/java/android/nfc/cardemulation/AidGroup.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-03T10:44:34Z",
+      "side": 1,
+      "message": "Disapproved license (NOT_A_CONTRIBUTION) :\nNot a Contribution.\n",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 23
+      },
+      "revId": "bbaec28394ac57cf88c48cd3a070dd40dae9330e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016850712",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1878224?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "e0c02259_6b8f5569",
+        "filename": "core/java/android/nfc/cardemulation/ApduServiceInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-03T10:44:34Z",
+      "side": 1,
+      "message": "Disapproved license (NOT_A_CONTRIBUTION) :\nNot a Contribution.\n",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 23
+      },
+      "revId": "bbaec28394ac57cf88c48cd3a070dd40dae9330e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
