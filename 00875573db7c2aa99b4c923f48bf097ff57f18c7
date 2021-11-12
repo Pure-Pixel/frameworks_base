@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9af2f19_96cd7926",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1133744
+      },
+      "writtenOn": "2021-11-12T12:01:47Z",
+      "side": 1,
+      "message": "Nit (useful for future reference): Maybe mention that this is specially important for serializable since in case of null it uses the class loader from the call stack (somehow, right?), as opposed to the BCP in the parcelable case. And that\u0027s important because it creates differences in output depending on which process is performing the deserialization.",
+      "range": {
+        "startLine": 14,
+        "startChar": 34,
+        "endLine": 15,
+        "endChar": 13
+      },
+      "revId": "00875573db7c2aa99b4c923f48bf097ff57f18c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
