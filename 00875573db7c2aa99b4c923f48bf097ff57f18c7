@@ -39,6 +39,29 @@
       "message": "Friendly ping.",
       "revId": "00875573db7c2aa99b4c923f48bf097ff57f18c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e6fa604_7d148d44",
+        "filename": "core/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 31485,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2021-11-17T16:28:02Z",
+      "side": 1,
+      "message": "Hmm, while I appreciate the desire to try requiring a ClassLoader for this case, there\u0027s still quite a few cases where writeValue()/readValue() end up offering to work with Parcelable values that have an implicit ClassLoader.  😞\n\nAs an example, writeList()/readList() end up offering to send Serializable instances without requiring a ClassLoader be defined.",
+      "range": {
+        "startLine": 31485,
+        "startChar": 0,
+        "endLine": 31485,
+        "endChar": 121
+      },
+      "revId": "00875573db7c2aa99b4c923f48bf097ff57f18c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
