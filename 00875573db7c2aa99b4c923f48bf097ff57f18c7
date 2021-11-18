@@ -110,6 +110,30 @@
       },
       "revId": "00875573db7c2aa99b4c923f48bf097ff57f18c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e622b2a_e5cf36b9",
+        "filename": "core/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 31485,
+      "author": {
+        "id": 1871820
+      },
+      "writtenOn": "2021-11-18T16:03:57Z",
+      "side": 1,
+      "message": "Ack, that makes sense. I would prefer having all new APIs requiring nonnull ClassLoader then, Bernado and Steven, what do you think?\n\nI felt changing this for Serializable is quite necessary as it was one of the gadget in the exploit: https://docs.google.com/presentation/d/12XbcaOJzi2aD27efKy4XDZ3OM44U3Q812rykUFVbhOo/edit#slide\u003did.gdfb13ef228_1_35. \n\nAnd I agree for consistency we should consider making all of them requiring explicit ClassLoader.",
+      "parentUuid": "cdd90d3b_90e78a08",
+      "range": {
+        "startLine": 31485,
+        "startChar": 0,
+        "endLine": 31485,
+        "endChar": 121
+      },
+      "revId": "00875573db7c2aa99b4c923f48bf097ff57f18c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
