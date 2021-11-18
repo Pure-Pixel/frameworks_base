@@ -86,6 +86,30 @@
       },
       "revId": "00875573db7c2aa99b4c923f48bf097ff57f18c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdd90d3b_90e78a08",
+        "filename": "core/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 31485,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2021-11-18T15:44:54Z",
+      "side": 1,
+      "message": "My point here is that the other APIs like readMap(), readList(), etc are technically still \"allowing\" Serializable values that rely on the default ClassLoader; it feels quite inconsistent to have the explicit-ClassLoader-for-Serializable-values only partially enforced across the Parcel API surface.\n\nThus my recommendation is either to have it required for all places that Serializable can be read, or to not have it required.",
+      "parentUuid": "3cc25cfd_b68a673b",
+      "range": {
+        "startLine": 31485,
+        "startChar": 0,
+        "endLine": 31485,
+        "endChar": 121
+      },
+      "revId": "00875573db7c2aa99b4c923f48bf097ff57f18c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
