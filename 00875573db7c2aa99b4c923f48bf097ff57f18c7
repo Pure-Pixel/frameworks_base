@@ -134,6 +134,30 @@
       },
       "revId": "00875573db7c2aa99b4c923f48bf097ff57f18c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3be6bba1_91a94764",
+        "filename": "core/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 31485,
+      "author": {
+        "id": 1133744
+      },
+      "writtenOn": "2021-11-19T11:58:35Z",
+      "side": 1,
+      "message": "Right, that\u0027s a good point, there is no use requiring class loader from readSerializable() when readList() doesn\u0027t.\n\nI think what you said (1) is reasonable Hao. However, an alternative (2) that doesn\u0027t incur that burden on developers when migrating is to change the default class loader for serializables in the new APIs (with extra class parameter) to be the BCP loader instead of leaving it to latestUserDefinedLoader(), thus making it consistent with the default class loader for parcelable. Note that the behavior of old/deprecated APIs (without extra class parameter) wouldn\u0027t change.\n\nI remember we did discuss (2) and I said I didn\u0027t like it back then. I think one of the reasons might have been that it would be inconsistent with the old readSerializable(), but I might have forgotten that we are deprecating that one, so I think it\u0027s ok be inconsistent since we\u0027re officially not recommending that API anymore.",
+      "parentUuid": "9e622b2a_e5cf36b9",
+      "range": {
+        "startLine": 31485,
+        "startChar": 0,
+        "endLine": 31485,
+        "endChar": 121
+      },
+      "revId": "00875573db7c2aa99b4c923f48bf097ff57f18c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
