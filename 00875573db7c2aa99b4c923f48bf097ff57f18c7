@@ -158,6 +158,30 @@
       },
       "revId": "00875573db7c2aa99b4c923f48bf097ff57f18c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8105376_54d8b7ee",
+        "filename": "core/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 31485,
+      "author": {
+        "id": 1871820
+      },
+      "writtenOn": "2021-11-22T20:44:44Z",
+      "side": 1,
+      "message": "In that case, I would just enforce the default classLoader for the safe version of API. I am implementing it in a separate CL, and keep this one here as the reference.",
+      "parentUuid": "3be6bba1_91a94764",
+      "range": {
+        "startLine": 31485,
+        "startChar": 0,
+        "endLine": 31485,
+        "endChar": 121
+      },
+      "revId": "00875573db7c2aa99b4c923f48bf097ff57f18c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
