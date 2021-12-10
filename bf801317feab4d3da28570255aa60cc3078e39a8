@@ -1,0 +1,110 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000018269076",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1918624?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "9561cb8a_56ca7f17",
+        "filename": "core/api/system-current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-12-10T21:39:48Z",
+      "side": 1,
+      "message": "This CL adds new API(s), but it doesn\u0027t include any CTS test to test them. Please add CTS test(s) in a change and include the change in the same topic. After adding that change, you may need to upload a new patchset such as updating commit message to rerun this presubmit test. If you are unable to add CTS test(s) now, please file a tracking bug via go/new-cts-coverage-bug and add \"CTS-Coverage-Bug: \u003cbug id\u003e\" in this CL\u0027s commit message to pass this presubmit. For more information, please refer to go/api-test-coverage.",
+      "revId": "bf801317feab4d3da28570255aa60cc3078e39a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000018269082",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1918624?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "20b1eb88_025fec99",
+          "description": "Change to \"services/core/java/com/android/server/tracing/TracingServiceProxy.java\"",
+          "replacements": [
+            {
+              "path": "services/core/java/com/android/server/tracing/TracingServiceProxy.java",
+              "range": {
+                "startLine": 63,
+                "startChar": 34,
+                "endLine": 63,
+                "endChar": 41
+              },
+              "replacement": "TRUNCATE"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "983d7926_2665860e",
+        "filename": "services/core/java/com/android/server/tracing/TracingServiceProxy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-12-10T21:39:48Z",
+      "side": 1,
+      "message": "Common typo found: \"TRUCATE\" -- should it be \"TRUNCATE\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 63,
+        "startChar": 34,
+        "endLine": 63,
+        "endChar": 41
+      },
+      "revId": "bf801317feab4d3da28570255aa60cc3078e39a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000018269082",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1918624?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "b2edf266_86571c2a",
+          "description": "Change to \"services/core/java/com/android/server/tracing/TracingServiceProxy.java\"",
+          "replacements": [
+            {
+              "path": "services/core/java/com/android/server/tracing/TracingServiceProxy.java",
+              "range": {
+                "startLine": 165,
+                "startChar": 50,
+                "endLine": 165,
+                "endChar": 57
+              },
+              "replacement": "TRUNCATE"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "317505e0_04d8a390",
+        "filename": "services/core/java/com/android/server/tracing/TracingServiceProxy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-12-10T21:39:48Z",
+      "side": 1,
+      "message": "Common typo found: \"TRUCATE\" -- should it be \"TRUNCATE\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 165,
+        "startChar": 50,
+        "endLine": 165,
+        "endChar": 57
+      },
+      "revId": "bf801317feab4d3da28570255aa60cc3078e39a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
