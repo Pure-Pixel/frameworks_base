@@ -10486,6 +10486,24 @@ package android.service.timezone {
 
 }
 
+package android.service.tracing {
+
+  public class TraceReportService extends android.app.Service {
+    ctor public TraceReportService();
+    method @Nullable public android.os.IBinder onBind(@NonNull android.content.Intent);
+    method public boolean onMessage(@NonNull android.os.Message);
+    method public void onPostReportTrace(@NonNull android.service.tracing.TraceReportService.TraceParams);
+    method public void onReportTrace(@NonNull android.service.tracing.TraceReportService.TraceParams);
+  }
+
+  public static final class TraceReportService.TraceParams {
+    method @NonNull public android.os.ParcelFileDescriptor getFd();
+    method public long getUuidLsb();
+    method public long getUuidMsb();
+  }
+
+}
+
 package android.service.translation {
 
   public abstract class TranslationService extends android.app.Service {
