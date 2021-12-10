@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020, The Android Open Source Project
+ * Copyright (c) 2021, The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,20 +16,18 @@
 
 package android.tracing;
 
-import android.tracing.TraceReportParams;
+import android.os.ParcelFileDescriptor;
 
-/**
- * Binder interface for the TracingServiceProxy running in system_server.
+/*
+ * Generic encapsulation of an atom for bootstrap processes to log.
  *
- * {@hide}
+ * @hide
  */
-interface ITracingServiceProxy {
-    /**
-     * Notifies system tracing app that a tracing session has ended. If a session is repurposed
-     * for use in a bugreport, sessionStolen can be set to indicate that tracing has ended but
-     * there is no buffer available to dump.
-     */
-    oneway void notifyTraceSessionEnded(boolean sessionStolen);
-
-    oneway void reportTrace(in TraceReportParams params);
+parcelable TraceReportParams {
+  String reporterPackageName;
+  String reporterClassName;
+  ParcelFileDescriptor fd;
+  long uuidLsb;
+  long uuidMsb;
+  boolean truncateAndUsePipeForTesting;
 }

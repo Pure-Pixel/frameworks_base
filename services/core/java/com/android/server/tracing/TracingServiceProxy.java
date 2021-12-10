@@ -15,33 +15,52 @@
  */
 package com.android.server.tracing;
 
+import android.annotation.NonNull;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Binder;
+import android.os.IMessenger;
+import android.os.Message;
+import android.os.ParcelFileDescriptor;
+import android.os.ParcelFileDescriptor.AutoCloseInputStream;
+import android.os.ParcelFileDescriptor.AutoCloseOutputStream;
 import android.os.UserHandle;
+import android.service.tracing.TraceReportService;
 import android.tracing.ITracingServiceProxy;
+import android.tracing.TraceReportParams;
 import android.util.Log;
+import android.util.LruCache;
 
+import com.android.internal.infra.ServiceConnector;
 import com.android.server.SystemService;
+
+import java.io.IOException;
 
 /**
  * TracingServiceProxy is the system_server intermediary between the Perfetto tracing daemon and the
- * system tracing app Traceur.
+ * other components (e.g. system tracing app Traceur, trace reporting apps).
  *
  * Access to this service is restricted via SELinux. Normal apps do not have access.
  *
  * @hide
  */
 public class TracingServiceProxy extends SystemService {
-    private static final String TAG = "TracingServiceProxy";
-
     public static final String TRACING_SERVICE_PROXY_BINDER_NAME = "tracing.proxy";
-
+    private static final String TAG = "TracingServiceProxy";
     private static final String TRACING_APP_PACKAGE_NAME = "com.android.traceur";
     private static final String TRACING_APP_ACTIVITY = "com.android.traceur.StopTraceService";
+
+    private static final int MAX_CACHED_REPORTER_SERVICES = 8;
+
+    // The size to truncate the trace to if the option |truncateAndUsePipeforTesting| is set.
+    // Note: this size MUST be smaller than the buffer size of the pipe (i.e. what you can
+    // write to the pipe without blocking) to avoid system_server blocking on this.
+    // (minimum value is 4K or 1 minimal size page).
+    private static final int PIPE_TRUCATE_SIZE_FOR_TEST = 1024;
 
     // Keep this in sync with the definitions in TraceService
     private static final String INTENT_ACTION_NOTIFY_SESSION_STOPPED =
@@ -51,16 +70,22 @@ public class TracingServiceProxy extends SystemService {
 
     private final Context mContext;
     private final PackageManager mPackageManager;
+    private final LruCache<ComponentName, ServiceConnector<IMessenger>> mCachedReporterServices;
 
     private final ITracingServiceProxy.Stub mTracingServiceProxy = new ITracingServiceProxy.Stub() {
         /**
-          * Notifies system tracing app that a tracing session has ended. If a session is repurposed
-          * for use in a bugreport, sessionStolen can be set to indicate that tracing has ended but
-          * there is no buffer available to dump.
-          */
+         * Notifies system tracing app that a tracing session has ended. If a session is repurposed
+         * for use in a bugreport, sessionStolen can be set to indicate that tracing has ended but
+         * there is no buffer available to dump.
+         */
         @Override
         public void notifyTraceSessionEnded(boolean sessionStolen) {
-            notifyTraceur(sessionStolen);
+            TracingServiceProxy.this.notifyTraceur(sessionStolen);
+        }
+
+        @Override
+        public void reportTrace(@NonNull TraceReportParams params) {
+            TracingServiceProxy.this.reportTrace(params);
         }
     };
 
@@ -68,6 +93,7 @@ public class TracingServiceProxy extends SystemService {
         super(context);
         mContext = context;
         mPackageManager = context.getPackageManager();
+        mCachedReporterServices = new LruCache<>(MAX_CACHED_REPORTER_SERVICES);
     }
 
     @Override
@@ -101,6 +127,94 @@ public class TracingServiceProxy extends SystemService {
 
         } catch (NameNotFoundException e) {
             Log.e(TAG, "Failed to locate Traceur", e);
+        }
+    }
+
+    private void reportTrace(@NonNull TraceReportParams params) {
+        Log.v(TAG, "Starting trace report");
+
+        // We don't need to do any permission checks because access to this service
+        // is guarded by SELinux; only perfetto_cmd will be able to call this method.
+        ComponentName componentName = new ComponentName(params.reporterPackageName,
+                params.reporterClassName);
+        Intent intent = new Intent();
+        intent.setComponent(componentName);
+
+        final long ident = Binder.clearCallingIdentity();
+        try {
+            reportTrace(getOrCreateReporterService(intent), componentName, params);
+        } finally {
+            Binder.restoreCallingIdentity(ident);
+        }
+    }
+
+    private void reportTrace(
+            @NonNull ServiceConnector<IMessenger> reporterService,
+            @NonNull ComponentName componentName,
+            @NonNull TraceReportParams params) {
+        reporterService.post(messenger -> {
+            // PermissionManager will cache the results of these queries so no need to do any
+            // caching on our side.
+            checkPermissionOrThrow(componentName, android.Manifest.permission.DUMP);
+            checkPermissionOrThrow(componentName, android.Manifest.permission.PACKAGE_USAGE_STATS);
+
+            if (params.truncateAndUsePipeForTesting) {
+                ParcelFileDescriptor[] pipe = ParcelFileDescriptor.createPipe();
+                try (AutoCloseInputStream i = new AutoCloseInputStream(params.fd)) {
+                    try (AutoCloseOutputStream o = new AutoCloseOutputStream(pipe[1])) {
+                        o.write(i.readNBytes(PIPE_TRUCATE_SIZE_FOR_TEST));
+                    }
+                }
+                params.fd = pipe[0];
+            }
+
+            Message message = Message.obtain();
+            message.what = TraceReportService.MSG_REPORT_TRACE;
+            message.obj = params;
+            messenger.send(message);
+        }).whenComplete((res, err) -> {
+            if (err != null) {
+                Log.e(TAG, "Failed to report trace", err);
+            }
+            try {
+                params.fd.close();
+            } catch (IOException ignored) {
+            }
+        });
+    }
+
+    private ServiceConnector<IMessenger> getOrCreateReporterService(@NonNull Intent intent) {
+        ServiceConnector<IMessenger> connector = mCachedReporterServices.get(intent.getComponent());
+        if (connector == null) {
+            connector = new ServiceConnector.Impl<IMessenger>(
+                    mContext, intent,
+                    Context.BIND_AUTO_CREATE | Context.BIND_WAIVE_PRIORITY,
+                    mContext.getUser().getIdentifier(), IMessenger.Stub::asInterface) {
+                private static final long DISCONNECT_TIMEOUT_MS = 15_000;
+                private static final long REQUEST_TIMEOUT_MS = 15_000;
+
+                @Override
+                protected long getAutoDisconnectTimeoutMs() {
+                    return DISCONNECT_TIMEOUT_MS;
+                }
+
+                @Override
+                protected long getRequestTimeoutMs() {
+                    return REQUEST_TIMEOUT_MS;
+                }
+            };
+            mCachedReporterServices.put(intent.getComponent(), connector);
+        }
+        return connector;
+    }
+
+    private void checkPermissionOrThrow(@NonNull ComponentName componentName,
+            @NonNull String permission) throws SecurityException {
+        if (mPackageManager.checkPermission(permission, componentName.getPackageName())
+                != PackageManager.PERMISSION_GRANTED) {
+            throw new SecurityException(
+                    "Trace reporting service " + componentName.toShortString() + " does not have "
+                            + permission + " permission");
         }
     }
 }
