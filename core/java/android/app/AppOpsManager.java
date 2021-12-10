@@ -1327,9 +1327,41 @@ public class AppOpsManager {
      */
     public static final int OP_ESTABLISH_VPN_MANAGER = AppProtoEnums.APP_OP_ESTABLISH_VPN_MANAGER;
 
+    /**
+     * Allows an application to request a network without specifying a transport.
+     *
+     * @hide
+     */
+    public static final int OP_REQUEST_NETWORK_TRANSPORT_DEFAULT =
+            AppProtoEnums.APP_OP_REQUEST_NETWORK_TRANSPORT_DEFAULT;
+
+    /**
+     * Allows an application to request a network that uses a Cellular transport.
+     *
+     * @hide
+     */
+    public static final int OP_REQUEST_NETWORK_TRANSPORT_CELLULAR =
+            AppProtoEnums.APP_OP_REQUEST_NETWORK_TRANSPORT_CELLULAR;
+
+    /**
+     * Allows an application to request a network that uses a Wi-Fi transport.
+     *
+     * @hide
+     */
+    public static final int OP_REQUEST_NETWORK_TRANSPORT_WIFI =
+            AppProtoEnums.APP_OP_REQUEST_NETWORK_TRANSPORT_WIFI;
+
+    /**
+     * Allows an application to request a network that uses a Bluetooth transport.
+     *
+     * @hide
+     */
+    public static final int OP_REQUEST_NETWORK_TRANSPORT_BLUETOOTH =
+            AppProtoEnums.APP_OP_REQUEST_NETWORK_TRANSPORT_BLUETOOTH;
+
     /** @hide */
     @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.R, trackingBug = 170729553)
-    public static final int _NUM_OP = 119;
+    public static final int _NUM_OP = 123;
 
     /** Access to coarse location information. */
     public static final String OPSTR_COARSE_LOCATION = "android:coarse_location";
@@ -1784,6 +1816,34 @@ public class AppOpsManager {
     @SystemApi
     public static final String OPSTR_ESTABLISH_VPN_MANAGER = "android:establish_vpn_manager";
 
+    /**
+     * @hide
+     */
+    @SystemApi
+    public static final String OPSTR_REQUEST_NETWORK_TRANSPORT_DEFAULT =
+            "android:request_network_transport_default";
+
+    /**
+     * @hide
+     */
+    @SystemApi
+    public static final String OPSTR_REQUEST_NETWORK_TRANSPORT_CELLULAR =
+            "android:request_network_transport_cellular";
+
+    /**
+     * @hide
+     */
+    @SystemApi
+    public static final String OPSTR_REQUEST_NETWORK_TRANSPORT_WIFI =
+            "android:request_network_transport_wifi";
+
+    /**
+     * @hide
+     */
+    @SystemApi
+    public static final String OPSTR_REQUEST_NETWORK_TRANSPORT_BLUETOOTH =
+            "android:request_network_transport_bluetooth";
+
     /** {@link #sAppOpsToNote} not initialized yet for this op */
     private static final byte SHOULD_COLLECT_NOTE_OP_NOT_INITIALIZED = 0;
     /** Should not collect noting of this app-op in {@link #sAppOpsToNote} */
@@ -2002,6 +2062,10 @@ public class AppOpsManager {
             OP_NEARBY_WIFI_DEVICES,             // OP_NEARBY_WIFI_DEVICES
             OP_ESTABLISH_VPN_SERVICE,           // OP_ESTABLISH_VPN_SERVICE
             OP_ESTABLISH_VPN_MANAGER,           // OP_ESTABLISH_VPN_MANAGER
+            OP_REQUEST_NETWORK_TRANSPORT_DEFAULT, //OP_REQUEST_NETWORK_TRANSPORT_DEFAULT
+            OP_REQUEST_NETWORK_TRANSPORT_CELLULAR, // OP_SEND_DATA_BY_MOBILE_CELLULAR
+            OP_REQUEST_NETWORK_TRANSPORT_WIFI,  // OP_REQUEST_NETWORK_TRANSPORT_WIFI
+            OP_REQUEST_NETWORK_TRANSPORT_BLUETOOTH, // OP_REQUEST_NETWORK_TRANSPORT_BLUETOOTH
     };
 
     /**
@@ -2127,6 +2191,10 @@ public class AppOpsManager {
             OPSTR_NEARBY_WIFI_DEVICES,
             OPSTR_ESTABLISH_VPN_SERVICE,
             OPSTR_ESTABLISH_VPN_MANAGER,
+            OPSTR_REQUEST_NETWORK_TRANSPORT_DEFAULT,
+            OPSTR_REQUEST_NETWORK_TRANSPORT_CELLULAR,
+            OPSTR_REQUEST_NETWORK_TRANSPORT_WIFI,
+            OPSTR_REQUEST_NETWORK_TRANSPORT_BLUETOOTH,
     };
 
     /**
@@ -2253,6 +2321,10 @@ public class AppOpsManager {
             "NEARBY_WIFI_DEVICES",
             "ESTABLISH_VPN_SERVICE",
             "ESTABLISH_VPN_MANAGER",
+            "REQUEST_NETWORK_TRANSPORT_DEFAULT",
+            "REQUEST_NETWORK_TRANSPORT_CELLULAR",
+            "REQUEST_NETWORK_TRANSPORT_WIFI",
+            "REQUEST_NETWORK_TRANSPORT_BLUETOOTH",
     };
 
     /**
@@ -2380,6 +2452,10 @@ public class AppOpsManager {
             Manifest.permission.NEARBY_WIFI_DEVICES,
             null, // no permission for OP_ESTABLISH_VPN_SERVICE
             null, // no permission for OP_ESTABLISH_VPN_MANAGER
+            null, // no permission for OP_REQUEST_NETWORK_TRANSPORT_DEFAULT
+            null, // no permission for OP_REQUEST_NETWORK_TRANSPORT_CELLULAR
+            null, // no permission for OP_REQUEST_NETWORK_TRANSPORT_WIFI
+            null, // no permission for OP_REQUEST_NETWORK_TRANSPORT_BLUETOOTH
     };
 
     /**
@@ -2507,6 +2583,10 @@ public class AppOpsManager {
             null, // NEARBY_WIFI_DEVICES
             null, // ESTABLISH_VPN_SERVICE
             null, // ESTABLISH_VPN_MANAGER
+            null, // REQUEST_NETWORK_TRANSPORT_DEFAULT
+            null, // REQUEST_NETWORK_TRANSPORT_CELLULAR
+            null, // REQUEST_NETWORK_TRANSPORT_WIFI
+            null, // REQUEST_NETWORK_TRANSPORT_BLUETOOTH
     };
 
     /**
@@ -2633,6 +2713,10 @@ public class AppOpsManager {
             null, // NEARBY_WIFI_DEVICES
             null, // ESTABLISH_VPN_SERVICE
             null, // ESTABLISH_VPN_MANAGER
+            null, // REQUEST_NETWORK_TRANSPORT_DEFAULT
+            null, // REQUEST_NETWORK_TRANSPORT_CELLULAR
+            null, // REQUEST_NETWORK_TRANSPORT_WIFI
+            null, // REQUEST_NETWORK_TRANSPORT_BLUETOOTH
     };
 
     /**
@@ -2758,6 +2842,10 @@ public class AppOpsManager {
             AppOpsManager.MODE_ALLOWED, // NEARBY_WIFI_DEVICES
             AppOpsManager.MODE_ALLOWED, // ESTABLISH_VPN_SERVICE
             AppOpsManager.MODE_ALLOWED, // ESTABLISH_VPN_MANAGER
+            AppOpsManager.MODE_ALLOWED, // REQUEST_NETWORK_TRANSPORT_DEFAULT
+            AppOpsManager.MODE_ALLOWED, // REQUEST_NETWORK_TRANSPORT_CELLULAR
+            AppOpsManager.MODE_ALLOWED, // REQUEST_NETWORK_TRANSPORT_WIFI
+            AppOpsManager.MODE_ALLOWED, // REQUEST_NETWORK_TRANSPORT_BLUETOOTH
     };
 
     /**
@@ -2887,6 +2975,10 @@ public class AppOpsManager {
             false, // NEARBY_WIFI_DEVICES
             false, // OP_ESTABLISH_VPN_SERVICE
             false, // OP_ESTABLISH_VPN_MANAGER
+            false, // REQUEST_NETWORK_TRANSPORT_DEFAULT
+            false, // REQUEST_NETWORK_TRANSPORT_CELLULAR
+            false, // REQUEST_NETWORK_TRANSPORT_WIFI
+            false, // REQUEST_NETWORK_TRANSPORT_BLUETOOTH
     };
 
     /**
