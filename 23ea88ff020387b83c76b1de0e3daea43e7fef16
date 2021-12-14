@@ -16,6 +16,23 @@
       "message": "PTAL thanks!",
       "revId": "23ea88ff020387b83c76b1de0e3daea43e7fef16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f53d45c3_30e91285",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2021-12-14T17:15:46Z",
+      "side": 1,
+      "message": "+Ioannis to take a look at the Java code on Primiano\u0027s suggestion.",
+      "revId": "23ea88ff020387b83c76b1de0e3daea43e7fef16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
