@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000018496688",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1918624?revision\u003d6",
+      "fixSuggestions": [
+        {
+          "fixId": "f4004af7_5a3fe8a2",
+          "description": "Change to \"core/java/android/tracing/ITracingServiceProxy.aidl\"",
+          "replacements": [
+            {
+              "path": "core/java/android/tracing/ITracingServiceProxy.aidl",
+              "range": {
+                "startLine": 36,
+                "startChar": 29,
+                "endLine": 36,
+                "endChar": 37
+              },
+              "replacement": "recipient"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "18a70cf4_cc16edde",
+        "filename": "core/java/android/tracing/ITracingServiceProxy.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-12-16T18:34:54Z",
+      "side": 1,
+      "message": "Common typo found: \"recipent\" -- should it be \"recipient\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 36,
+        "startChar": 29,
+        "endLine": 36,
+        "endChar": 37
+      },
+      "revId": "d1659e72ba9924fb4cc0c0e6201d86745c8e2095",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
