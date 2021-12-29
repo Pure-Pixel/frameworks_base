@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28ffe7d9_456a6059",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1480345
+      },
+      "writtenOn": "2021-12-29T05:47:10Z",
+      "side": 1,
+      "message": "add myself to the CC list to keep an eye on this issue so I can get noticed when there is any update.",
+      "revId": "1cfc0c749a5c9b2f27863220c2a8089513ac1679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
