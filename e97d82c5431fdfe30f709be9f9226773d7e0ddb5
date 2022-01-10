@@ -16,6 +16,75 @@
       "message": "Ioannis: PTAL - Michael is OOO until 9th - will ping after then.",
       "revId": "e97d82c5431fdfe30f709be9f9226773d7e0ddb5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be7bb8c0_2e58269e",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2022-01-10T09:52:09Z",
+      "side": 1,
+      "message": "What is the functional distinction between this and onReportTrace? If the intention is to just cleanup, should we name it appropriately?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 72
+      },
+      "revId": "e97d82c5431fdfe30f709be9f9226773d7e0ddb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f08ca170_3d77dc63",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2022-01-10T09:52:09Z",
+      "side": 1,
+      "message": "Given this closes the fd should it be in a finally block? Or more generally should execution of this have any guarantees over onReportTrace exceptions?",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 38
+      },
+      "revId": "e97d82c5431fdfe30f709be9f9226773d7e0ddb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8132be3_a60569f5",
+        "filename": "services/core/java/com/android/server/tracing/TracingServiceProxy.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2022-01-10T09:52:09Z",
+      "side": 1,
+      "message": "What happens if the service is disconnected (but still in mCachedReporterServices)?",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 100
+      },
+      "revId": "e97d82c5431fdfe30f709be9f9226773d7e0ddb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
