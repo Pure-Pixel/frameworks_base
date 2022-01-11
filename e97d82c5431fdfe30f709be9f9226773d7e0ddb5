@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9523015f_cd2a005e",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-11T18:20:42Z",
+      "side": 1,
+      "message": "I\u0027ve changed the naming and comments to make this clearer.",
+      "parentUuid": "be7bb8c0_2e58269e",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 72
+      },
+      "revId": "e97d82c5431fdfe30f709be9f9226773d7e0ddb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f08ca170_3d77dc63",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4246ebd7_5e24b7c7",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-11T18:20:42Z",
+      "side": 1,
+      "message": "Done. I don\u0027t think we should do anything more than closing the FD.",
+      "parentUuid": "f08ca170_3d77dc63",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 38
+      },
+      "revId": "e97d82c5431fdfe30f709be9f9226773d7e0ddb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8132be3_a60569f5",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-01-10T09:52:09Z",
       "side": 1,
       "message": "What happens if the service is disconnected (but still in mCachedReporterServices)?",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 100
+      },
+      "revId": "e97d82c5431fdfe30f709be9f9226773d7e0ddb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d10170b2_ef2b7960",
+        "filename": "services/core/java/com/android/server/tracing/TracingServiceProxy.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-11T18:20:42Z",
+      "side": 1,
+      "message": "This is not the service itself but just a connector to the service. If the service disconnects, ServiceConnector should handle that transparently for us (i.e. the lifetime of ServiceConnector is not tied to the lifetime of the service connection).",
+      "parentUuid": "b8132be3_a60569f5",
       "range": {
         "startLine": 190,
         "startChar": 0,
