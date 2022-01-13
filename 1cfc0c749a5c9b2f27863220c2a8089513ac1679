@@ -16,6 +16,23 @@
       "message": "add myself to the CC list to keep an eye on this issue so I can get noticed when there is any update.",
       "revId": "1cfc0c749a5c9b2f27863220c2a8089513ac1679",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02e24632_2edde31e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2022-01-13T16:26:10Z",
+      "side": 1,
+      "message": "James friendly ping.",
+      "revId": "1cfc0c749a5c9b2f27863220c2a8089513ac1679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
