@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f462d064_51998b43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040443
+      },
+      "writtenOn": "2022-01-17T18:26:49Z",
+      "side": 1,
+      "message": "(drive-by note: the CTS tests are in aosp/1918898 part of the same topic.\nThis CL should have had a Test: line referring to them though as it\u0027s not obvious)",
+      "parentUuid": "c92cbfe7_4c9f53da",
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c178c7b8_4868cff0",
