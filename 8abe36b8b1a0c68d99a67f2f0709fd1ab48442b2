@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c92cbfe7_4c9f53da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2022-01-17T18:24:01Z",
+      "side": 1,
+      "message": "In general, all APIs are required to have CTS or GTS tests to ensure compliance across the ecosystem. Have you thought about how you could test these APIs?",
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c178c7b8_4868cff0",
