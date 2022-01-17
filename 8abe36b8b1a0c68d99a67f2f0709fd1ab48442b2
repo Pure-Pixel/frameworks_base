@@ -43,6 +43,63 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f592d068_35150602",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2022-01-17T18:23:22Z",
+      "side": 1,
+      "message": "All classes, methods, fields, etc. exposed via API need to be appropriately documented.",
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eb80784_433ec850",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2022-01-17T18:23:22Z",
+      "side": 1,
+      "message": "Does this need to be public? Seems like it should be private (or, at the very least, package-private)",
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28384e0b_35c1b7e7",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2022-01-17T18:23:22Z",
+      "side": 1,
+      "message": "Why not just return a UUID object? If clients really want LSB / MSB they can just call get(Least|Most)SignificantBits on the UUID.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 9
+      },
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2b4e7f9_52821ba4",
         "filename": "core/java/android/service/tracing/TraceReportService.java",
         "patchSetId": 10
@@ -59,6 +116,29 @@
         "startChar": 16,
         "endLine": 114,
         "endChar": 30
+      },
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47b29205_309afe07",
+        "filename": "services/core/java/com/android/server/tracing/TracingServiceProxy.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2022-01-17T18:23:22Z",
+      "side": 1,
+      "message": "nit: code inside of system_server should use Slog.\n\nIn general, this gives you a larger buffer since the system tends to be much less spammy than apps.",
+      "range": {
+        "startLine": 180,
+        "startChar": 16,
+        "endLine": 180,
+        "endChar": 21
       },
       "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
