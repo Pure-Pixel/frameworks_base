@@ -135,6 +135,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d97ec49_706019a9",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2022-01-17T18:28:41Z",
+      "side": 1,
+      "message": "nit: Rather than relying on a specific UID, the typical pattern is to have the app require a permission that only the system can hold. Then, in response, the system will only bind against services that require said permission (and have the requisite client-side permission).\n\nThis ensure that things can\u0027t even bind against the service outside of the designated system component, which greatly reduces the available attack surface. It\u0027s also a bit more flexible since it means we don\u0027t necessarily need to be the system UID that does the binding; we could restrict this to another component that only has enough permissions for tracing down the road.\n\nSee RemoteDisplays for an example:\n\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/base/services/core/java/com/android/server/media/RemoteDisplayProviderWatcher.java\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/base/services/core/java/com/android/server/media/RemoteDisplayProviderProxy.java",
+      "range": {
+        "startLine": 92,
+        "startChar": 16,
+        "endLine": 92,
+        "endChar": 52
+      },
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2b4e7f9_52821ba4",
         "filename": "core/java/android/service/tracing/TraceReportService.java",
         "patchSetId": 10
