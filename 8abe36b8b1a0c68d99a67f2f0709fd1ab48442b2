@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d6efd2f_dbd7fb29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2022-01-17T18:29:28Z",
+      "side": 1,
+      "message": "Ah, cool. Yeah, definitely not obvious anything in that directory gets run as part of CTS.",
+      "parentUuid": "f462d064_51998b43",
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c178c7b8_4868cff0",
