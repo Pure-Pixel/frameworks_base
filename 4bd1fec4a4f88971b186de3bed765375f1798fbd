@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c799e65f_64959e43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-01-18T02:50:34Z",
+      "side": 1,
+      "message": "LGTM assuming comments addressed.",
+      "revId": "4bd1fec4a4f88971b186de3bed765375f1798fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e25bda3_8dfbe78a",
+        "filename": "packages/ConnectivityT/service/src/com/android/server/net/NetworkStatsFactory.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-01-18T02:50:34Z",
+      "side": 1,
+      "message": "Genereally a Context, when present, is the first argument, maybe move it?",
+      "range": {
+        "startLine": 166,
+        "startChar": 67,
+        "endLine": 166,
+        "endChar": 87
+      },
+      "revId": "4bd1fec4a4f88971b186de3bed765375f1798fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
