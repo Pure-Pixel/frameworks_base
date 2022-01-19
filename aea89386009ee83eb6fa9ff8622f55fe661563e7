@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b899b5fc_b45154b6",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2022-01-19T15:57:38Z",
+      "side": 1,
+      "message": "Document the permissions this service has to require.\n\nA sample service declaration is usually helpful too. See RemoteDisplayProvider for example docs:\n\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/base/media/lib/remotedisplay/java/com/android/media/remotedisplay/RemoteDisplayProvider.java;l\u003d96;drc\u003df8191e8996452432f6eb979180866dff84240ab7",
+      "revId": "aea89386009ee83eb6fa9ff8622f55fe661563e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "635190ec_63076fa3",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2022-01-19T15:57:38Z",
+      "side": 1,
+      "message": "nit: Stray comment?",
+      "revId": "aea89386009ee83eb6fa9ff8622f55fe661563e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11556c92_d172eed7",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2022-01-19T15:57:38Z",
+      "side": 1,
+      "message": "Why do we even need this? If you want the FD to continue to live, you should just dup it in onReportTrace. That way ownership is clear: the platform always owns the FD, it just gives you access to it for the length of onReportTrace.",
+      "revId": "aea89386009ee83eb6fa9ff8622f55fe661563e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98d1d5cb_b3ff220d",
+        "filename": "services/core/java/com/android/server/tracing/TracingServiceProxy.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2022-01-19T15:57:38Z",
+      "side": 1,
+      "message": "You probably want to do these permission checks before binding against the service. Otherwise you\u0027ll wake the process up even if it doesn\u0027t have the requisite permissions to receive the trace. This gives apps another way to avoid background restrictions, as well as leaks when the actual traces are being reported. Neither is probably that big of a deal, but worth avoiding if possible.",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 0
+      },
+      "revId": "aea89386009ee83eb6fa9ff8622f55fe661563e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
