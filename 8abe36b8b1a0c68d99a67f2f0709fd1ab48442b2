@@ -94,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5471ca51_464ceaad",
+        "filename": "core/api/system-current.txt",
+        "patchSetId": 10
+      },
+      "lineNbr": 10502,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-19T01:19:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c178c7b8_4868cff0",
+      "range": {
+        "startLine": 10502,
+        "startChar": 23,
+        "endLine": 10502,
+        "endChar": 40
+      },
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f592d068_35150602",
@@ -107,6 +131,24 @@
       "writtenOn": "2022-01-17T18:23:22Z",
       "side": 1,
       "message": "All classes, methods, fields, etc. exposed via API need to be appropriately documented.",
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bd4e01f_ec49088c",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-19T01:19:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f592d068_35150602",
       "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -130,6 +172,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5416a243_31ab03ec",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-19T01:19:53Z",
+      "side": 1,
+      "message": "This is used by TracingServiceProxy below.",
+      "parentUuid": "7eb80784_433ec850",
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28384e0b_35c1b7e7",
         "filename": "core/java/android/service/tracing/TraceReportService.java",
         "patchSetId": 10
@@ -141,6 +201,30 @@
       "writtenOn": "2022-01-17T18:23:22Z",
       "side": 1,
       "message": "Why not just return a UUID object? If clients really want LSB / MSB they can just call get(Least|Most)SignificantBits on the UUID.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 9
+      },
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb3e7d90_f7264b52",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-19T01:19:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28384e0b_35c1b7e7",
       "range": {
         "startLine": 66,
         "startChar": 0,
@@ -174,6 +258,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a9c6117_9171cdb2",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-19T01:19:53Z",
+      "side": 1,
+      "message": "Ahhh it didn\u0027t feel like this was the right patten but I couldn\u0027t find what the right thing to do is.\n\nChanged to your suggestion - thanks!",
+      "parentUuid": "9d97ec49_706019a9",
+      "range": {
+        "startLine": 92,
+        "startChar": 16,
+        "endLine": 92,
+        "endChar": 52
+      },
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2b4e7f9_52821ba4",
@@ -197,6 +305,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57af8609_b97a9be7",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-19T01:19:53Z",
+      "side": 1,
+      "message": "Metalava complains if this is not prefixed with a public method does not have the onMethodName format.",
+      "parentUuid": "b2b4e7f9_52821ba4",
+      "range": {
+        "startLine": 114,
+        "startChar": 16,
+        "endLine": 114,
+        "endChar": 30
+      },
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47b29205_309afe07",
@@ -210,6 +342,30 @@
       "writtenOn": "2022-01-17T18:23:22Z",
       "side": 1,
       "message": "nit: code inside of system_server should use Slog.\n\nIn general, this gives you a larger buffer since the system tends to be much less spammy than apps.",
+      "range": {
+        "startLine": 180,
+        "startChar": 16,
+        "endLine": 180,
+        "endChar": 21
+      },
+      "revId": "8abe36b8b1a0c68d99a67f2f0709fd1ab48442b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cbcda56_99f0faae",
+        "filename": "services/core/java/com/android/server/tracing/TracingServiceProxy.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-19T01:19:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47b29205_309afe07",
       "range": {
         "startLine": 180,
         "startChar": 16,
