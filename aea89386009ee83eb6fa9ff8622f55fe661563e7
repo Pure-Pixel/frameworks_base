@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6d2997c_62856b21",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-20T19:11:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b899b5fc_b45154b6",
+      "revId": "aea89386009ee83eb6fa9ff8622f55fe661563e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "635190ec_63076fa3",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-01-19T15:57:38Z",
       "side": 1,
       "message": "nit: Stray comment?",
+      "revId": "aea89386009ee83eb6fa9ff8622f55fe661563e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0edd9679_42b2613e",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-20T19:11:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "635190ec_63076fa3",
       "revId": "aea89386009ee83eb6fa9ff8622f55fe661563e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f291ac7c_b7c8f3b7",
+        "filename": "core/java/android/service/tracing/TraceReportService.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-20T19:11:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11556c92_d172eed7",
+      "revId": "aea89386009ee83eb6fa9ff8622f55fe661563e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98d1d5cb_b3ff220d",
@@ -65,6 +119,30 @@
       "writtenOn": "2022-01-19T15:57:38Z",
       "side": 1,
       "message": "You probably want to do these permission checks before binding against the service. Otherwise you\u0027ll wake the process up even if it doesn\u0027t have the requisite permissions to receive the trace. This gives apps another way to avoid background restrictions, as well as leaks when the actual traces are being reported. Neither is probably that big of a deal, but worth avoiding if possible.",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 0
+      },
+      "revId": "aea89386009ee83eb6fa9ff8622f55fe661563e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92dd0d47_9640ba0a",
+        "filename": "services/core/java/com/android/server/tracing/TracingServiceProxy.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-20T19:11:25Z",
+      "side": 1,
+      "message": "I did the check here because I thought there might be race condition if the package changes in between the permission checks and binding - is that not a concern?\n\nChanged to be as you suggest.",
+      "parentUuid": "98d1d5cb_b3ff220d",
       "range": {
         "startLine": 157,
         "startChar": 0,
