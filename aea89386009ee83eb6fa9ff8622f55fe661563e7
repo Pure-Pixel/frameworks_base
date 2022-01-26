@@ -151,6 +151,30 @@
       },
       "revId": "aea89386009ee83eb6fa9ff8622f55fe661563e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3cc1dc0_7d646a91",
+        "filename": "services/core/java/com/android/server/tracing/TracingServiceProxy.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2022-01-26T19:55:57Z",
+      "side": 1,
+      "message": "I\u0027m not terribly concerned about it given\n\n  1) The tight timing bounds needed.\n  2) The need to uninstall what\u0027s ostensibly a priv-app.\n\nThe other option is to put the permission checks in both locations. Kind of gross, but would solve the issue.",
+      "parentUuid": "92dd0d47_9640ba0a",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 0
+      },
+      "revId": "aea89386009ee83eb6fa9ff8622f55fe661563e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
