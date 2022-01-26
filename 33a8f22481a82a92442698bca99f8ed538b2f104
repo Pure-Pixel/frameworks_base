@@ -16,6 +16,24 @@
       "message": "Adding some security eng to weigh in on the permissions questions. Longer term, it would be kind of nice for bindService to take a permission as a parameter somehow to make it easy to avoid this kind of TOCTTOU bug.\n\nI don\u0027t think we need to block on security though. We can merge now and then fix later if they think it\u0027s a significant issue.",
       "revId": "33a8f22481a82a92442698bca99f8ed538b2f104",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73609f2a_b6bed6e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-01-26T20:03:12Z",
+      "side": 1,
+      "message": "Great thanks - I\u0027ll autosubmit this and follow up with any comments from Linus or Bernado.",
+      "parentUuid": "316cd3c7_cdf19655",
+      "revId": "33a8f22481a82a92442698bca99f8ed538b2f104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
