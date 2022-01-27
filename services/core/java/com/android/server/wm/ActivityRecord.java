@@ -135,6 +135,7 @@ import static com.android.server.wm.ActivityRecordProto.CLIENT_VISIBLE;
 import static com.android.server.wm.ActivityRecordProto.DEFER_HIDING_CLIENT;
 import static com.android.server.wm.ActivityRecordProto.FILLS_PARENT;
 import static com.android.server.wm.ActivityRecordProto.FRONT_OF_TASK;
+import static com.android.server.wm.ActivityRecordProto.HANDLES_ORIENTATION_CHANGE_FROM_DESCENDANT;
 import static com.android.server.wm.ActivityRecordProto.IN_SIZE_COMPAT_MODE;
 import static com.android.server.wm.ActivityRecordProto.IS_ANIMATING;
 import static com.android.server.wm.ActivityRecordProto.IS_WAITING_FOR_TRANSITION_START;
@@ -8687,6 +8688,8 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
         proto.write(PIP_AUTO_ENTER_ENABLED, pictureInPictureArgs.isAutoEnterEnabled());
         proto.write(IN_SIZE_COMPAT_MODE, inSizeCompatMode());
         proto.write(MIN_ASPECT_RATIO, info.getMinAspectRatio());
+        proto.write(HANDLES_ORIENTATION_CHANGE_FROM_DESCENDANT,
+                handlesOrientationChangeFromDescendant());
     }
 
     @Override
