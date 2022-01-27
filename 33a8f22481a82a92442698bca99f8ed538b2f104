@@ -70,6 +70,24 @@
       "parentUuid": "cefefe24_8f669461",
       "revId": "33a8f22481a82a92442698bca99f8ed538b2f104",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0bb7b79_be53cac4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1053813
+      },
+      "writtenOn": "2022-01-27T15:08:03Z",
+      "side": 1,
+      "message": "I was looking at the old patch set where the checks were inside the reportService.post\n\nI think leaving it as is fine. SeLinux protects from anything malicious calling into the service AND it protects the files (*not an selinux expert, but that\u0027s what it looks like to me)",
+      "parentUuid": "353094c0_f8d22358",
+      "revId": "33a8f22481a82a92442698bca99f8ed538b2f104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
