@@ -52,6 +52,24 @@
       "parentUuid": "73609f2a_b6bed6e9",
       "revId": "33a8f22481a82a92442698bca99f8ed538b2f104",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "353094c0_f8d22358",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2022-01-27T12:35:38Z",
+      "side": 1,
+      "message": "\u003e but it would be incredibly racy and I can\u0027t really see anyone reproducing something like that without having a lot of control of the device, and if they have that level of control of the device then there are a lot of other attacks they can perform).\n\nYeah, that\u0027s why I\u0027m not super concerned about it either, but would be nice to close just so we don\u0027t have an additional mechanism to be used in an exploit chain. \n\n\u003e Security comes from checking the permission synchronously before handing over any sensitive data, as is being done with DUMP and PACKAGE_USAGE_STATS here.\n\nThis is happening before the service bind now though, so it\u0027s possible we get it wrong if the package changes between the permission check and the bindService call. Unlikely, but possible.\n\nLike I said, we could just check in two locations (first to avoid binding to things that don\u0027t hold the right permissions, the second to avoid the TOCTTOU race). Sounds like you\u0027re not that worried about it though.",
+      "parentUuid": "cefefe24_8f669461",
+      "revId": "33a8f22481a82a92442698bca99f8ed538b2f104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
