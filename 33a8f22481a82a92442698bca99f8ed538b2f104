@@ -34,6 +34,24 @@
       "parentUuid": "316cd3c7_cdf19655",
       "revId": "33a8f22481a82a92442698bca99f8ed538b2f104",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cefefe24_8f669461",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1053813
+      },
+      "writtenOn": "2022-01-27T10:52:00Z",
+      "side": 1,
+      "message": "I don\u0027t think this TOCTTOU case is very common, and at worst it will cause the an app to bind to something that it didn\u0027t want to bind to (because it was swapped out), but it would be incredibly racy and I can\u0027t really see anyone reproducing something like that without having a lot of control of the device, and if they have that level of control of the device then there are a lot of other attacks they can perform).\n\nSecurity comes from checking the permission synchronously before handing over any sensitive data, as is being done with DUMP and PACKAGE_USAGE_STATS here.",
+      "parentUuid": "73609f2a_b6bed6e9",
+      "revId": "33a8f22481a82a92442698bca99f8ed538b2f104",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

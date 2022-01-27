@@ -199,6 +199,30 @@
       },
       "revId": "aea89386009ee83eb6fa9ff8622f55fe661563e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b5807a1_47f971ff",
+        "filename": "services/core/java/com/android/server/tracing/TracingServiceProxy.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1053813
+      },
+      "writtenOn": "2022-01-27T10:52:00Z",
+      "side": 1,
+      "message": "Move the checkRequestsBindPermissionOrThrow(componentName); check before you do the bind and avoid the bind if the permission isn\u0027t there as Michael said.\n\nThat being said, that check doesn\u0027t really add security from the platform point of view, but rather just refuses to work with a service that is also exposed to someone else (which would be a security bug in that app)",
+      "parentUuid": "d0576543_77ae7941",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 0
+      },
+      "revId": "aea89386009ee83eb6fa9ff8622f55fe661563e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
