@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7f6358b_fe5914d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003801
+      },
+      "writtenOn": "2022-02-01T22:03:43Z",
+      "side": 1,
+      "message": "@Steven, fixed the bug, PTAL?",
+      "revId": "885b23fe367a8fa626e97156c483653281114f1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
