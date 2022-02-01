@@ -26,6 +26,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothHeadset;
 import android.bluetooth.BluetoothHearingAid;
 import android.bluetooth.BluetoothLeAudio;
+import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
 import android.content.Intent;
 import android.media.AudioDeviceAttributes;
@@ -509,7 +510,13 @@ public class BtHelper {
         // Discard timeout message
         mDeviceBroker.handleCancelFailureToConnectToBtHeadsetService();
         mBluetoothHeadset = headset;
-        setBtScoActiveDevice(mBluetoothHeadset.getActiveDevice());
+
+        BluetoothAdapter adapter = mDeviceBroker.getContext()
+                .getSystemService(BluetoothManager.class).getAdapter();
+
+        List<BluetoothDevice> activeDevices = adapter.getActiveDevices(BluetoothProfile.HEADSET);
+        BluetoothDevice activeDevice = (activeDevices.size() > 0) ? activeDevices.get(0) : null;
+        setBtScoActiveDevice(activeDevice);
         // Refresh SCO audio state
         checkScoAudioState();
         if (mScoAudioState != SCO_STATE_ACTIVATE_REQ
