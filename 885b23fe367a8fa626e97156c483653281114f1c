@@ -16,6 +16,23 @@
       "message": "@Steven, fixed the bug, PTAL?",
       "revId": "885b23fe367a8fa626e97156c483653281114f1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff343b32_da4b2c33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003801
+      },
+      "writtenOn": "2022-02-01T22:10:49Z",
+      "side": 1,
+      "message": "I\u0027ll fix the typo later.",
+      "revId": "885b23fe367a8fa626e97156c483653281114f1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
