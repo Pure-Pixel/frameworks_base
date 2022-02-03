@@ -33,6 +33,24 @@
       "message": "James friendly ping.",
       "revId": "1cfc0c749a5c9b2f27863220c2a8089513ac1679",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd4af16a_5cd115c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2022-02-03T15:13:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28ffe7d9_456a6059",
+      "revId": "1cfc0c749a5c9b2f27863220c2a8089513ac1679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
