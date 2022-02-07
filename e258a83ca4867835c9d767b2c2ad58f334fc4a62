@@ -118,6 +118,30 @@
       },
       "revId": "e258a83ca4867835c9d767b2c2ad58f334fc4a62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18d62848_e6e8c347",
+        "filename": "api/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1086749
+      },
+      "writtenOn": "2022-02-07T17:07:01Z",
+      "side": 1,
+      "message": "We attempted to do this in the past (see sjgilbert@ CLs in goog and aosp for enhanced nullability checks), however due to many branches (merge conflicts in multiple down the stream), many projects (e.g. car that also enables various checks), it makes it into a really expensive effort. Given my team is not staffed to work on platform (ongoing discussion with larsberg@), we will first try to just fix the checks, if it lands cleanly, we\u0027ll add it to platform, if any of it fails, we\u0027ll be disabling them and filing bugs with the hotlist of metalava platform needs. I hope you can understand our situation.",
+      "parentUuid": "5310287e_3ee08f7b",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "e258a83ca4867835c9d767b2c2ad58f334fc4a62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
