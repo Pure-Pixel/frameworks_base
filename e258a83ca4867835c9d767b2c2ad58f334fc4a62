@@ -94,6 +94,30 @@
       },
       "revId": "e258a83ca4867835c9d767b2c2ad58f334fc4a62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5310287e_3ee08f7b",
+        "filename": "api/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2022-02-07T16:37:13Z",
+      "side": 1,
+      "message": "Rather than disabling the check, which sounds like it would allow breaking changes of this kind going forward, could we add the problems introduced since the last frozen version to incompatibilities.txt instead?",
+      "parentUuid": "70305376_5dadbdb4",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "e258a83ca4867835c9d767b2c2ad58f334fc4a62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
