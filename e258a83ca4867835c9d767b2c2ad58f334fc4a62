@@ -22,6 +22,30 @@
       },
       "revId": "e258a83ca4867835c9d767b2c2ad58f334fc4a62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70f0e7a0_97728bb3",
+        "filename": "api/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1442661
+      },
+      "writtenOn": "2022-02-07T15:38:18Z",
+      "side": 1,
+      "message": "Sorry, good catch. Copied and pasted from earlier change. Updated to reflect the actual file, Android.bp.",
+      "parentUuid": "93c65c7e_350e7891",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "e258a83ca4867835c9d767b2c2ad58f334fc4a62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
