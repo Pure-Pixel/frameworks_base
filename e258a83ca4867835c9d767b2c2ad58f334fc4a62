@@ -70,6 +70,30 @@
       },
       "revId": "e258a83ca4867835c9d767b2c2ad58f334fc4a62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70305376_5dadbdb4",
+        "filename": "api/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1086749
+      },
+      "writtenOn": "2022-02-07T16:14:04Z",
+      "side": 1,
+      "message": "https://source.corp.google.com/android/frameworks/base/api/Android.bp;l\u003d92 invokes metalava command without going through droidstubs, we want to be able to disable compatibility checks that do not pass in platform that we add/fix/modify. We hit an issue when trying to verify ChangedThrows check.",
+      "parentUuid": "22b70da4_320f58ba",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "e258a83ca4867835c9d767b2c2ad58f334fc4a62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
