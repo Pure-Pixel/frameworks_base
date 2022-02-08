@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc707ac1_9c001a3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1086749
+      },
+      "writtenOn": "2022-02-08T19:25:37Z",
+      "side": 1,
+      "message": "jham@ PTAL. This is blocking our metalava work.",
+      "revId": "93fdf4dd29eddf20c4414233ef4f057204e5bd21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
