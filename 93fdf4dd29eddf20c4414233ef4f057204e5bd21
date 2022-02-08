@@ -16,6 +16,24 @@
       "message": "jham@ PTAL. This is blocking our metalava work.",
       "revId": "93fdf4dd29eddf20c4414233ef4f057204e5bd21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "307da8c4_04a846e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2022-02-08T19:38:57Z",
+      "side": 1,
+      "message": "I\u0027ve not seen a CL that disables the checks, so it\u0027s not really the case?",
+      "parentUuid": "bc707ac1_9c001a3b",
+      "revId": "93fdf4dd29eddf20c4414233ef4f057204e5bd21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
