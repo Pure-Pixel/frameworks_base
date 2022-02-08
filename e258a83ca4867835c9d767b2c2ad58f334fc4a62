@@ -190,6 +190,30 @@
       },
       "revId": "e258a83ca4867835c9d767b2c2ad58f334fc4a62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3975978_963c4294",
+        "filename": "api/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1086749
+      },
+      "writtenOn": "2022-02-08T21:34:45Z",
+      "side": 1,
+      "message": "\u003e What hotlist is that?\nhttps://issuetracker.google.com/hotlists/3900822 is the hotlist.\n\n\u003e As you know, our team has filed a lot of metalava bugs that used to be ignored, but as of more recently get actively closed by you. Where are you going to file these bugs?\n\nIn response to your feedback, I created the hotlist above and reopened several of the issues I closed. The issues are still going to metalava component, but then they get added to this hotlist and the assignee is set to blank.\n\nThe plan is to whenever platform staffs this work, these bugs can be picked up and worked on.\n\n\u003e So what is the compatibility check that is being disabled?\n\nChangedThrows (b/217545629) and ChangedAbstract (b/217552813)\n\n\u003e Can you share a bit more info? Generally speaking compatibility isn\u0027t something that we can allow to break. Is it a source incompatibility, or a binary incompatibility?\n\nIn this case it is binary compatibility, aosp/1966044 is changing ChangedAbstract into an error, whereas before it wasn\u0027t enforced, similar is true for aosp/1966042\n\nThis was never enforced in the platform, so this is not a regression.\n\n\u003e I don\u0027t mind you having ownership of your file, but I don\u0027t think just disabling them for platform indefinitely is a good solution.\n\nI think the right people to send this feedback to is your leadership to accelerate staffing of metalava uses in platform.\n\n\u003e It would also be good to talk about what can be done to make the allow-listing approach easier?\n\nIf we could do it in a single branch with a single command, I don\u0027t think we would be against doing that, but as you are aware there are dozens of baseline files across the checkout, the APIs are evolving internally causing different failures down the stream, there are merge conflicts along the merge path. Hopefully that makes sense that we do not want to spend time working around platform workflow.",
+      "parentUuid": "d16885d5_3e5c7084",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "e258a83ca4867835c9d767b2c2ad58f334fc4a62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
