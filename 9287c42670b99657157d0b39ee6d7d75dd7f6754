@@ -33,6 +33,23 @@
       "message": "Please add unit tests",
       "revId": "9287c42670b99657157d0b39ee6d7d75dd7f6754",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "377e789c_d1a22739",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060562
+      },
+      "writtenOn": "2022-02-10T21:15:52Z",
+      "side": 1,
+      "message": "And link to a bug that explains what the bug the user would see",
+      "revId": "9287c42670b99657157d0b39ee6d7d75dd7f6754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
