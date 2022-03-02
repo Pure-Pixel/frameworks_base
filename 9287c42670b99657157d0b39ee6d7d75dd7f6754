@@ -50,6 +50,42 @@
       "message": "And link to a bug that explains what the bug the user would see",
       "revId": "9287c42670b99657157d0b39ee6d7d75dd7f6754",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da38c6ab_319890ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1561936
+      },
+      "writtenOn": "2022-03-02T07:27:05Z",
+      "side": 1,
+      "message": "I added unit test.\nandroid.app.NotificationTest#allPendingIntents_checkCountAfterMarshaling\nPlease check.",
+      "parentUuid": "b12bbb78_251c247d",
+      "revId": "9287c42670b99657157d0b39ee6d7d75dd7f6754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0d4ff35_58644eec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1561936
+      },
+      "writtenOn": "2022-03-02T07:27:05Z",
+      "side": 1,
+      "message": "There is an issue video, but there is no proper way to deliver it, \nso I added it to the link below. Please check the video.\nhttps://partnerissuetracker.corp.google.com/u/0/issues/220679094",
+      "parentUuid": "377e789c_d1a22739",
+      "revId": "9287c42670b99657157d0b39ee6d7d75dd7f6754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
