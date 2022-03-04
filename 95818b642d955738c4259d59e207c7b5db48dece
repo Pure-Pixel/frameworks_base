@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "139f41e5_15d50801",
+        "filename": "core/java/android/nfc/INfcAdapter.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1073593
+      },
+      "writtenOn": "2022-03-04T06:40:27Z",
+      "side": 1,
+      "message": "unused function, we should remove to.",
+      "revId": "95818b642d955738c4259d59e207c7b5db48dece",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
