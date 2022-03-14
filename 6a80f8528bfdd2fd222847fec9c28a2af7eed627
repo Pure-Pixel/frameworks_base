@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c372fe9c_baaf10a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1573716
+      },
+      "writtenOn": "2022-03-14T20:03:38Z",
+      "side": 1,
+      "message": "Added recommendation to call methods in this class in background thread as per API council recommendation: https://buganizer.corp.google.com/issues/213174684",
+      "revId": "6a80f8528bfdd2fd222847fec9c28a2af7eed627",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
