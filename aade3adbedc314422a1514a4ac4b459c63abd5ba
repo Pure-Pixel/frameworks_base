@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37fdb798_9c07d7f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2022-03-15T01:30:51Z",
+      "side": 1,
+      "message": "nit: this class -\u003e MediaActionSound?",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "aade3adbedc314422a1514a4ac4b459c63abd5ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a5fc197_b9540ee8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2022-03-15T01:30:51Z",
+      "side": 1,
+      "message": "nit: comment",
+      "revId": "aade3adbedc314422a1514a4ac4b459c63abd5ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
