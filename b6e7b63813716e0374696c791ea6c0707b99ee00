@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "201b2651_90dd9be5",
+        "filename": "telephony/java/android/telephony/data/DataService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2022-03-15T22:02:35Z",
+      "side": 1,
+      "message": "After second thought, let\u0027s just remove it to reduce the confusion.\n\nsame for below.",
+      "range": {
+        "startLine": 301,
+        "startChar": 67,
+        "endLine": 303,
+        "endChar": 24
+      },
+      "revId": "b6e7b63813716e0374696c791ea6c0707b99ee00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
