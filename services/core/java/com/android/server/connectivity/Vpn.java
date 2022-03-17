@@ -1342,20 +1342,21 @@ public class Vpn {
                 ? Arrays.asList(mConfig.underlyingNetworks) : null);
 
         mNetworkCapabilities = capsBuilder.build();
-        mNetworkAgent = new NetworkAgent(mContext, mLooper, NETWORKTYPE /* logtag */,
-                mNetworkCapabilities, lp,
-                new NetworkScore.Builder().setLegacyInt(VPN_DEFAULT_SCORE).build(),
-                networkAgentConfig, mNetworkProvider) {
-            @Override
-            public void onNetworkUnwanted() {
-                // We are user controlled, not driven by NetworkRequest.
-            }
-        };
         final long token = Binder.clearCallingIdentity();
         try {
+            mNetworkAgent = new NetworkAgent(mContext, mLooper, NETWORKTYPE /* logtag */,
+                    mNetworkCapabilities, lp,
+                    new NetworkScore.Builder().setLegacyInt(VPN_DEFAULT_SCORE).build(),
+                    networkAgentConfig, mNetworkProvider) {
+                @Override
+                public void onNetworkUnwanted() {
+                    // We are user controlled, not driven by NetworkRequest.
+                }
+            };
             mNetworkAgent.register();
         } catch (final Exception e) {
-            // If register() throws, don't keep an unregistered agent.
+            // If there is an exception thrown when creating NetworkAgent or calling register(),
+            // don't keep an unregistered agent.
             mNetworkAgent = null;
             throw e;
         } finally {
