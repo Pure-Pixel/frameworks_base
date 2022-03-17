@@ -16,6 +16,24 @@
       "message": "unused function, we should remove to.",
       "revId": "95818b642d955738c4259d59e207c7b5db48dece",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fef8202b_93f8ef69",
+        "filename": "core/java/android/nfc/INfcAdapter.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1073593
+      },
+      "writtenOn": "2022-03-17T04:19:54Z",
+      "side": 1,
+      "message": "Based on internal review, we advice to keep this function.",
+      "parentUuid": "139f41e5_15d50801",
+      "revId": "95818b642d955738c4259d59e207c7b5db48dece",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
