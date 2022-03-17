@@ -22,6 +22,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89e371fa_547627d1",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2022-03-17T22:06:31Z",
+      "side": 1,
+      "message": "+1 - app ops are also used for tracking so it seems to me we should track the access in the correct category. Or, why do we need to track this for different transport, does that mean we\u0027ll need to have a larger number of similar app ops in the future?",
+      "parentUuid": "987e7201_35c93bd3",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
