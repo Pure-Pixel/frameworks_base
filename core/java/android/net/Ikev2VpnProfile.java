@@ -142,6 +142,7 @@ public final class Ikev2VpnProfile extends PlatformVpnProfile {
     private final boolean mIsMetered; // Defaults in builder
     private final int mMaxMtu; // Defaults in builder
     private final boolean mIsRestrictedToTestNetworks;
+    @Nullable private final IkeTunnelConnectionParams mIkeTunConnParams;
 
     private Ikev2VpnProfile(
             int type,
@@ -160,7 +161,8 @@ public final class Ikev2VpnProfile extends PlatformVpnProfile {
             int maxMtu,
             boolean restrictToTestNetworks,
             boolean excludeLocalRoutes,
-            boolean requiresInternetValidation) {
+            boolean requiresInternetValidation,
+            @Nullable IkeTunnelConnectionParams ikeTunConnParams) {
         super(type, excludeLocalRoutes, requiresInternetValidation);
 
         checkNotNull(serverAddr, MISSING_PARAM_MSG_TMPL, "Server address");
@@ -189,6 +191,8 @@ public final class Ikev2VpnProfile extends PlatformVpnProfile {
         mIsMetered = isMetered;
         mMaxMtu = maxMtu;
         mIsRestrictedToTestNetworks = restrictToTestNetworks;
+
+        mIkeTunConnParams = ikeTunConnParams;
 
         validate();
     }
@@ -375,6 +379,12 @@ public final class Ikev2VpnProfile extends PlatformVpnProfile {
         return mMaxMtu;
     }
 
+    /** Retrieves the ikeTunnelConnectionParams contains IKEv2 configurations, if any was set. */
+    @Nullable
+    public IkeTunnelConnectionParams getIkeTunConnParams() {
+        return mIkeTunConnParams;
+    }
+
     /**
      * Returns whether or not this VPN profile is restricted to test networks.
      *
@@ -504,6 +514,7 @@ public final class Ikev2VpnProfile extends PlatformVpnProfile {
     @NonNull
     public static Ikev2VpnProfile fromVpnProfile(@NonNull VpnProfile profile)
             throws GeneralSecurityException {
+        // TODO: Build the VpnProfile from mIkeTunConnParams if it exists.
         final Builder builder = new Builder(profile.server, profile.ipsecIdentifier);
         builder.setProxy(profile.proxy);
         builder.setAllowedAlgorithms(profile.getAllowedAlgorithms());
@@ -788,7 +799,7 @@ public final class Ikev2VpnProfile extends PlatformVpnProfile {
         private int mMaxMtu = PlatformVpnProfile.MAX_MTU_DEFAULT;
         private boolean mIsRestrictedToTestNetworks = false;
         private boolean mExcludeLocalRoutes = false;
-        @Nullable private IkeTunnelConnectionParams mIkeTunConnParams;
+        @Nullable private final IkeTunnelConnectionParams mIkeTunConnParams;
 
         /**
          * Creates a new builder with the basic parameters of an IKEv2/IPsec VPN.
@@ -803,6 +814,8 @@ public final class Ikev2VpnProfile extends PlatformVpnProfile {
 
             mServerAddr = serverAddr;
             mUserIdentity = identity;
+
+            mIkeTunConnParams = null;
         }
 
         /**
@@ -816,7 +829,6 @@ public final class Ikev2VpnProfile extends PlatformVpnProfile {
             checkNotNull(ikeTunConnParams, MISSING_PARAM_MSG_TMPL, "ikeTunConnParams");
 
             mIkeTunConnParams = ikeTunConnParams;
-
             final IkeSessionParams ikeSessionParams = mIkeTunConnParams.getIkeSessionParams();
             mServerAddr = ikeSessionParams.getServerHostname();
 
@@ -1135,7 +1147,8 @@ public final class Ikev2VpnProfile extends PlatformVpnProfile {
                     mMaxMtu,
                     mIsRestrictedToTestNetworks,
                     mExcludeLocalRoutes,
-                    mRequiresInternetValidation);
+                    mRequiresInternetValidation,
+                    mIkeTunConnParams);
         }
     }
 }
