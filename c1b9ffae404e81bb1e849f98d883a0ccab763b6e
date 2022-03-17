@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c31d44ec_436e7e03",
+        "filename": "services/core/java/com/android/server/connectivity/Vpn.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 1304263
+      },
+      "writtenOn": "2022-03-17T07:52:25Z",
+      "side": 1,
+      "message": "Nit: maybe update to \"create a NetworkAgent or register()\"? since you may get the exception from one more source now",
+      "range": {
+        "startLine": 1358,
+        "startChar": 18,
+        "endLine": 1358,
+        "endChar": 26
+      },
+      "revId": "c1b9ffae404e81bb1e849f98d883a0ccab763b6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
