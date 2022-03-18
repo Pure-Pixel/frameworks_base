@@ -142,6 +142,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba2ea2a5_27630e4b",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2022-03-18T20:22:42Z",
+      "side": 1,
+      "message": "1. Thanks for the clarification. I see that this is used only for tracking now.\n2. Do you need to record every one of them? (If so, seems you are implying you want DiscreteRegistry, which by default is only enabled for Camera and Mic and Location) And how long does the record needs to be retained? What about simply recording the access outside app ops in a dedicated place?\n3. How often does that happen in reality? i.e. will we be overwhelming app ops infrastructure?\n4. If you can\u0027t place the app in system_ext (or on a system partition), how does making this a system API help the app use it? It seems to me you will need public API in that case.\n5. The policy on b/194855500 said `The Test Mode is only used for helping CTA test, and this mode should be removed in official release`. So it seems to me there won\u0027t be any user of this on an official release build, so that there shouldn\u0027t be an API about this on an official release build either. Could you further explain why this needs to be an official (system) API?",
+      "parentUuid": "b67bdc7e_8a9f391c",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
