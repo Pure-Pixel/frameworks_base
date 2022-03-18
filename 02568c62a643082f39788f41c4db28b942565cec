@@ -94,6 +94,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72822075_4bc086b9",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2022-03-18T10:30:40Z",
+      "side": 1,
+      "message": "Thank you for your questions.\n\n1. Not only tracking but also record what type of network is used.\n2. The following information is required to record application\u0027s behavior.\n- Timing of API call\n- Name of caller application\n- API call permission\n3. Recorded every time an app calls #requestNetwork.\n4. We may not be able to place the app to record the behavior in system_ext in the future. So, system api is better.\n5. OEMs can use this API to support the new CTA requirements. In CTA test, we have to use release builds.",
+      "parentUuid": "ef14d0f8_e298e62f",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
