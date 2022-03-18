@@ -34,6 +34,46 @@
       "parentUuid": "4bfae26a_dd32ba07",
       "revId": "28df4c824bab45cebd28ee04a4d4e949ce5a2185",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95dab8a6_30f3fcb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-03-18T02:34:18Z",
+      "side": 1,
+      "message": "LGTM assuming comments addressed.",
+      "revId": "28df4c824bab45cebd28ee04a4d4e949ce5a2185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c1ca0b6_4e87c2b5",
+        "filename": "core/api/current.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 25216,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2022-03-18T02:34:18Z",
+      "side": 1,
+      "message": "Generally API methods avoid abbreviations. Can you change to getIkeTunnelConnectionParams?",
+      "range": {
+        "startLine": 25216,
+        "startChar": 76,
+        "endLine": 25216,
+        "endChar": 95
+      },
+      "revId": "28df4c824bab45cebd28ee04a4d4e949ce5a2185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
