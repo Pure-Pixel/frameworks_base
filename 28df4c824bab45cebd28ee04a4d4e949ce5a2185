@@ -16,6 +16,24 @@
       "message": "Lorenzo; there was a question here about API shape - Technically the API guidelines don\u0027t require a getter for a Builder\u0027s constructor parameters, but that seems slightly inconsistent with the guidelines about Builder\u0027s setters.\n\nThis CL adds one for the new IkeTunnelConnectionParams; it seemed like the right thing to do, but will leave it to your much more qualified judgement.",
       "revId": "28df4c824bab45cebd28ee04a4d4e949ce5a2185",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3872da6d_bc50b7bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1304263
+      },
+      "writtenOn": "2022-03-18T01:00:33Z",
+      "side": 1,
+      "message": "\u003e Technically the API guidelines don\u0027t require a getter for a Builder\u0027s constructor parameters, but that seems slightly inconsistent with the guidelines about Builder\u0027s setters.\n\nPlease noted this getter is located in the Ikev2VpnProfile, not in the Builder.",
+      "parentUuid": "4bfae26a_dd32ba07",
+      "revId": "28df4c824bab45cebd28ee04a4d4e949ce5a2185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
