@@ -46,6 +46,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7dd3d30_0eb17e50",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2022-03-18T05:54:59Z",
+      "side": 1,
+      "message": "The purpose is tracking application behavior. CTA new requirement requires tracking application which uses Cellular, Wi-Fi and Bluetooth. In the future, CTA may require other transports but now only 3 transport now. For requests without transport, the tracker will ultimately decide from the default network.",
+      "parentUuid": "89e371fa_547627d1",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
