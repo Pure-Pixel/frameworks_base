@@ -70,6 +70,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef14d0f8_e298e62f",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2022-03-18T07:36:56Z",
+      "side": 1,
+      "message": "Got it, thanks for the info. Could you further clarify:\n\n1. Are these app op used only for tracking, so that their mode doesn\u0027t matter?\n2. How are you using the app ops for tracking? e.g. are you using only the last access time, or info logged into `HistoricalRegistry`, or the `DiscreteRegistry`?\n3. How often are these app ops noted? e.g. are they logged once per process lifetime the first time they use a type of network, or upon on every network request, or only when they explicitly ask for a certain network type? I\u0027m asking because I\u0027d like to make sure it\u0027s not being logged too frequently so that there won\u0027t be system health concern in this design.\n4. Why does this need to be a system API in AOSP? If you only need to to be readable by the platform and platform apps, it\u0027s perfectly fine for them to be hidden. If it\u0027s only for testing, you may also make it @TestApi. Generally we only make things (system) API when they have to be.\n5. What\u0027s the benefits of having this in AOSP and as AOSP APIs, if it\u0027s only used for verification on non-release builds and only in China? If we do want them, will/can they be disabled by default in AOSP?",
+      "parentUuid": "f7dd3d30_0eb17e50",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
