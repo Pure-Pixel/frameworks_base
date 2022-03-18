@@ -118,6 +118,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b67bdc7e_8a9f391c",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2022-03-18T11:08:38Z",
+      "side": 1,
+      "message": "For 1, I misunderstood your question. I will correct the answer as below.\n1. Yes, it is used only for tracking and their mode doesn\u0027t matter.",
+      "parentUuid": "72822075_4bc086b9",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
