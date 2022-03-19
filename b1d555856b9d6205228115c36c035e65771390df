@@ -16,6 +16,24 @@
       "message": "Hi, this is another solution for backdrop-filters in View System.\n\nA `BackdropFilterDrawable` is added outside the target `RenderNodeDrawable`. So when the target View or RenderNode has an off-screen layer, the previous `Canvas.saveLayer` solution doesn\u0027t work but this solution does.\n\nBut when some of the parent Views have extra layers, the `BackdropFilterDrawable` can only get snapshot of the nearest layer. I find it is very difficult to get a complete backdrop content in this case.",
       "revId": "b1d555856b9d6205228115c36c035e65771390df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52c0d863_83e430d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1392279
+      },
+      "writtenOn": "2022-03-19T18:05:22Z",
+      "side": 1,
+      "message": "\u003e But when some of the parent Views have extra layers, the `BackdropFilterDrawable` can only get snapshot of the nearest layer. I find it is very difficult to get a complete backdrop content in this case.\n\nI tried some solutions to solve this issue but did\u0027t find a simple one 😞.\n\nSo I upload this patch which works in most cases and maybe we can discuss whether it\u0027s the proper way to do backdrop-filters.\n\nHope to get feedbacks.\nBest Regards.",
+      "parentUuid": "1ddc55f0_191cf769",
+      "revId": "b1d555856b9d6205228115c36c035e65771390df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
