@@ -190,6 +190,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b16c9a66_ee6924f1",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2022-03-23T22:03:52Z",
+      "side": 1,
+      "message": "2. I see. Could you show me the code that records the access when `a system app gets the callback from AppOps via AppOpsManager#OnOpNotedCallback`? I didn\u0027t find it in the topic of this CL.\nSince the `OnOpNotedCallback` callback is back delivered to the calling process, it seems to me that code has to be in the process of those system apps as well, which sounds like letting them report their own access and that doesn\u0027t sound reliable. It seems to me a solution on the system server side would be more robust.\n3. I see, thanks for the info.\n4. If the app won\u0027t be a system app, I don\u0027t think expose this as system API will work in that situation - it has to be a public API in that case, however we need to be even more careful with public APIs since they can\u0027t be removed (at most marked as removed).\n5. Can `ConnectivityService` just collect the access right when they are currently calling `noteOpNoThrow`, in their own in-memory data structure? It seems to me this way we don\u0027t have to jump through the hoops of app ops at all, and we can simplify the design a lot while also saving new APIs for it.",
+      "parentUuid": "1ef9b984_c12a03d4",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
