@@ -166,6 +166,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ef9b984_c12a03d4",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2022-03-23T08:13:12Z",
+      "side": 1,
+      "message": "2. No, we are going to record while a system app gets the callback from AppOps via AppOpsManager#OnOpNotedCallback. So, we don\u0027t have any plan to use DiscreteRegistry.\n\n3. No, I don\u0027t think so. This happens only when app calls ConnectivityManager#requestNetwork.\n\n4. App which records this behavior may not be placed in the system_ext in the future. If so, the app will not be able to access hidden API. So, we need this API to be public or system API.\n\n5. The app which records this behavior will not be in official release build but we still need this API because ConnectivityService uses this API and we can\u0027t remove this implementation from official build. Please see the following CL.\n\nhttps://android-review.googlesource.com/c/platform/packages/modules/Connectivity/+/2028343",
+      "parentUuid": "ba2ea2a5_27630e4b",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
