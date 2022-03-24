@@ -238,6 +238,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8130b3fe_f19ecb02",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2022-03-24T08:39:24Z",
+      "side": 1,
+      "message": "2. I see. If you can\u0027t provide the code, could you describe how the collection works?\nAs mentioned in my last comment, it seems to me you\u0027ll have to make each system app collect their own records, since the `OnOpNotedCallback` callback is delivered back to the calling process, Does your current implementation work in this way?\nYes I believe simply collecting it inside system server would be more robust than each client collecting and reporting their own. However I mean a solution like in (5), where `ConnectivityService` just collect the information in its own in-memory data structure, which should be a lot simpler than going through app ops or using `DiscreteRegistry`.\n\n4. Thanks for the clarification. I was assuming by saying that you can\u0027t put the app in system_ext you meant you can\u0027t put it in any partition in the system image as well, but that\u0027s not the case. product or vendor apps indeed have access to system APIs but not hidden APIs, so you are right that creating system APIs should work.\n\n5. Yes, it seems to me if you simply collect the necessary data directly inside a new \u0026 custom data in-memory structure in `ConnectivityService`, instead of going to app ops and then somehow getting it back, the design will be much simpler, less coupled and more robust. This way we will also save the APIs. Do you think this approach will be feasible for the requirements?",
+      "parentUuid": "27c985aa_9b4cbe76",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
