@@ -214,6 +214,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27c985aa_9b4cbe76",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2022-03-24T06:21:33Z",
+      "side": 1,
+      "message": "2. I\u0027m sorry but I can\u0027t provide the implementation because it is our proprietary code. \"system server side would be more robust\" means we should use HistoricalRegistry or DiscreteRegistry? Could you tell me how we can use it and how we can access to the data we want?\n\n4. Our application is system app and we will move the app to product partition. In my understanding, an app in product partition can access System API. Please correct me if I am wrong.\n\n5. Do you mean that ConnectivityService should collect this behavior in their own in-memory and provide them to other app which need it instead of adding new API?",
+      "parentUuid": "b16c9a66_ee6924f1",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
