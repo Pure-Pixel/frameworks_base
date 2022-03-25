@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "126ff019_8cf76e4b",
+        "filename": "core/jni/RobolectricNativeRuntime.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1938931
+      },
+      "writtenOn": "2022-03-25T17:16:23Z",
+      "side": 1,
+      "message": "Isn\u0027t this stuff I added with my CL? Maybe this needs a sync?",
+      "range": {
+        "startLine": 46,
+        "startChar": 50,
+        "endLine": 47,
+        "endChar": 49
+      },
+      "revId": "40181b971d7e4d5ec735d7080ffe82372a3aa5df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
