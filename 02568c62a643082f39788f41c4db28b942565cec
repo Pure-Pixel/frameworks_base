@@ -286,6 +286,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd444aeb_46f3d0ab",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2022-03-25T06:30:21Z",
+      "side": 1,
+      "message": "I see. If everything else for the requirement is collected by `OnOpNotedCallback`, it indeed makes sense to add these network app ops for re-using that infrastructure. My suggestion of doing it in `ConnectivityService` makes more sense when you only need to collect information about network requests, but that no longer sound like the case after your latest clarification.\n\nSo adding these app ops sgtm as app ops owner. However to make them system API:\n\n1. Could you add more javadoc on what\u0027s expected for these new app ops? e.g. what they are exactly for, when they are noted (e.g. also link to `requestNetwork`), and that they are only supposed to be used for logging and not used for access control.\n\n2. If these app ops are only for the requirement, is `OP_REQUEST_NETWORK_TRANSPORT_DEFAULT` part of the requirement? And does it cover any type of request that\u0027s not cellular, wifi or bluetooth, or it only covers the case where the caller didn\u0027t specify an explicit preference? I\u0027m asking because since we are making this API, we need to be more careful, and I\u0027m thinking of whether this should be a `OP_REQUEST_NETWORK_TRANSPORT_DEFAULT` or `OP_REQUEST_NETWORK_TRANSPORT_OTHER`.",
+      "parentUuid": "2123aad4_8a03128e",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
