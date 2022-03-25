@@ -262,6 +262,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2123aad4_8a03128e",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2022-03-25T01:03:17Z",
+      "side": 1,
+      "message": "2. Yes, System app collect their own records.\n\n5. Considering privacy and security, it may not be simple. We need to carefully take care of them. AppOps has already supported AppOpsManager.OP_XXX below which are required for CTA new requirement. So, I think it is better to support this operation in AppOps as well.\n\n                AppOpsManager.OP_READ_CALENDAR,\n                AppOpsManager.OP_WRITE_CALENDAR,\n                AppOpsManager.OP_READ_CONTACTS,\n                AppOpsManager.OP_WRITE_CONTACTS,\n                AppOpsManager.OP_READ_CALL_LOG,\n                AppOpsManager.OP_WRITE_CALL_LOG,\n                AppOpsManager.OP_READ_MEDIA_AUDIO,\n                AppOpsManager.OP_READ_MEDIA_VIDEO,\n                AppOpsManager.OP_READ_MEDIA_IMAGES,\n                AppOpsManager.OP_USE_ICC_AUTH_WITH_DEVICE_IDENTIFIER,\n                AppOpsManager.OP_USE_BIOMETRIC,\n                AppOpsManager.OP_USE_FINGERPRINT,\n                AppOpsManager.OP_CALL_PHONE,\n                AppOpsManager.OP_RECEIVE_SMS,\n                AppOpsManager.OP_RECEIVE_MMS\n\nI checked whether ConnectivityService has any implementation to record data in their own memory. BUt it has only implementation for Debug and no APN for other app to get them.",
+      "parentUuid": "8130b3fe_f19ecb02",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
