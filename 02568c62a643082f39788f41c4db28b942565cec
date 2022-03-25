@@ -334,6 +334,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14034e86_73b3b535",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2022-03-25T21:27:26Z",
+      "side": 1,
+      "message": "1. Javadoc lgtm as owner. Note that the API reviewer may have an independent review later and may still request changes.\n\n2. Does the requirement require tracking the transport that is requested by the app, or the transport that\u0027s actually decided by `ConnectivityService` to be used by the app? It seems to me that tracking the latter makes more sense since generally we track what\u0027s actually happening.\n\nIf the requirement is indeed the former case `DEFAULT` makes sense, while if it\u0027s the latter then `OTHER` makes more sense to me.",
+      "parentUuid": "36875efa_d0c9ea9e",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
