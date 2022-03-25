@@ -310,6 +310,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36875efa_d0c9ea9e",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2022-03-25T14:16:45Z",
+      "side": 1,
+      "message": "Thank you for your understanding.\n\n1. I added more javadoc. Could you please review them?\n\n2. \"OP_REQUEST_NETWORK_TRANSPORT_DEFAULT\" is used when an app doesn\u0027t specify any transport. In this case, ConnectivityService will decide a transport. So, the system app which tracks this event will check what transport is used when it receives #OnOpNotedCallback. So, I think \"OP_REQUEST_NETWORK_TRANSPORT_DEFAULT\" is better than \"OP_REQUEST_NETWORK_TRANSPORT_OTHER\" because there is possibility that it will be any transport including Cellular, Wi-Fi or Bluetooth.",
+      "parentUuid": "bd444aeb_46f3d0ab",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
