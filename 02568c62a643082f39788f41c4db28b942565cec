@@ -358,6 +358,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eacfcab_426271b3",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2022-03-29T01:56:52Z",
+      "side": 1,
+      "message": "2. Although not clearly defined in the requirement, I think latter is better. Because the purpose is to track what is actually happening. So, I agree to change it to OTHER.\n\nI have a question. Since AppOps also an Access control function, exception should be thrown when the API is called even before a transport is decided. So, I defined \"DEFAULT\". If it is allowed to call AppOpsManager#noteOpNoThrow without checking the results of access control and use it for tracking, I can move the implementation that calls AppOpsManager#noteOpNoThrow after ConnectivityService decides on the transport. Is this acceptable or is there any AppOpsManager API to call for tracking?",
+      "parentUuid": "14034e86_73b3b535",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
