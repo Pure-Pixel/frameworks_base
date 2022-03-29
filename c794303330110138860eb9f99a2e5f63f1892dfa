@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cf76b52_473c10b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1634819
+      },
+      "writtenOn": "2022-03-29T15:54:48Z",
+      "side": 1,
+      "message": "I am adding you as reviewers due to your previous contributions to VolumeDialogImpl.java. Please help me to get this patchset reviewed. Thanks in advance!\nThe addressed issue is described in the commit message.",
+      "revId": "c794303330110138860eb9f99a2e5f63f1892dfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
