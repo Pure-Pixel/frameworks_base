@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "babb219c_8b50b835",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1634819
+      },
+      "writtenOn": "2022-03-30T22:24:34Z",
+      "side": 1,
+      "message": "patchset 2 fixed a typo and simplified comments.",
+      "revId": "337b53998665e6dbf0ad6ecc5d009f6c9c23be5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
