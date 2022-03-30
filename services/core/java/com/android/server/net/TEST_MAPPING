@@ -8,6 +8,12 @@
           "include-filter": "com.android.cts.net.HostsideRestrictBackgroundNetworkTests"
         },
         {
+          "include-filter": "com.android.cts.net.HostsideNetworkCallbackTests"
+        },
+        {
+          "include-filter": "com.android.cts.net.HostsideNetworkPolicyManagerTests"
+        },
+        {
           "exclude-annotation": "androidx.test.filters.FlakyTest"
         },
         {
