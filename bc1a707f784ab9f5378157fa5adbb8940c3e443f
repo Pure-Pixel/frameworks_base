@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dad3d8be_0457480d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2022-03-30T09:49:30Z",
+      "side": 1,
+      "message": "LGTM but I don\u0027t have much context about it.\nLoop reminv@ and lorenzo@ to have a look.",
+      "revId": "bc1a707f784ab9f5378157fa5adbb8940c3e443f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
