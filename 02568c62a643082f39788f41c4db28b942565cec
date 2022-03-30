@@ -406,6 +406,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eb6d170_a0da0ab4",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2022-03-30T14:30:24Z",
+      "side": 1,
+      "message": "3. I understood. Is it acceptable to add one more type which is OP_REQUEST_NETWORK_TRANSPORT_NOT_SPECIFIED? We will use this type if app requested network without transport. Client can judge whether app specified a transport or not.\n\nI think it will be clearer from the tracking side defining these types.\n----------------\nOP_REQUEST_NETWORK_TRANSPORT_NOT_SPECIFIED\n Use this type if app requested network without transport.\n\nOP_REQUEST_NETWORK_TRANSPORT_CELLULAR\n Use this type if app requested network with Cellular transport.\n \nOP_REQUEST_NETWORK_TRANSPORT_WIFI\n Use this type if app requested network with WIFI transport.\n\nOP_REQUEST_NETWORK_TRANSPORT_BLUETOOTH\n Use this type if app requested network with Bluetooth transport.\n\nOP_REQUEST_NETWORK_TRANSPORT_OTHER\n Use this type if app requested network with other than Cellular, WiFi and BT.",
+      "parentUuid": "6bea8474_cf7836bc",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
