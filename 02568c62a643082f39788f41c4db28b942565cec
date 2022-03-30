@@ -430,6 +430,30 @@
       },
       "revId": "02568c62a643082f39788f41c4db28b942565cec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32c5c4cb_f6a33a92",
+        "filename": "core/java/android/app/AppOpsManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2022-03-30T21:28:31Z",
+      "side": 1,
+      "message": "If we agreed to track `the transport that\u0027s actually decided by ConnectivityService  to be used by the app` (since we typically track what\u0027s actually used), it seems to me what the app requested/whether it requested explicitly shouldn\u0027t matter - only the actual decided transport type should matter. In that case I don\u0027t see a need for the `NOT_SPECIFIED` type and it doesn\u0027t fit into that design. So could you clarify why does the app need to know if itself requested network without transport, and is it part of the requirement?",
+      "parentUuid": "2eb6d170_a0da0ab4",
+      "range": {
+        "startLine": 1331,
+        "startChar": 71,
+        "endLine": 1331,
+        "endChar": 80
+      },
+      "revId": "02568c62a643082f39788f41c4db28b942565cec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
