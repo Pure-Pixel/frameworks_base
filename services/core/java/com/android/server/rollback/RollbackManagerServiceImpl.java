@@ -40,6 +40,7 @@ import android.content.pm.parsing.ApkLiteParseUtils;
 import android.content.pm.parsing.result.ParseResult;
 import android.content.pm.parsing.result.ParseTypeImpl;
 import android.content.rollback.IRollbackManager;
+import android.content.rollback.PackageRollbackInfo;
 import android.content.rollback.RollbackInfo;
 import android.content.rollback.RollbackManager;
 import android.os.Binder;
@@ -83,6 +84,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -585,6 +587,32 @@ class RollbackManagerServiceImpl extends IRollbackManager.Stub implements Rollba
         }
         Slog.d(TAG, "mRollbackLifetimeDurationInMillis=" + mRollbackLifetimeDurationInMillis);
         runExpiration();
+    }
+
+    @AnyThread
+    void onSystemServicesReady() {
+        Set<String> uncertifiedPackages =
+                new HashSet<String>(ApexManager.getInstance().getUncertifiedPackagesForRollback());
+        List<RollbackInfo> rollbacks = getAvailableRollbacks().getList();
+        for (RollbackInfo rollbackInfo : rollbacks) {
+            for (PackageRollbackInfo packageInfo : rollbackInfo.getPackages()) {
+                String rollbackTo =
+                        packageInfo.getPackageName()
+                                + "@"
+                                + packageInfo.getVersionRolledBackTo().getLongVersionCode();
+                if (uncertifiedPackages.contains(rollbackTo)) {
+                    Slog.e(
+                            "rebootless RollbackManager",
+                            "Rolling back " + packageInfo.getPackageName());
+                    LocalIntentReceiver receiver = new LocalIntentReceiver(result -> {});
+                    commitRollback(
+                            rollbackInfo.getRollbackId(),
+                            new ParceledListSlice(Collections.emptyList()),
+                            mContext.getPackageName(),
+                            receiver.getIntentSender());
+                }
+            }
+        }
     }
 
     @AnyThread
