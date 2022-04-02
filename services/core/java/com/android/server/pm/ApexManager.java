@@ -64,6 +64,7 @@ import java.io.PrintWriter;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -415,6 +416,9 @@ public abstract class ApexManager {
      */
     abstract void installPackage(File apexFile, PackageParser2 packageParser)
             throws PackageManagerException;
+
+    /** Get a list of uncertified apex packages that should be rolled back on boot. */
+    public abstract List<String> getUncertifiedPackagesForRollback();
 
     /**
      * Dumps various state information to the provided {@link PrintWriter} object.
@@ -1097,7 +1101,8 @@ public abstract class ApexManager {
                             "It is forbidden to install new APEX packages");
                 }
                 checkApexSignature(existingApexPkg, newApexPkg);
-                checkDowngrade(existingApexPkg, newApexPkg);
+                // TODO(b/227385988) Downgrade is allowed (and necessary) for rollbacks.
+                //checkDowngrade(existingApexPkg, newApexPkg);
                 ApexInfo apexInfo = waitForApexService().installAndActivatePackage(
                         apexFile.getAbsolutePath());
                 final ParsedPackage parsedPackage2 = packageParser.parsePackage(
@@ -1125,6 +1130,16 @@ public abstract class ApexManager {
                 // TODO(b/187864524): is INSTALL_FAILED_INTERNAL_ERROR is the right error code here?
                 throw new PackageManagerException(PackageManager.INSTALL_FAILED_INTERNAL_ERROR,
                         e.getMessage());
+            }
+        }
+
+        @Override
+        public List<String> getUncertifiedPackagesForRollback() {
+            try {
+                return Arrays.asList(waitForApexService().getUncertifiedPackagesForRollback());
+            } catch (RemoteException re) {
+                Slog.e(TAG, "Unable to contact apexservice", re);
+                return Collections.emptyList();
             }
         }
 
@@ -1409,6 +1424,11 @@ public abstract class ApexManager {
         @Override
         void installPackage(File apexFile, PackageParser2 packageParser) {
             throw new UnsupportedOperationException("APEX updates are not supported");
+        }
+
+        @Override
+        public List<String> getUncertifiedPackagesForRollback() {
+            throw new UnsupportedOperationException();
         }
 
         @Override
