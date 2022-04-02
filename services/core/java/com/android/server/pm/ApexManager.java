@@ -23,6 +23,7 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.apex.ApexInfo;
 import android.apex.ApexInfoList;
+import android.apex.ApexRollbackInfo;
 import android.apex.ApexSessionInfo;
 import android.apex.ApexSessionParams;
 import android.apex.CompressedApexInfoList;
@@ -64,6 +65,7 @@ import java.io.PrintWriter;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -415,6 +417,9 @@ public abstract class ApexManager {
      */
     abstract void installPackage(File apexFile, PackageParser2 packageParser)
             throws PackageManagerException;
+
+    /** Get a list of ApexRollbackInfos for apexes that should be rolled back on boot. */
+    public abstract List<ApexRollbackInfo> getUntrustedApexRollbackInfo();
 
     /**
      * Dumps various state information to the provided {@link PrintWriter} object.
@@ -1097,9 +1102,10 @@ public abstract class ApexManager {
                             "It is forbidden to install new APEX packages");
                 }
                 checkApexSignature(existingApexPkg, newApexPkg);
-                checkDowngrade(existingApexPkg, newApexPkg);
-                ApexInfo apexInfo = waitForApexService().installAndActivatePackage(
-                        apexFile.getAbsolutePath());
+                // TODO(b/227385988) Downgrade is allowed (and necessary) for rollbacks.
+                // checkDowngrade(existingApexPkg, newApexPkg);
+                ApexInfo apexInfo =
+                        waitForApexService().installAndActivatePackage(apexFile.getAbsolutePath());
                 final ParsedPackage parsedPackage2 = packageParser.parsePackage(
                         new File(apexInfo.modulePath), flags, /* useCaches= */ false);
                 final PackageInfo finalApexPkg = PackageInfoWithoutStateUtils.generate(
@@ -1125,6 +1131,16 @@ public abstract class ApexManager {
                 // TODO(b/187864524): is INSTALL_FAILED_INTERNAL_ERROR is the right error code here?
                 throw new PackageManagerException(PackageManager.INSTALL_FAILED_INTERNAL_ERROR,
                         e.getMessage());
+            }
+        }
+
+        @Override
+        public List<ApexRollbackInfo> getUntrustedApexRollbackInfo() {
+            try {
+                return Arrays.asList(waitForApexService().getUntrustedApexRollbackInfo());
+            } catch (RemoteException re) {
+                Slog.e(TAG, "Unable to contact apexservice", re);
+                return Collections.emptyList();
             }
         }
 
@@ -1409,6 +1425,11 @@ public abstract class ApexManager {
         @Override
         void installPackage(File apexFile, PackageParser2 packageParser) {
             throw new UnsupportedOperationException("APEX updates are not supported");
+        }
+
+        @Override
+        public List<ApexRollbackInfo> getUntrustedApexRollbackInfo() {
+            throw new UnsupportedOperationException();
         }
 
         @Override

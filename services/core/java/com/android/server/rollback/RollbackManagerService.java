@@ -51,7 +51,9 @@ public final class RollbackManagerService extends SystemService {
 
     @Override
     public void onBootPhase(int phase) {
-        if (phase == SystemService.PHASE_BOOT_COMPLETED) {
+        if (phase == SystemService.PHASE_SYSTEM_SERVICES_READY) {
+            mService.onSystemServicesReady();
+        } else if (phase == SystemService.PHASE_BOOT_COMPLETED) {
             mService.onBootCompleted();
         }
     }

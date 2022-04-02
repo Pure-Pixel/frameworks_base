@@ -21,6 +21,7 @@ import android.annotation.AnyThread;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.WorkerThread;
+import android.apex.ApexRollbackInfo;
 import android.app.AppOpsManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -40,6 +41,7 @@ import android.content.pm.parsing.ApkLiteParseUtils;
 import android.content.pm.parsing.result.ParseResult;
 import android.content.pm.parsing.result.ParseTypeImpl;
 import android.content.rollback.IRollbackManager;
+import android.content.rollback.PackageRollbackInfo;
 import android.content.rollback.RollbackInfo;
 import android.content.rollback.RollbackManager;
 import android.os.Binder;
@@ -83,9 +85,12 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
@@ -585,6 +590,31 @@ class RollbackManagerServiceImpl extends IRollbackManager.Stub implements Rollba
         }
         Slog.d(TAG, "mRollbackLifetimeDurationInMillis=" + mRollbackLifetimeDurationInMillis);
         runExpiration();
+    }
+
+    @AnyThread
+    void onSystemServicesReady() {
+        Map<String, Long> untrustedApexRollbackMap = new HashMap<String, Long>();
+        for (ApexRollbackInfo info : ApexManager.getInstance().getUntrustedApexRollbackInfo()) {
+            untrustedApexRollbackMap.put(info.moduleName, info.rollbackToVersionCode);
+        }
+        List<RollbackInfo> rollbacks = getAvailableRollbacks().getList();
+        for (RollbackInfo rollbackInfo : rollbacks) {
+            for (PackageRollbackInfo packageInfo : rollbackInfo.getPackages()) {
+                if (untrustedApexRollbackMap.getOrDefault(packageInfo.getPackageName(), -1L)
+                        == packageInfo.getVersionRolledBackTo().getLongVersionCode()) {
+                    Slog.e(
+                            "rebootless RollbackManager",
+                            "Rolling back " + packageInfo.getPackageName());
+                    LocalIntentReceiver receiver = new LocalIntentReceiver(result -> {});
+                    commitRollback(
+                            rollbackInfo.getRollbackId(),
+                            new ParceledListSlice(Collections.emptyList()),
+                            mContext.getPackageName(),
+                            receiver.getIntentSender());
+                }
+            }
+        }
     }
 
     @AnyThread
