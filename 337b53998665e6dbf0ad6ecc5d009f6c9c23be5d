@@ -16,6 +16,23 @@
       "message": "patchset 2 fixed a typo and simplified comments.",
       "revId": "337b53998665e6dbf0ad6ecc5d009f6c9c23be5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3d9cc10_68177a27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1634819
+      },
+      "writtenOn": "2022-04-20T11:03:06Z",
+      "side": 1,
+      "message": "Hi, can you please help me to assign the proper reviewers for this patchset?\nThanks in advance!",
+      "revId": "337b53998665e6dbf0ad6ecc5d009f6c9c23be5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
