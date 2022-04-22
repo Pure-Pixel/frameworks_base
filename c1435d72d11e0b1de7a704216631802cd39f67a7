@@ -16,6 +16,24 @@
       "message": "Meanwhile, I think the change is ready for API review now (except for the minor clarification of `DEFAULT` versus `OTHER`). Could you find an API reviewer to take a look at this in parallel, so that we can get this merged sooner?",
       "revId": "c1435d72d11e0b1de7a704216631802cd39f67a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35be3327_b2a1efd4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2022-04-22T21:05:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6b5509dd_675ffa53",
+      "revId": "c1435d72d11e0b1de7a704216631802cd39f67a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
