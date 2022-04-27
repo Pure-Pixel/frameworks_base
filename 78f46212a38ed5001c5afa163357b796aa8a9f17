@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19d2eb24_3a649d19",
+        "filename": "packages/SoundPicker/src/com/android/soundpicker/RingtonePickerActivity.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1002682
+      },
+      "writtenOn": "2022-04-27T22:38:43Z",
+      "side": 1,
+      "message": "line length, go to next line before \"\u0026\u0026\"",
+      "range": {
+        "startLine": 423,
+        "startChar": 8,
+        "endLine": 423,
+        "endChar": 107
+      },
+      "revId": "78f46212a38ed5001c5afa163357b796aa8a9f17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c86b97aa_c2e07309",
+        "filename": "packages/SoundPicker/src/com/android/soundpicker/RingtonePickerActivity.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1002682
+      },
+      "writtenOn": "2022-04-27T22:38:43Z",
+      "side": 1,
+      "message": "line length, go to next line after \"\u003d\"",
+      "range": {
+        "startLine": 551,
+        "startChar": 4,
+        "endLine": 551,
+        "endChar": 121
+      },
+      "revId": "78f46212a38ed5001c5afa163357b796aa8a9f17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e17663ef_3324d14e",
+        "filename": "packages/SoundPicker/src/com/android/soundpicker/RingtonePickerActivity.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1002682
+      },
+      "writtenOn": "2022-04-27T22:38:43Z",
+      "side": 1,
+      "message": "this method should abandon audio focus. This way you can remove l.627-631, and we will have a consistent behavior whenever the ringtone playback is stopped.",
+      "range": {
+        "startLine": 638,
+        "startChar": 12,
+        "endLine": 638,
+        "endChar": 34
+      },
+      "revId": "78f46212a38ed5001c5afa163357b796aa8a9f17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
