@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81c92219_829045b6",
+        "filename": "core/java/android/nfc/INfcAdapter.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2022-05-03T13:10:01Z",
+      "side": 1,
+      "message": "this should be removed.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 2
+      },
+      "revId": "72da3ad17de86ddf953ba63f5f8545836153eb90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b09573_b6e50360",
+        "filename": "core/java/android/nfc/cardemulation/AidGroup.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2022-05-03T13:10:01Z",
+      "side": 1,
+      "message": "this should be removed.",
+      "range": {
+        "startLine": 2,
+        "startChar": 1,
+        "endLine": 6,
+        "endChar": 2
+      },
+      "revId": "72da3ad17de86ddf953ba63f5f8545836153eb90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d885e0c_56ba287d",
+        "filename": "core/java/android/nfc/tech/MifareClassic.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2022-05-03T13:10:01Z",
+      "side": 1,
+      "message": "this should be removed.",
+      "range": {
+        "startLine": 2,
+        "startChar": 1,
+        "endLine": 3,
+        "endChar": 60
+      },
+      "revId": "72da3ad17de86ddf953ba63f5f8545836153eb90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10f20b85_4265532a",
+        "filename": "core/java/android/nfc/tech/NfcA.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2022-05-03T13:10:01Z",
+      "side": 1,
+      "message": "this should be removed.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 60
+      },
+      "revId": "72da3ad17de86ddf953ba63f5f8545836153eb90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
