@@ -1077,6 +1077,7 @@ public class RecoverySystemService extends IRecoverySystem.Stub implements Reboo
             if (status == 100) {
                 Slog.i(TAG, "uncrypt " + (isSetup ? "setup" : "clear")
                         + " bcb successfully finished.");
+                SystemProperties.set("persist.sys.is_ota_upgrading", isSetup);
             } else {
                 // Error in /system/bin/uncrypt.
                 Slog.e(TAG, "uncrypt failed with status: " + status);

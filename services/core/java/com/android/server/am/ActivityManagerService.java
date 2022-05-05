@@ -4755,6 +4755,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                      mInjector.getContext().getSystemService(Context.POWER_SERVICE);
             pm.reboot("Checkpoint commit failed");
         }
+        SystemProperties.set("persist.sys.is_ota_upgrading", false);
 
         // Let system services know.
         mSystemServiceManager.startBootPhase(t, SystemService.PHASE_BOOT_COMPLETED);

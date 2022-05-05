@@ -7598,7 +7598,8 @@ public class PackageManagerService extends IPackageManager.Stub
 
             final VersionInfo ver = mSettings.getInternalVersion();
             mIsUpgrade =
-                    !buildFingerprint.equals(ver.fingerprint);
+                    !buildFingerprint.equals(ver.fingerprint)
+                    || SystemProperties.getBoolean("persist.sys.is_ota_upgrading", false);
             if (mIsUpgrade) {
                 PackageManagerServiceUtils.logCriticalInfo(Log.INFO,
                         "Upgrading from " + ver.fingerprint + " to " + Build.FINGERPRINT);
