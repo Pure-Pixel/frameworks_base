@@ -18097,6 +18097,9 @@ public class PackageManagerService extends IPackageManager.Stub
         public void handleStartCopy() {
             if ((installFlags & PackageManager.INSTALL_APEX) != 0) {
                 mRet = INSTALL_SUCCEEDED;
+                if ((installFlags & PackageManager.INSTALL_ENABLE_ROLLBACK) != 0) {
+                    sendEnableRollbackRequest();
+                }
                 return;
             }
             PackageInfoLite pkgLite = PackageManagerServiceUtils.getMinimalPackageInfo(mContext,
