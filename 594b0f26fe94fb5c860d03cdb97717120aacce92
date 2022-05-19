@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50144663_ce34ea23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004882
+      },
+      "writtenOn": "2022-05-19T07:26:48Z",
+      "side": 1,
+      "message": "We still apply this on our internal branches and have not run into a carrier yet that allows SIM PIN lengths greater than 8.  I think this is a safe fix.",
+      "revId": "594b0f26fe94fb5c860d03cdb97717120aacce92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
