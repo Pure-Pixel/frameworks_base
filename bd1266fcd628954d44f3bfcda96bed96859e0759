@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "623fd670_4bd8f1b5",
+        "filename": "telephony/java/android/telephony/CarrierConfigManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5828,
+      "author": {
+        "id": 1056478
+      },
+      "writtenOn": "2022-05-25T15:17:12Z",
+      "side": 1,
+      "message": "Is the purpose of this key to specify whether VONR is available (supported) on the carrier?  Or is the purpose to specify the default value for the VONR setting above?  I\u0027m presuming it is the former and not the latter. \n\nWe should keep consistent with the key for volte (KEY_CARRIER_VOLTE_AVAILABLE_BOOL); a name like KEY_CARRIER_VONR_AVAILABLE_BOOL would be consistent.  \n\nI presume the behavior specified the other key applies here, \"Flag specifying whether VoNR is available for the carrier.  If false: hard disabled. If true: then VoNR will be enabled if provisioned and the user setting is enabled.\"\n\nAlso, this probably belonds in the ImsVoice sub section?",
+      "range": {
+        "startLine": 5828,
+        "startChar": 31,
+        "endLine": 5828,
+        "endChar": 52
+      },
+      "revId": "bd1266fcd628954d44f3bfcda96bed96859e0759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
