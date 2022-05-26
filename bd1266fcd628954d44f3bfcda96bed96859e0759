@@ -22,6 +22,30 @@
       },
       "revId": "bd1266fcd628954d44f3bfcda96bed96859e0759",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "150bed80_690b5b88",
+        "filename": "telephony/java/android/telephony/CarrierConfigManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5828,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2022-05-26T16:35:20Z",
+      "side": 1,
+      "message": "Hi Tyler,  \n\nThanks for your suggestion on the naming of this key\n\nYes, this key is to specify whether VONR is available (supported) on the carrier or not. The name KEY_CARRIER_VONR_AVAILABLE_BOOL will be better than original one and also should belongs in the ImsVoice sub section.  \n\nI created a new bug for this change b/234022196 to avoid confusion with the original one\n\nSince this will affect not just renaming the key in this file, but all parts that using this key (like Settings and PAIRS), I will provide the changes later",
+      "parentUuid": "623fd670_4bd8f1b5",
+      "range": {
+        "startLine": 5828,
+        "startChar": 31,
+        "endLine": 5828,
+        "endChar": 52
+      },
+      "revId": "bd1266fcd628954d44f3bfcda96bed96859e0759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
