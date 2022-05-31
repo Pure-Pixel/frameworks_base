@@ -154,7 +154,6 @@ public class Watchdog {
 
     private final Object mLock = new Object();
 
-    /* This handler will be used to post message back onto the main thread */
     private final ArrayList<HandlerChecker> mHandlerCheckers = new ArrayList<>();
     private final HandlerChecker mMonitorChecker;
     private ActivityManagerService mActivity;
