@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c60f186_234b9c33",
+        "filename": "services/core/java/com/android/server/Watchdog.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1377660
+      },
+      "writtenOn": "2022-05-31T15:22:03Z",
+      "side": 0,
+      "message": "This comment should have been removed by inside this commit:\n\nhttps://android.googlesource.com/platform/frameworks/base/+/8d044e8bc287c1a567d82aedbe30085b011544c3%5E%21/services/java/com/android/server/Watchdog.java",
+      "range": {
+        "startLine": 157,
+        "startChar": 76,
+        "endLine": 157,
+        "endChar": 77
+      },
+      "revId": "ab498bff17442bb2315ac28ec403763e5e7e9d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
