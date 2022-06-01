@@ -30,9 +30,7 @@ java_test_host {
         "frameworks-base-hostutils",
     ],
     test_suites: ["general-tests", "vts"],
-    target_required: [
-        "block_device_writer_module",
-    ],
+    data_device_bins_32: ["block_device_writer"],
     data: [
         ":ApkVerityTestCertDer",
         ":ApkVerityTestApp",
