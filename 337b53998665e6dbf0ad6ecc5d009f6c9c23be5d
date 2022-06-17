@@ -86,6 +86,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b7dd7a2_ab9781d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1634819
+      },
+      "writtenOn": "2022-06-17T11:16:07Z",
+      "side": 1,
+      "message": "Seems like it was forgotten to submit this or vote autosubmit. Can you please retry?",
+      "revId": "337b53998665e6dbf0ad6ecc5d009f6c9c23be5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2b28362_5fbfb581",
