@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f88ed5c_ddf8a7ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1634819
+      },
+      "writtenOn": "2022-06-17T11:36:51Z",
+      "side": 1,
+      "message": "Is the behaviour described in the commit message intended? This patchset would allow the user to change the volume of both rows without one disappearing.",
+      "revId": "8218dfc97ff42070bb7a0b4a19f0a4158a92352b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
