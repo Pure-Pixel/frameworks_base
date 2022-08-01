@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65a19ded_f57f5d86",
+        "filename": "core/java/android/service/voice/VoiceInteractionSession.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1632811
+      },
+      "writtenOn": "2022-08-01T22:17:27Z",
+      "side": 0,
+      "message": "nit: please revert to avoid changing the blame layer when it can be avoided. The extra spaces are ignored anyway when rendering.",
+      "revId": "b731a366a0c462b249a2b6cb5310c54c833e62fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
