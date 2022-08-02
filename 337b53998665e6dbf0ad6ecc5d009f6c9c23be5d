@@ -138,6 +138,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2382de0c_56efa9ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1634819
+      },
+      "writtenOn": "2022-08-02T22:52:13Z",
+      "side": 1,
+      "message": "You\u0027re welcome. Thank you too!",
+      "parentUuid": "c5c32f06_ba8b6fdf",
+      "revId": "337b53998665e6dbf0ad6ecc5d009f6c9c23be5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2b28362_5fbfb581",
