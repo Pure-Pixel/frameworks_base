@@ -16,6 +16,23 @@
       "message": "Thanks for the review.  Is it possible to merge this?",
       "revId": "01e3d961006e8e61bbd5eb2775182ea4df0f14da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e2385ba_b772b5bc",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardSimPinViewController.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1955661
+      },
+      "writtenOn": "2022-08-03T20:54:30Z",
+      "side": 1,
+      "message": "Can you please add some comments explaining why the length of SIM PIN should be between 4 and 8?",
+      "revId": "01e3d961006e8e61bbd5eb2775182ea4df0f14da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
