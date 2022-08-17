@@ -201,7 +201,7 @@ public class MidiService extends IMidiManager.Stub {
         public void addListener(IMidiDeviceListener listener) {
             if (mListeners.size() >= MAX_LISTENERS_PER_CLIENT) {
                 throw new SecurityException(
-                        "too many MIDI listeners for UID = " + mUid);
+                        "too many MIDI listeners for UID matching = " + mUid);
             }
             // Use asBinder() so that we can match it in removeListener().
             // The listener proxy objects themselves do not match.
