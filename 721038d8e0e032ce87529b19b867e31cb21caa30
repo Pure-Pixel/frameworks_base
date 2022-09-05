@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "312f0581_920c0dad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2022-09-05T13:13:34Z",
+      "side": 1,
+      "message": "The modification in NfcA",
+      "revId": "721038d8e0e032ce87529b19b867e31cb21caa30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85edc6ec_917ab215",
+        "filename": "core/java/android/nfc/tech/NfcA.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2022-09-05T13:13:34Z",
+      "side": 1,
+      "message": "These seem to be unnecessary?\nRef: https://android-review.googlesource.com/c/platform/frameworks/base/+/1938457",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 43
+      },
+      "revId": "721038d8e0e032ce87529b19b867e31cb21caa30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
