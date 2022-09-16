@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0561f60f_88dd23e7",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterion.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-16T20:46:37Z",
+      "side": 1,
+      "message": "This should have some doc which explains what \"literal\" is used for.",
+      "range": {
+        "startLine": 33,
+        "startChar": 22,
+        "endLine": 33,
+        "endChar": 41
+      },
+      "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08444d4e_12329ba2",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterionType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-16T20:46:37Z",
+      "side": 1,
+      "message": "AudioDeviceType can\u0027t be used on its own, because it can\u0027t unambiguously specify the type of the device, please see https://cs.android.com/android/platform/superproject/+/master:frameworks/base/media/aidl/android/media/audio/common/AudioDeviceType.aidl;l\u003d20;drc\u003d277373ea256f9151752c8582e3bef0d005bc8c12. Instead, we must use https://cs.android.com/android/platform/superproject/+/master:frameworks/base/media/aidl/android/media/audio/common/AudioDeviceDescription.aidl.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d30d978_c860b53d",
+        "filename": "media/aidl/android/media/audio/common/AudioHalEngineConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-16T20:46:37Z",
+      "side": 1,
+      "message": "We usually provide strict requirements for HAL implementors. In this case we need to say \"if isEngineConfigurable is false this field must be empty\", and enforce that in VTS.\n\nAnd this raises the question—if there are two fields that are ganged, do we really need to have both of them?",
+      "range": {
+        "startLine": 58,
+        "startChar": 21,
+        "endLine": 60,
+        "endChar": 26
+      },
+      "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30262967_9a1b1d7d",
+        "filename": "media/aidl/android/media/audio/common/AudioHalProductStrategy.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-16T20:46:37Z",
+      "side": 1,
+      "message": "Should or must? We need to specify that for sure because we need to validate this in VTS.",
+      "range": {
+        "startLine": 47,
+        "startChar": 74,
+        "endLine": 47,
+        "endChar": 80
+      },
+      "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85e21398_4a89e00c",
+        "filename": "media/aidl/android/media/audio/common/AudioHalVolumeCurve.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-16T20:46:37Z",
+      "side": 1,
+      "message": "Do we need to define constants for them?",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "005d49db_b39a3bdc",
+        "filename": "media/aidl/android/media/audio/common/AudioHalVolumeGroup.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-16T20:46:37Z",
+      "side": 1,
+      "message": "We need to state that min \u003c\u003d max. Or \u003c ?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 28
+      },
+      "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b214d03_d9077998",
+        "filename": "media/aidl/android/media/audio/common/AudioHalVolumeGroup.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-09-16T20:46:37Z",
+      "side": 1,
+      "message": "We need to specify how this mapping is implemented. Where are device categories defined?",
+      "range": {
+        "startLine": 46,
+        "startChar": 16,
+        "endLine": 46,
+        "endChar": 33
+      },
+      "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
