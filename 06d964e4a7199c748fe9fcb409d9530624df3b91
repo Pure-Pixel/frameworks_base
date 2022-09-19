@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c67e5ea7_932400c6",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterion.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-09-19T12:31:29Z",
+      "side": 1,
+      "message": "agree:\nLiteral value is the literal value that was chosen for a given Criterion type numerical value. Need also to document that \"none\" is a specific keyword for inclusive aka bitfield",
+      "parentUuid": "0561f60f_88dd23e7",
+      "range": {
+        "startLine": 33,
+        "startChar": 22,
+        "endLine": 33,
+        "endChar": 41
+      },
+      "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08444d4e_12329ba2",
         "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterionType.aidl",
         "patchSetId": 1
@@ -135,6 +159,29 @@
         "startChar": 74,
         "endLine": 47,
         "endChar": 80
+      },
+      "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72356d86_2d253148",
+        "filename": "media/aidl/android/media/audio/common/AudioHalProductStrategy.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-09-19T12:31:29Z",
+      "side": 1,
+      "message": "@eric: did you make up your mind according to the naming? shall we use VX_STRATEGY_\u003cNAME\u003e for example in order to at least enforce the naming?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 33
       },
       "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
