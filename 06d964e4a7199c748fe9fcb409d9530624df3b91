@@ -72,6 +72,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ddd5685_844d6ae7",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterionType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-09-19T12:09:34Z",
+      "side": 1,
+      "message": "And lets rephrase to generic comment\n\"map to a numerical bitfield representation a numerical value",
+      "parentUuid": "604dc4c1_3681de2c",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d30d978_c860b53d",
         "filename": "media/aidl/android/media/audio/common/AudioHalEngineConfig.aidl",
         "patchSetId": 1
