@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd6848e9_ac7ccbe8",
+        "filename": "media/aidl/android/media/audio/common/AudioHalAttributesGroup.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-09-19T12:49:26Z",
+      "side": 1,
+      "message": "@Eric: as for this CL: https://partner-android-review.googlesource.com/c/platform/frameworks/av/+/2188019/\n\nshall we rename instead AudioHalVolumeGroupAttributes?",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 29,
+        "endChar": 34
+      },
+      "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a26a6b0_c6cdf785",
+        "filename": "media/aidl/android/media/audio/common/AudioHalAttributesGroup.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-09-19T12:49:26Z",
+      "side": 1,
+      "message": "shall we add a comment to specify that the stream type is allowed to be invalid if the volume group attributes are not associated to any legacy stream?",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 57
+      },
+      "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0561f60f_88dd23e7",
         "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterion.aidl",
         "patchSetId": 1
