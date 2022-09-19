@@ -49,6 +49,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "604dc4c1_3681de2c",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterionType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-09-19T12:04:32Z",
+      "side": 1,
+      "message": "androidType or androidNumericalType (Device is just one of the criterion type for which this field is used, we may not infer here)",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "06d964e4a7199c748fe9fcb409d9530624df3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d30d978_c860b53d",
         "filename": "media/aidl/android/media/audio/common/AudioHalEngineConfig.aidl",
         "patchSetId": 1
