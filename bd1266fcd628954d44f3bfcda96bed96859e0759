@@ -87,6 +87,30 @@
       },
       "revId": "bd1266fcd628954d44f3bfcda96bed96859e0759",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69306af2_9fb08f84",
+        "filename": "telephony/java/android/telephony/CarrierConfigManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5828,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2022-09-29T16:49:06Z",
+      "side": 1,
+      "message": "Tyler, as we discussed, the term carrier seems unnecessary for carrier configs. Can we keep the current name?",
+      "parentUuid": "71507f53_7a5309ef",
+      "range": {
+        "startLine": 5828,
+        "startChar": 31,
+        "endLine": 5828,
+        "endChar": 52
+      },
+      "revId": "bd1266fcd628954d44f3bfcda96bed96859e0759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
