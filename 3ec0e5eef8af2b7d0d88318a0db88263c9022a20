@@ -89,6 +89,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16048f14_e57ab85e",
+        "filename": "media/aidl/android/media/audio/common/AudioHalProductStrategy.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-03T09:30:25Z",
+      "side": 1,
+      "message": "the same audio routing and volume policy",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 24
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c9b74a0d_6128b5b3",
         "filename": "media/aidl/android/media/audio/common/AudioHalProductStrategy.aidl",
         "patchSetId": 5
@@ -135,6 +158,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4cb3eec8_f18e83cb",
+        "filename": "media/aidl/android/media/audio/common/AudioHalVolumeCurve.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-03T09:30:25Z",
+      "side": 1,
+      "message": "I prefer to use a separate type from actual device types. Apart from sparing one enum, this does not bring more clarity and can be more confusing, especially for the category ext_media that will group devices from very different types.",
+      "parentUuid": "2f144aee_bf74b856",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 59
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e408a65a_250a1a0d",
         "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
         "patchSetId": 5
@@ -151,6 +198,52 @@
         "startChar": 15,
         "endLine": 20,
         "endChar": 36
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05bdce6a_4156d17c",
+        "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-03T09:30:25Z",
+      "side": 1,
+      "message": "by",
+      "range": {
+        "startLine": 20,
+        "startChar": 50,
+        "endLine": 20,
+        "endChar": 52
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37ff3fd6_67dce7b7",
+        "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-03T09:30:25Z",
+      "side": 1,
+      "message": "routing.\n\nIt is true that we called those \"Product Strategies\" internally when we generalized the legacy strategies to avoid the confusion. But if we get rid of legacy strategies internally, we cna get rid of the \"Product\" in this name and use \"AudioStrategyType\" or \"AudioRoutingStrategyType\"",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 20,
+        "endChar": 24
       },
       "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
