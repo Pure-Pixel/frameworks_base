@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8489b1a1_6b0c2dae",
+        "filename": "media/aidl/android/media/audio/common/AudioHalAttributesGroup.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-03T23:21:59Z",
+      "side": 1,
+      "message": "Rephrased it a little because using \"Such a group\" is a little confusing in that context.",
+      "parentUuid": "8641db73_f96bd33c",
+      "range": {
+        "startLine": 31,
+        "startChar": 37,
+        "endLine": 32,
+        "endChar": 69
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74d73969_bf1516c8",
@@ -64,6 +88,53 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c73a0975_4b723520",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterion.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-03T23:21:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d73969_bf1516c8",
+      "range": {
+        "startLine": 35,
+        "startChar": 6,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a3a7f2c_a596d65b",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterion.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-03T23:21:59Z",
+      "side": 1,
+      "message": "Can you fact-check me here, Francois? I\u0027m not sure sure if this is right; e.g. I know that inclusive criteria can support multiple values using a string that separates each of the values using the \"|\" character. However, I\u0027m not sure if you want to allow those as valid default values.",
+      "range": {
+        "startLine": 35,
+        "startChar": 63,
+        "endLine": 36,
+        "endChar": 77
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28313071_717a877b",
@@ -77,6 +148,30 @@
       "writtenOn": "2022-09-30T17:52:58Z",
       "side": 1,
       "message": "I would say simply:\n\nClients normally use the default audio policy engine. The client will use the Configurable Policy Engine only when this field has a non-null value. The choice of the engine is only done once, it happens during the client initialization.\n\nNo need to talk about specific implementations.",
+      "range": {
+        "startLine": 52,
+        "startChar": 34,
+        "endLine": 55,
+        "endChar": 21
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2e3114d_db1a9038",
+        "filename": "media/aidl/android/media/audio/common/AudioHalEngineConfig.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-03T23:21:59Z",
+      "side": 1,
+      "message": "Moved the specification of when (and how many times) engine flavor is selected to the top comment. Thank you!",
+      "parentUuid": "28313071_717a877b",
       "range": {
         "startLine": 52,
         "startChar": 34,
@@ -110,6 +205,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d9ccf2d_e931cad4",
+        "filename": "media/aidl/android/media/audio/common/AudioHalProductStrategy.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-03T23:21:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16048f14_e57ab85e",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 24
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9b74a0d_6128b5b3",
@@ -123,6 +242,30 @@
       "writtenOn": "2022-09-30T17:52:58Z",
       "side": 1,
       "message": "Please make an interface constant for this.",
+      "range": {
+        "startLine": 33,
+        "startChar": 36,
+        "endLine": 33,
+        "endChar": 40
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fabba075_8b8939a0",
+        "filename": "media/aidl/android/media/audio/common/AudioHalProductStrategy.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-03T23:21:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9b74a0d_6128b5b3",
       "range": {
         "startLine": 33,
         "startChar": 36,
@@ -204,6 +347,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "006fa216_67e2d002",
+        "filename": "media/aidl/android/media/audio/common/AudioHalVolumeCurve.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-03T23:21:59Z",
+      "side": 1,
+      "message": "Eric beat me to it, but here is what I had to say:\n\nI don\u0027t think we can get rid of this enum just yet. DeviceCategory is a different categorization than AudioDeviceType, and the former is specific to volume curve management. Device types are mapped to device category here:\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/audiopolicy/common/include/Volume.h;l\u003d117;drc\u003d019b4ab9671f9f3567966e3b1e5a31414bb7d4d3\n\nDevice categories are also used as strings in XMLs, and I think it would be confusing to remove the concept now. \nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/audiopolicy/engineconfigurable/config/example/phone/audio_policy_engine_stream_volumes.xml;l\u003d30;drc\u003d575fdea51e704e8819976010151fcfcdb82018db\n\nI agree that there are too many types, but I think moving the definition of a device category into the AudioHalVolumeCurve parcelable is sufficient for now, as it hints at the fact that device categories only have meaning within the context of volume curves.\n\nAlso, for awareness: I\u0027m hoping that I\u0027ll be able to get rid of Volume.h (https://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/audiopolicy/common/include/Volume.h;l\u003d53;drc\u003d019b4ab9671f9f3567966e3b1e5a31414bb7d4d3) as I\u0027ve pointed out that device categories should be defined within the scope of a volume curve, and some of the other code in there is dead code.",
+      "parentUuid": "2f144aee_bf74b856",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 59
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e408a65a_250a1a0d",
@@ -275,6 +442,78 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e16bd90_3cd1d7be",
+        "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-03T23:21:59Z",
+      "side": 1,
+      "message": "I was using this to try to differentiate between the strategies defined in the default engine source code (https://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/audiopolicy/enginedefault/src/Engine.h;l\u003d31;drc\u003d0735bf35abb70d4ed16adada6b3e3b40da5c35e4), and any other product strategy that is customized by vendors. I didn\u0027t want to refer to them as legacy strategies as they are currently referred to in the code, because they aren\u0027t actually \"legacy.\" They\u0027re definitely still used; perhaps the enum itself is \"legacy\" in the sense that we have product_strategy_t now (or perhaps they\u0027re called \"legacy\" to point out that they\u0027re no longer called \"routing strategies\"). In any case, using the word \"legacy\" is misleading.\n\nYou\u0027re right, though, that I\u0027m adding further confusion by introducing a new name. Fixed.\n\n-------------------------------------------------------------------------------\n\nFor the second question: \" is there any connection of the product strategy with audio attributes or stream types?\"\nI don\u0027t think we enforce what usages are connected to which product strategies. That is up to the vendor (even for the default engine). Eric, can you verify that this is desired behavior?",
+      "parentUuid": "e408a65a_250a1a0d",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 20,
+        "endChar": 36
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a2d80aa_4ca1f5a1",
+        "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-03T23:21:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05bdce6a_4156d17c",
+      "range": {
+        "startLine": 20,
+        "startChar": 50,
+        "endLine": 20,
+        "endChar": 52
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a175c9a_4b250a93",
+        "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-03T23:21:59Z",
+      "side": 1,
+      "message": "I\u0027d rather not introduce more vocabulary for the same thing. The term \"Product Strategy\" isn\u0027t just used internally. We\u0027ve been using the term in the default engine configuration files since Android Q. \nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_product_strategies.xml;l\u003d17;drc\u003dc9396d4298afc56fbfdfc2f64fe171a6094c049f\n\nBut you\u0027re right that I shouldn\u0027t refer to them as \"framework strategies\". Fixed.",
+      "parentUuid": "37ff3fd6_67dce7b7",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "25b86cee_738671ee",
         "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
         "patchSetId": 5
@@ -286,6 +525,30 @@
       "writtenOn": "2022-09-30T17:52:58Z",
       "side": 1,
       "message": "SYS_RESERVED_NONE\n\nAnd the usual blurb I put for such values is:\n\nValue reserved for system use only. HALs must never return this value to\nthe system or accept it from the system.",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 8
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c241c6a_7b065618",
+        "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-03T23:21:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25b86cee_738671ee",
       "range": {
         "startLine": 30,
         "startChar": 4,
