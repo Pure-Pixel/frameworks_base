@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5494db32_081459da",
+        "filename": "media/aidl/android/media/audio/common/AudioHalVolumeGroup.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1706828
+      },
+      "writtenOn": "2022-10-04T11:33:42Z",
+      "side": 1,
+      "message": "@Eric: do you think that preparing a field \"defaultIndex\" would be acceptable? We always have this need, and today using android properties but why not expecting this from hal?\nOf course, could be done later if not yet agreed.",
+      "range": {
+        "startLine": 28,
+        "startChar": 19,
+        "endLine": 28,
+        "endChar": 20
+      },
+      "revId": "73241255911fccbab6fd1f686b98bf32e68993dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65d3f411_8ca651fa",
+        "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1706828
+      },
+      "writtenOn": "2022-10-04T11:33:42Z",
+      "side": 1,
+      "message": "SYS_RESERVED_PATCH has been intentionnaly removed?",
+      "revId": "73241255911fccbab6fd1f686b98bf32e68993dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
