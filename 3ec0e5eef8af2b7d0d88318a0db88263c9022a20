@@ -137,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "732f267a_4b661751",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterion.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1706828
+      },
+      "writtenOn": "2022-10-04T11:25:42Z",
+      "side": 1,
+      "message": "Exact \"|\" is the delimiter for inclusive criteria to parse multiple string provided values.\nHowever, I think it is acceptable to limit the default to \"none\" for inclusive.",
+      "parentUuid": "1a3a7f2c_a596d65b",
+      "range": {
+        "startLine": 35,
+        "startChar": 63,
+        "endLine": 36,
+        "endChar": 77
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28313071_717a877b",
         "filename": "media/aidl/android/media/audio/common/AudioHalEngineConfig.aidl",
         "patchSetId": 5
