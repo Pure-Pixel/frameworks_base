@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d0d1786_c77c33ad",
+        "filename": "media/aidl/android/media/audio/common/AudioHalEngineConfig.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1706828
+      },
+      "writtenOn": "2022-10-04T15:12:25Z",
+      "side": 1,
+      "message": "Already discussed, but i cannot remember: regarding settings XML removal, do you plan to add the support in separated CLs?\nBasically, we need domains, configurations, parameters, rules and values.",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 32
+      },
+      "revId": "73241255911fccbab6fd1f686b98bf32e68993dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5494db32_081459da",
         "filename": "media/aidl/android/media/audio/common/AudioHalVolumeGroup.aidl",
         "patchSetId": 6
