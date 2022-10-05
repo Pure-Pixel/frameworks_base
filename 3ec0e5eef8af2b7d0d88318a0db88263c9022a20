@@ -159,6 +159,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f837605_fa4b833c",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterion.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-05T00:46:53Z",
+      "side": 1,
+      "message": "Sounds good. Thank you!",
+      "parentUuid": "732f267a_4b661751",
+      "range": {
+        "startLine": 35,
+        "startChar": 63,
+        "endLine": 36,
+        "endChar": 77
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28313071_717a877b",
@@ -550,6 +574,30 @@
       "side": 1,
       "message": "Agree not to call these as legacy. I might have use this word abusively during calls...\n\nI think we do not need to ensure that all usages are connected, but however, we wait for at least a default strategy to host all \"other attributes\". Enforced by tests. \nThe default strategy would be defined with empty attributes explicitely provided in the current engine xml files, but we could add this in the AIDL comments maybe?",
       "parentUuid": "3e16bd90_3cd1d7be",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 20,
+        "endChar": 36
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "331fe4be_86dcda37",
+        "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-05T00:46:53Z",
+      "side": 1,
+      "message": "Can you point out which tests enforce definition of a default product strategy? I see that we log a message in non-release builds, but I\u0027m not sure which tests you\u0027re referring to. \nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/audiopolicy/engine/common/src/ProductStrategy.cpp;l\u003d308;drc\u003dfcfb516b4f70888d6f454610c6e5c2c3618f80d4\n\nAlso, good point that I need to add a comment as well as cover this with VTS. Thank you! However, I was looking at how we currently select the default product strategy (https://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_product_strategies.xml;l\u003d76;drc\u003dc9396d4298afc56fbfdfc2f64fe171a6094c049f), and I\u0027m not sure that we should bring this logic over to AIDL. I think that we could do better by adding an explicit DEFAULT usage that is used as an identifier for the default product strategy (rather than looking for a product strategy that has all uninitialized attributes https://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/audiopolicy/engine/common/src/ProductStrategy.cpp;l\u003d101;drc\u003d89b01aeaa9e19377ff547baab791277719b8aaf3). \n\nIf Eric approves this change, I\u0027ll update the comment in a different CL. Thanks for bringing this to my attention, Francois!",
+      "parentUuid": "5bf6120a_232e2ddb",
       "range": {
         "startLine": 20,
         "startChar": 15,
