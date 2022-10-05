@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76027e82_89c56d83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-05T23:46:49Z",
+      "side": 1,
+      "message": "Thanks for the review, Eric. The only unknown now is what to do with the PATCH strategy.",
+      "revId": "f51731ecb50aa250d97b5467d432aa46f0604799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

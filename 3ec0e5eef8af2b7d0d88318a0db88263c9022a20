@@ -608,6 +608,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "065ef5a5_ed44163b",
+        "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-05T23:46:49Z",
+      "side": 1,
+      "message": "Per discussion with Eric and Jean-Michel, it\u0027s preferred that AudioUsage be restricted to qualifying audio playback use case (i.e. why you are playing the sound).\n\nWe can instead use an explicit field in the engine config to identify the default product strategy.",
+      "parentUuid": "331fe4be_86dcda37",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 20,
+        "endChar": 36
+      },
+      "revId": "3ec0e5eef8af2b7d0d88318a0db88263c9022a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25b86cee_738671ee",

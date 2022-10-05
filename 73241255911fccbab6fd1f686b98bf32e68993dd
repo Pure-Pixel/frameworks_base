@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7793b188_9426040c",
+        "filename": "media/aidl/android/media/audio/common/AudioFlag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-05T23:46:49Z",
+      "side": 1,
+      "message": "I believe that AidlConversion.cpp file is for the frameworks/av/media types, not frameworks/base/media. I added frameworks/base/media/.../AudioFlag.aidl recently to use it in both the system and vendor partitions. \nhttps://android-review.googlesource.com/c/platform/frameworks/base/+/2203458\n\nI haven\u0027t actually replaced all uses of frameworks/av/media/.../AudioFlag.aidl yet, so this shouldn\u0027t break anything.",
+      "parentUuid": "a70bd205_c351a168",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "73241255911fccbab6fd1f686b98bf32e68993dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d0d1786_c77c33ad",
@@ -208,6 +232,24 @@
       "side": 1,
       "message": "I think that if we remove the STRATEGY_PATCH we must ensure that the definition of strategy SYS_RESERVED_REROUTING lists 2 volume groups: one for stream   AUDIO_STREAM_REROUTING and one for AUDIO_STREAM_PATCH. Other wise we may fail to find a matching strategy when using the AUDIO_STREAM_PATCH for internal software audio patches",
       "parentUuid": "d91218ad_2f499099",
+      "revId": "73241255911fccbab6fd1f686b98bf32e68993dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bad7da27_243b940a",
+        "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-05T23:46:49Z",
+      "side": 1,
+      "message": "Action item for Eric: determine if we want to use SYS_RESERVED_REROUTING for both rerouting and patch cases.",
+      "parentUuid": "dd823a40_83bf9a98",
       "revId": "73241255911fccbab6fd1f686b98bf32e68993dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
