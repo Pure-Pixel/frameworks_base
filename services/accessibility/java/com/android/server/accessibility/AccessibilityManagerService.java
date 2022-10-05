@@ -2310,6 +2310,7 @@ public class AccessibilityManagerService extends IAccessibilityManager.Stub
             if (userState.isSendMotionEventsEnabled()) {
                 flags |= AccessibilityInputFilter.FLAG_SEND_MOTION_EVENTS;
             }
+            }
             if (userState.isAutoclickEnabledLocked()) {
                 flags |= AccessibilityInputFilter.FLAG_FEATURE_AUTOCLICK;
             }
@@ -2332,8 +2333,9 @@ public class AccessibilityManagerService extends IAccessibilityManager.Stub
                     if (mHasInputFilter) {
                         mHasInputFilter = false;
                         mInputFilter.setUserAndEnabledFeatures(userState.mUserId, 0);
+                    mInputFilter.resetServiceDetectsGestures();
                         if (userState.isTouchExplorationEnabledLocked()) {
-                            // Service gesture detection is turned on and off on a per-display
+                            //  Service gesture detection is turned on and off on a per-display
                             // basis.
                             final ArrayList<Display> displays = getValidDisplayList();
                             for (Display display : displays) {
@@ -2342,7 +2344,6 @@ public class AccessibilityManagerService extends IAccessibilityManager.Stub
                                 mInputFilter.setServiceDetectsGesturesEnabled(displayId, mode);
                             }
                         }
-                    }
                     inputFilter = null;
                     setInputFilter = true;
                 }
@@ -2635,6 +2636,7 @@ public class AccessibilityManagerService extends IAccessibilityManager.Stub
         boolean requestMultiFingerGestures = false;
         boolean requestTwoFingerPassthrough = false;
         boolean sendMotionEvents = false;
+        userState.resetServiceDetectsGestures();
         final int serviceCount = userState.mBoundServices.size();
         for (int i = 0; i < serviceCount; i++) {
             AccessibilityServiceConnection service = userState.mBoundServices.get(i);
@@ -2656,6 +2658,17 @@ public class AccessibilityManagerService extends IAccessibilityManager.Stub
                         userState.mUserId);
             } finally {
                 Binder.restoreCallingIdentity(identity);
+            }
+        }
+        // Service gesture detection is turned on and off on a per-display
+        // basis.
+        final ArrayList<Display> displays = getValidDisplayList();
+        for (AccessibilityServiceConnection service: userState.mBoundServices) {
+            for (Display display : displays) {
+                int displayId = display.getDisplayId();
+                if (service.isServiceDetectsGesturesEnabled(displayId)) {
+                    userState.setServiceDetectsGesturesEnabled(displayId, true);
+                }
             }
         }
         userState.setServiceHandlesDoubleTapLocked(serviceHandlesDoubleTapEnabled);
