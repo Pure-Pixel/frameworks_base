@@ -276,6 +276,24 @@
       "parentUuid": "dd823a40_83bf9a98",
       "revId": "73241255911fccbab6fd1f686b98bf32e68993dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11b155a6_f8ad5000",
+        "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-06T08:33:56Z",
+      "side": 1,
+      "message": "We can remove STRATEGY_PATCH.\nwhat is important is that we have a volume group for AUDIO_STREAM_PATCH and probably list it in the audio attributes group for strategy SYS_RESERVED_REROUTING",
+      "parentUuid": "bad7da27_243b940a",
+      "revId": "73241255911fccbab6fd1f686b98bf32e68993dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
