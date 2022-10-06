@@ -294,6 +294,24 @@
       "parentUuid": "bad7da27_243b940a",
       "revId": "73241255911fccbab6fd1f686b98bf32e68993dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e47dca69_d1c7ccf0",
+        "filename": "media/aidl/android/media/audio/common/AudioProductStrategyType.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-10-06T08:39:02Z",
+      "side": 1,
+      "message": "BTW, I remembered that patch \u0026 rerouting strategies were appended programmatically for both engine, and were not embedded in XML.\nAlso, the associated volume group (with matching legacy stream associated in attributes group) were programmatically added.\n\nSo it hide the complexity of internal design, prevent OEM to deal with unecessary things to manage, and ensure a volume group is also associated.",
+      "parentUuid": "11b155a6_f8ad5000",
+      "revId": "73241255911fccbab6fd1f686b98bf32e68993dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
