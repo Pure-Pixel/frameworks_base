@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fce6566f_f343ea3e",
+        "filename": "media/aidl/android/media/audio/common/AudioFlag.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-06T02:59:03Z",
+      "side": 1,
+      "message": "\u003e I added frameworks/base/media/.../AudioFlag.aidl recently to use it in both the system and vendor partitions.\n\nWe definitely need to move all uses to android.media.audio.common.AudioFlag and remove android.media.AudioFlag. That\u0027s what I used to do when migrating common types into a.m.a.common. Same for a.m.a.c.AudioAttributes vs a.m.AudioAttributesInternal. This should be a purely mechanical change.",
+      "parentUuid": "7793b188_9426040c",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "73241255911fccbab6fd1f686b98bf32e68993dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d0d1786_c77c33ad",
