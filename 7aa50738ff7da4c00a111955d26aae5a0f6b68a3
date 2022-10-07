@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffb3fbf5_b03860d1",
+        "filename": "media/aidl/android/media/audio/common/AudioHalProductStrategy.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1706828
+      },
+      "writtenOn": "2022-10-07T14:41:35Z",
+      "side": 1,
+      "message": "I missed the answer to my comment in Patch Set 1.\nVolume group has name, to allow the matching between AttributeGroup \u0026 VolumeGroup.\nSo, why not keep a human readable string to be seen when calling dumpsys...\n\nFor sure, in structure, we will see \"VX_STRATEGY_\u003c0..N\u003e.\n\nHowever, not a must.",
+      "range": {
+        "startLine": 28,
+        "startChar": 11,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
