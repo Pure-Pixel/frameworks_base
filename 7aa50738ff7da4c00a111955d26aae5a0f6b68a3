@@ -22,6 +22,30 @@
       },
       "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8fc1200_d62145a8",
+        "filename": "media/aidl/android/media/audio/common/AudioHalProductStrategy.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-10-10T17:03:42Z",
+      "side": 1,
+      "message": "Vendors using the default audio policy engine will still be able to see a human readable string in the dumpsys because they\u0027ll be using the AudioProductStrategyType enum. The auto-generated file: AudioProductStrategyType.h has a toString method. \n\nFor CAP, I didn\u0027t think it was necessary to have a human-readable string in the interface since you said you\u0027d call your strategies \"VX_STRATEGY_\u003c0...N\u003e\". That is, 1000 can map to \"VX_STRATEGY_0\", 1001 -\u003e \"VX_STRATEGY_1\", etc. You can still provide a human readable string in the configurable Engine.cpp with this mapping.",
+      "parentUuid": "ffb3fbf5_b03860d1",
+      "range": {
+        "startLine": 28,
+        "startChar": 11,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
