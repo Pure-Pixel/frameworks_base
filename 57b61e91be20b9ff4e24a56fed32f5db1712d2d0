@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac4bb30a_636d0c67",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2022-10-10T20:53:46Z",
+      "side": 1,
+      "message": "Two Change-Ids, make sure you remove one",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 52
+      },
+      "revId": "57b61e91be20b9ff4e24a56fed32f5db1712d2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e067f01_4a7ed557",
+        "filename": "services/accessibility/java/com/android/server/accessibility/AccessibilityManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2313,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2022-10-10T20:53:46Z",
+      "side": 1,
+      "message": "Based on previous indentation, I think this should be on line 2307 (before the `isFilterKeyEventsEnabledLocked` if statement)",
+      "range": {
+        "startLine": 2313,
+        "startChar": 0,
+        "endLine": 2313,
+        "endChar": 13
+      },
+      "revId": "57b61e91be20b9ff4e24a56fed32f5db1712d2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb82edf6_b41c88ca",
+        "filename": "services/accessibility/java/com/android/server/accessibility/AccessibilityManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2350,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2022-10-10T20:53:46Z",
+      "side": 1,
+      "message": "Can you run the auto formatter on these lines, 2333-2349?\n\nThe indentation goes back and forth (e.g. 2335 2336) within the same brace level.",
+      "range": {
+        "startLine": 2332,
+        "startChar": 12,
+        "endLine": 2350,
+        "endChar": 13
+      },
+      "revId": "57b61e91be20b9ff4e24a56fed32f5db1712d2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34b5cc2f_7b673357",
+        "filename": "services/accessibility/java/com/android/server/accessibility/AccessibilityManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2639,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2022-10-10T20:53:46Z",
+      "side": 1,
+      "message": "Can this be moved further down, e.g. above line 2665? So that it\u0027s clearer that we\u0027re doing this in two separate steps:\n(1) clearing the UserState, then\n(2) setting UserState#serviceDetectsGesturesEnabled\u003dtrue for services that use it.",
+      "revId": "57b61e91be20b9ff4e24a56fed32f5db1712d2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
