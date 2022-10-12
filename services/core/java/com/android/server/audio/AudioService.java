@@ -3841,7 +3841,7 @@ public class AudioService extends IAudioService.Stub
         }
     }
 
-    private void setLeAudioVolumeOnModeUpdate(int mode, int streamType, int device) {
+    private void setLeAudioVolumeOnModeUpdate(int mode, int device) {
         switch (mode) {
             case AudioSystem.MODE_IN_COMMUNICATION:
             case AudioSystem.MODE_IN_CALL:
@@ -3857,16 +3857,15 @@ public class AudioService extends IAudioService.Stub
                 return;
         }
 
-        // Currently, DEVICE_OUT_BLE_HEADSET is the only output type for LE_AUDIO profile.
-        // (See AudioDeviceBroker#createBtDeviceInfo())
-        int index = mStreamStates[streamType].getIndex(AudioSystem.DEVICE_OUT_BLE_HEADSET);
-        int maxIndex = mStreamStates[streamType].getMaxIndex();
+        final int streamType = getBluetoothContextualVolumeStream(mode);
+        final int index = getStreamVolume(streamType);
+        final int maxIndex = mStreamStates[streamType].getMaxIndex();
 
         if (DEBUG_VOL) {
             Log.d(TAG, "setLeAudioVolumeOnModeUpdate postSetLeAudioVolumeIndex index="
-                    + index + " maxIndex=" + maxIndex + " streamType=" + streamType);
+                    + index * 10 + " maxIndex=" + maxIndex + " streamType=" + streamType);
         }
-        mDeviceBroker.postSetLeAudioVolumeIndex(index, maxIndex, streamType);
+        mDeviceBroker.postSetLeAudioVolumeIndex(index * 10, maxIndex, streamType);
         mDeviceBroker.postApplyVolumeOnDevice(streamType, device, "setLeAudioVolumeOnModeUpdate");
     }
 
@@ -5244,7 +5243,7 @@ public class AudioService extends IAudioService.Stub
 
                 // Forcefully set LE audio volume as a workaround, since the value of 'device'
                 // is not DEVICE_OUT_BLE_* even when BLE is connected.
-                setLeAudioVolumeOnModeUpdate(mode, streamType, device);
+                setLeAudioVolumeOnModeUpdate(mode, device);
 
                 // when entering RINGTONE, IN_CALL or IN_COMMUNICATION mode, clear all SCO
                 // connections not started by the application changing the mode when pid changes
