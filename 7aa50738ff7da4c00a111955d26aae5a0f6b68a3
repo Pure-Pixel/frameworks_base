@@ -3,6 +3,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "908d269a_9e2838b1",
+        "filename": "media/aidl/android/media/audio/common/AudioHalAttributesGroup.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-10-13T16:52:52Z",
+      "side": 1,
+      "message": "nit: can the data structure form this mapping or would an ID make sense? I\u0027m not sure how many strings we would be creating here",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 39,
+        "endChar": 20
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac5df1bd_1d0b5251",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterion.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-10-13T16:52:52Z",
+      "side": 1,
+      "message": "`const @utf8InCpp DEFAULT_INCLUSIVE_VALUE \u003d \"none\";` or similar above?\n\nOr would an empty string work?",
+      "range": {
+        "startLine": 35,
+        "startChar": 20,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8df986b4_91ea2c0c",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterionType.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-10-13T16:52:52Z",
+      "side": 1,
+      "message": "will these ever need to map to an enumeration?",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 22
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f19c14af_627ef063",
+        "filename": "media/aidl/android/media/audio/common/AudioHalEngineConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-10-13T16:52:52Z",
+      "side": 1,
+      "message": "oh - or it\u0027s here, maybe reference the constant location?",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 65
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffb3fbf5_b03860d1",
         "filename": "media/aidl/android/media/audio/common/AudioHalProductStrategy.aidl",
         "patchSetId": 9
@@ -43,6 +135,29 @@
         "startChar": 11,
         "endLine": 28,
         "endChar": 35
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77b58e01_9ee526b8",
+        "filename": "media/aidl/android/media/audio/common/AudioHalVolumeCurve.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2022-10-13T16:52:52Z",
+      "side": 1,
+      "message": "Is this duplicating types that are also in AudioDeviceType? Do we need a new list of these types of things?",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 23
       },
       "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
