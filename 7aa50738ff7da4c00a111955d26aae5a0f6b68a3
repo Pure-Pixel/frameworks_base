@@ -118,6 +118,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc995016_d538fdf1",
+        "filename": "media/aidl/android/media/audio/common/AudioHalEngineConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2022-10-13T22:22:42Z",
+      "side": 1,
+      "message": "Agree, since this is used by \u0027AudioHalCapCriterion\u0027, it seems logical to place this constant there.",
+      "parentUuid": "f19c14af_627ef063",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 65
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffb3fbf5_b03860d1",
         "filename": "media/aidl/android/media/audio/common/AudioHalProductStrategy.aidl",
         "patchSetId": 9
