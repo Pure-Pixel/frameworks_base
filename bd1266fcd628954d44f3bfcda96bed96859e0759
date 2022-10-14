@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "36df74f5_077d28e4",
+        "filename": "telephony/java/android/telephony/CarrierConfigManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5814,
+      "author": {
+        "id": 1098053
+      },
+      "writtenOn": "2022-10-14T17:43:56Z",
+      "side": 1,
+      "message": "This is enabled by default, but KEY_VONR_ENABLED_BOOL is disabled by default. I am assuming that `KEY_VONR_ENABLED_BOOL` will ensure that even if this setting is enabled, we will not show the VoNR setting unless `KEY_VONR_ENABLED_BOOL` and `KEY_VONR_SETTING_VISIBILITY_BOOL` is true, right?\n\nEither way, please document this functionality here so it is clear how the API must work in this case: \"If this flag is set and VoNR is enabled for this carrier (see {@link #KEY_VONR_ENABLED_BOOL}), the VoNR setting menu will be visible. If {@link #KEY_VONR_ENABLED_BOOL} or this setting is false, the menu will be gone.\"",
+      "range": {
+        "startLine": 5814,
+        "startChar": 7,
+        "endLine": 5814,
+        "endChar": 87
+      },
+      "revId": "bd1266fcd628954d44f3bfcda96bed96859e0759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "623fd670_4bd8f1b5",
         "filename": "telephony/java/android/telephony/CarrierConfigManager.java",
         "patchSetId": 1
