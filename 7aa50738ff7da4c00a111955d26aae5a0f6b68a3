@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b85aef3f_4405b270",
+        "filename": "media/aidl/android/media/audio/common/AudioHalAttributesGroup.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-10-14T07:40:08Z",
+      "side": 1,
+      "message": "Good catch, an ID would be enough, as far as we introduce it into AudioHalVolumeGroup.\nFYI we have at least one AudioHalAttributesGroup per strategy, currently on our Automotive platform, around 20 strings.",
+      "parentUuid": "908d269a_9e2838b1",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 39,
+        "endChar": 20
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac5df1bd_1d0b5251",
         "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterion.aidl",
         "patchSetId": 9
@@ -72,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b74db32c_7df07857",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterion.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-10-14T07:40:08Z",
+      "side": 1,
+      "message": "Empty string could be the convention to set to \"none bit set in the field\". I would adapt the code to such convention.",
+      "parentUuid": "ac5df1bd_1d0b5251",
+      "range": {
+        "startLine": 35,
+        "startChar": 20,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8df986b4_91ea2c0c",
         "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterionType.aidl",
         "patchSetId": 9
@@ -83,6 +131,30 @@
       "writtenOn": "2022-10-13T16:52:52Z",
       "side": 1,
       "message": "will these ever need to map to an enumeration?",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 22
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1d6b008_4bacf625",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterionType.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-10-14T07:40:08Z",
+      "side": 1,
+      "message": "These are enumeration, but not known from core policy, this is the reason why we need to retrieve. For all other criterion type mapped to AOSP enumeration, no need to retrieve from AIDL API.",
+      "parentUuid": "8df986b4_91ea2c0c",
       "range": {
         "startLine": 41,
         "startChar": 7,
@@ -177,6 +249,30 @@
       "side": 1,
       "message": "Vendors using the default audio policy engine will still be able to see a human readable string in the dumpsys because they\u0027ll be using the AudioProductStrategyType enum. The auto-generated file: AudioProductStrategyType.h has a toString method. \n\nFor CAP, I didn\u0027t think it was necessary to have a human-readable string in the interface since you said you\u0027d call your strategies \"VX_STRATEGY_\u003c0...N\u003e\". That is, 1000 can map to \"VX_STRATEGY_0\", 1001 -\u003e \"VX_STRATEGY_1\", etc. You can still provide a human readable string in the configurable Engine.cpp with this mapping.",
       "parentUuid": "ffb3fbf5_b03860d1",
+      "range": {
+        "startLine": 28,
+        "startChar": 11,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8bc8d05_e2728b1b",
+        "filename": "media/aidl/android/media/audio/common/AudioHalProductStrategy.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2022-10-14T07:40:08Z",
+      "side": 1,
+      "message": "ACK",
+      "parentUuid": "d8fc1200_d62145a8",
       "range": {
         "startLine": 28,
         "startChar": 11,
