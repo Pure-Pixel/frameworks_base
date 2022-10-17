@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea3c36fb_f9c57b0d",
+        "filename": "telephony/java/android/telephony/CarrierConfigManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5814,
+      "author": {
+        "id": 1435078
+      },
+      "writtenOn": "2022-10-17T10:01:54Z",
+      "side": 1,
+      "message": "yes, the behavior you mentioned is correct. The setting menu will only be visible if both `KEY_VONR_ENABLED_BOOL` and `KEY_VONR_SETTING_VISIBILITY_BOOL` is true.  \n\nUpdated in new patch set.",
+      "parentUuid": "36df74f5_077d28e4",
+      "range": {
+        "startLine": 5814,
+        "startChar": 7,
+        "endLine": 5814,
+        "endChar": 87
+      },
+      "revId": "bd1266fcd628954d44f3bfcda96bed96859e0759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "623fd670_4bd8f1b5",
