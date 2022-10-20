@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "785d2a59_079124f5",
+        "filename": "telephony/java/android/telephony/CarrierConfigManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 8550,
+      "author": {
+        "id": 1609802
+      },
+      "writtenOn": "2022-10-20T14:36:21Z",
+      "side": 1,
+      "message": "It\u0027s a bit surprise to see the old name is kept.\n\nI was trying to set up unified naming rules for carrier config keys in go/carrier-config-name to end the argument. And one proposal was to prefer the word \"SUPPORT\" to \"ENABLE\", due to the fact this kind of CC doesn\u0027t actually _enable_ the feature but just show the intent that this carrier support it (and many other flags/implementation details in AP/BP together will finally decide if the feature is enabled ).\n\nBut it\u0027s great to see we can go forward for this CC. Discussing which way is more reasonable may take us a bit time. Once settling down, little additional effort will be needed for the next CC. Thanks",
+      "range": {
+        "startLine": 8550,
+        "startChar": 31,
+        "endLine": 8550,
+        "endChar": 52
+      },
+      "revId": "131420101650a35708b8f3128bbbcdf38beaf955",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
