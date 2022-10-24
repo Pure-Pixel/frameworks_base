@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af7f382e_18feaca7",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5245,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2022-10-24T15:18:02Z",
+      "side": 1,
+      "message": "Why not move the comment and the workaround inside of setLeAudioVolumeOnModeUpdate(). Are there other call paths were we do not want to force the device to DEVICE_OUT_BLE_HEADSET when not a LE device.\nI would prefer to have this logic inside setLeAudioVolumeOnModeUpdate",
+      "range": {
+        "startLine": 5245,
+        "startChar": 0,
+        "endLine": 5245,
+        "endChar": 89
+      },
+      "revId": "bebd6b3b968afb55661904dbc0eb8d12fd1f1b4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
