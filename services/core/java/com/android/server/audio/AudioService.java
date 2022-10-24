@@ -5241,9 +5241,14 @@ public class AudioService extends IAudioService.Stub
                 // change of mode may require volume to be re-applied on some devices
                 updateAbsVolumeMultiModeDevices(previousMode, mode);
 
-                // Forcefully set LE audio volume as a workaround, since the value of 'device'
-                // is not DEVICE_OUT_BLE_* even when BLE is connected.
-                setLeAudioVolumeOnModeUpdate(mode, device);
+                // Forcefully set LE audio volume as a workaround, since in some cases
+                // (like the outgoing call) the value of 'device' is not DEVICE_OUT_BLE_*
+                // even when BLE is connected.
+                if (!AudioSystem.isLeAudioDeviceType(device)) {
+                    setLeAudioVolumeOnModeUpdate(mode, AudioSystem.DEVICE_OUT_BLE_HEADSET);
+                } else {
+                    setLeAudioVolumeOnModeUpdate(mode, device);
+                }
 
                 // when entering RINGTONE, IN_CALL or IN_COMMUNICATION mode, clear all SCO
                 // connections not started by the application changing the mode when pid changes
