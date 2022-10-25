@@ -22,6 +22,30 @@
       },
       "revId": "bebd6b3b968afb55661904dbc0eb8d12fd1f1b4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04410069_3ac7234c",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5245,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2022-10-25T07:44:29Z",
+      "side": 1,
+      "message": "Ok. It also makes sense now to squash it with the previous patch. Please take another look at change 2253034. I\u0027ll abandon this one.",
+      "parentUuid": "af7f382e_18feaca7",
+      "range": {
+        "startLine": 5245,
+        "startChar": 0,
+        "endLine": 5245,
+        "endChar": 89
+      },
+      "revId": "bebd6b3b968afb55661904dbc0eb8d12fd1f1b4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
