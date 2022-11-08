@@ -24,6 +24,47 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a362801_203de443",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-08T20:25:36Z",
+      "side": 1,
+      "message": "Yes, commit message updated on https://r.android.com/2288738",
+      "parentUuid": "5b6d8334_94f51904",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6d559f5_4781ce55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-08T20:25:36Z",
+      "side": 1,
+      "message": "FYI, I fixed these on https://r.android.com/2288738 since the media common library got moved to system/hardware/interfaces",
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "908d269a_9e2838b1",
@@ -61,6 +102,30 @@
       "side": 1,
       "message": "Good catch, an ID would be enough, as far as we introduce it into AudioHalVolumeGroup.\nFYI we have at least one AudioHalAttributesGroup per strategy, currently on our Automotive platform, around 20 strings.",
       "parentUuid": "908d269a_9e2838b1",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 39,
+        "endChar": 20
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce52a6cf_a3edfd28",
+        "filename": "media/aidl/android/media/audio/common/AudioHalAttributesGroup.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-08T20:25:36Z",
+      "side": 1,
+      "message": "Per discussion with Eric, prefer to continue using a string for this, as the string not only gives the volume group human-readable meaning in the dumpsys, but it gives us us insight into the association with streams and product strategies. \n\nNote that a single volume group can be associated to multiple streams. See this example configuration from automotive, where the \"phone\" volume group is mapped to both AUDIO_STREAM_VOICE_CALL and AUDIO_STREAM_BLUETOOTH_SCO in the \"voice_call\" ProductStrategy: \nhttp://cs/android/frameworks/av/services/audiopolicy/engineconfigurable/config/example/automotive/audio_policy_engine_product_strategies.xml;l\u003d128;rcl\u003d12b32562a1ef51f53b2b2418c751df527dbe2e77\n\nAnd just in case your next question is: \"Does every product strategy only map to one volume group?\" No. Take a look at STRATEGY_PHONE in this example:\nhttp://cs/android/frameworks/av/services/audiopolicy/enginedefault/config/example/phone/audio_policy_engine_product_strategies.xml;l\u003d27;rcl\u003dded3100a779adf2c50ddef7d21c312a7663b75a2\n\nThus, if we want to give the volume group human-readable meaning within the framework, we can\u0027t replace volume group name with either product strategy name or stream name for all configurations. It needs its own name.",
+      "parentUuid": "b85aef3f_4405b270",
       "range": {
         "startLine": 38,
         "startChar": 7,
@@ -118,6 +183,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62062ea9_7271dac1",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterion.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-08T20:25:36Z",
+      "side": 1,
+      "message": "Changed to empty string.",
+      "parentUuid": "b74db32c_7df07857",
+      "range": {
+        "startLine": 35,
+        "startChar": 20,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8df986b4_91ea2c0c",
@@ -165,6 +254,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed0729ac_2076992b",
+        "filename": "media/aidl/android/media/audio/common/AudioHalCapCriterionType.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-08T20:25:36Z",
+      "side": 1,
+      "message": "Ack. Leaving as is to maintain the current flexibility of the configurable audio policy engine.",
+      "parentUuid": "e1d6b008_4bacf625",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 22
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f19c14af_627ef063",
@@ -202,6 +315,30 @@
       "side": 1,
       "message": "Agree, since this is used by \u0027AudioHalCapCriterion\u0027, it seems logical to place this constant there.",
       "parentUuid": "f19c14af_627ef063",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 65
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32154a5a_b626d12c",
+        "filename": "media/aidl/android/media/audio/common/AudioHalEngineConfig.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-08T20:25:36Z",
+      "side": 1,
+      "message": "Removed since we will use an empty string to represent this now.",
+      "parentUuid": "bc995016_d538fdf1",
       "range": {
         "startLine": 61,
         "startChar": 0,
@@ -296,6 +433,30 @@
       "writtenOn": "2022-10-13T16:52:52Z",
       "side": 1,
       "message": "Is this duplicating types that are also in AudioDeviceType? Do we need a new list of these types of things?",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "7aa50738ff7da4c00a111955d26aae5a0f6b68a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f27662f0_bbba8e46",
+        "filename": "media/aidl/android/media/audio/common/AudioHalVolumeCurve.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1945984
+      },
+      "writtenOn": "2022-11-08T20:25:36Z",
+      "side": 1,
+      "message": "No, this is a different categorization of types. From Eric\u0027s response to Mikhail on Patchet 5:\n\n`I prefer to use a separate type from actual device types. Apart from sparing one enum, this does not bring more clarity and can be more confusing, especially for the category ext_media that will group devices from very different types.`",
+      "parentUuid": "77b58e01_9ee526b8",
       "range": {
         "startLine": 28,
         "startChar": 9,
