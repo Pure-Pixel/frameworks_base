@@ -982,6 +982,41 @@ public final class Debug
 
 
     /**
+     * Wait until a debugger attaches. As soon as a debugger attaches,
+     * suspend all Java threads and send VM_START (a.k.a VM_INIT)
+     * packet.
+     *
+     * @hide
+     */
+    public static void suspendAllAndSendVmStart() {
+        if (!VMDebug.isDebuggingEnabled()) {
+            return;
+        }
+
+        // if DDMS is listening, inform them of our plight
+        System.out.println("Sending WAIT chunk");
+        byte[] data = new byte[] { 0 };     // 0 == "waiting for debugger"
+        Chunk waitChunk = new Chunk(ChunkHandler.type("WAIT"), data, 0, 1);
+        DdmServer.sendChunk(waitChunk);
+
+        // We must wait until a debugger is connected. This guarantees
+        // that oj-libjdwp has been attached and that ART's implementation
+        // of suspendAllAndSendVmStart has been taken over with an
+        // implementation that will suspendAll and send VM_START.
+        while (!isDebuggerConnected()) {
+            try {
+                System.out.println("Waiting for debugger to connect");
+                Thread.sleep(100);
+            } catch (InterruptedException ie) {
+            }
+        }
+
+        System.out.println("Debug.suspendAllAndSentVmStart");
+        VMDebug.suspendAllAndSendVmStart();
+        System.out.println("Debug.suspendAllAndSendVmStart, resumed");
+    }
+
+    /**
      * Wait until a debugger attaches.  As soon as the debugger attaches,
      * this returns, so you will need to place a breakpoint after the
      * waitForDebugger() call if you want to start tracing immediately.
