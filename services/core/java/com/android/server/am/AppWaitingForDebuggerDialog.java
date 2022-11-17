@@ -17,16 +17,13 @@
 package com.android.server.am;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Handler;
-import android.os.Message;
 import android.view.WindowManager;
 
 final class AppWaitingForDebuggerDialog extends BaseErrorDialog {
     final ActivityManagerService mService;
     final ProcessRecord mProc;
     private CharSequence mAppName;
-    
+
     public AppWaitingForDebuggerDialog(ActivityManagerService service,
             Context context, ProcessRecord app) {
         super(context);
@@ -48,10 +45,9 @@ final class AppWaitingForDebuggerDialog extends BaseErrorDialog {
             text.append(app.processName);
         }
 
-        text.append(" is waiting for the debugger to attach.");
+        text.append(" is now suspended. Waiting for the debugger to attach and resume.");
 
         setMessage(text.toString());
-        setButton(DialogInterface.BUTTON_POSITIVE, "Force Close", mHandler.obtainMessage(1, app));
         setTitle("Waiting For Debugger");
         WindowManager.LayoutParams attrs = getWindow().getAttributes();
         attrs.setTitle("Waiting For Debugger: " + app.info.processName);
@@ -62,15 +58,4 @@ final class AppWaitingForDebuggerDialog extends BaseErrorDialog {
     protected void closeDialog() {
         /* Do nothing */
     }
-
-    private final Handler mHandler = new Handler() {
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case 1:
-                    // Kill the application.
-                    mService.killAppAtUsersRequest(mProc);
-                    break;
-            }
-        }
-    };
 }
