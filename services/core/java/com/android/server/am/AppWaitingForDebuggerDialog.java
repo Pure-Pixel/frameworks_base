@@ -26,7 +26,7 @@ final class AppWaitingForDebuggerDialog extends BaseErrorDialog {
     final ActivityManagerService mService;
     final ProcessRecord mProc;
     private CharSequence mAppName;
-    
+
     public AppWaitingForDebuggerDialog(ActivityManagerService service,
             Context context, ProcessRecord app) {
         super(context);
@@ -48,7 +48,7 @@ final class AppWaitingForDebuggerDialog extends BaseErrorDialog {
             text.append(app.processName);
         }
 
-        text.append(" is waiting for the debugger to attach.");
+        text.append(" is now suspended. Waiting for the debugger to attach and resume.");
 
         setMessage(text.toString());
         setButton(DialogInterface.BUTTON_POSITIVE, "Force Close", mHandler.obtainMessage(1, app));
