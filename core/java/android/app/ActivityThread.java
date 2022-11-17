@@ -6616,34 +6616,6 @@ public final class ActivityThread extends ClientTransactionHandler
         StrictMode.initThreadDefaults(data.appInfo);
         StrictMode.initVmDefaults(data.appInfo);
 
-        if (data.debugMode != ApplicationThreadConstants.DEBUG_OFF) {
-            // XXX should have option to change the port.
-            Debug.changeDebugPort(8100);
-            if (data.debugMode == ApplicationThreadConstants.DEBUG_WAIT) {
-                Slog.w(TAG, "Application " + data.info.getPackageName()
-                      + " is waiting for the debugger on port 8100...");
-
-                IActivityManager mgr = ActivityManager.getService();
-                try {
-                    mgr.showWaitingForDebugger(mAppThread, true);
-                } catch (RemoteException ex) {
-                    throw ex.rethrowFromSystemServer();
-                }
-
-                Debug.waitForDebugger();
-
-                try {
-                    mgr.showWaitingForDebugger(mAppThread, false);
-                } catch (RemoteException ex) {
-                    throw ex.rethrowFromSystemServer();
-                }
-
-            } else {
-                Slog.w(TAG, "Application " + data.info.getPackageName()
-                      + " can be debugged on port 8100...");
-            }
-        }
-
         // Allow binder tracing, and application-generated systrace messages if we're profileable.
         boolean isAppDebuggable = (data.appInfo.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
         boolean isAppProfileable = isAppDebuggable || data.appInfo.isProfileable();
@@ -6740,6 +6712,35 @@ public final class ActivityThread extends ClientTransactionHandler
         Application app;
         final StrictMode.ThreadPolicy savedPolicy = StrictMode.allowThreadDiskWrites();
         final StrictMode.ThreadPolicy writesAllowedPolicy = StrictMode.getThreadPolicy();
+
+        if (data.debugMode != ApplicationThreadConstants.DEBUG_OFF) {
+            // XXX should have option to change the port.
+            Debug.changeDebugPort(8100);
+            if (data.debugMode == ApplicationThreadConstants.DEBUG_WAIT) {
+                Slog.w(TAG, "Application " + data.info.getPackageName()
+                      + " is waiting for the debugger on port 8100...");
+
+                IActivityManager mgr = ActivityManager.getService();
+                try {
+                    mgr.showWaitingForDebugger(mAppThread, true);
+                } catch (RemoteException ex) {
+                    throw ex.rethrowFromSystemServer();
+                }
+
+                Debug.suspendAllAndSendVmStart();
+
+                try {
+                    mgr.showWaitingForDebugger(mAppThread, false);
+                } catch (RemoteException ex) {
+                    throw ex.rethrowFromSystemServer();
+                }
+
+            } else {
+                Slog.w(TAG, "Application " + data.info.getPackageName()
+                      + " can be debugged on port 8100...");
+            }
+        }
+
         try {
             // If the app is being launched for full backup or restore, bring it up in
             // a restricted environment with the base application class.
