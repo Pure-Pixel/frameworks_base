@@ -6727,7 +6727,7 @@ public final class ActivityThread extends ClientTransactionHandler
                     throw ex.rethrowFromSystemServer();
                 }
 
-                Debug.waitForDebugger();
+                Debug.suspendAllAndSendVmStart();
 
                 try {
                     mgr.showWaitingForDebugger(mAppThread, false);
