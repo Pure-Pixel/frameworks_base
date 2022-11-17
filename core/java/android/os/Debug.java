@@ -982,6 +982,39 @@ public final class Debug
 
 
     /**
+     * Wait until a debugger attaches. As soon as a debugger attaches,
+     * suspend all Java threads and send VM_START (a.k.a VM_INIT)
+     * packet.
+     *
+     */
+    public static void suspendAllAndSendVmStart() {
+        if (!VMDebug.isDebuggingEnabled()) {
+            //System.out.println("debugging not enabled, not waiting");
+            return;
+        }
+        if (isDebuggerConnected()) {
+            return;
+        }
+
+        // if DDMS is listening, inform them of our plight
+        System.out.println("Sending WAIT chunk");
+        byte[] data = new byte[] { 0 };     // 0 == "waiting for debugger"
+        Chunk waitChunk = new Chunk(ChunkHandler.type("WAIT"), data, 0, 1);
+        DdmServer.sendChunk(waitChunk);
+
+        mWaiting = true;
+        while (!isDebuggerConnected() && !didSuspendAll()) {
+            try {
+                Thread.sleep(SPIN_DELAY);
+            } catch (InterruptedException ie) {
+            }
+        }
+        mWaiting = false;
+
+        System.out.println("Debugger has connected");
+    }
+
+    /**
      * Wait until a debugger attaches.  As soon as the debugger attaches,
      * this returns, so you will need to place a breakpoint after the
      * waitForDebugger() call if you want to start tracing immediately.
