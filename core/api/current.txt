@@ -31180,6 +31180,7 @@ package android.os {
     method @Deprecated public static void stopAllocCounting();
     method public static void stopMethodTracing();
     method public static void stopNativeTracing();
+    method public static void suspendAllAndSendVmStart();
     method public static long threadCpuTimeNanos();
     method public static void waitForDebugger();
     method public static boolean waitingForDebugger();
