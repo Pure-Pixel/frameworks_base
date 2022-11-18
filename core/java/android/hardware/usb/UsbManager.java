@@ -1110,10 +1110,7 @@ public class UsbManager {
      * </p>
      *
      * @return The value of currently USB Bandwidth.
-     *
-     * {@hide}
      */
-    @SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
     @RequiresPermission(Manifest.permission.MANAGE_USB)
     public int getUsbBandwidthMbps() {
         int usbSpeed;
