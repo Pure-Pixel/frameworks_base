@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a16c8ec0_cc407ef9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1275415
+      },
+      "writtenOn": "2022-11-18T12:29:45Z",
+      "side": 1,
+      "message": "Hi Yanting, \n\nI\u0027d like to upload another CL to replace `onLowMemory()` with `onTrimMemory(int level)` in [SettingApplication](https://cs.android.com/android/platform/superproject/+/master:packages/apps/Settings/src/com/android/settings/SettingsApplication.java;l\u003d50?q\u003dsettingsa), but let\u0027s finish this first.\n\nLooking for your feedback, thank you.",
+      "revId": "a560e5d618da35999a82a4b15b5b58f617d28292",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
