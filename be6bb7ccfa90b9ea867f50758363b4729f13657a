@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ef06e6_45486541",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1388435
+      },
+      "writtenOn": "2022-11-21T04:22:34Z",
+      "side": 1,
+      "message": "LGTM, defer to yanting who has experience on reducing icon memory.",
+      "revId": "be6bb7ccfa90b9ea867f50758363b4729f13657a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
