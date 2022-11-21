@@ -33,6 +33,29 @@
       "message": "Thanks! It looks good to me. I will let owners to +2. Thanks!",
       "revId": "72db0747e2f98d5e8ea70d5a126c0e6b69a552f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e47ed779_85b0542c",
+        "filename": "core/java/android/os/Debug.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2022-11-21T12:56:20Z",
+      "side": 1,
+      "message": "This needs to be a delay loop or else the app won\u0027t actually wait if a debugger doesn\u0027t connect pretty much immediately! \n\nWe need a barrier to ensure the debugger has actually connected.\n\nwhile (!isDebuggerConnected()) { sleep(100); } eg",
+      "range": {
+        "startLine": 994,
+        "startChar": 0,
+        "endLine": 997,
+        "endChar": 0
+      },
+      "revId": "72db0747e2f98d5e8ea70d5a126c0e6b69a552f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
