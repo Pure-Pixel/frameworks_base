@@ -46,6 +46,30 @@
       },
       "revId": "8ea0d57f8df7bba4f1037fb9c499fde067a3ac62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a91deda9_c8813b73",
+        "filename": "services/core/java/com/android/server/am/AppWaitingForDebuggerDialog.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-11-22T23:14:09Z",
+      "side": 0,
+      "message": "This method is deprecated and does not do anything: https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/android/os/Debug.java;l\u003d1071?q\u003dchangeDebugPort\u0026sq\u003d",
+      "parentUuid": "29b024ee_747321eb",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 0
+      },
+      "revId": "8ea0d57f8df7bba4f1037fb9c499fde067a3ac62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
