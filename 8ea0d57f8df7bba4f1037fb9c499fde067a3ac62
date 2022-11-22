@@ -22,6 +22,30 @@
       },
       "revId": "8ea0d57f8df7bba4f1037fb9c499fde067a3ac62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29b024ee_747321eb",
+        "filename": "services/core/java/com/android/server/am/AppWaitingForDebuggerDialog.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2022-11-22T23:04:13Z",
+      "side": 0,
+      "message": "You are correct. But I don\u0027t understand why it still works. \n\nI connected with `jdb` so the app should be in suspendAll state. With all thread suspended, how is the runloop able to pickup the touch event or run the handler code?",
+      "parentUuid": "18aa8149_c086ce88",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 0
+      },
+      "revId": "8ea0d57f8df7bba4f1037fb9c499fde067a3ac62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
