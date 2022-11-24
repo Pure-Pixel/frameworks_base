@@ -16,6 +16,70 @@
       "message": "Thanks Shen!\n\nWe will consider this approach and provide feedback later.",
       "revId": "dad1335d70bf63a2f3721723c0af0b5a6ba33c49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eefa4ce_e3758d48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1332604
+      },
+      "writtenOn": "2022-11-24T17:59:12Z",
+      "side": 1,
+      "message": "As per studying the difference between onLowMemory() and onTrimMemory(), I also agree to use onTrimMemory() instead. In my understanding, the trigger situation of onLowMemory() is similar to the TRIM_MEMORY_COMPLETE. \n\nHere\u0027s my follow-up questions:\n\n1. Why do we choose `TRIM_MEMORY_BACKGROUND` rather than `TRIM_MEMORY_MODERATE` to trim the size to 0?\n\n2. In the monkey test mentioned on the bug, I am curious about whether this patch can totally resolve the IllegalStateException? \n\nIf I understand correctly, the IllegalStateException is related to the `cache size` and `LinkedHashMap size`. The `evictAll()` method seems invoked when the map is empty but the size is not 0 to lead to this exception.\n\nHow about checking the size of `snapshot()` in release() before invoking evictAll() as a quick workaround?\n\n3. Would you mind helping to reproduce and provide the debug logs about the `size` and `map.isEmpty()`?  It would be helpful for us to come up with the solution.\n```\nif (size \u003c 0 || (map.isEmpty() \u0026\u0026 size !\u003d 0)) {\n                    throw new IllegalStateException(getClass().getName()\n                            + \".sizeOf() is reporting inconsistent results!\");\n                }\n```\n\nBig thanks for identifying this potential issue and let us know there is another good way to handle onLowMemory(). :)",
+      "parentUuid": "7a09d870_74d6b065",
+      "revId": "dad1335d70bf63a2f3721723c0af0b5a6ba33c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1e62e10_d65b6455",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/applications/AppIconCacheManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1332604
+      },
+      "writtenOn": "2022-11-24T17:59:12Z",
+      "side": 1,
+      "message": "In my experience, we do not encourage adding test purpose code in the main logic, is it possible to test the trimMemory without this function?",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 5
+      },
+      "revId": "dad1335d70bf63a2f3721723c0af0b5a6ba33c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79c33d18_6e42258e",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/applications/AppIconCacheManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1332604
+      },
+      "writtenOn": "2022-11-24T17:59:12Z",
+      "side": 1,
+      "message": "Please follow the capital letter, T.",
+      "range": {
+        "startLine": 136,
+        "startChar": 15,
+        "endLine": 136,
+        "endChar": 16
+      },
+      "revId": "dad1335d70bf63a2f3721723c0af0b5a6ba33c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
