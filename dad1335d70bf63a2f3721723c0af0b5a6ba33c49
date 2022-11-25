@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f6ddf76_d030660d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1275415
+      },
+      "writtenOn": "2022-11-25T06:09:26Z",
+      "side": 1,
+      "message": "Hi Yanting:\n\nThanks for your conscientious follow-up, I\u0027ll try my best to answer these questions.\n\n1. I choose the level for the reason that `TRIM_MEMORY_MODERATE` always means that the process is going to be killed, and I\u0027m afraid that will be too late for us to trim the memory. Also as you may have read in the [comment](https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/android/content/ComponentCallbacks2.java;l\u003d120?q\u003dTRIM_MEMORY_BACKGROUND) of `TRIM_MEMORY_BACKGROUND`, it is suggest to do resource clean-up in this level. Actually this mechanism has been introduced to [Glide](https://cs.android.com/android/platform/superproject/+/master:external/glide/library/src/main/java/com/bumptech/glide/load/engine/cache/LruResourceCache.java;l\u003d44?q\u003dLruResourceCache) and working perfectly for year in innumerable apps, so I think there should not be any problems.\n\n2. We are still watching our test feedback for this bug, sorry for no more logs. We can now only suspect that the problem is caused by calling `evictAll` too frequently, so we introduced this method trying to do the clean-up in another better and reasonable way. I used to consider adding a `size \u003e 0` check before calling `evictAll()` which is similar to what you have mentioned, but found not many similar ways of calling after searching the entire code base, I believe `LruCache` is intended to be designed like this. \n\nIf I have to fix this problem in a quicker way, I\u0027d like to amend `release()` by calling `mDrawableCache.trimToSize(0)` rather than calling `mDrawableCache.evictAll()` to avoid encountering \"LruCache traps\". Glide did it simply like [this](https://cs.android.com/android/platform/superproject/+/master:external/glide/library/src/main/java/com/bumptech/glide/util/LruCache.java;l\u003d145?q\u003dcom.bumptech.glide.util.lru), I have no idea why Android provided `envictAll()` with such implementation. Anyway, it\u0027s another thing, maybe we should create another CL to fix like this while itroducing `trimMemory()` is also needed.\n\n3. I\u0027m glad to provide you with more information as soon as we get it. Currently we may not have that much test resources, please use ayeaye and Presubmit-verify by any chance to do Google\u0027s test.",
+      "parentUuid": "5eefa4ce_e3758d48",
+      "revId": "dad1335d70bf63a2f3721723c0af0b5a6ba33c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1e62e10_d65b6455",
@@ -59,6 +77,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "138937f0_0e7378f8",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/applications/AppIconCacheManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1275415
+      },
+      "writtenOn": "2022-11-25T06:09:26Z",
+      "side": 1,
+      "message": "The reason for the change is that the icon size in the test case (`10 * 10 * 4 / 1024`) is far from `AppIconCacheManager`\u0027s definiation (`Math.round(CACHE_RATIO * Runtime.getRuntime().maxMemory() / 1024)`). This kind of difference would make the test meaningless, as the threshold would be far from being reached.\n\nHowever, I do agree with the principle you mentioned. I\u0027ve uploaded another workaround to do the trimMemory test without breaking the original ones, please take a look.",
+      "parentUuid": "d1e62e10_d65b6455",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 5
+      },
+      "revId": "dad1335d70bf63a2f3721723c0af0b5a6ba33c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79c33d18_6e42258e",
@@ -72,6 +114,30 @@
       "writtenOn": "2022-11-24T17:59:12Z",
       "side": 1,
       "message": "Please follow the capital letter, T.",
+      "range": {
+        "startLine": 136,
+        "startChar": 15,
+        "endLine": 136,
+        "endChar": 16
+      },
+      "revId": "dad1335d70bf63a2f3721723c0af0b5a6ba33c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4862e370_ca6e284f",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/applications/AppIconCacheManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1275415
+      },
+      "writtenOn": "2022-11-25T06:09:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79c33d18_6e42258e",
       "range": {
         "startLine": 136,
         "startChar": 15,
