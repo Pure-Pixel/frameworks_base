@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c3d3da0_b1272a25",
+        "filename": "core/java/android/os/Debug.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2022-11-28T19:08:00Z",
+      "side": 1,
+      "message": "@hide?",
+      "range": {
+        "startLine": 988,
+        "startChar": 0,
+        "endLine": 988,
+        "endChar": 6
+      },
+      "revId": "fb7e3fb75155812815b68cdd31d40ed7dbdaa2d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
