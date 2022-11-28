@@ -70,6 +70,30 @@
       },
       "revId": "8ea0d57f8df7bba4f1037fb9c499fde067a3ac62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da3b4c89_426b427e",
+        "filename": "services/core/java/com/android/server/am/AppWaitingForDebuggerDialog.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2022-11-28T12:52:34Z",
+      "side": 0,
+      "message": "It still works because this is running in system-server and the \u0027killAppAtUserRequest\u0027 function just causes system-server to send a kill(2) to the app process.\n\n(https://cs.android.com/android/platform/superproject/+/master:frameworks/base/services/core/java/com/android/server/am/ProcessRecord.java;l\u003d1086?q\u003dkillLocked\u0026ss\u003dandroid%2Fplatform%2Fsuperproject)",
+      "parentUuid": "a91deda9_c8813b73",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 0
+      },
+      "revId": "8ea0d57f8df7bba4f1037fb9c499fde067a3ac62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
