@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "446cd8c2_9c58578b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1332604
+      },
+      "writtenOn": "2022-11-29T03:05:28Z",
+      "side": 1,
+      "message": "Got it! Thanks for your detailed information!\n\nThe current solution looks good to me, but I am looking forward to have some strong evidences to make sure it can be fix appropriately.\n\nConsidering this problem is more related to the monkey test, and we haven’t got some real user cases about it. Would you mind holding this change for a while until there is a positive result from the test feedback of your side?\n\nFeel free to let me know if you have different ideas, thanks a lot!",
+      "parentUuid": "5f6ddf76_d030660d",
+      "revId": "dad1335d70bf63a2f3721723c0af0b5a6ba33c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d1e62e10_d65b6455",
         "filename": "packages/SettingsLib/src/com/android/settingslib/applications/AppIconCacheManager.java",
         "patchSetId": 6
