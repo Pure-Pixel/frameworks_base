@@ -16,6 +16,24 @@
       "message": "Please remove the whitespace, thank you!",
       "revId": "38b50e2b005b54fc51711eabf7eaabdcfbb4fad9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e46864a_9a00de17",
+        "filename": "packages/SettingsLib/tests/robotests/src/com/android/settingslib/applications/AppIconCacheManagerTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1275415
+      },
+      "writtenOn": "2022-11-29T03:16:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8be85513_ec2a8703",
+      "revId": "38b50e2b005b54fc51711eabf7eaabdcfbb4fad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
