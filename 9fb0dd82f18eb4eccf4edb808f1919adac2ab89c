@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dd0937c_ffe1289f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1392279
+      },
+      "writtenOn": "2022-12-01T02:18:12Z",
+      "side": 1,
+      "message": "Hi, please let me know if you have any concern or future plan about this feature. Thanks.",
+      "revId": "9fb0dd82f18eb4eccf4edb808f1919adac2ab89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
