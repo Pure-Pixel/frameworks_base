@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d3336c0_fa986ad7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1332604
+      },
+      "writtenOn": "2022-12-12T10:36:23Z",
+      "side": 1,
+      "message": "Hi Edgar,\n\nCould you please +1 for Code-Owners? Thank you so much!",
+      "revId": "c301e09c19cc6d659217e545c4e5213ae27ece1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
