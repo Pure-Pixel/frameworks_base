@@ -27,8 +27,8 @@ import android.hardware.tv.cec.V1_0.IHdmiCec.getPhysicalAddressCallback;
 import android.hardware.tv.cec.V1_0.OptionKey;
 import android.hardware.tv.cec.V1_0.Result;
 import android.hardware.tv.cec.V1_0.SendMessageResult;
-import android.hardware.tv.hdmi.IHdmi;
 import android.hardware.tv.hdmi.IHdmiCallback;
+import android.hardware.tv.hdmi.IHdmiConnection;
 import android.icu.util.IllformedLocaleException;
 import android.icu.util.ULocale;
 import android.os.Binder;
@@ -872,14 +872,14 @@ final class HdmiCecController {
     private static final class NativeWrapperImplAidl
             implements NativeWrapper, IBinder.DeathRecipient {
         private IHdmiCec mHdmiCec;
-        private IHdmi mHdmi;
+        private IHdmiConnection mHdmiConnection;
         @Nullable private HdmiCecCallback mCallback;
 
         private final Object mLock = new Object();
 
         @Override
         public String nativeInit() {
-            return connectToHal() ? mHdmiCec.toString() + " " + mHdmi.toString() : null;
+            return connectToHal() ? mHdmiCec.toString() + " " + mHdmiConnection.toString() : null;
         }
 
         boolean connectToHal() {
@@ -896,15 +896,15 @@ final class HdmiCecController {
                 HdmiLogger.error("Couldn't link to death : ", e);
             }
 
-            mHdmi =
-                    IHdmi.Stub.asInterface(
-                            ServiceManager.getService(IHdmi.DESCRIPTOR + "/default"));
-            if (mHdmi == null) {
+            mHdmiConnection =
+                    IHdmiConnection.Stub.asInterface(
+                            ServiceManager.getService(IHdmiConnection.DESCRIPTOR + "/default"));
+            if (mHdmiConnection == null) {
                 HdmiLogger.error("Could not initialize HDMI AIDL HAL");
                 return false;
             }
             try {
-                mHdmi.asBinder().linkToDeath(this, 0);
+                mHdmiConnection.asBinder().linkToDeath(this, 0);
             } catch (RemoteException e) {
                 HdmiLogger.error("Couldn't link to death : ", e);
             }
@@ -915,7 +915,7 @@ final class HdmiCecController {
         public void binderDied() {
             // One of the services died, try to reconnect to both.
             mHdmiCec.asBinder().unlinkToDeath(this, 0);
-            mHdmi.asBinder().unlinkToDeath(this, 0);
+            mHdmiConnection.asBinder().unlinkToDeath(this, 0);
             HdmiLogger.error("HDMI or CEC service died, reconnecting");
             connectToHal();
             // Reconnect the callback
@@ -935,7 +935,7 @@ final class HdmiCecController {
             }
             try {
                 // Create an AIDL callback that can callback onHotplugEvent
-                mHdmi.setCallback(new HdmiCallbackAidl(callback));
+                mHdmiConnection.setCallback(new HdmiCallbackAidl(callback));
             } catch (RemoteException e) {
                 HdmiLogger.error("Couldn't initialise tv.hdmi callback : ", e);
             }
@@ -1052,7 +1052,8 @@ final class HdmiCecController {
         @Override
         public HdmiPortInfo[] nativeGetPortInfos() {
             try {
-                android.hardware.tv.hdmi.HdmiPortInfo[] hdmiPortInfos = mHdmi.getPortInfo();
+                android.hardware.tv.hdmi.HdmiPortInfo[] hdmiPortInfos =
+                        mHdmiConnection.getPortInfo();
                 HdmiPortInfo[] hdmiPortInfo = new HdmiPortInfo[hdmiPortInfos.length];
                 int i = 0;
                 for (android.hardware.tv.hdmi.HdmiPortInfo portInfo : hdmiPortInfos) {
@@ -1076,7 +1077,7 @@ final class HdmiCecController {
         @Override
         public boolean nativeIsConnected(int port) {
             try {
-                return mHdmi.isConnected(port);
+                return mHdmiConnection.isConnected(port);
             } catch (RemoteException e) {
                 HdmiLogger.error("Failed to get connection info : ", e);
                 return false;
