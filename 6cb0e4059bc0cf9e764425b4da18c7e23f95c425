@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da561d3f_7dfa9d24",
+        "filename": "services/core/java/com/android/server/hdmi/HdmiCecController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-14T19:18:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64de5ea2_6196adb7",
+      "range": {
+        "startLine": 903,
+        "startChar": 55,
+        "endLine": 903,
+        "endChar": 59
+      },
+      "revId": "6cb0e4059bc0cf9e764425b4da18c7e23f95c425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae25611b_f713f630",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "930fc160_0ecb47c0",
+        "filename": "services/core/java/com/android/server/hdmi/HdmiCecController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-14T19:18:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae25611b_f713f630",
+      "range": {
+        "startLine": 919,
+        "startChar": 30,
+        "endLine": 919,
+        "endChar": 34
+      },
+      "revId": "6cb0e4059bc0cf9e764425b4da18c7e23f95c425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "321dd7e1_1c3aba0f",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-12-13T12:24:44Z",
       "side": 1,
       "message": "HdmiConnectionCallbackAidl",
+      "range": {
+        "startLine": 938,
+        "startChar": 48,
+        "endLine": 938,
+        "endChar": 64
+      },
+      "revId": "6cb0e4059bc0cf9e764425b4da18c7e23f95c425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98fdccf4_aa78f874",
+        "filename": "services/core/java/com/android/server/hdmi/HdmiCecController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2022-12-14T19:18:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "321dd7e1_1c3aba0f",
       "range": {
         "startLine": 938,
         "startChar": 48,
