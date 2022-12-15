@@ -33,6 +33,24 @@
       "message": "Is there anything I can do? 😊",
       "revId": "c301e09c19cc6d659217e545c4e5213ae27ece1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5902faa_1fbf68b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1332604
+      },
+      "writtenOn": "2022-12-15T05:22:45Z",
+      "side": 1,
+      "message": "Currently the presubmit seems blocked but is not related to current change. Generally we would like to merge the CL when the presubmit passed. It would be nice if you can help to reply with Presubmit-Ready +1 to retry. Once it got Presubmit_Verified +2, I will ask my teammates to get the Owner vote to merge, thank you!",
+      "parentUuid": "756354d8_ff704b7e",
+      "revId": "c301e09c19cc6d659217e545c4e5213ae27ece1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
