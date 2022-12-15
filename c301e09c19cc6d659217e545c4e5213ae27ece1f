@@ -51,6 +51,24 @@
       "parentUuid": "756354d8_ff704b7e",
       "revId": "c301e09c19cc6d659217e545c4e5213ae27ece1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fc71052_44427c89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1275415
+      },
+      "writtenOn": "2022-12-15T08:25:02Z",
+      "side": 1,
+      "message": "We do not have permission to set Presubmit-Ready +1, it requires a Googler to do so, and that\u0027s why I\u0027m so grateful for your warmly follow-up!\n\nNow it looks like we\u0027ve passed the Presubmit-Verified. You may remind Eagar to vote. Thank you.",
+      "parentUuid": "d5902faa_1fbf68b7",
+      "revId": "c301e09c19cc6d659217e545c4e5213ae27ece1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
