@@ -1085,10 +1085,16 @@ final class TaskDisplayArea extends DisplayArea<WindowContainer> {
         // Use launch-adjacent-flag-root if launching with launch-adjacent flag.
         if ((launchFlags & FLAG_ACTIVITY_LAUNCH_ADJACENT) != 0
                 && mLaunchAdjacentFlagRootTask != null) {
-            // If the adjacent launch is coming from the same root, launch to adjacent root instead.
-            if (sourceTask != null && mLaunchAdjacentFlagRootTask.getAdjacentTaskFragment() != null
+            // Do nothing when task that is getting opened is same as the source.
+            if (sourceTask != null && sourceTask == candidateTask
+                    && mLaunchAdjacentFlagRootTask.getChildCount() == 0
+                    && mLaunchAdjacentFlagRootTask.getAdjacentTaskFragment() != null
+                    && mLaunchAdjacentFlagRootTask.getAdjacentTaskFragment().getChildCount() == 0) {
+                //do nothing
+            } else if (sourceTask != null && mLaunchAdjacentFlagRootTask.getAdjacentTaskFragment() != null
                     && (sourceTask == mLaunchAdjacentFlagRootTask
                     || sourceTask.isDescendantOf(mLaunchAdjacentFlagRootTask))) {
+                // If the adjacent launch is coming from the same root, launch to adjacent root instead.
                 return mLaunchAdjacentFlagRootTask.getAdjacentTaskFragment().asTask();
             } else {
                 return mLaunchAdjacentFlagRootTask;
