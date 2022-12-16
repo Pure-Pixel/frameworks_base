@@ -69,6 +69,24 @@
       "parentUuid": "d5902faa_1fbf68b7",
       "revId": "c301e09c19cc6d659217e545c4e5213ae27ece1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63ed4616_1df8a665",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1332604
+      },
+      "writtenOn": "2022-12-16T03:11:06Z",
+      "side": 1,
+      "message": "Got it! Edgar will help to vote soon, thanks for your feedback and contribution. :)",
+      "parentUuid": "8fc71052_44427c89",
+      "revId": "c301e09c19cc6d659217e545c4e5213ae27ece1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
