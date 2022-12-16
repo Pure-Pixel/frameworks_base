@@ -16,6 +16,46 @@
       "message": "@chenghsiuchang@google.com\n\nPlease help to review",
       "revId": "2ff1e9f5b2d242c28422fb215ccb04605fb2ec72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d766899_5469a61e",
+        "filename": "services/core/java/com/android/server/wm/TaskDisplayArea.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1381718
+      },
+      "writtenOn": "2022-12-16T14:30:30Z",
+      "side": 1,
+      "message": "It should be reasonable to prevent apps launching itself to the adjacent side no matter if the split screen is dismissed or not, so (sourceTask !\u003d null \u0026\u0026 sourceTask \u003d\u003d candidateTask) is enough for the case.",
+      "range": {
+        "startLine": 1089,
+        "startChar": 16,
+        "endLine": 1092,
+        "endChar": 97
+      },
+      "revId": "2ff1e9f5b2d242c28422fb215ccb04605fb2ec72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b469480_37adcb60",
+        "filename": "services/core/java/com/android/server/wm/TaskDisplayArea.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1381718
+      },
+      "writtenOn": "2022-12-16T14:30:30Z",
+      "side": 1,
+      "message": "Please make this multiple lines so it won\u0027t need to wrap the text, same as line 1097.",
+      "revId": "2ff1e9f5b2d242c28422fb215ccb04605fb2ec72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

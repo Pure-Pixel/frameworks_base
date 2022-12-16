@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef9e0627_d1732f84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1381718
+      },
+      "writtenOn": "2022-12-16T14:30:30Z",
+      "side": 1,
+      "message": "Thanks for the patch.",
+      "revId": "6d91ec3dca24bab187e8dfc62208fa0d384d7f07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61dac6b6_82ee011c",
+        "filename": "services/core/java/com/android/server/wm/TaskDisplayArea.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1381718
+      },
+      "writtenOn": "2022-12-16T14:30:30Z",
+      "side": 1,
+      "message": "nit: how about putting this comment in line 1093 directly?",
+      "revId": "6d91ec3dca24bab187e8dfc62208fa0d384d7f07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
