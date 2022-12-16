@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1395b912_181d7388",
+        "filename": "services/core/java/com/android/server/wm/TaskDisplayArea.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1977516
+      },
+      "writtenOn": "2022-12-16T15:42:13Z",
+      "side": 1,
+      "message": "1. If Activity A is launching Activity B with adjacent flag and split exists.\n2. Then in that case, shouldn\u0027t we launch in adjacent,\nJust curious about this case.",
+      "parentUuid": "8d766899_5469a61e",
+      "range": {
+        "startLine": 1089,
+        "startChar": 16,
+        "endLine": 1092,
+        "endChar": 97
+      },
+      "revId": "2ff1e9f5b2d242c28422fb215ccb04605fb2ec72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b469480_37adcb60",
