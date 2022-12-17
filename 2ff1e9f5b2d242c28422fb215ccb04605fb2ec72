@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c8306f34_84b3bde5",
+        "filename": "services/core/java/com/android/server/wm/TaskDisplayArea.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1381446
+      },
+      "writtenOn": "2022-12-17T09:45:52Z",
+      "side": 1,
+      "message": "+1 to Jerry as the FLAG_ACTIVITY_LAUNCH_ADJACENT should not work while starting activities on the same Task. It should only be working while starting another Task.",
+      "parentUuid": "1395b912_181d7388",
+      "range": {
+        "startLine": 1089,
+        "startChar": 16,
+        "endLine": 1092,
+        "endChar": 97
+      },
+      "revId": "2ff1e9f5b2d242c28422fb215ccb04605fb2ec72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b469480_37adcb60",
         "filename": "services/core/java/com/android/server/wm/TaskDisplayArea.java",
         "patchSetId": 1
