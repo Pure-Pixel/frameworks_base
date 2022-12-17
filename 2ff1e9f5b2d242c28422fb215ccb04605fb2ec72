@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "856e3065_811bf59c",
+        "filename": "services/core/java/com/android/server/wm/TaskDisplayArea.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1977516
+      },
+      "writtenOn": "2022-12-17T10:08:19Z",
+      "side": 1,
+      "message": "got your point \nwill change and send for review",
+      "parentUuid": "c8306f34_84b3bde5",
+      "range": {
+        "startLine": 1089,
+        "startChar": 16,
+        "endLine": 1092,
+        "endChar": 97
+      },
+      "revId": "2ff1e9f5b2d242c28422fb215ccb04605fb2ec72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b469480_37adcb60",
