@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05acb482_572f68a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1381718
+      },
+      "writtenOn": "2022-12-19T01:56:15Z",
+      "side": 1,
+      "message": "nit: no longer needed.",
+      "range": {
+        "startLine": 17,
+        "startChar": 3,
+        "endLine": 17,
+        "endChar": 101
+      },
+      "revId": "82f6e44eb24fc8c9a0214233110a95a1703f7c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
