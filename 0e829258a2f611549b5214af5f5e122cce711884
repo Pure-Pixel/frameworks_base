@@ -84,6 +84,24 @@
       "message": "@chenghsiuchang@google.com\n@louischang@google.com\n@riddlehsu@google.com\n\nAs per script there is no error only one warning \n\nCan you please help to submit\nIt will be very helpful\nThanks",
       "revId": "0e829258a2f611549b5214af5f5e122cce711884",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efd46a28_8ad8784e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1381718
+      },
+      "writtenOn": "2022-12-20T07:59:35Z",
+      "side": 1,
+      "message": "These warnings are not related to this, so proceed to merge the patch.",
+      "parentUuid": "f8b50bc6_a3290141",
+      "revId": "0e829258a2f611549b5214af5f5e122cce711884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
