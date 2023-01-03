@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9d20526_41c9625c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2023-01-03T09:39:30Z",
+      "side": 1,
+      "message": "Trevor, could you please provide OWNERS review for this Android.bp file?",
+      "revId": "de4825dd338495b677dae77bd8f0ef73f7bb1e81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
