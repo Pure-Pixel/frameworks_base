@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e347c9dc_2afb9b39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2023-02-14T04:53:55Z",
+      "side": 1,
+      "message": "Sorry for the delay. I made it @hide for now as there needs to be CTS coverage to make it public, but also I want to explore the performance aspects a bit more closely before making it public (a hwui benchmark wouldn\u0027t hurt, either). But this otherwise looks like a pretty reasonable approach, so should go ahead and land this to be iterated on.",
+      "revId": "25fef1d6afa2012f74c726e44f9fedf85bc14e4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
