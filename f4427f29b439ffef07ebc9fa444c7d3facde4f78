@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "96040710_73abae4c",
+        "filename": "api/api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1960090
+      },
+      "writtenOn": "2023-02-21T20:43:58Z",
+      "side": 1,
+      "message": "removed this part",
+      "parentUuid": "855cb619_4205473b",
+      "range": {
+        "startLine": 438,
+        "startChar": 1,
+        "endLine": 438,
+        "endChar": 41
+      },
+      "revId": "f4427f29b439ffef07ebc9fa444c7d3facde4f78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0bf0f3f1_0110396b",
         "filename": "api/api_conversion_test.go",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-21T18:37:44Z",
       "side": 1,
       "message": "Can you add the test to the soong-api [module](https://cs.android.com/android/platform/superproject/+/master:frameworks/base/api/Android.bp;l\u003d27;drc\u003da934428b53e0414a8a158f752364d4ccd69284c9) similar to https://cs.android.com/android/platform/superproject/+/master:system/tools/aidl/build/Android.bp;l\u003d53;drc\u003d4449a1fc4e9f7122a33b132bf1fec0891dc1b1dd?",
+      "range": {
+        "startLine": 1,
+        "startChar": 3,
+        "endLine": 1,
+        "endChar": 12
+      },
+      "revId": "f4427f29b439ffef07ebc9fa444c7d3facde4f78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d06f4b2_f1be4492",
+        "filename": "api/api_conversion_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1960090
+      },
+      "writtenOn": "2023-02-21T20:43:58Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "0bf0f3f1_0110396b",
       "range": {
         "startLine": 1,
         "startChar": 3,
