@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e22c6b3_2a47c543",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1934235
+      },
+      "writtenOn": "2023-02-22T19:56:01Z",
+      "side": 1,
+      "message": "we should also update the CTS test: cts/tests/tests/telephony/current/src/android/telephony/cts/SmsUsageMonitorShortCodeTest.java",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 76
+      },
+      "revId": "d76382708d4437cdd99d86575cf6fd614a1ad883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
