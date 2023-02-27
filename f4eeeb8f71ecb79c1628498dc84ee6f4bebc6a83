@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "392aaedd_49e61697",
+        "filename": "api/api.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1687194
+      },
+      "writtenOn": "2023-02-27T19:02:26Z",
+      "side": 1,
+      "message": "this variable should be unnecessary\n\nWhile we generally don\u0027t want to iterate over an unordered map, because we are creating a module for each, the ordering of modules is deterministic.",
+      "range": {
+        "startLine": 439,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 74
+      },
+      "revId": "f4eeeb8f71ecb79c1628498dc84ee6f4bebc6a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
