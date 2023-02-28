@@ -22,6 +22,30 @@
       },
       "revId": "f4eeeb8f71ecb79c1628498dc84ee6f4bebc6a83",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cb6d57b_442289bd",
+        "filename": "api/api.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1960090
+      },
+      "writtenOn": "2023-02-28T17:26:47Z",
+      "side": 1,
+      "message": "According to our discussion, targets order in test will be resolved in another CL.",
+      "parentUuid": "392aaedd_49e61697",
+      "range": {
+        "startLine": 439,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 74
+      },
+      "revId": "f4eeeb8f71ecb79c1628498dc84ee6f4bebc6a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
