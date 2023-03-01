@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "857a0008_2e1c102e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2023-03-01T09:23:02Z",
+      "side": 1,
+      "message": "Since I added the initial version of combined_apis (and the build rules for the merged txts that we have currently) I realized there\u0027s a simpler approach that requires less custom Go code to generate it all. Instead of creating the metalava genrules internally in Go, the go code would create filegroups containing lists of all the module inputs that the genrule needs. The genrule can then be written in Android.bp.\n\nHere\u0027s an example of such a conversion: https://r.android.com/2438212\n\nWould it be helpful if I converted the merged txts to work in a similar way? In other words, would there also be less custom bazel code maintained to build the merged txts?\n\nThis probably should have been a comment on the design doc. Not sure if it has the more detailed design in place when I reviewed it in Dec.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 65
+      },
+      "revId": "f4eeeb8f71ecb79c1628498dc84ee6f4bebc6a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "392aaedd_49e61697",
         "filename": "api/api.go",
         "patchSetId": 3
