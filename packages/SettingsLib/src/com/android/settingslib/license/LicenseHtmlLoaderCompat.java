@@ -87,7 +87,7 @@ public class LicenseHtmlLoaderCompat extends AsyncLoaderCompat<File> {
         return xmlFiles;
     }
 
-    private File getCachedHtmlFile(Context context) {
+    public static File getCachedHtmlFile(Context context) {
         return new File(context.getCacheDir(), NOTICE_HTML_FILE_NAME);
     }
 
