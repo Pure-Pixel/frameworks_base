@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b799f8a1_c4898650",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1960090
+      },
+      "writtenOn": "2023-03-01T20:15:32Z",
+      "side": 1,
+      "message": "Thanks for the feedback Anton. For now we can proceed with this CL and then file a bug to consider cleaning it up and handle it purely in Soong.",
+      "parentUuid": "5cac896b_e8513375",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 65
+      },
+      "revId": "f4eeeb8f71ecb79c1628498dc84ee6f4bebc6a83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "392aaedd_49e61697",
