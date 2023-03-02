@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "112a9a4e_1ac2a273",
+        "filename": "api/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2023-03-02T09:10:43Z",
+      "side": 1,
+      "message": "maybe just `api_test.go` that we could in theory add other api tests to the same file?",
+      "revId": "0b07e19321cfdddf45f62c8f32b828c7fa04f57c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d08a153_dc2d8edf",
+        "filename": "api/api.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2023-03-02T09:10:43Z",
+      "side": 1,
+      "message": "Can you create and assign this whole struct once, in a var up top in the program, and reuse here, rather than adding all the identical boilerplate?\n\nSomething like:\n\n```\nvar bp2buildNotAvailable \u003d ...\n..\n\nctx.CreateModule(genrule.GenRuleFactory, \u0026props, \u0026bp2buildNotAvailable)\n```",
+      "range": {
+        "startLine": 158,
+        "startChar": 2,
+        "endLine": 162,
+        "endChar": 4
+      },
+      "revId": "0b07e19321cfdddf45f62c8f32b828c7fa04f57c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "346d37b0_8f933895",
+        "filename": "api/api.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2023-03-02T09:10:43Z",
+      "side": 1,
+      "message": "dedupe:\n```\nvar classpath\nif scopeName \u003d\u003d \"system-server\" {\n  classpath \u003d ..\nelse\n  ..\n}\ndeps :\u003d bazel.MakeLabelListAttribute(android.BazelLabelForModuleDeps(ctx, classpath))\n```",
+      "range": {
+        "startLine": 458,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 3
+      },
+      "revId": "0b07e19321cfdddf45f62c8f32b828c7fa04f57c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
