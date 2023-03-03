@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0a0ea61_50bbd2d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2023-03-03T15:27:17Z",
+      "side": 1,
+      "message": "Hey Jihoon, not sure if these modules are actually necessary given the integration into droidstubs? I can replace this CL with a deletion if so. Thanks!",
+      "revId": "2e3bac5dd0a2b5766b2fcc913c0f014a9ec30218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
