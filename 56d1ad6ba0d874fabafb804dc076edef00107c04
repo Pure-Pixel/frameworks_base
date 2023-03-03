@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a4a91d7_f55067c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2023-03-03T16:00:59Z",
+      "side": 1,
+      "message": "Bazel doesn\u0027t allow access to files in other build packages (where a package is a subset of filesystem rooted at the directory containing a BUILD file and which does not contain any other packages) so this is a definite improvement.",
+      "revId": "56d1ad6ba0d874fabafb804dc076edef00107c04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
