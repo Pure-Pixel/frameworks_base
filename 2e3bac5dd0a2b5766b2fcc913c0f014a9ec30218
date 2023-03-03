@@ -70,6 +70,24 @@
       "parentUuid": "d3a14887_d2c87fcb",
       "revId": "2e3bac5dd0a2b5766b2fcc913c0f014a9ec30218",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68b8f2e8_106be941",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2023-03-03T18:27:05Z",
+      "side": 1,
+      "message": "OK, so you want them back in core/api/Android.bp?",
+      "parentUuid": "cd5a85cd_f1196461",
+      "revId": "2e3bac5dd0a2b5766b2fcc913c0f014a9ec30218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
