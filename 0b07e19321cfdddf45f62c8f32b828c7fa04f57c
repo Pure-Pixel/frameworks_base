@@ -18,6 +18,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db7c52e0_85aa56f9",
+        "filename": "api/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1960090
+      },
+      "writtenOn": "2023-03-05T19:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "112a9a4e_1ac2a273",
+      "revId": "0b07e19321cfdddf45f62c8f32b828c7fa04f57c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80de6e7f_55bdf9cd",
+        "filename": "api/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1960090
+      },
+      "writtenOn": "2023-03-05T19:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "112a9a4e_1ac2a273",
+      "revId": "0b07e19321cfdddf45f62c8f32b828c7fa04f57c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d08a153_dc2d8edf",
@@ -41,6 +77,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66fd6ed8_5abb8340",
+        "filename": "api/api.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1960090
+      },
+      "writtenOn": "2023-03-05T19:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d08a153_dc2d8edf",
+      "range": {
+        "startLine": 158,
+        "startChar": 2,
+        "endLine": 162,
+        "endChar": 4
+      },
+      "revId": "0b07e19321cfdddf45f62c8f32b828c7fa04f57c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c780aebc_a7333049",
+        "filename": "api/api.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1960090
+      },
+      "writtenOn": "2023-03-05T19:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d08a153_dc2d8edf",
+      "range": {
+        "startLine": 158,
+        "startChar": 2,
+        "endLine": 162,
+        "endChar": 4
+      },
+      "revId": "0b07e19321cfdddf45f62c8f32b828c7fa04f57c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "346d37b0_8f933895",
@@ -54,6 +138,54 @@
       "writtenOn": "2023-03-02T09:10:43Z",
       "side": 1,
       "message": "dedupe:\n```\nvar classpath\nif scopeName \u003d\u003d \"system-server\" {\n  classpath \u003d ..\nelse\n  ..\n}\ndeps :\u003d bazel.MakeLabelListAttribute(android.BazelLabelForModuleDeps(ctx, classpath))\n```",
+      "range": {
+        "startLine": 458,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 3
+      },
+      "revId": "0b07e19321cfdddf45f62c8f32b828c7fa04f57c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09059f66_82459e1f",
+        "filename": "api/api.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1960090
+      },
+      "writtenOn": "2023-03-05T19:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "346d37b0_8f933895",
+      "range": {
+        "startLine": 458,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 3
+      },
+      "revId": "0b07e19321cfdddf45f62c8f32b828c7fa04f57c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "503415f8_82d52223",
+        "filename": "api/api.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1960090
+      },
+      "writtenOn": "2023-03-05T19:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "346d37b0_8f933895",
       "range": {
         "startLine": 458,
         "startChar": 0,
