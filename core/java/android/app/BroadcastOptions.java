@@ -67,6 +67,7 @@ public class BroadcastOptions extends ComponentOptions {
     private @Nullable String mDeliveryGroupMatchingKey;
     private @Nullable IntentFilter mDeliveryGroupMatchingFilter;
     private boolean mIsDeferUntilActive = false;
+    private @DeferralPolicy int mDeferralPolicy;
 
     /**
      * Change ID which is invalid.
@@ -221,6 +222,68 @@ public class BroadcastOptions extends ComponentOptions {
      */
     @SystemApi
     public static final int DELIVERY_GROUP_POLICY_MOST_RECENT = 1;
+
+    /** {@hide} */
+    @IntDef(prefix = { "DEFERRAL_POLICY_" }, value = {
+            DEFERRAL_POLICY_DEFAULT,
+            DEFERRAL_POLICY_NONE,
+            DEFERRAL_POLICY_UNTIL_ACTIVE,
+    })
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface DeferralPolicy {}
+
+    /**
+     * Deferral policy that indicates the system should select a relevant
+     * default based on the sender.
+     * <p>
+     * When the sender matches {@link UserHandle#isCore}, the default behavior
+     * will be {@link #DEFERRAL_POLICY_UNTIL_ACTIVE}, otherwise the default
+     * behavior will be {@link #DEFERRAL_POLICY_NONE}.
+     *
+     * @hide
+     */
+    @SystemApi
+    public static final int DEFERRAL_POLICY_DEFAULT = 0;
+
+    /**
+     * Deferral policy that indicates that each given receiver of this broadcast
+     * should never be deferred.
+     *
+     * @hide
+     */
+    @SystemApi
+    public static final int DEFERRAL_POLICY_NONE = 1;
+
+    /**
+     * Deferral policy that indicates that each given receiver of this broadcast
+     * should be deferred until that receiver's process is in an active
+     * (non-cached) state.
+     * <p>
+     * Whether an app's process state is considered active is independent of its
+     * standby bucket.
+     * <p>
+     * A broadcast that is deferred until the process is active will not execute
+     * until the process is brought to an active state by some other action,
+     * like a job, alarm, or service binding. As a result, the broadcast may be
+     * delayed indefinitely. This deferral only applies to runtime registered
+     * receivers of a broadcast. Any manifest receivers will run immediately,
+     * similar to how a manifest receiver would start a new process in order to
+     * run a broadcast receiver.
+     * <p>
+     * Ordered broadcasts, alarm broadcasts, interactive broadcasts, and
+     * manifest broadcasts are never deferred.
+     * <p>
+     * Unordered broadcasts and unordered broadcasts with completion callbacks
+     * may be deferred. Completion callbacks for broadcasts deferred until
+     * active are best-effort. Completion callbacks will run when all eligible
+     * processes have finished executing the broadcast. Processes in inactive
+     * process states that defer the broadcast are not considered eligible and
+     * may not execute the broadcast prior to the completion callback.
+     *
+     * @hide
+     */
+    @SystemApi
+    public static final int DEFERRAL_POLICY_UNTIL_ACTIVE = 2;
 
     public static BroadcastOptions makeBasic() {
         BroadcastOptions opts = new BroadcastOptions();
@@ -712,6 +775,7 @@ public class BroadcastOptions extends ComponentOptions {
      * @hide
      */
     @SystemApi
+    @Deprecated
     public @NonNull BroadcastOptions setDeferUntilActive(boolean shouldDefer) {
         mIsDeferUntilActive = shouldDefer;
         return this;
@@ -719,8 +783,47 @@ public class BroadcastOptions extends ComponentOptions {
 
     /** @hide */
     @SystemApi
+    @Deprecated
     public boolean isDeferUntilActive() {
         return mIsDeferUntilActive;
+    }
+
+    /**
+     * Set the deferral policy for this broadcast that specifies how this
+     * broadcast should be deferred for delivery at some future point.
+     *
+     * @hide
+     */
+    @SystemApi
+    @RequiresPermission(android.Manifest.permission.BROADCAST_OPTION_DEFERRAL)
+    public @NonNull BroadcastOptions setDeferralPolicy(@DeferralPolicy int deferralPolicy) {
+        setDeferUntilActive(deferralPolicy == DEFERRAL_POLICY_UNTIL_ACTIVE);
+        mDeferralPolicy = deferralPolicy;
+        return this;
+    }
+
+    /**
+     * Get the deferral policy for this broadcast that specifies how this
+     * broadcast should be deferred for delivery at some future point.
+     *
+     * @hide
+     */
+    @SystemApi
+    @RequiresPermission(android.Manifest.permission.BROADCAST_OPTION_DEFERRAL)
+    public @DeferralPolicy int getDeferralPolicy() {
+        return mDeferralPolicy;
+    }
+
+    /**
+     * Clears any deferral policy for this broadcast that specifies how this
+     * broadcast should be deferred for delivery at some future point.
+     *
+     * @hide
+     */
+    @SystemApi
+    @RequiresPermission(android.Manifest.permission.BROADCAST_OPTION_DEFERRAL)
+    public void clearDeferralPolicy() {
+        mDeferralPolicy = DEFERRAL_POLICY_DEFAULT;
     }
 
     /**
