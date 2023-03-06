@@ -84,6 +84,7 @@ package android {
     field public static final String BRIGHTNESS_SLIDER_USAGE = "android.permission.BRIGHTNESS_SLIDER_USAGE";
     field public static final String BROADCAST_CLOSE_SYSTEM_DIALOGS = "android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS";
     field @Deprecated public static final String BROADCAST_NETWORK_PRIVILEGED = "android.permission.BROADCAST_NETWORK_PRIVILEGED";
+    field public static final String BROADCAST_OPTION_DEFERRAL = "android.permission.BROADCAST_OPTION_DEFERRAL";
     field public static final String BYPASS_ROLE_QUALIFICATION = "android.permission.BYPASS_ROLE_QUALIFICATION";
     field public static final String CALL_AUDIO_INTERCEPTION = "android.permission.CALL_AUDIO_INTERCEPTION";
     field public static final String CAMERA_DISABLE_TRANSMIT_LED = "android.permission.CAMERA_DISABLE_TRANSMIT_LED";
@@ -760,13 +761,16 @@ package android.app {
   }
 
   public class BroadcastOptions {
+    method @RequiresPermission(android.Manifest.permission.BROADCAST_OPTION_DEFERRAL) public void clearDeferralPolicy();
     method public void clearRequireCompatChange();
+    method @RequiresPermission(android.Manifest.permission.BROADCAST_OPTION_DEFERRAL) public int getDeferralPolicy();
     method public boolean isDeferUntilActive();
     method public boolean isPendingIntentBackgroundActivityLaunchAllowed();
     method public static android.app.BroadcastOptions makeBasic();
     method @RequiresPermission(android.Manifest.permission.ACCESS_BROADCAST_RESPONSE_STATS) public void recordResponseEventWhileInBackground(@IntRange(from=0) long);
     method @RequiresPermission(android.Manifest.permission.START_ACTIVITIES_FROM_BACKGROUND) public void setBackgroundActivityStartsAllowed(boolean);
     method @NonNull public android.app.BroadcastOptions setDeferUntilActive(boolean);
+    method @NonNull @RequiresPermission(android.Manifest.permission.BROADCAST_OPTION_DEFERRAL) public android.app.BroadcastOptions setDeferralPolicy(int);
     method public void setDeliveryGroupMatchingFilter(@NonNull android.content.IntentFilter);
     method public void setDeliveryGroupMatchingKey(@NonNull String, @NonNull String);
     method public void setDeliveryGroupPolicy(int);
@@ -778,6 +782,9 @@ package android.app {
     method @RequiresPermission(anyOf={android.Manifest.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST, android.Manifest.permission.START_ACTIVITIES_FROM_BACKGROUND, android.Manifest.permission.START_FOREGROUND_SERVICES_FROM_BACKGROUND}) public void setTemporaryAppAllowlist(long, int, int, @Nullable String);
     method @Deprecated @RequiresPermission(anyOf={android.Manifest.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST, android.Manifest.permission.START_ACTIVITIES_FROM_BACKGROUND, android.Manifest.permission.START_FOREGROUND_SERVICES_FROM_BACKGROUND}) public void setTemporaryAppWhitelistDuration(long);
     method public android.os.Bundle toBundle();
+    field public static final int DEFERRAL_POLICY_DEFAULT = 0; // 0x0
+    field public static final int DEFERRAL_POLICY_NONE = 1; // 0x1
+    field public static final int DEFERRAL_POLICY_UNTIL_ACTIVE = 2; // 0x2
     field public static final int DELIVERY_GROUP_POLICY_ALL = 0; // 0x0
     field public static final int DELIVERY_GROUP_POLICY_MOST_RECENT = 1; // 0x1
   }
