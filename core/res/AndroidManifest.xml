@@ -3112,6 +3112,11 @@
                 android:protectionLevel="signature" />
     <uses-permission android:name="android.permission.SEND_SHOW_SUSPENDED_APP_DETAILS" />
 
+    <!-- Allows an application to request deferral options when sending a broadcast.
+         @SystemApi @hide -->
+    <permission android:name="android.permission.BROADCAST_OPTION_DEFERRAL"
+                android:protectionLevel="signature|privileged" />
+
     <!-- Allows an application to start an activity as another app, provided that app has been
          granted a permissionToken from the ActivityManagerService.
          @hide -->
