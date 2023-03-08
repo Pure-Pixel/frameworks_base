@@ -16,6 +16,24 @@
       "message": "I think there is an internal fix on this recently",
       "revId": "691516f11d0cbdd156531b84f74749f57ce0da95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcee7569_cd41be7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1845383
+      },
+      "writtenOn": "2023-03-08T04:41:36Z",
+      "side": 1,
+      "message": "Can you please share link for reference? Also can you please confirm is it backported to Android 10/11/12 branches?",
+      "parentUuid": "ddee3d7e_2439996c",
+      "revId": "691516f11d0cbdd156531b84f74749f57ce0da95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
