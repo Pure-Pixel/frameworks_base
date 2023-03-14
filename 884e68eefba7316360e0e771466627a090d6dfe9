@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bca0644b_3e05ee42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1381453
+      },
+      "writtenOn": "2023-03-14T11:32:20Z",
+      "side": 1,
+      "message": "LGTM. Could you please wait for Louis or Riddle\u0027s + 2?",
+      "revId": "884e68eefba7316360e0e771466627a090d6dfe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
