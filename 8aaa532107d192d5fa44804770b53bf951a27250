@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "065e040f_18d0be94",
+        "filename": "core/java/android/view/accessibility/AccessibilityNodeInfo.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4733,
+      "author": {
+        "id": 1410358
+      },
+      "writtenOn": "2023-06-02T21:29:43Z",
+      "side": 1,
+      "message": "I rephrased it. WDYT? I am trying to get across that this should reuse whatever code reacts to the click (versus sending a touch event/click to the element).",
+      "parentUuid": "bfad4909_9a04e985",
+      "range": {
+        "startLine": 4733,
+        "startChar": 26,
+        "endLine": 4733,
+        "endChar": 62
+      },
+      "revId": "8aaa532107d192d5fa44804770b53bf951a27250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "773cdb81_b10d32b1",
         "filename": "core/java/android/view/accessibility/AccessibilityNodeInfo.java",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-02T17:56:47Z",
       "side": 1,
       "message": "Ditto",
+      "range": {
+        "startLine": 4746,
+        "startChar": 14,
+        "endLine": 4746,
+        "endChar": 67
+      },
+      "revId": "8aaa532107d192d5fa44804770b53bf951a27250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90d9ed29_122dd98a",
+        "filename": "core/java/android/view/accessibility/AccessibilityNodeInfo.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4746,
+      "author": {
+        "id": 1410358
+      },
+      "writtenOn": "2023-06-02T21:29:43Z",
+      "side": 1,
+      "message": "Done. Refer to previous comment.",
+      "parentUuid": "773cdb81_b10d32b1",
       "range": {
         "startLine": 4746,
         "startChar": 14,
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-02T17:56:47Z",
       "side": 1,
       "message": "Ditto",
+      "range": {
+        "startLine": 5065,
+        "startChar": 14,
+        "endLine": 5065,
+        "endChar": 70
+      },
+      "revId": "8aaa532107d192d5fa44804770b53bf951a27250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1729e1ca_52d5d45d",
+        "filename": "core/java/android/view/accessibility/AccessibilityNodeInfo.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 5065,
+      "author": {
+        "id": 1410358
+      },
+      "writtenOn": "2023-06-02T21:29:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b06c3a69_aad486e4",
       "range": {
         "startLine": 5065,
         "startChar": 14,
