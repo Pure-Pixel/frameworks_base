@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfad4909_9a04e985",
+        "filename": "core/java/android/view/accessibility/AccessibilityNodeInfo.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4733,
+      "author": {
+        "id": 1059968
+      },
+      "writtenOn": "2023-06-02T17:56:47Z",
+      "side": 1,
+      "message": "This is a little awkward, since an action cannot call a UI element\u0027s click handling. Rephrase?",
+      "range": {
+        "startLine": 4733,
+        "startChar": 26,
+        "endLine": 4733,
+        "endChar": 62
+      },
+      "revId": "8aaa532107d192d5fa44804770b53bf951a27250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "773cdb81_b10d32b1",
+        "filename": "core/java/android/view/accessibility/AccessibilityNodeInfo.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4746,
+      "author": {
+        "id": 1059968
+      },
+      "writtenOn": "2023-06-02T17:56:47Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 4746,
+        "startChar": 14,
+        "endLine": 4746,
+        "endChar": 67
+      },
+      "revId": "8aaa532107d192d5fa44804770b53bf951a27250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b06c3a69_aad486e4",
+        "filename": "core/java/android/view/accessibility/AccessibilityNodeInfo.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 5065,
+      "author": {
+        "id": 1059968
+      },
+      "writtenOn": "2023-06-02T17:56:47Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 5065,
+        "startChar": 14,
+        "endLine": 5065,
+        "endChar": 70
+      },
+      "revId": "8aaa532107d192d5fa44804770b53bf951a27250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
