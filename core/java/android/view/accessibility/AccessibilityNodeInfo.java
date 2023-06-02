@@ -259,6 +259,7 @@ public class AccessibilityNodeInfo implements Parcelable {
      * Action that long clicks on the node.
      *
      * <p>It does not support coordinate information for anchoring.</p>
+     * @see {@link AccessibilityAction#ACTION_LONG_CLICK}
      */
     public static final int ACTION_LONG_CLICK = 0x00000020;
 
@@ -4679,7 +4680,7 @@ public class AccessibilityNodeInfo implements Parcelable {
      * and handled by custom widgets. i.e. ones that are not part of the UI toolkit. For
      * example, an application may define a custom action for clearing the user history.
      * </li>
-     * <li><strong>Overriden standard actions</strong> - These are actions that override
+     * <li><strong>Overridden standard actions</strong> - These are actions that override
      * standard actions to customize them. For example, an app may add a label to the
      * standard {@link #ACTION_CLICK} action to indicate to the user that this action clears
      * browsing history.
@@ -4729,12 +4730,27 @@ public class AccessibilityNodeInfo implements Parcelable {
 
         /**
          * Action that clicks on the node info.
+         *
+         * <p>This should call the UI element's code that reacts to a click, and this code should
+         * send a {@link AccessibilityEvent#TYPE_VIEW_CLICKED} event. In the View system,
+         * this action calls {@link View#performClick()}, and setting a
+         * {@link View#setOnClickListener(View.OnClickListener)} automatically adds this action.
+         *
+         * <p>{@link #isClickable()} should return true if this action is available.
          */
         public static final AccessibilityAction ACTION_CLICK =
                 new AccessibilityAction(AccessibilityNodeInfo.ACTION_CLICK);
 
         /**
          * Action that long clicks on the node.
+         *
+         * <p>This should call the UI element's code that reacts to a long click, and this code
+         * should send a {@link AccessibilityEvent#TYPE_VIEW_LONG_CLICKED} event. In the View
+         * system, this action calls {@link View#performLongClick()}, and setting a
+         * {@link View#setOnLongClickListener(View.OnLongClickListener)} automatically adds this
+         * action.
+         *
+         * <p>{@link #isLongClickable()} should return true if this action is available.
          */
         public static final AccessibilityAction ACTION_LONG_CLICK =
                 new AccessibilityAction(AccessibilityNodeInfo.ACTION_LONG_CLICK);
@@ -5047,6 +5063,17 @@ public class AccessibilityNodeInfo implements Parcelable {
 
         /**
          * Action that context clicks the node.
+         *
+         * <p>This should call the UI element's code that reacts to a context click, and this code
+         * should send a {@link AccessibilityEvent#TYPE_VIEW_CONTEXT_CLICKED} event. In the View
+         * system, this action calls {@link View#performContextClick()}, and setting a
+         * {@link View#setOnContextClickListener(View.OnContextClickListener)} automatically adds
+         * this action.
+         *
+         * <p>A context click usually occurs from a mouse pointer right-click or a stylus button
+         * press.
+         *
+         * <p>{@link #isContextClickable()} should return true if this action is available.
          */
         public static final AccessibilityAction ACTION_CONTEXT_CLICK =
                 new AccessibilityAction(R.id.accessibilityActionContextClick);
