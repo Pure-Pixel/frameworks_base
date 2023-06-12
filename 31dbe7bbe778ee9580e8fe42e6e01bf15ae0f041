@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "744240c3_3c624db5",
+        "filename": "core/java/android/view/accessibility/AccessibilityNodeInfo.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1059968
+      },
+      "writtenOn": "2023-06-12T21:28:28Z",
+      "side": 1,
+      "message": "Nit: is there a reason why we use `See {@link ...}` format in some places and `@see {@link ...}` format in other places.",
+      "range": {
+        "startLine": 262,
+        "startChar": 7,
+        "endLine": 262,
+        "endChar": 19
+      },
+      "revId": "31dbe7bbe778ee9580e8fe42e6e01bf15ae0f041",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdbd0030_ee0a57e1",
+        "filename": "core/java/android/view/accessibility/AccessibilityNodeInfo.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 4735,
+      "author": {
+        "id": 1059968
+      },
+      "writtenOn": "2023-06-12T21:28:28Z",
+      "side": 1,
+      "message": "Nit: the action does not call anything. Maybe tighten the language around this? Ditto below.",
+      "range": {
+        "startLine": 4735,
+        "startChar": 83,
+        "endLine": 4735,
+        "endChar": 100
+      },
+      "revId": "31dbe7bbe778ee9580e8fe42e6e01bf15ae0f041",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
