@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b2a4857_7523d023",
+        "filename": "core/java/android/view/accessibility/AccessibilityNodeInfo.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1410358
+      },
+      "writtenOn": "2023-06-12T23:13:58Z",
+      "side": 1,
+      "message": "Oops, this should only be @see. They shouldn\u0027t be used together.\n\nIn general, @link came after @see, and there\u0027s a preference for @link and inlining so the reader has more context. But in this case adding @see to show that the corresponding A11yAction object exists should be sufficient.",
+      "parentUuid": "744240c3_3c624db5",
+      "range": {
+        "startLine": 262,
+        "startChar": 7,
+        "endLine": 262,
+        "endChar": 19
+      },
+      "revId": "31dbe7bbe778ee9580e8fe42e6e01bf15ae0f041",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdbd0030_ee0a57e1",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-12T21:28:28Z",
       "side": 1,
       "message": "Nit: the action does not call anything. Maybe tighten the language around this? Ditto below.",
+      "range": {
+        "startLine": 4735,
+        "startChar": 83,
+        "endLine": 4735,
+        "endChar": 100
+      },
+      "revId": "31dbe7bbe778ee9580e8fe42e6e01bf15ae0f041",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17f11073_107de989",
+        "filename": "core/java/android/view/accessibility/AccessibilityNodeInfo.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 4735,
+      "author": {
+        "id": 1410358
+      },
+      "writtenOn": "2023-06-12T23:13:58Z",
+      "side": 1,
+      "message": "I rephrased to \"when performed by a service, the default handling of this action is to call View#performClick.\" WDYT?",
+      "parentUuid": "cdbd0030_ee0a57e1",
       "range": {
         "startLine": 4735,
         "startChar": 83,
