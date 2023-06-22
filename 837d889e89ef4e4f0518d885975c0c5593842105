@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84c43778_83bc6946",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2023-06-22T17:51:52Z",
+      "side": 1,
+      "message": "This has been merged internally for future evaluation \u0026 consideration but merging to AOSP is posing problematic right now as a result of merge conflicts. When U is merged to AOSP, this should resolve that issue.",
+      "revId": "837d889e89ef4e4f0518d885975c0c5593842105",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
