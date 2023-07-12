@@ -20,6 +20,7 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.content.pm.PackageManager;
 import android.hardware.security.keymint.KeyParameter;
+import android.hardware.security.keymint.SecurityLevel;
 import android.security.keymaster.KeymasterDefs;
 import android.security.keystore.KeyProperties;
 import android.system.keystore2.Authorization;
@@ -289,21 +290,26 @@ abstract class AndroidKeyStoreRSACipherSpi extends AndroidKeyStoreCipherSpiBase 
             }
         }
 
-        private static boolean isMgfDigestTagPresentInKeyProperties(
+        private static boolean shouldMgfDigestInclude(
                 Authorization[] keyCharacteristics) {
+            PackageManager pm = android.app.AppGlobals.getInitialApplication().getPackageManager();
+
             for (Authorization authorization : keyCharacteristics) {
                 if (authorization.keyParameter.tag == KeymasterDefs.KM_TAG_RSA_OAEP_MGF_DIGEST) {
                     return true;
+                } else if (authorization.securityLevel == SecurityLevel.TRUSTED_ENVIRONMENT) {
+                    // Allowing only Keymint V1 and V2 to skip tag KM_TAG_RSA_OAEP_MGF_DIGEST in key
+                    // characteristics, Keymint V3 is expected to include it.
+                    return (pm.hasSystemFeature(PackageManager.FEATURE_HARDWARE_KEYSTORE, 100)
+                        && !pm.hasSystemFeature(PackageManager.FEATURE_HARDWARE_KEYSTORE, 300));
+                } else if (authorization.securityLevel == SecurityLevel.STRONGBOX) {
+                    // Allowing only Keymint V1 and V2 to skip tag KM_TAG_RSA_OAEP_MGF_DIGEST in key
+                    // characteristics, Keymint V3 is expected to include it.
+                    return (pm.hasSystemFeature(PackageManager.FEATURE_STRONGBOX_KEYSTORE, 100)
+                        && !pm.hasSystemFeature(PackageManager.FEATURE_STRONGBOX_KEYSTORE, 300));
                 }
             }
-
             return false;
-        }
-
-        private static boolean hasKeyMintV2() {
-            PackageManager pm = android.app.AppGlobals.getInitialApplication().getPackageManager();
-            return pm.hasSystemFeature(PackageManager.FEATURE_HARDWARE_KEYSTORE, 200)
-                    && !pm.hasSystemFeature(PackageManager.FEATURE_HARDWARE_KEYSTORE, 300);
         }
 
         @Override
@@ -314,12 +320,12 @@ abstract class AndroidKeyStoreRSACipherSpi extends AndroidKeyStoreCipherSpiBase 
                     KeymasterDefs.KM_TAG_DIGEST, mKeymasterDigest
             ));
             // Only add the KM_TAG_RSA_OAEP_MGF_DIGEST tag to begin() if the MGF Digest is
-            // present in the key properties or KeyMint version is 200. Keys generated prior to
-            // Android 14 did not have this tag (Keystore didn't add it) and hence not present in
+            // present in the key properties or KeyMint version is 100 or 200. Keys generated prior
+            // to Android 14 did not have this tag (Keystore didn't add it) and hence not present in
             // imported key as well, so specifying any MGF digest tag would cause a begin()
             // operation (on an Android 14 device) to fail (with a key that was generated on
             // Android 13 or below).
-            if (isMgfDigestTagPresentInKeyProperties(keyCharacteristics) || hasKeyMintV2()) {
+            if (shouldMgfDigestInclude(keyCharacteristics)) {
                 parameters.add(KeyStore2ParameterUtils.makeEnum(
                         KeymasterDefs.KM_TAG_RSA_OAEP_MGF_DIGEST, mKeymasterMgf1Digest
                 ));
