@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c849a024_5a69f7a5",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-07-17T18:09:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50d7a7ef_16e5cf9c",
+      "revId": "03f6feb63b225dd056f28fa08694caa31a56f01a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ab17e0c_f1ca5b90",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-17T17:11:45Z",
       "side": 1,
       "message": "Does this re-introduce the failure of b/278157584?  What happens if an RSA key was generated on Android 13 with KeyMint v2, then used on Android 14 with KeyMint v2 (still)?\n\nIf I\u0027ve understood correctly:\n- The original keygen will result in a key with no attached MGF digests.\n- The subsequent use of the key will be against a KeyMint v2, and so this check will trigger use of MGF_DIGEST in begin()\n- Even if the begin() value is the default SHA-1 value, there are no MGF_DIGEST key characteristics and so the begin will fail.",
+      "revId": "03f6feb63b225dd056f28fa08694caa31a56f01a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17a1f9b0_f79ebc6d",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-07-17T18:09:41Z",
+      "side": 1,
+      "message": "I have already tested the scenario of b/278157584.\nIn this bug Android is upgraded to U, so Keymint is also upgraded to V3, so this condition doesn\u0027t become true.",
+      "parentUuid": "7ab17e0c_f1ca5b90",
       "revId": "03f6feb63b225dd056f28fa08694caa31a56f01a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
