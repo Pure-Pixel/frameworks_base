@@ -69,6 +69,24 @@
       "parentUuid": "7ab17e0c_f1ca5b90",
       "revId": "03f6feb63b225dd056f28fa08694caa31a56f01a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f8bc28b_bed8f28a",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-07-17T18:20:25Z",
+      "side": 1,
+      "message": "No, Android can be updated to U but still have a KeyMint v2 implementation.",
+      "parentUuid": "17a1f9b0_f79ebc6d",
+      "revId": "03f6feb63b225dd056f28fa08694caa31a56f01a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
