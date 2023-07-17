@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a389d28_38b3dc6b",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-07-17T17:07:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6f6d59f2_ea57aac1",
+      "range": {
+        "startLine": 306,
+        "startChar": 20,
+        "endLine": 306,
+        "endChar": 45
+      },
+      "revId": "6794a61540e2e024b4eb51a2a621c997c8062747",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d97fa2f_2a1d855f",
