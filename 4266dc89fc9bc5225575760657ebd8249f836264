@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98fb2220_4fbfedfd",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-07-17T12:35:09Z",
+      "side": 1,
+      "message": "This loop now seems odd/wrong -- in most circumstances (ie. when there are no keystore-enforced characteristics) isn\u0027t it going to exit on the first iteration?",
+      "revId": "4266dc89fc9bc5225575760657ebd8249f836264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba94d6a9_4e73beae",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-07-17T12:35:09Z",
+      "side": 1,
+      "message": "What happens if the KeyMint version is 300 but the first characteristic encountered is (say) KM_TAG_ALGORITHM ?",
+      "revId": "4266dc89fc9bc5225575760657ebd8249f836264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e12a5157_5933c66e",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-07-17T12:35:09Z",
+      "side": 1,
+      "message": "I don\u0027t understand \"hence not present in imported key as well\"",
+      "revId": "4266dc89fc9bc5225575760657ebd8249f836264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a83d384_3ec480bb",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-07-17T12:35:09Z",
+      "side": 1,
+      "message": "This comment now belongs with the `shouldMgfDigestInclude` method.",
+      "revId": "4266dc89fc9bc5225575760657ebd8249f836264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
