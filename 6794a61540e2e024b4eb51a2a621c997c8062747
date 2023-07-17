@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f6d59f2_ea57aac1",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-07-17T15:19:04Z",
+      "side": 1,
+      "message": "This is required to decide at the end, because the loop could exit without checking KM_TAG_RSA_OAEP_MGF_DIGEST if Keymint is V3.\nDavid cleared it in his review comments.",
+      "parentUuid": "e008da6d_fa335fb3",
+      "range": {
+        "startLine": 306,
+        "startChar": 20,
+        "endLine": 306,
+        "endChar": 45
+      },
+      "revId": "6794a61540e2e024b4eb51a2a621c997c8062747",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d97fa2f_2a1d855f",
         "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-17T10:44:30Z",
       "side": 1,
       "message": "Can return here, no need for the `isSecurityLevelFound` and `isSecurityLevelV1OrV2` variables.",
+      "range": {
+        "startLine": 310,
+        "startChar": 20,
+        "endLine": 310,
+        "endChar": 41
+      },
+      "revId": "6794a61540e2e024b4eb51a2a621c997c8062747",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09dbafda_a42c7fcb",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-07-17T15:19:04Z",
+      "side": 1,
+      "message": "It is required for the same reason above.",
+      "parentUuid": "8d97fa2f_2a1d855f",
       "range": {
         "startLine": 310,
         "startChar": 20,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb3db9af_ed108e0f",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-07-17T15:19:04Z",
+      "side": 1,
+      "message": "It is required for the same reason above.",
+      "parentUuid": "cc729242_55c682ec",
+      "range": {
+        "startLine": 316,
+        "startChar": 20,
+        "endLine": 316,
+        "endChar": 41
+      },
+      "revId": "6794a61540e2e024b4eb51a2a621c997c8062747",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20159b4f_8e2b011a",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-07-17T10:44:30Z",
       "side": 1,
       "message": "Return false in the default case.",
+      "range": {
+        "startLine": 321,
+        "startChar": 12,
+        "endLine": 321,
+        "endChar": 62
+      },
+      "revId": "6794a61540e2e024b4eb51a2a621c997c8062747",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7695d8e_97e2421d",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-07-17T15:19:04Z",
+      "side": 1,
+      "message": "It is required for the same reason above.",
+      "parentUuid": "20159b4f_8e2b011a",
       "range": {
         "startLine": 321,
         "startChar": 12,

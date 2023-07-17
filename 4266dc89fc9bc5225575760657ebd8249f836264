@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d073d0d_30d01d6c",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-07-17T15:19:04Z",
+      "side": 1,
+      "message": "Corrected the logic, please verify again.",
+      "parentUuid": "98fb2220_4fbfedfd",
+      "revId": "4266dc89fc9bc5225575760657ebd8249f836264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba94d6a9_4e73beae",
         "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-17T12:35:09Z",
       "side": 1,
       "message": "What happens if the KeyMint version is 300 but the first characteristic encountered is (say) KM_TAG_ALGORITHM ?",
+      "revId": "4266dc89fc9bc5225575760657ebd8249f836264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71fc1cb8_e4957619",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-07-17T15:19:04Z",
+      "side": 1,
+      "message": "Corrected the logic, please verify again.",
+      "parentUuid": "ba94d6a9_4e73beae",
       "revId": "4266dc89fc9bc5225575760657ebd8249f836264",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b6e8d1b_1dcde3ec",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-07-17T15:19:04Z",
+      "side": 1,
+      "message": "Corrected the comment.",
+      "parentUuid": "e12a5157_5933c66e",
+      "revId": "4266dc89fc9bc5225575760657ebd8249f836264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a83d384_3ec480bb",
         "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
         "patchSetId": 2
@@ -65,6 +119,24 @@
       "writtenOn": "2023-07-17T12:35:09Z",
       "side": 1,
       "message": "This comment now belongs with the `shouldMgfDigestInclude` method.",
+      "revId": "4266dc89fc9bc5225575760657ebd8249f836264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4af23916_d186277c",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-07-17T15:19:04Z",
+      "side": 1,
+      "message": "Moved comment to `shouldMgfDigestInclude` method.",
+      "parentUuid": "8a83d384_3ec480bb",
       "revId": "4266dc89fc9bc5225575760657ebd8249f836264",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
