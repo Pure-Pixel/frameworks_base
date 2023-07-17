@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e008da6d_fa335fb3",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-07-17T10:44:30Z",
+      "side": 1,
+      "message": "Can simply return true here, no need for the `iMgfDigestPresent` variable at all.",
+      "range": {
+        "startLine": 306,
+        "startChar": 20,
+        "endLine": 306,
+        "endChar": 45
+      },
+      "revId": "6794a61540e2e024b4eb51a2a621c997c8062747",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d97fa2f_2a1d855f",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-07-17T10:44:30Z",
+      "side": 1,
+      "message": "Can return here, no need for the `isSecurityLevelFound` and `isSecurityLevelV1OrV2` variables.",
+      "range": {
+        "startLine": 310,
+        "startChar": 20,
+        "endLine": 310,
+        "endChar": 41
+      },
+      "revId": "6794a61540e2e024b4eb51a2a621c997c8062747",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc729242_55c682ec",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-07-17T10:44:30Z",
+      "side": 1,
+      "message": "Likewise, can return the results of the expression directly.",
+      "range": {
+        "startLine": 316,
+        "startChar": 20,
+        "endLine": 316,
+        "endChar": 41
+      },
+      "revId": "6794a61540e2e024b4eb51a2a621c997c8062747",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20159b4f_8e2b011a",
+        "filename": "keystore/java/android/security/keystore2/AndroidKeyStoreRSACipherSpi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-07-17T10:44:30Z",
+      "side": 1,
+      "message": "Return false in the default case.",
+      "range": {
+        "startLine": 321,
+        "startChar": 12,
+        "endLine": 321,
+        "endChar": 62
+      },
+      "revId": "6794a61540e2e024b4eb51a2a621c997c8062747",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
