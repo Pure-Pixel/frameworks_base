@@ -18,13 +18,20 @@ package com.android.mediaframeworktest.unit;
 
 import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
+import android.platform.test.annotations.RequiresFlagsDisabled;
+import android.platform.test.annotations.RequiresFlagsEnabled;
+import android.platform.test.flag.junit.CheckFlagsRule;
+import android.platform.test.flag.junit.DeviceFlagsValueProvider;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.LargeTest;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.util.Log;
 
+import com.android.media.playback.flags.Flags;
 import com.android.mediaframeworktest.MediaNames;
 import com.android.mediaframeworktest.MediaProfileReader;
+
+import org.junit.Rule;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,6 +39,9 @@ import java.io.IOException;
 public class MediaMetadataRetrieverTest extends AndroidTestCase {
 
     private static final String TAG = "MediaMetadataRetrieverTest";
+
+    @Rule
+    public final CheckFlagsRule mCheckFlagsRule = DeviceFlagsValueProvider.createCheckFlagsRule();
 
     // Test album art extraction.
     @MediumTest
@@ -270,6 +280,47 @@ public class MediaMetadataRetrieverTest extends AndroidTestCase {
         retriever.release();
         assertTrue(!hasFailed);
     }
+
+    /** Test the thumbnail is generated when the default is not set to RGBA8888 */
+    @MediumTest
+    @RequiresFlagsDisabled(Flags.FLAG_MEDIAMETADATARETRIEVER_DEFAULT_RGBA8888)
+    public void testRGB565DefaultThumbnail() throws IOException {
+        boolean hasFailed = false;
+        MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+        try {
+            retriever.setDataSource(MediaNames.TEST_PATH_1);
+            Bitmap bitmap = retriever.getFrameAtTime(-1);
+            assertTrue(bitmap != null);
+            //TODO Assert the bitmap colorSpace
+            Log.e(TAG, "The bitmap colorspace is " + bitmap.getColorSpace());
+        } catch (Exception e) {
+            Log.e(TAG, "Fails to setDataSource for " + MediaNames.TEST_PATH_1, e);
+            hasFailed = true;
+        }
+        retriever.release();
+        assertFalse(hasFailed);
+    }
+
+    /** Test the thumbnail is generated when the default is set to RGBA8888 */
+    @MediumTest
+    @RequiresFlagsEnabled(Flags.FLAG_MEDIAMETADATARETRIEVER_DEFAULT_RGBA8888)
+    public void testRGBA8888DefaultThumbnail() throws IOException {
+        boolean hasFailed = false;
+        MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+        try {
+            retriever.setDataSource(MediaNames.TEST_PATH_1);
+            Bitmap bitmap = retriever.getFrameAtTime(-1);
+            assertTrue(bitmap != null);
+            //TODO Assert the bitmap colorSpace
+            Log.e(TAG, "The bitmap colorspace is " + bitmap.getColorSpace());
+        } catch (Exception e) {
+            Log.e(TAG, "Fails to setDataSource for " + MediaNames.TEST_PATH_1, e);
+            hasFailed = true;
+        }
+        retriever.release();
+        assertFalse(hasFailed);
+    }
+
 
     // TODO:
     // Encode and test for the correct mix of metadata elements on a per-file basis?

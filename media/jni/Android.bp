@@ -63,6 +63,7 @@ cc_library_shared {
         "libmedia_codeclist",
         "libmedia_jni_utils",
         "libmedia_omx",
+        "libmedia_playback_aconfig_flags_c_lib",
         "libmediametrics",
         "libmediadrm",
         "libmediadrmmetrics_consumer",
