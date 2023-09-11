@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd6f1de8_0d923158",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-09-11T13:26:43Z",
+      "side": 1,
+      "message": "I\u0027m unable to get the right variable name to use for the flag. I\u0027ve used this name, but the code doesn\u0027t compile. I think it could be an issue with the visibility of the flag.",
+      "revId": "d8c099ad81c2225c88fd793e0efac8eebd90521d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
