@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1664ab6f_85424a4e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1643005
+      },
+      "writtenOn": "2023-09-11T14:16:27Z",
+      "side": 1,
+      "message": "nit: I think \u0027config\u0027 is more precise than \u0027colorspace\u0027 here and below\n\nhttps://developer.android.com/reference/android/graphics/Bitmap.Config\n\nhttps://en.wikipedia.org/wiki/RGBA_color_model:\n\n\u003e While it is sometimes described as a color space, [it isn\u0027t one]",
+      "revId": "d8c099ad81c2225c88fd793e0efac8eebd90521d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bd6f1de8_0d923158",
@@ -14,6 +31,46 @@
       "writtenOn": "2023-09-11T13:26:43Z",
       "side": 1,
       "message": "I\u0027m unable to get the right variable name to use for the flag. I\u0027ve used this name, but the code doesn\u0027t compile. I think it could be an issue with the visibility of the flag.",
+      "revId": "d8c099ad81c2225c88fd793e0efac8eebd90521d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51b67061_2334e484",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1643005
+      },
+      "writtenOn": "2023-09-11T14:16:27Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to submit these log lines that aren\u0027t associated with a failure.\n\nShouldn\u0027t we instead assert on the `bitmap.getConfig()` value here? (since that\u0027s what we expect to change)",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 77
+      },
+      "revId": "d8c099ad81c2225c88fd793e0efac8eebd90521d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5fde5ae_22dceb48",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1643005
+      },
+      "writtenOn": "2023-09-11T14:16:27Z",
+      "side": 1,
+      "message": "do we need this structure? what about just letting the exception bubble directly out of the method (and the test then fails if the exception is thrown)?",
       "revId": "d8c099ad81c2225c88fd793e0efac8eebd90521d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
