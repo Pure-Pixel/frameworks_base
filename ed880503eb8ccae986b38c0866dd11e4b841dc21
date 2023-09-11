@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "25c3a61d_b8a640f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2010302
+      },
+      "writtenOn": "2023-09-11T13:23:46Z",
+      "side": 1,
+      "message": "Stack Information：\n08-09 06:50:47.084 18900 19072 E AndroidRuntime: FATAL EXCEPTION: wmshell.main\n08-09 06:50:47.084 18900 19072 E AndroidRuntime: Process: com.android.systemui, PID: 18900\n08-09 06:50:47.084 18900 19072 E AndroidRuntime: java.lang.NullPointerException: Attempt to invoke virtual method \u0027android.app.ActivityManager$RunningTaskInfo android.window.TaskAppearedInfo.getTaskInfo()\u0027 on a null object reference\n08-09 06:50:47.084 18900 19072 E AndroidRuntime:     at com.android.wm.shell.ShellTaskOrganizer.onTaskVanished(go/retraceme 78832d3a4a201f097042b1ea15a2157c500caa6a711ff3f53714444fb9aead7c:110)\n08-09 06:50:47.084 18900 19072 E AndroidRuntime:     at android.window.TaskOrganizer$1.lambda$onTaskVanished$5(TaskOrganizer.java:380)\n08-09 06:50:47.084 18900 19072 E AndroidRuntime:     at android.window.TaskOrganizer$1.$r8$lambda$cnLAmEuLf_BQ_jFuhQbGGs5ghXo(Unknown Source:0)\n08-09 06:50:47.084 18900 19072 E AndroidRuntime:     at android.window.TaskOrganizer$1$$ExternalSyntheticLambda14.run(Unknown Source:4)\n08-09 06:50:47.084 18900 19072 E AndroidRuntime:     at android.os.Handler.handleCallback(Handler.java:958)\n08-09 06:50:47.084 18900 19072 E AndroidRuntime:     at android.os.Handler.dispatchMessage(Handler.java:99)\n08-09 06:50:47.084 18900 19072 E AndroidRuntime:     at android.os.Looper.loopOnce(Looper.java:222)\n08-09 06:50:47.084 18900 19072 E AndroidRuntime:     at android.os.Looper.loop(Looper.java:314)\n08-09 06:50:47.084 18900 19072 E AndroidRuntime:     at android.os.HandlerThread.run(HandlerThread.java:67)\n\n\nThere is also a similar issue on onTaskInfoChanged. In 2021, Xiaomi fixed it and I thought it had already been released.\nJust read: The repair code did not actually enter the version. If the change can be included in the version, will the onTaskInfoChanged issue be submitted separately or modified together?",
+      "parentUuid": "ba13893c_6a5e2fb4",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "ed880503eb8ccae986b38c0866dd11e4b841dc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "76c39923_493c2ceb",
