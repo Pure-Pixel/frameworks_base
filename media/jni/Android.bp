@@ -81,6 +81,7 @@ cc_library_shared {
         "libhidlallocatorutils",
         "libhidlbase",
         "libsonivox",
+        "server_configurable_flags",
         "android.hardware.cas@1.0",
         "android.hardware.cas.native@1.0",
         "android.hardware.drm@1.3",
@@ -99,6 +100,7 @@ cc_library_shared {
     static_libs: [
         "libgrallocusage",
         "libmedia_midiiowrapper",
+        "libmedia_playback_aconfig_flags_c_lib",
     ],
 
     include_dirs: [
@@ -215,4 +217,21 @@ cc_library_shared {
         "-Wunused",
         "-Wunreachable-code",
     ],
+}
+
+aconfig_declarations {
+    name: "libmedia_playback_aconfig_flags",
+    package: "com.android.media.playback.flags",
+    srcs: ["playback_flags.aconfig"],
+}
+
+cc_aconfig_library {
+    name: "libmedia_playback_aconfig_flags_c_lib",
+    aconfig_declarations: "libmedia_playback_aconfig_flags",
+}
+
+java_aconfig_library {
+    name: "libmedia_playback_aconfig_flags_java_lib",
+    aconfig_declarations: "libmedia_playback_aconfig_flags",
+    min_sdk_version: "33",
 }
