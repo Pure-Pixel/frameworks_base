@@ -18,6 +18,7 @@ package com.android.mediaframeworktest.unit;
 
 import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
+import android.platform.test.flag.junit.SetFlagsRule;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.LargeTest;
 import android.test.suitebuilder.annotation.MediumTest;
@@ -26,12 +27,16 @@ import android.util.Log;
 import com.android.mediaframeworktest.MediaNames;
 import com.android.mediaframeworktest.MediaProfileReader;
 
+import org.junit.Rule;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class MediaMetadataRetrieverTest extends AndroidTestCase {
 
     private static final String TAG = "MediaMetadataRetrieverTest";
+
+    @Rule public final SetFlagsRule mSetFlagsRule = new SetFlagsRule();
 
     // Test album art extraction.
     @MediumTest
@@ -269,6 +274,32 @@ public class MediaMetadataRetrieverTest extends AndroidTestCase {
 
         retriever.release();
         assertTrue(!hasFailed);
+    }
+
+    /** Test the thumbnail is generated when the default is set to RGBA8888 */
+    @MediumTest
+    public void testGetFrameAtTimeWithRGBA8888Flag_Set() throws IOException {
+        try (MediaMetadataRetriever retriever = new MediaMetadataRetriever()) {
+            mSetFlagsRule.enableFlags(
+                    "com.android.media.playback.flags.mediametadataretriever_default_rgba8888");
+            retriever.setDataSource(MediaNames.TEST_PATH_1);
+            Bitmap bitmap = retriever.getFrameAtTime(-1);
+            assertNotNull(bitmap);
+            assertEquals(Bitmap.Config.ARGB_8888, bitmap.getConfig());
+        }
+    }
+
+    /** Test the thumbnail is generated when the default is not set to RGBA8888 */
+    @MediumTest
+    public void testGetFrameAtTimeWithRGBA8888Flag_Unset() throws IOException {
+        try (MediaMetadataRetriever retriever = new MediaMetadataRetriever()) {
+            mSetFlagsRule.disableFlags(
+                    "com.android.media.playback.flags.mediametadataretriever_default_rgba8888");
+            retriever.setDataSource(MediaNames.TEST_PATH_1);
+            Bitmap bitmap = retriever.getFrameAtTime(-1);
+            assertNotNull(bitmap);
+            assertEquals(Bitmap.Config.RGB_565, bitmap.getConfig());
+        }
     }
 
     // TODO:
