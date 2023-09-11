@@ -63,6 +63,7 @@ cc_library_shared {
         "libmedia_codeclist",
         "libmedia_jni_utils",
         "libmedia_omx",
+        "libmedia_playback_aconfig_flags_c_lib",
         "libmediametrics",
         "libmediadrm",
         "libmediadrmmetrics_consumer",
@@ -215,4 +216,21 @@ cc_library_shared {
         "-Wunused",
         "-Wunreachable-code",
     ],
+}
+
+aconfig_declarations {
+    name: "libmedia_playback_aconfig_flags",
+    package: "com.android.media.playback.flags",
+    srcs: ["playback_flags.aconfig"],
+}
+
+cc_aconfig_library {
+    name: "libmedia_playback_aconfig_flags_c_lib",
+    aconfig_declarations: "libmedia_playback_aconfig_flags",
+}
+
+java_aconfig_library {
+    name: "libmedia_playback_aconfig_flags_lib",
+    aconfig_declarations: "libmedia_playback_aconfig_flags",
+    min_sdk_version: "33",
 }
