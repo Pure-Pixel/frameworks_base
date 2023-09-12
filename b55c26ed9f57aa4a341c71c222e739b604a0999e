@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eedd070_9b3e6db1",
+        "filename": "media/tests/MediaFrameworkTest/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1643005
+      },
+      "writtenOn": "2023-09-12T14:46:53Z",
+      "side": 1,
+      "message": "in the example docs this is in static_libs",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "b55c26ed9f57aa4a341c71c222e739b604a0999e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
