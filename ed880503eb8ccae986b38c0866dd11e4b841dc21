@@ -170,6 +170,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6990d143_d7f416ad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1010211
+      },
+      "writtenOn": "2023-09-13T04:18:28Z",
+      "side": 1,
+      "message": "I agree with Chris, we rely on receiving the signals in parity (appeared(1), info changed(*), vanished(1)), and if that\u0027s not happening then we should try to understand how the race manifests to see if we can patch it robustly.  \n\nCould you try logging in TaskOrganizerController where we send these calls, and on the shell side as well, and then we can see what\u0027s happening?",
+      "parentUuid": "a6fb2014_87e37805",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "ed880503eb8ccae986b38c0866dd11e4b841dc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06e054c3_5d356cfb",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
