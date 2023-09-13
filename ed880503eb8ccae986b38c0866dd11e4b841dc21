@@ -218,6 +218,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df0189af_e52b19c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1650177
+      },
+      "writtenOn": "2023-09-13T06:40:56Z",
+      "side": 1,
+      "message": "Our suggestion is to add some logging in TaskOrganizerController, and continue monitoring the result of your stability testing, so that you can get more info at the next time this happens.\n\nOtherwise, with this change, although it will silent the NPE, the root cause will still there, and can cause other UI issue that is harder to catch.",
+      "parentUuid": "311d1d5a_2c34f7ed",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "ed880503eb8ccae986b38c0866dd11e4b841dc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06e054c3_5d356cfb",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
