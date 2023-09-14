@@ -242,6 +242,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d4a05ea_6c28ba09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2010302
+      },
+      "writtenOn": "2023-09-14T03:27:26Z",
+      "side": 1,
+      "message": "Excuse me: Add a log. What do you mean: inside the onTaskVanished function in the TaskOrganizerController or where the onTaskVanished function is called? Is it adding log printing stack information?",
+      "parentUuid": "df0189af_e52b19c6",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "ed880503eb8ccae986b38c0866dd11e4b841dc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06e054c3_5d356cfb",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
