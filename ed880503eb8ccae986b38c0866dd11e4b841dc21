@@ -266,6 +266,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2f0c1de1_829a50db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1650177
+      },
+      "writtenOn": "2023-09-14T03:37:09Z",
+      "side": 1,
+      "message": "In `TaskOrganizerController` (which is running in system server), there are already some logging in `onTaskAppeared/Vanished/InfoChanged` with `WM_DEBUG_WINDOW_ORGANIZER`, you can just turn it on.\n\nSimilar in `ShellTaskOrganizer`, there are some logging as well in `onTaskAppeared/Vanished/InfoChanged` with `WM_SHELL_TASK_ORG`, you can also turn it on.\n\nThen monitoring the next crash from your stability testing. Hopefully we can learn more about the root cause from those log.",
+      "parentUuid": "8d4a05ea_6c28ba09",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "ed880503eb8ccae986b38c0866dd11e4b841dc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06e054c3_5d356cfb",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
