@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f427aeb_05663e23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2010302
+      },
+      "writtenOn": "2023-09-21T08:01:49Z",
+      "side": 1,
+      "message": "The log switch has been turned on and has not yet been replicated",
+      "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
