@@ -338,6 +338,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f52ecad_1d87e6f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2010302
+      },
+      "writtenOn": "2023-09-26T08:16:01Z",
+      "side": 1,
+      "message": "After turning on the log switch, it has not yet replicated, and the testing project has been encapsulated, leaving no resources for pressure testing. May I ask if this patch still needs to be merged? Thank you.",
+      "parentUuid": "7d162288_1f91868d",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "ed880503eb8ccae986b38c0866dd11e4b841dc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06e054c3_5d356cfb",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
