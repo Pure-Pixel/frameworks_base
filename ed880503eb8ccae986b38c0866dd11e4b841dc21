@@ -362,6 +362,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a80c158_35809f60",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1650177
+      },
+      "writtenOn": "2023-09-26T09:07:27Z",
+      "side": 1,
+      "message": "Thanks for trying to add more log!\n\nI don\u0027t think we should merge this because it may cover the root cause. Please feel free to reopen the bug if the issue happens again.",
+      "parentUuid": "6f52ecad_1d87e6f0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "ed880503eb8ccae986b38c0866dd11e4b841dc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06e054c3_5d356cfb",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
