@@ -16,6 +16,23 @@
       "message": "The log switch has been turned on and has not yet been replicated",
       "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d524525_1ef524ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2010302
+      },
+      "writtenOn": "2023-09-26T08:13:49Z",
+      "side": 1,
+      "message": "After turning on the log switch, it has not yet replicated, and the testing project has been encapsulated, leaving no resources for pressure testing. May I ask if this patch still needs to be merged? Thank you.",
+      "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
