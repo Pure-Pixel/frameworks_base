@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "435bec30_0b590a8d",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1643005
+      },
+      "writtenOn": "2023-09-28T13:05:46Z",
+      "side": 1,
+      "message": "looks like there\u0027s now a way you can change the value of a flag too (which seems like what we really want in this case?):\n\n```java\nimport android.platform.test.flag.junit.SetFlagsRule;\n\n@Rule public final SetFlagsRule mSetFlagsRule \u003d new SetFlagsRule();\n\n\n@Test\npublic void testRGBA8888DefaultThumbnail() {\n  mSetFlagsRule.enableFlags(Flags.FLAG_MEDIAMETADATARETRIEVER_DEFAULT_RGBA8888);\n  ...\n}\n```\n\nThat seems preferable to the `@RequiresFlagEnabled/Disabled` approach I think",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 98
+      },
+      "revId": "b052bd24de75f4bdcdf49cae3da50da8c4c7dd08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56a6a44e_15ab338c",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1643005
+      },
+      "writtenOn": "2023-09-28T13:05:46Z",
+      "side": 1,
+      "message": "clearer to use `assertNotNull`\n\nhttps://junit.org/junit4/javadoc/4.13/org/junit/Assert.html#assertNotNull(java.lang.Object)",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 39
+      },
+      "revId": "b052bd24de75f4bdcdf49cae3da50da8c4c7dd08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "297f0cb6_25d2441b",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1643005
+      },
+      "writtenOn": "2023-09-28T13:05:46Z",
+      "side": 1,
+      "message": "please rename this test to include more detail about exactly what it\u0027s testing\n\nProbably `getFrameAtTime_withRgb8888Flag_defaultsToRgb8888`\n\nSame above",
+      "range": {
+        "startLine": 300,
+        "startChar": 16,
+        "endLine": 300,
+        "endChar": 44
+      },
+      "revId": "b052bd24de75f4bdcdf49cae3da50da8c4c7dd08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
