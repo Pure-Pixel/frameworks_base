@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0e9eed8a_d6e641c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-09-28T11:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1664ab6f_85424a4e",
+      "revId": "d8c099ad81c2225c88fd793e0efac8eebd90521d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bd6f1de8_0d923158",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -58,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "932b84af_e2a6b2ad",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-09-28T11:54:38Z",
+      "side": 1,
+      "message": "Yes, we should. I\u0027ve added a TODO since I\u0027m still not able to read the flags correctly. I will update this CL with the assert once I resolve the libc issue with flag read. Right now, both tests run (no assume fail) irrespective of the flag status and I see the libc error from jni.",
+      "parentUuid": "51b67061_2334e484",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 77
+      },
+      "revId": "d8c099ad81c2225c88fd793e0efac8eebd90521d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5fde5ae_22dceb48",
@@ -71,6 +113,24 @@
       "writtenOn": "2023-09-11T14:16:27Z",
       "side": 1,
       "message": "do we need this structure? what about just letting the exception bubble directly out of the method (and the test then fails if the exception is thrown)?",
+      "revId": "d8c099ad81c2225c88fd793e0efac8eebd90521d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99b61834_acdc548e",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-09-28T11:54:38Z",
+      "side": 1,
+      "message": "I have removed them and used a try-with-resources instead.",
+      "parentUuid": "a5fde5ae_22dceb48",
       "revId": "d8c099ad81c2225c88fd793e0efac8eebd90521d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
