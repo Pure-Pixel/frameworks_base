@@ -3810,6 +3810,12 @@
     Log entries can contain the user's private information. -->
     <permission android:name="android.permission.READ_LOGS"
         android:protectionLevel="signature|privileged|development" />
+        
+    <!-- Allows an application to access the log file in update engine.
+    <p>Not for use by third-party applications.
+    @hide -->
+    <permission android:name="android.permission.UPDATE_ENGINE"
+        android:protectionLevel="signature|privileged|development" />
 
     <!-- Configure an application for debugging.
     <p>Not for use by third-party applications. -->
