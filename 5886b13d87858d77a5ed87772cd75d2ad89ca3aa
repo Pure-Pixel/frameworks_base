@@ -26,6 +26,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6fee1096_3575de6f",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 3816,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2023-10-05T01:02:54Z",
+      "side": 1,
+      "message": "Is this permission going to be used by GmsCore? If yes, I believe it needs to be `@SystemApi` in addition to `@hide`.",
+      "revId": "5886b13d87858d77a5ed87772cd75d2ad89ca3aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "37b179a9_bb53daaf",
         "filename": "core/res/AndroidManifest.xml",
         "patchSetId": 5
