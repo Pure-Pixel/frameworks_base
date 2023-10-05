@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c2d88aa_411937fa",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 3814,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2023-10-05T01:02:09Z",
+      "side": 1,
+      "message": "Why would a permission to `access the log file in update engine` be named `UPDATE_ENGINE`? If I were a developer and I see a permission named `UPDATE_ENGINE`, I would expect it to cover most (if not all) functionalities in update engine.",
+      "range": {
+        "startLine": 3814,
+        "startChar": 34,
+        "endLine": 3814,
+        "endChar": 70
+      },
+      "revId": "5886b13d87858d77a5ed87772cd75d2ad89ca3aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37b179a9_bb53daaf",
+        "filename": "core/res/AndroidManifest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 3818,
+      "author": {
+        "id": 1351609
+      },
+      "writtenOn": "2023-10-05T01:02:09Z",
+      "side": 1,
+      "message": "Why do you need the development bit? Do you need this permission to be grantable via adb shell to basically any third-party apps, and is that security reviewed?",
+      "range": {
+        "startLine": 3818,
+        "startChar": 54,
+        "endLine": 3818,
+        "endChar": 65
+      },
+      "revId": "5886b13d87858d77a5ed87772cd75d2ad89ca3aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
