@@ -92,6 +92,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 /**
@@ -240,6 +242,8 @@ public class TrustManagerService extends SystemService {
     private boolean mTrustAgentsCanRun = false;
     private int mCurrentUser = UserHandle.USER_SYSTEM;
 
+    private ExecutorService mExecutor;
+
     /**
      * A class for providing dependencies to {@link TrustManagerService} in both production and test
      * cases.
@@ -275,6 +279,7 @@ public class TrustManagerService extends SystemService {
         mLockPatternUtils = injector.getLockPatternUtils();
         mStrongAuthTracker = new StrongAuthTracker(context, injector.getLooper());
         mAlarmManager = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
+        mExecutor = Executors.newSingleThreadExecutor();
     }
 
     @Override
@@ -862,22 +867,26 @@ public class TrustManagerService extends SystemService {
 
     private void setDeviceLockedForUser(@UserIdInt int userId, boolean locked) {
         final boolean changed;
+        final int[] profileHandles = mUserManager.getEnabledProfileIds(userId);
+        final LockPatternUtils lockPatternUtils = mLockPatternUtils;
         synchronized (mDeviceLockedForUser) {
             changed = isDeviceLockedInner(userId) != locked;
             mDeviceLockedForUser.put(userId, locked);
         }
         if (changed) {
             dispatchDeviceLocked(userId, locked);
-            Authorization.onLockScreenEvent(locked, userId, null,
-                    getBiometricSids(userId));
-            // Also update the user's profiles who have unified challenge, since they
-            // share the same unlocked state (see {@link #isDeviceLocked(int)})
-            for (int profileHandle : mUserManager.getEnabledProfileIds(userId)) {
-                if (mLockPatternUtils.isManagedProfileWithUnifiedChallenge(profileHandle)) {
-                    Authorization.onLockScreenEvent(locked, profileHandle, null,
-                            getBiometricSids(profileHandle));
+            mExecutor.submit(() -> {
+                Authorization.onLockScreenEvent(locked, userId, null,
+                        getBiometricSids(userId));
+                // Also update the user's profiles who have unified challenge, since they
+                // share the same unlocked state (see {@link #isDeviceLocked(int)})
+                for (int profileHandle : profileHandles) {
+                    if (lockPatternUtils.isManagedProfileWithUnifiedChallenge(profileHandle)) {
+                        Authorization.onLockScreenEvent(locked, profileHandle, null,
+                                getBiometricSids(profileHandle));
+                    }
                 }
-            }
+            });
         }
     }
 
