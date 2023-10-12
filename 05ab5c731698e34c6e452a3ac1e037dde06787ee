@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fe0b23c_2b7a76a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1221112
+      },
+      "writtenOn": "2023-10-12T17:34:54Z",
+      "side": 1,
+      "message": "please have a look if you think this is the right way to go. The bug is also reproduced on more powerful device but it is less frequent",
+      "revId": "05ab5c731698e34c6e452a3ac1e037dde06787ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
