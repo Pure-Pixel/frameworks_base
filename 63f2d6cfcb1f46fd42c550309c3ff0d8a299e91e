@@ -16,6 +16,24 @@
       "message": "Since the setFlag rule isn\u0027t actually changing the values, only one of the tests will pass, depending on the current flag value.",
       "revId": "63f2d6cfcb1f46fd42c550309c3ff0d8a299e91e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40b618ed_7186546f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2023-10-12T17:07:12Z",
+      "side": 1,
+      "message": "Keeping this open for visibility.",
+      "parentUuid": "fa7953af_2223d883",
+      "revId": "63f2d6cfcb1f46fd42c550309c3ff0d8a299e91e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
