@@ -16,6 +16,23 @@
       "message": "please have a look if you think this is the right way to go. The bug is also reproduced on more powerful device but it is less frequent",
       "revId": "05ab5c731698e34c6e452a3ac1e037dde06787ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b3d8748_90d1b2c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2023-10-12T17:50:17Z",
+      "side": 1,
+      "message": "Changing things from synchronous to asynchronous is always a bit risky, since it can mess up dependencies.  In this case, the call to `Authorization.onLockScreenEvent(false, ...)` is what makes UnlockedDeviceRequired keystore keys available to be used.  I think the main risk here is that apps will be told the device is unlocked, but their UnlockedDeviceRequired keys will no longer become available right away, but rather their availability will be delayed by an arbitrary time.\n\nI wonder if making `keystore2` itself (the thing that `onLockScreenEvent()` calls) responsible for scheduling the unlock work asynchronously would be safer than making TrustManagerService (which is part of `system_server`) do it.  In principle `keystore2` could detect if someone tries to use an UnlockedDeviceRequired key and then wait for the async work that unlocks those keys to complete, avoiding the race condition.",
+      "revId": "05ab5c731698e34c6e452a3ac1e037dde06787ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
