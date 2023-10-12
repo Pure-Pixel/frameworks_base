@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc7bdd96_4f5d8665",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-10-12T07:24:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "435bec30_0b590a8d",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 98
+      },
+      "revId": "b052bd24de75f4bdcdf49cae3da50da8c4c7dd08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56a6a44e_15ab338c",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "451d322e_5faadba9",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-10-12T07:24:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56a6a44e_15ab338c",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 39
+      },
+      "revId": "b052bd24de75f4bdcdf49cae3da50da8c4c7dd08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "297f0cb6_25d2441b",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-09-28T13:05:46Z",
       "side": 1,
       "message": "please rename this test to include more detail about exactly what it\u0027s testing\n\nProbably `getFrameAtTime_withRgb8888Flag_defaultsToRgb8888`\n\nSame above",
+      "range": {
+        "startLine": 300,
+        "startChar": 16,
+        "endLine": 300,
+        "endChar": 44
+      },
+      "revId": "b052bd24de75f4bdcdf49cae3da50da8c4c7dd08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a3294fd_1fb51720",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-10-12T07:24:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "297f0cb6_25d2441b",
       "range": {
         "startLine": 300,
         "startChar": 16,
