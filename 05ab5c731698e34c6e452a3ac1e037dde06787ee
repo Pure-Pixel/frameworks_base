@@ -50,6 +50,24 @@
       "message": "Would this introduce additional race conditions or make existing ones more likely for access to screen-lock bound keys soon after device unlock?",
       "revId": "05ab5c731698e34c6e452a3ac1e037dde06787ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "219d5503_4b38d442",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1858130
+      },
+      "writtenOn": "2023-10-12T17:55:20Z",
+      "side": 1,
+      "message": "Ha, same comment as Eric. Will close this one.",
+      "parentUuid": "3c0bbea5_fb5437dc",
+      "revId": "05ab5c731698e34c6e452a3ac1e037dde06787ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
