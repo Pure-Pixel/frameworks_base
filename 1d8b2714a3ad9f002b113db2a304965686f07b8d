@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99025f8b_14aee78b",
+        "filename": "AconfigFlags.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1643005
+      },
+      "writtenOn": "2023-10-13T08:50:48Z",
+      "side": 1,
+      "message": "should we have a `// Media` heading?\n\ni also notice that the names of the existing targets are all of the form `android.XXX.flags-aconfig(-java)`\n\nmaybe we should have a similar name? e.g. `android.media.playback.flags-aconfig`",
+      "revId": "1d8b2714a3ad9f002b113db2a304965686f07b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c238bb8a_0382b8e8",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1643005
+      },
+      "writtenOn": "2023-10-13T08:50:48Z",
+      "side": 1,
+      "message": "I\u0027ve filed b/305160754 to track that this doesn\u0027t seem to propagate properly to the C++ code.\n\nIn the meantime in order to unblock the CL I suggest we switch (back) to the `CheckFlagsRule` and `@RequiresFlagsEnabled/Disabled` annotations with a `TODO(b/305160754)` to switch to setting the flag manually when the bug is resolved.",
+      "revId": "1d8b2714a3ad9f002b113db2a304965686f07b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
