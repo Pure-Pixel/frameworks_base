@@ -195,6 +195,24 @@
       "parentUuid": "d2650d18_86116fe2",
       "revId": "1d8b2714a3ad9f002b113db2a304965686f07b8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "009ccbab_9a41079a",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2023-10-16T23:16:45Z",
+      "side": 1,
+      "message": "\u003e Will make this change and update the CL in sometime.\n\nUpdated the CL.\n\nPlease note, in aosp/main both setprop and device_config put commands are needed as of now to get this test to work as expected.\nIt seems like aosp/main is missing some commits that keep the flags in sync.",
+      "parentUuid": "564058ae_c2d5360d",
+      "revId": "1d8b2714a3ad9f002b113db2a304965686f07b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
