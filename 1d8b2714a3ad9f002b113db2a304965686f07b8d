@@ -141,6 +141,24 @@
       "parentUuid": "925f1af1_e828399b",
       "revId": "1d8b2714a3ad9f002b113db2a304965686f07b8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe6361d8_5a311c02",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2023-10-16T15:58:24Z",
+      "side": 1,
+      "message": "If the recommended practice is to use @RequiresFlagsEnabled/Disabled in CTS and SetFlagsRule at unit test level, would it be better to leave these tests as they are now and then add separate CTS tests that use @RequiresFlagEnabled/Disabled annotations?\n\nPlease Note: If we change this CL to RequiresFlag annotations, then the bug that is filed to investigate SetFlagsRule not reflecting the flag values at native level will need to be updated to say how to reproduce.\n\nAlso need to check if SetFlagsRule works as intended in git_main and doesn\u0027t work correctly in aosp/main (in case some CLs are missing in aosp/main).",
+      "parentUuid": "e729b293_666528cb",
+      "revId": "1d8b2714a3ad9f002b113db2a304965686f07b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
