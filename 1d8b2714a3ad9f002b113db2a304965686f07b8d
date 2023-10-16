@@ -69,6 +69,24 @@
       "parentUuid": "db4a3eaf_7f16a394",
       "revId": "1d8b2714a3ad9f002b113db2a304965686f07b8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f11ad3ed_79ac0c87",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2023-10-16T13:00:51Z",
+      "side": 1,
+      "message": "Ian,\nYes. That was my thought too and I had tried that on Friday.\nIt seems like the flags that we set in aosp/main, the java flags and native flags aren\u0027t in sync.\nEven when I tried the annotaiton approach, I had to set the flags using both device_config put and setprop approach and only then I was able to get the tests to behave as expected.\nNot sure if aosp/main is missing some commits.\nI will sync to the latest aosp/main and check again and rebase this CL and still keep the SetFlags approach for now in this CL for now.",
+      "parentUuid": "353c1265_110a6811",
+      "revId": "1d8b2714a3ad9f002b113db2a304965686f07b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
