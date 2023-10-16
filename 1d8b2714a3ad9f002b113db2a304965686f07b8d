@@ -51,6 +51,24 @@
       "parentUuid": "c238bb8a_0382b8e8",
       "revId": "1d8b2714a3ad9f002b113db2a304965686f07b8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "353c1265_110a6811",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1643005
+      },
+      "writtenOn": "2023-10-16T09:14:10Z",
+      "side": 1,
+      "message": "Ah cool - thanks for pointing that out, I hadn\u0027t noticed this was JUnit3! \n\nThat might also explain why the `SetFlagsRule` isn\u0027t working properly either? Since rules are a JUnit4 feature too. Can we rebase this on top of the JUnit4 migration and try the `SetFlagsRule` again first just in case? And if it still doesn\u0027t work then switch to `@RequiresFlagEnabled/Disabled`",
+      "parentUuid": "db4a3eaf_7f16a394",
+      "revId": "1d8b2714a3ad9f002b113db2a304965686f07b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
