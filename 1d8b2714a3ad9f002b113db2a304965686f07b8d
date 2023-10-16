@@ -177,6 +177,24 @@
       "parentUuid": "fe6361d8_5a311c02",
       "revId": "1d8b2714a3ad9f002b113db2a304965686f07b8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "564058ae_c2d5360d",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2023-10-16T16:12:36Z",
+      "side": 1,
+      "message": "\u003e It\u0027s not appropriate to add a CTS test for this change because we\u0027re changing behavior within the defined API contract (i.e. both the behavior with and without this change are valid behaviors of the API, so CTS shouldn\u0027t enforce one or the other, regardless of flag values).\n\nThanks for this response. Agreed.\n\n\u003e I think submitting this change with a TODO is fine. If the bug gets picked up and the repro steps are unclear we can clarify with a follow-up CL.\n\nWill make this change and update the CL in sometime.\n\n\u003e Yeah this is a good idea - are you able to check this?\n\nUnfortunately no. We still don\u0027t have access to partner branches for the next version.",
+      "parentUuid": "d2650d18_86116fe2",
+      "revId": "1d8b2714a3ad9f002b113db2a304965686f07b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
