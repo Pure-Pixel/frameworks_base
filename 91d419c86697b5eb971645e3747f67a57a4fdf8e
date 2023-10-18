@@ -88,6 +88,24 @@
       "parentUuid": "8d62b9e1_9cfce839",
       "revId": "91d419c86697b5eb971645e3747f67a57a4fdf8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8526e32a_c275593a",
+        "filename": "media/tests/MediaFrameworkTest/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2023-10-18T19:01:23Z",
+      "side": 1,
+      "message": "Ian,\nThanks for aosp/2796172.\nBuild now succeeds on git_main.\n\nBut, looks like aosp/2796172 didn\u0027t make it all the required branches, which results in merge conflicts showing for this CL.\n\nAdded some details on that CL.",
+      "parentUuid": "b2fe24f0_70096800",
+      "revId": "91d419c86697b5eb971645e3747f67a57a4fdf8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

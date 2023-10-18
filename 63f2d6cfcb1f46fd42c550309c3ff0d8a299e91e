@@ -34,6 +34,24 @@
       "parentUuid": "fa7953af_2223d883",
       "revId": "63f2d6cfcb1f46fd42c550309c3ff0d8a299e91e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25a19767_c51d343d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2023-10-18T19:01:23Z",
+      "side": 1,
+      "message": "This is not relevant now as SetFlagRule isn\u0027t used in the current CL.\nMarking this resolved for now.",
+      "parentUuid": "40b618ed_7186546f",
+      "revId": "63f2d6cfcb1f46fd42c550309c3ff0d8a299e91e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
