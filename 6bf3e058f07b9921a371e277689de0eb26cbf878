@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4b96326_dca2eebb",
+        "filename": "media/tests/MediaFrameworkTest/src/com/android/mediaframeworktest/unit/MediaMetadataRetrieverTest.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1643005
+      },
+      "writtenOn": "2023-10-18T12:51:34Z",
+      "side": 1,
+      "message": "nit: Write the full SetFlagsRule.enableFlags here and below",
+      "range": {
+        "startLine": 300,
+        "startChar": 65,
+        "endLine": 300,
+        "endChar": 76
+      },
+      "revId": "6bf3e058f07b9921a371e277689de0eb26cbf878",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

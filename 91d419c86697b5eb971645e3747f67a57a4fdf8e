@@ -70,6 +70,24 @@
       "parentUuid": "b776f0df_17e0d020",
       "revId": "91d419c86697b5eb971645e3747f67a57a4fdf8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2fe24f0_70096800",
+        "filename": "media/tests/MediaFrameworkTest/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1643005
+      },
+      "writtenOn": "2023-10-18T12:51:34Z",
+      "side": 1,
+      "message": "It looks messy - there was a change that changed the list to:\n\n```\n\"testables\",\n\"testng\",\n\"truth-prebuilt\",\n``` \n\nThen a follow-up change that renamed `\"truth-prebuilt\"` to `\"truth\"`, so the list is now:\n\n```\n\"testables\",\n\"testng\",\n\"truth\",\n```\n\n---\n\nI\u0027ve tried to manually cherry-pick these changes in aosp/2796172, can you try syncing past that and see if there\u0027s still a problem?",
+      "parentUuid": "8d62b9e1_9cfce839",
+      "revId": "91d419c86697b5eb971645e3747f67a57a4fdf8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
