@@ -16,6 +16,24 @@
       "message": "This has been merged internally for future evaluation \u0026 consideration but merging to AOSP is posing problematic right now as a result of merge conflicts. When U is merged to AOSP, this should resolve that issue.",
       "revId": "837d889e89ef4e4f0518d885975c0c5593842105",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9361c1e_26564ccd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1392279
+      },
+      "writtenOn": "2023-10-30T09:46:23Z",
+      "side": 1,
+      "message": "Hello John, I just resolved the merge conflicts with main branch. Is this patch ready now?",
+      "parentUuid": "84c43778_83bc6946",
+      "revId": "837d889e89ef4e4f0518d885975c0c5593842105",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
