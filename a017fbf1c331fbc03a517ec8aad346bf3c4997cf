@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "078db956_bac04755",
+        "filename": "libs/hwui/tests/unit/RenderNodeDrawableTests.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2023-10-30T20:38:28Z",
+      "side": 1,
+      "message": "this part is failing to build, the signature changed to return a boolean (for example: https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/libs/hwui/tests/unit/SkiaPipelineTests.cpp;drc\u003d4e8ce46f9c7e8cbb4d88d901c70004ff4110458a;l\u003d225 )",
+      "range": {
+        "startLine": 1252,
+        "startChar": 8,
+        "endLine": 1252,
+        "endChar": 57
+      },
+      "revId": "a017fbf1c331fbc03a517ec8aad346bf3c4997cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
