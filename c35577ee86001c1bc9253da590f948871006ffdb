@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33b13bce_a3cca3d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2023-11-02T14:45:44Z",
+      "side": 1,
+      "message": "Anton,\nCan you please provide owner approval for AconfigFlags.bp?\nThanks",
+      "revId": "c35577ee86001c1bc9253da590f948871006ffdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
