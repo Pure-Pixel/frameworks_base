@@ -106,6 +106,24 @@
       "parentUuid": "b2fe24f0_70096800",
       "revId": "91d419c86697b5eb971645e3747f67a57a4fdf8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35b576d4_c794a79b",
+        "filename": "media/tests/MediaFrameworkTest/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-11-02T05:48:13Z",
+      "side": 1,
+      "message": "Merge conflicts resolved.",
+      "parentUuid": "8526e32a_c275593a",
+      "revId": "91d419c86697b5eb971645e3747f67a57a4fdf8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
