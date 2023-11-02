@@ -22,6 +22,30 @@
       },
       "revId": "a017fbf1c331fbc03a517ec8aad346bf3c4997cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71872314_f1746955",
+        "filename": "libs/hwui/tests/unit/RenderNodeDrawableTests.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1392279
+      },
+      "writtenOn": "2023-11-02T11:55:33Z",
+      "side": 1,
+      "message": "Done\n\nHi John, sorry for the inconvenience, the issue is fixed now.",
+      "parentUuid": "078db956_bac04755",
+      "range": {
+        "startLine": 1252,
+        "startChar": 8,
+        "endLine": 1252,
+        "endChar": 57
+      },
+      "revId": "a017fbf1c331fbc03a517ec8aad346bf3c4997cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
