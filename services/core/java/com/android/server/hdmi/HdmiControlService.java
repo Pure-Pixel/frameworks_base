@@ -82,6 +82,7 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.os.ResultReceiver;
@@ -276,6 +277,8 @@ public class HdmiControlService extends SystemService {
 
     // Make sure HdmiCecConfig is instantiated and the XMLs are read.
     private HdmiCecConfig mHdmiCecConfig;
+
+    private static final int ON_STANDBY_WAKE_LOCK_TIMEOUT = 10000;
 
     /**
      * Interface to report send result.
@@ -509,6 +512,9 @@ public class HdmiControlService extends SystemService {
 
     @HdmiControlManager.HdmiCecVersion
     private int mCecVersion;
+
+    @Nullable
+    private  WakeLock mWakeLock;
 
     // Last input port before switching to the MHL port. Should switch back to this port
     // when the mobile device sends the request one touch play with off.
@@ -3173,6 +3179,10 @@ public class HdmiControlService extends SystemService {
         synchronized (mLock) {
             mHotplugEventListenerRecords.add(record);
         }
+        if (mWakeLock == null) {
+            mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
+        }
+        mWakeLock.acquire(ON_STANDBY_WAKE_LOCK_TIMEOUT);
 
         // Inform the listener of the initial state of each HDMI port by generating
         // hotplug events.
@@ -3670,6 +3680,10 @@ public class HdmiControlService extends SystemService {
             }
             return;
         }
+        if(mWakeLock == null) {
+            mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
+        }
+        mWakeLock.acquire(ON_STANDBY_WAKE_LOCK_TIMEOUT);
 
         disableCecLocalDevices(new PendingActionClearedCallback() {
             @Override
@@ -3678,6 +3692,9 @@ public class HdmiControlService extends SystemService {
                 devices.remove(device);
                 if (devices.isEmpty()) {
                     onPendingActionsCleared(standbyAction);
+                    if (mWakeLock != null) {
+                        mWakeLock.release();
+                    }
                     // We will not clear local devices here, since some OEM/SOC will keep passing
                     // the received packets until the application processor enters to the sleep
                     // actually.
