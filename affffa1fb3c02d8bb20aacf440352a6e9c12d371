@@ -50,6 +50,24 @@
       "message": "Yes, this is not a solution to the problem of the TaskAppearedInfo object with a null appearedInfo variable, which may be due to multithreading; The change here is a way to avoid crashing when appendedInfo is null.\nIs there any other optimization plan if it doesn\u0027t merge? The issue has been replicated in both T and U versions recently. I will upload the logs to 300019951 later. Please help check if there is any valid information in the log, as this issue has affected the packaging of the Xiaomi project. thanks",
       "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91a3adf3_8cf9a003",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2010302
+      },
+      "writtenOn": "2023-11-27T03:41:19Z",
+      "side": 1,
+      "message": "The log has been uploaded to the case, please help me take a look.",
+      "parentUuid": "ab1afd22_b3ee5e83",
+      "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
