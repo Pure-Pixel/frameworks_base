@@ -33,6 +33,23 @@
       "message": "After turning on the log switch, it has not yet replicated, and the testing project has been encapsulated, leaving no resources for pressure testing. May I ask if this patch still needs to be merged? Thank you.",
       "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab1afd22_b3ee5e83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2010302
+      },
+      "writtenOn": "2023-11-27T03:36:20Z",
+      "side": 1,
+      "message": "Yes, this is not a solution to the problem of the TaskAppearedInfo object with a null appearedInfo variable, which may be due to multithreading; The change here is a way to avoid crashing when appendedInfo is null.\nIs there any other optimization plan if it doesn\u0027t merge? The issue has been replicated in both T and U versions recently. I will upload the logs to 300019951 later. Please help check if there is any valid information in the log, as this issue has affected the packaging of the Xiaomi project. thanks",
+      "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
