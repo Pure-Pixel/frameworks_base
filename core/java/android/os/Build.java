@@ -200,7 +200,7 @@ public class Build {
      */
     @UnsupportedAppUsage
     @TestApi
-    public static final boolean IS_EMULATOR = getString("ro.boot.qemu").equals("1");
+    public static final boolean IS_EMULATOR = SOC_MODEL.equals("ranchu");
 
     /**
      * A hardware serial number, if available. Alphanumeric only, case-insensitive.
