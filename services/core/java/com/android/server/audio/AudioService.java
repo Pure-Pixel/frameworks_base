@@ -18,6 +18,7 @@ package com.android.server.audio;
 
 import static android.Manifest.permission.MODIFY_AUDIO_SETTINGS_PRIVILEGED;
 import static android.app.BroadcastOptions.DELIVERY_GROUP_POLICY_MOST_RECENT;
+import static android.media.audiopolicy.Flags.volumeGroupManagementUpdate;
 import static android.media.AudioDeviceInfo.TYPE_BLE_HEADSET;
 import static android.media.AudioDeviceInfo.TYPE_BLE_SPEAKER;
 import static android.media.AudioDeviceInfo.TYPE_BLUETOOTH_A2DP;
@@ -1162,14 +1163,25 @@ public class AudioService extends IAudioService.Stub
             int numStreamTypes = AudioSystem.getNumStreamTypes();
 
             for (int streamType = numStreamTypes - 1; streamType >= 0; streamType--) {
-                AudioAttributes attr =
-                        AudioProductStrategy.getAudioAttributesForStrategyWithLegacyStreamType(
-                                streamType);
-                int maxVolume = AudioSystem.getMaxVolumeIndexForAttributes(attr);
+                int maxVolume = -1;
+                int minVolume = -1;
+
+                if (volumeGroupManagementUpdate()) {
+                    int groupId = getVolumeGroupForStreamType(streamType);
+                    if (groupId != AudioVolumeGroup.DEFAULT_VOLUME_GROUP) {
+                        maxVolume = AudioSystem.getVolumeGroupMaxVolumeIndex(groupId);
+                        minVolume = AudioSystem.getVolumeGroupMinVolumeIndex(groupId);
+                    }
+                } else {
+                    AudioAttributes attr =
+                            AudioProductStrategy.getAudioAttributesForStrategyWithLegacyStreamType(
+                                    streamType);
+                    maxVolume = AudioSystem.getMaxVolumeIndexForAttributes(attr);
+                    minVolume = AudioSystem.getMinVolumeIndexForAttributes(attr);
+                }
                 if (maxVolume != -1) {
                     MAX_STREAM_VOLUME[streamType] = maxVolume;
                 }
-                int minVolume = AudioSystem.getMinVolumeIndexForAttributes(attr);
                 if (minVolume != -1) {
                     MIN_STREAM_VOLUME[streamType] = minVolume;
                 }
@@ -1997,10 +2009,23 @@ public class AudioService extends IAudioService.Stub
                 AudioSystem.STREAM_MUSIC, AudioSystem.STREAM_VOICE_CALL,
                 AudioSystem.STREAM_ACCESSIBILITY };
         for (int streamType : basicStreams) {
-            final AudioAttributes aa = new AudioAttributes.Builder()
-                    .setInternalLegacyStreamType(streamType).build();
-            if (AudioSystem.getMaxVolumeIndexForAttributes(aa) < 0
-                    || AudioSystem.getMinVolumeIndexForAttributes(aa) < 0) {
+            int maxVolumeIndex;
+            int minVolumeIndex;
+            if (volumeGroupManagementUpdate()) {
+                int groupId = getVolumeGroupForStreamType(streamType);
+                if (groupId == AudioVolumeGroup.DEFAULT_VOLUME_GROUP) {
+                    success = false;
+                    break;
+                }
+                maxVolumeIndex = AudioSystem.getVolumeGroupMaxVolumeIndex(groupId);
+                minVolumeIndex = AudioSystem.getVolumeGroupMinVolumeIndex(groupId);
+            } else {
+                final AudioAttributes aa = new AudioAttributes.Builder()
+                        .setInternalLegacyStreamType(streamType).build();
+                maxVolumeIndex = AudioSystem.getMaxVolumeIndexForAttributes(aa);
+                minVolumeIndex = AudioSystem.getMinVolumeIndexForAttributes(aa);
+            }
+            if (maxVolumeIndex < 0 || minVolumeIndex < 0) {
                 success = false;
                 break;
             }
@@ -2340,7 +2365,7 @@ public class AudioService extends IAudioService.Stub
 
     private void updateStreamVolumeAlias(boolean updateVolumes, String caller) {
         int dtmfStreamAlias;
-        final int a11yStreamAlias = sIndependentA11yVolume ?
+        final int a11yStreamAlias = (mUseVolumeGroupAliases || sIndependentA11yVolume) ?
                 AudioSystem.STREAM_ACCESSIBILITY : AudioSystem.STREAM_MUSIC;
         final int assistantStreamAlias = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_useAssistantVolume) ?
@@ -8241,8 +8266,13 @@ public class AudioService extends IAudioService.Stub
                 mIndexMin = MIN_STREAM_VOLUME[mPublicStreamType];
                 mIndexMax = MAX_STREAM_VOLUME[mPublicStreamType];
             } else if (!avg.getAudioAttributes().isEmpty()) {
-                mIndexMin = AudioSystem.getMinVolumeIndexForAttributes(mAudioAttributes);
-                mIndexMax = AudioSystem.getMaxVolumeIndexForAttributes(mAudioAttributes);
+                if (volumeGroupManagementUpdate()) {
+                    mIndexMin = AudioSystem.getVolumeGroupMinVolumeIndex(mAudioVolumeGroup.getId());
+                    mIndexMax = AudioSystem.getVolumeGroupMaxVolumeIndex(mAudioVolumeGroup.getId());
+                } else {
+                    mIndexMin = AudioSystem.getMinVolumeIndexForAttributes(mAudioAttributes);
+                    mIndexMax = AudioSystem.getMaxVolumeIndexForAttributes(mAudioAttributes);
+                }
                 mSettingName = "volume_" + name();
                 // Load volume indexes from data base
                 readSettings();
@@ -8392,7 +8422,11 @@ public class AudioService extends IAudioService.Stub
         }
 
         private void setVolumeIndex(int index, int device) {
-            mAudioSystem.setVolumeIndexForAttributes(mAudioAttributes, index, device);
+            if (volumeGroupManagementUpdate()) {
+                mAudioSystem.setVolumeGroupVolumeIndex(mAudioVolumeGroup.getId(), index, device);
+            } else {
+                mAudioSystem.setVolumeIndexForAttributes(mAudioAttributes, index, device);
+            }
         }
 
         @GuardedBy("AudioService.VolumeStreamState.class")
