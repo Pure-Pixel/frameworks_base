@@ -70,4 +70,7 @@
     <string name="config_usbConfirmActivity" translatable="false">
         com.android.systemui/com.android.systemui.usb.tv.TvUsbConfirmActivity
     </string>
+
+    <!-- Max number of columns for power menu lite -->
+    <integer name="power_menu_lite_max_columns">4</integer>
 </resources>
