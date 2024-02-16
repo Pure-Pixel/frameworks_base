@@ -62,7 +62,6 @@ public class GlobalActionsLayoutLite extends GlobalActionsLayout {
             nElementsWrap -= 1;
         }
         Flow flow = findViewById(R.id.list_flow);
-        flow.setMaxElementsWrap(nElementsWrap);
     }
 
     @Override
