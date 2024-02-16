@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e49060b4_24e608ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1344895
+      },
+      "writtenOn": "2024-02-16T20:47:04Z",
+      "side": 1,
+      "message": "Does this need to be part of AOSP? This seems like a device-specific configuration that should be done in the vendor implementation.",
+      "revId": "16808ad960c4fac820f75f00caad47e40faf2ebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
