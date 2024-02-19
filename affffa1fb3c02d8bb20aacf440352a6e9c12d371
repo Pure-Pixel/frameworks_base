@@ -68,6 +68,93 @@
       "parentUuid": "ab1afd22_b3ee5e83",
       "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c652d01e_9b080124",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1650177
+      },
+      "writtenOn": "2024-02-19T07:41:33Z",
+      "side": 1,
+      "message": "You uploaded a few log files, but I can\u0027t find one contain the log mentioned in other comments.",
+      "parentUuid": "91a3adf3_8cf9a003",
+      "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d927a83_9ba3d6df",
+        "filename": "libs/WindowManager/Shell/src/com/android/wm/shell/ShellTaskOrganizer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1650177
+      },
+      "writtenOn": "2024-02-19T07:41:33Z",
+      "side": 1,
+      "message": "Can you please enable these protoLog?",
+      "range": {
+        "startLine": 476,
+        "startChar": 8,
+        "endLine": 476,
+        "endChar": 95
+      },
+      "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8acc845_9c074ea4",
+        "filename": "libs/WindowManager/Shell/src/com/android/wm/shell/ShellTaskOrganizer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1650177
+      },
+      "writtenOn": "2024-02-19T07:41:33Z",
+      "side": 1,
+      "message": "Can you please enable these protoLog?",
+      "range": {
+        "startLine": 504,
+        "startChar": 12,
+        "endLine": 504,
+        "endChar": 90
+      },
+      "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39c34898_2a9ed6f3",
+        "filename": "libs/WindowManager/Shell/src/com/android/wm/shell/ShellTaskOrganizer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1650177
+      },
+      "writtenOn": "2024-02-19T07:41:33Z",
+      "side": 1,
+      "message": "Can you please enable these protoLog?",
+      "range": {
+        "startLine": 560,
+        "startChar": 12,
+        "endLine": 560,
+        "endChar": 86
+      },
+      "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
