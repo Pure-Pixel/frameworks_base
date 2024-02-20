@@ -16,6 +16,24 @@
       "message": "Does this need to be part of AOSP? This seems like a device-specific configuration that should be done in the vendor implementation.",
       "revId": "16808ad960c4fac820f75f00caad47e40faf2ebf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f75eafe_41cb941b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1815899
+      },
+      "writtenOn": "2024-02-20T21:08:35Z",
+      "side": 1,
+      "message": "It\u0027s a good default for tv aspect ratio, like there is for layout-land and other configurations.\nBut other than that there is no \"need\" for it in aosp.",
+      "parentUuid": "e49060b4_24e608ef",
+      "revId": "16808ad960c4fac820f75f00caad47e40faf2ebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
