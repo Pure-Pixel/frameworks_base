@@ -1,0 +1,6 @@
+{
+  "presubmit": [
+    {   "name": "DerivedFrameworks1"  },
+    {   "name": "DerivedFrameworks2"  }
+    ]
+}
