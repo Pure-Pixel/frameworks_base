@@ -111,6 +111,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6417984_451dd7b2",
+        "filename": "libs/WindowManager/Shell/src/com/android/wm/shell/ShellTaskOrganizer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 2010302
+      },
+      "writtenOn": "2024-03-07T03:32:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d927a83_9ba3d6df",
+      "range": {
+        "startLine": 476,
+        "startChar": 8,
+        "endLine": 476,
+        "endChar": 95
+      },
+      "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8acc845_9c074ea4",
@@ -134,6 +158,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61c92206_344ffa9a",
+        "filename": "libs/WindowManager/Shell/src/com/android/wm/shell/ShellTaskOrganizer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 2010302
+      },
+      "writtenOn": "2024-03-07T03:32:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8acc845_9c074ea4",
+      "range": {
+        "startLine": 504,
+        "startChar": 12,
+        "endLine": 504,
+        "endChar": 90
+      },
+      "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39c34898_2a9ed6f3",
@@ -147,6 +195,30 @@
       "writtenOn": "2024-02-19T07:41:33Z",
       "side": 1,
       "message": "Can you please enable these protoLog?",
+      "range": {
+        "startLine": 560,
+        "startChar": 12,
+        "endLine": 560,
+        "endChar": 86
+      },
+      "revId": "affffa1fb3c02d8bb20aacf440352a6e9c12d371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ec77248_0d6a1d08",
+        "filename": "libs/WindowManager/Shell/src/com/android/wm/shell/ShellTaskOrganizer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 2010302
+      },
+      "writtenOn": "2024-03-07T03:32:54Z",
+      "side": 1,
+      "message": "These protoLog cannot be used because the project has been transferred to maintenance and cannot be tested and verified.",
+      "parentUuid": "39c34898_2a9ed6f3",
       "range": {
         "startLine": 560,
         "startChar": 12,
