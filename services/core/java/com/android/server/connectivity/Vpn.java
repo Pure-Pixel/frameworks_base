@@ -3825,7 +3825,7 @@ public class Vpn {
                 // sessions are torn down via resetIkeState().
                 return;
             }
-
+            mVpnMetricCollector.onException(exception);
             handleSessionLost(exception, mActiveNetwork);
         }
 

@@ -21,11 +21,17 @@ import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkAgent;
 import android.net.NetworkCapabilities;
+import android.net.ipsec.ike.exceptions.IkeNetworkLostException;
+import android.net.ipsec.ike.exceptions.IkeNonProtocolException;
+import android.net.ipsec.ike.exceptions.IkeProtocolException;
+import android.net.ipsec.ike.exceptions.IkeTimeoutException;
 import android.os.SystemClock;
 import android.util.Log;
 
 import com.android.internal.annotations.VisibleForTesting;
 
+import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -71,6 +77,7 @@ public class VpnConnectivityMetrics {
         private Map<NetworkAgent, Long> mVpnValidatedTimestampMs = new HashMap<>();
         private int mValidationAttempts = 0;
         private int mValidationAttemptsSuccess = 0;
+        private List<Integer> mErrorCodes = new ArrayList<>();
 
         VpnMetricCollector(int userId) {
             mUserId = userId;
@@ -104,6 +111,10 @@ public class VpnConnectivityMetrics {
             vpnConnection.setVpnValidatedPeriodSeconds((int) (mVpnValidatedPeriodMs / 1000));
             vpnConnection.setValidationAttempts(mValidationAttempts);
             vpnConnection.setValidationAttemptsSuccess(mValidationAttemptsSuccess);
+
+            for(int code : mErrorCodes) {
+                vpnConnection.addErrorCode(code);
+            }
 
             mVpnConnectionList.add(vpnConnection);
         }
@@ -174,6 +185,30 @@ public class VpnConnectivityMetrics {
             }
         }
 
+        /** Inform the VpnMetricCollector of the given exception */
+        public void onException(Exception exception) {
+            final int errorCode;
+            if (exception instanceof IkeProtocolException) {
+                final IkeProtocolException error = (IkeProtocolException) exception;
+                errorCode = convertIkeProtocolExceptionErrorToProto(error.getErrorType());
+            } else if (exception instanceof IkeNetworkLostException) {
+                errorCode = 20; /* NETWORK_LOST */
+            } else if (exception instanceof IkeNonProtocolException) {
+                if (exception.getCause() instanceof UnknownHostException) {
+                    errorCode = 18; /* NETWORK_UNKNOWN_HOST */
+                } else if (exception.getCause() instanceof IkeTimeoutException) {
+                    errorCode = 19; /* NETWORK_PROTOCOL_TIMEOUT */
+                } else if (exception.getCause() instanceof IOException) {
+                    errorCode = 21; /* NETWORK_IO */
+                } else {
+                    errorCode = 1; /* UNKNOWN */
+                }
+            } else {
+                errorCode = 1; /* UNKNOWN */
+            }
+            mErrorCodes.add(errorCode);
+        }
+
         private String getTag() {
             return VpnMetricCollector.class.getSimpleName() + "/" + mUserId;
         }
@@ -182,6 +217,44 @@ public class VpnConnectivityMetrics {
             final NetworkCapabilities nc = mConnectivityManager.getNetworkCapabilities(network);
             if (nc == null) return null;
             return nc.getTransportTypes();
+        }
+
+        private int convertIkeProtocolExceptionErrorToProto(int errorCode) {
+            switch (errorCode) {
+                case IkeProtocolException.ERROR_TYPE_AUTHENTICATION_FAILED:
+                    return 9; /* AUTHENTICATION_FAILED */
+                case IkeProtocolException.ERROR_TYPE_CHILD_SA_NOT_FOUND:
+                    return 17; /* CHILD_SA_NOT_FOUND */
+                case IkeProtocolException.ERROR_TYPE_FAILED_CP_REQUIRED:
+                    return 13; /* FAILED_CP_REQUIRED */
+                case IkeProtocolException.ERROR_TYPE_INTERNAL_ADDRESS_FAILURE:
+                    return 12; /* INTERNAL_ADDRESS_FAILURE */
+                case IkeProtocolException.ERROR_TYPE_INVALID_IKE_SPI:
+                    return 3; /* INVALID_IKE_SPI */
+                case IkeProtocolException.ERROR_TYPE_INVALID_KE_PAYLOAD:
+                    return 8; /* INVALID_KE_PAYLOAD */
+                case IkeProtocolException.ERROR_TYPE_INVALID_MAJOR_VERSION:
+                    return 4; /* INVALID_MAJOR_VERSION */
+                case IkeProtocolException.ERROR_TYPE_INVALID_MESSAGE_ID:
+                    return 6; /* INVALID_MESSAGE_ID */
+                case IkeProtocolException.ERROR_TYPE_INVALID_SELECTORS:
+                    return 15; /* INVALID_SELECTORS */
+                case IkeProtocolException.ERROR_TYPE_INVALID_SYNTAX:
+                    return 5; /* INVALID_SYNTAX */
+                case IkeProtocolException.ERROR_TYPE_NO_ADDITIONAL_SAS:
+                    return 11; /* NO_ADDITIONAL_SAS */
+                case IkeProtocolException.ERROR_TYPE_NO_PROPOSAL_CHOSEN:
+                    return 7; /* NO_PROPOSAL_CHOSEN */
+                case IkeProtocolException.ERROR_TYPE_SINGLE_PAIR_REQUIRED:
+                    return 10; /* SINGLE_PAIR_REQUIRED */
+                case IkeProtocolException.ERROR_TYPE_TEMPORARY_FAILURE:
+                    return 16; /* TEMPORARY_FAILURE */
+                case IkeProtocolException.ERROR_TYPE_TS_UNACCEPTABLE:
+                    return 14; /* TS_UNACCEPTABLE */
+                case IkeProtocolException.ERROR_TYPE_UNSUPPORTED_CRITICAL_PAYLOAD:
+                    return 2; /* UNSUPPORTED_CRITICAL_PAYLOAD */
+            }
+            return 1; /* UNKNOWN */
         }
     }
 
