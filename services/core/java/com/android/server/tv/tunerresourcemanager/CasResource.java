@@ -93,6 +93,28 @@ public class CasResource {
         mOwnerClientIdsToSessionNum.remove(ownerId);
     }
 
+    /**
+     * Remove a single session from resource
+     *
+     * @param ownerId the client Id of the owner of the session
+     */
+    public void removeSession(int ownerId) {
+        if (!mOwnerClientIdsToSessionNum.containsKey(ownerId)) return;
+        int sessionNum = mOwnerClientIdsToSessionNum.get(ownerId);
+        if (sessionNum <= 0) return;
+        mOwnerClientIdsToSessionNum.put(ownerId, --sessionNum);
+        mAvailableSessionNum++;
+    }
+
+    /**
+     * Check if there are any open sessions owned by a client
+     *
+     * @param ownerId the client Id of the owner of the sessions
+     */
+    public bool hasOpenSessions(int ownerId) {
+        return mOwnerClientIdsToSessionNum.get(ownerId) > 0;
+    }
+
     public Set<Integer> getOwnerClientIds() {
         return mOwnerClientIdsToSessionNum.keySet();
     }
