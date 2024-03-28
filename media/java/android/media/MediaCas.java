@@ -1185,6 +1185,7 @@ public final class MediaCas implements AutoCloseable {
                 try {
                     byte[] sessionId = mICas.openSessionDefault();
                     Session session = createFromSessionId(sessionId);
+                    addSessionToResourceMap(session, sessionResourceHandle);
                     Log.d(TAG, "Write Stats Log for succeed to Open Session.");
                     FrameworkStatsLog.write(
                             FrameworkStatsLog.TV_CAS_SESSION_OPEN_STATUS,

@@ -2335,9 +2335,8 @@ public class TunerResourceManagerService extends SystemService implements IBinde
 
     private int generateResourceHandle(
             @TunerResourceManager.TunerResourceType int resourceType, int resourceId) {
-        return (resourceType & 0x000000ff) << 24
-                | (resourceId << 16)
-                | (mResourceRequestCount++ & 0xffff);
+        return (resourceType & 0x000000ff) << 24 | (resourceId & 0x0000ffff) << 8
+                | (mResourceRequestCount++ & 0xff);
     }
 
     @VisibleForTesting
@@ -2345,7 +2344,7 @@ public class TunerResourceManagerService extends SystemService implements IBinde
         if (resourceHandle == TunerResourceManager.INVALID_RESOURCE_HANDLE) {
             return resourceHandle;
         }
-        return (resourceHandle & 0x00ff0000) >> 16;
+        return (resourceHandle & 0x00ffff00) >> 8;
     }
 
     private boolean validateResourceHandle(int resourceType, int resourceHandle) {
