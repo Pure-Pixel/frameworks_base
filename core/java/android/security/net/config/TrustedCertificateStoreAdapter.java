@@ -16,13 +16,13 @@
 
 package android.security.net.config;
 
+import com.android.org.conscrypt.TrustedCertificateStore;
+
 import java.io.File;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.Set;
-
-import com.android.org.conscrypt.TrustedCertificateStore;
 
 /** @hide */
 public class TrustedCertificateStoreAdapter extends TrustedCertificateStore {
@@ -96,6 +96,11 @@ public class TrustedCertificateStoreAdapter extends TrustedCertificateStore {
 
     @Override
     public Set<String> userAliases() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Set<String> allManagedAliases() {
         throw new UnsupportedOperationException();
     }
 

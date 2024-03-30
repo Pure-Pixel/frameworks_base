@@ -52,6 +52,7 @@ interface IKeyChainService {
     // APIs used by Settings
     boolean deleteCaCertificate(String alias);
     boolean reset();
+    StringParceledListSlice getManagedCaAliases();
     StringParceledListSlice getUserCaAliases();
     StringParceledListSlice getSystemCaAliases();
     boolean containsCaAlias(String alias);

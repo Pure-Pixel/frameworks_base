@@ -194,6 +194,9 @@ public final class NetworkSecurityConfig {
     public static Builder getDefaultBuilder(ApplicationInfo info) {
         Builder builder = new Builder()
                 .setHstsEnforced(DEFAULT_HSTS_ENFORCED)
+                // Managed certificate store, does not bypass static pins.
+                .addCertificatesEntryRef(
+                        new CertificatesEntryRef(ManagedCertificateSource.getInstance(), false))
                 // System certificate store, does not bypass static pins.
                 .addCertificatesEntryRef(
                         new CertificatesEntryRef(SystemCertificateSource.getInstance(), false));
