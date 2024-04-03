@@ -39,6 +39,30 @@
       },
       "revId": "55a60a5a8fbc8284440773d649c3b3e7d1ea0e87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa80b822_039bc6ff",
+        "filename": "services/core/java/com/android/server/graphics/fonts/UpdatableFontDir.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1079143
+      },
+      "writtenOn": "2024-04-03T08:29:29Z",
+      "side": 1,
+      "message": "As we discussed offline, fontConfig is used inside `getPreinstalledFontRevision` only when there is no updated font, and fontConfig should be the preinstalled font config.",
+      "parentUuid": "478440c4_197f92e7",
+      "range": {
+        "startLine": 226,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 81
+      },
+      "revId": "55a60a5a8fbc8284440773d649c3b3e7d1ea0e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
