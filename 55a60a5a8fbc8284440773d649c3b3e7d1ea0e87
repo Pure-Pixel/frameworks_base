@@ -16,6 +16,29 @@
       "message": "This is a cherry pick from the internal branch. Can you take a look?\n\nThank you.",
       "revId": "55a60a5a8fbc8284440773d649c3b3e7d1ea0e87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "478440c4_197f92e7",
+        "filename": "services/core/java/com/android/server/graphics/fonts/UpdatableFontDir.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1079143
+      },
+      "writtenOn": "2024-04-03T07:23:37Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this be prone to downgrade attack?\nSuppose:\n- Version 1 is pre-installed\n- Version 2 has a vulnerability\n- Version 3 fixes the vulnerability\n\nBefore this CL, we can prevent attacks using Version 2 by deploying Version 3, as we had a rollback protection.\nWith this CL, Version 2 can be re-installed even if Version 3 is already installed.",
+      "range": {
+        "startLine": 226,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 81
+      },
+      "revId": "55a60a5a8fbc8284440773d649c3b3e7d1ea0e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
