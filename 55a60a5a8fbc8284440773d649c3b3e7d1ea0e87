@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b78e1619_b8932c47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1062848
+      },
+      "writtenOn": "2024-04-03T06:52:06Z",
+      "side": 1,
+      "message": "This is a cherry pick from the internal branch. Can you take a look?\n\nThank you.",
+      "revId": "55a60a5a8fbc8284440773d649c3b3e7d1ea0e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
