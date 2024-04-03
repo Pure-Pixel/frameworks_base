@@ -315,7 +315,26 @@ public final class LocaleList implements Parcelable {
     private static final int NUM_PSEUDO_LOCALES = 2;
 
     private static boolean isPseudoLocale(String locale) {
-        return STRING_EN_XA.equals(locale) || STRING_AR_XB.equals(locale);
+        if (locale == null) {
+            return false;
+        }
+
+        return matchLanguageAndRegionInPseudoLocaleTag(locale, STRING_EN_XA)
+                || matchLanguageAndRegionInPseudoLocaleTag(locale, STRING_AR_XB);
+    }
+
+    /**
+     * Match the language and region code in a language tag of a pesudolocale without parsing the
+     * entire langauge tag, e.g. via {@link Locale#forLanguageTag(String)}.
+     */
+    private static boolean matchLanguageAndRegionInPseudoLocaleTag(String locale,
+            String pseudoLocale) {
+        // Language and region should be the first 2 parts of the language tag because
+        // a pseudo locale should not have a script part normally.
+        return locale.startsWith(pseudoLocale)
+        // Check "XA" or "XB" is a 2-character region code, not a script or other parts.
+                && (locale.length() <= pseudoLocale.length()
+                        || locale.charAt(pseudoLocale.length()) == '-');
     }
 
     /**
@@ -323,7 +342,17 @@ public final class LocaleList implements Parcelable {
      * {@hide}
      */
     public static boolean isPseudoLocale(Locale locale) {
-        return LOCALE_EN_XA.equals(locale) || LOCALE_AR_XB.equals(locale);
+        if (locale == null) {
+            return false;
+        }
+
+        return matchLanguageAndRegion(locale, LOCALE_EN_XA)
+                || matchLanguageAndRegion(locale, LOCALE_AR_XB);
+    }
+
+    private static boolean matchLanguageAndRegion(Locale locale, Locale pseudoLocale) {
+        return pseudoLocale.getLanguage().equals(locale.getLanguage())
+                && pseudoLocale.getCountry().equals(locale.getCountry());
     }
 
     /**
@@ -353,7 +382,9 @@ public final class LocaleList implements Parcelable {
         if (!supported.getLanguage().equals(desired.getLanguage())) {
             return false;
         }
-        if (isPseudoLocale(supported) || isPseudoLocale(desired)) {
+        if (isPseudoLocale(desired) && matchLanguageAndRegion(supported, desired)) {
+            return true;
+        } else if (isPseudoLocale(supported) || isPseudoLocale(desired)) {
             // The locales are not the same, but the languages are the same, and one of the locales
             // is a pseudo-locale. So this is not a match.
             return false;
