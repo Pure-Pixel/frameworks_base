@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5d5e914_9263bbb7",
+        "filename": "services/core/java/com/android/server/tv/tunerresourcemanager/CasResource.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2024-04-09T00:37:35Z",
+      "side": 1,
+      "message": "add a containsKey check here as well",
+      "revId": "2c206c940b6d1cc7dc96f6842562a3c695a4f6e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6beffbcf_6d920ca3",
+        "filename": "services/core/java/com/android/server/tv/tunerresourcemanager/CasResource.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2024-04-09T00:37:35Z",
+      "side": 1,
+      "message": "use bracket and put return in a new line",
+      "range": {
+        "startLine": 102,
+        "startChar": 63,
+        "endLine": 102,
+        "endChar": 69
+      },
+      "revId": "2c206c940b6d1cc7dc96f6842562a3c695a4f6e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e255ee4_e7994390",
+        "filename": "services/core/java/com/android/server/tv/tunerresourcemanager/CasResource.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2024-04-09T00:37:35Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 104,
+        "startChar": 29,
+        "endLine": 104,
+        "endChar": 35
+      },
+      "revId": "2c206c940b6d1cc7dc96f6842562a3c695a4f6e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
