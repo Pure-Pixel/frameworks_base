@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73e7ed79_bed7383b",
+        "filename": "services/core/java/com/android/server/tv/tunerresourcemanager/CasResource.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-04-16T15:58:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5d5e914_9263bbb7",
+      "revId": "2c206c940b6d1cc7dc96f6842562a3c695a4f6e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6beffbcf_6d920ca3",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05b7c369_e75394af",
+        "filename": "services/core/java/com/android/server/tv/tunerresourcemanager/CasResource.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-04-16T15:58:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6beffbcf_6d920ca3",
+      "range": {
+        "startLine": 102,
+        "startChar": 63,
+        "endLine": 102,
+        "endChar": 69
+      },
+      "revId": "2c206c940b6d1cc7dc96f6842562a3c695a4f6e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e255ee4_e7994390",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-04-09T00:37:35Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 104,
+        "startChar": 29,
+        "endLine": 104,
+        "endChar": 35
+      },
+      "revId": "2c206c940b6d1cc7dc96f6842562a3c695a4f6e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bedb326_ec0e6b35",
+        "filename": "services/core/java/com/android/server/tv/tunerresourcemanager/CasResource.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-04-16T15:58:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e255ee4_e7994390",
       "range": {
         "startLine": 104,
         "startChar": 29,
