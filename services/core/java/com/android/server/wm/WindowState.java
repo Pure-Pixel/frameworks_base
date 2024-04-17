@@ -56,6 +56,7 @@ import static android.view.WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_M
 import static android.view.WindowManager.LayoutParams.MATCH_PARENT;
 import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_COMPATIBLE_WINDOW;
 import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_NOT_MAGNIFIABLE;
+import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY;
 import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_NO_MOVE_ANIMATION;
 import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_SYSTEM_APPLICATION_OVERLAY;
 import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_TRUSTED_OVERLAY;
@@ -205,6 +206,7 @@ import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.Trace;
+import android.os.UserHandle;
 import android.os.WorkSource;
 import android.provider.Settings;
 import android.util.ArraySet;
@@ -5078,17 +5080,22 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
     @Override
     boolean shouldMagnify() {
         if (mAttrs.type == TYPE_ACCESSIBILITY_MAGNIFICATION_OVERLAY
-                || mAttrs.type == TYPE_INPUT_METHOD
-                || mAttrs.type == TYPE_INPUT_METHOD_DIALOG
                 || mAttrs.type == TYPE_MAGNIFICATION_OVERLAY
-                || mAttrs.type == TYPE_NAVIGATION_BAR
-                // It's tempting to wonder: Have we forgotten the rounded corners overlay?
-                // worry not: it's a fake TYPE_NAVIGATION_BAR_PANEL
-                || mAttrs.type == TYPE_NAVIGATION_BAR_PANEL) {
+                || (mAttrs.privateFlags & PRIVATE_FLAG_NOT_MAGNIFIABLE) != 0
+                // The rounded corners overlay was never magnified due to it
+                // being a fake TYPE_NAVIGATION_BAR_PANEL. Since it is now possible
+                // to magnify TYPE_NAVIGATION_BAR_PANEL, we add the following check
+                // to not magnify rounded corners overlay.
+                || (mAttrs.privateFlags & PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY) != 0) {
             return false;
         }
-        if ((mAttrs.privateFlags & PRIVATE_FLAG_NOT_MAGNIFIABLE) != 0) {
-            return false;
+        if (mAttrs.type == TYPE_INPUT_METHOD
+                || mAttrs.type == TYPE_INPUT_METHOD_DIALOG
+                || mAttrs.type == TYPE_NAVIGATION_BAR
+                || mAttrs.type == TYPE_NAVIGATION_BAR_PANEL) {
+            return Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                        Settings.Secure.ACCESSIBILITY_MAGNIFY_NAV_AND_IME,
+                        0, UserHandle.USER_CURRENT) == 1;
         }
         return true;
     }
