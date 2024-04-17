@@ -7685,6 +7685,13 @@ public class WindowManagerService extends IWindowManager.Stub
         }
 
         @Override
+        public void reapplyWindowMagnification(int displayId) {
+            synchronized (mGlobalLock) {
+                mAccessibilityController.reapplyWindowMagnification(displayId);
+            }
+        }
+
+        @Override
         public void setMagnificationSpec(int displayId, MagnificationSpec spec) {
             synchronized (mGlobalLock) {
                 if (mAccessibilityController.hasCallbacks()) {

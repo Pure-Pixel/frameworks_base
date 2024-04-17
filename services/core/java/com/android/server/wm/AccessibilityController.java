@@ -263,6 +263,16 @@ final class AccessibilityController {
         }
     }
 
+    void reapplyWindowMagnification(int displayId) {
+        MagnificationSpec spec = mDisplayMagnifiers.get(displayId)
+                                    .getMagnifiedViewport()
+                                    .getMagnificationSpec();
+        if (spec == null) {
+            return;
+        }
+        setMagnificationSpec(displayId, spec);
+    }
+
     void setMagnificationSpec(int displayId, MagnificationSpec spec) {
         if (mAccessibilityTracing.isTracingEnabled(FLAGS_MAGNIFICATION_CALLBACK
                 | FLAGS_WINDOWS_FOR_ACCESSIBILITY_CALLBACK)) {
@@ -633,6 +643,10 @@ final class AccessibilityController {
                                 + displayContent + "}; display={" + display + "}; callbacks={"
                                 + callbacks + "}");
             }
+        }
+
+        MagnifiedViewport getMagnifiedViewport() {
+            return mMagnifedViewport;
         }
 
         void setMagnificationSpec(MagnificationSpec spec) {
