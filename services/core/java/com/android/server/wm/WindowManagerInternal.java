@@ -377,6 +377,12 @@ public abstract class WindowManagerInternal {
     public abstract void onDisplayManagerReceivedDeviceState(int deviceState);
 
     /**
+     * Called when the magnification of windows needs to be immediately updated,
+     * for example, when turning on/off magnification of navigation bars and IME.
+     */
+    public abstract void reapplyWindowMagnification(int displayId);
+
+    /**
      * Set by the accessibility layer to observe changes in the magnified region,
      * rotation, and other window transformations related to display magnification
      * as the window manager is responsible for doing the actual magnification
