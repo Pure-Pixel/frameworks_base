@@ -81,6 +81,7 @@ import android.os.UserManager;
 import android.os.storage.IStorageManager;
 import android.provider.DeviceConfig;
 import android.provider.Settings;
+import android.security.Flags;
 import android.server.ServerProtoEnums;
 import android.system.ErrnoException;
 import android.system.Os;
@@ -202,6 +203,7 @@ import com.android.server.security.AttestationVerificationManagerService;
 import com.android.server.security.FileIntegrityService;
 import com.android.server.security.KeyAttestationApplicationIdProviderService;
 import com.android.server.security.KeyChainSystemService;
+import com.android.server.security.net.ct.CertificateTransparencyLogManagerService;
 import com.android.server.security.rkp.RemoteProvisioningService;
 import com.android.server.sensorprivacy.SensorPrivacyService;
 import com.android.server.sensors.SensorService;
@@ -1734,6 +1736,12 @@ public final class SystemServer implements Dumpable {
             t.traceBegin("StartLogcatManager");
             mSystemServiceManager.startService(LogcatManagerService.class);
             t.traceEnd();
+
+            if (Flags.certificateTransparencyLogListService()) {
+                t.traceBegin("StartCertificateTransparencyLogManagerService");
+                mSystemServiceManager.startService(CertificateTransparencyLogManagerService.class);
+                t.traceEnd();
+            }
 
         } catch (Throwable e) {
             Slog.e("System", "******************************************");
