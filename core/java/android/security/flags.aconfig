@@ -9,6 +9,14 @@ flag {
 }
 
 flag {
+    name: "certificate_transparency_log_list_service"
+    is_exported: true
+    namespace: "network_security"
+    description: "Enable the certificate transparency log list service go/log-list-storage"
+    bug: "28746284"
+}
+
+flag {
     name: "fsverity_api"
     namespace: "hardware_backed_security"
     description: "Feature flag for fs-verity API"
