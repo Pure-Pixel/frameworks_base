@@ -215,6 +215,8 @@ import android.security.FileIntegrityManager;
 import android.security.IFileIntegrityService;
 import android.security.attestationverification.AttestationVerificationManager;
 import android.security.attestationverification.IAttestationVerificationManagerService;
+import android.security.net.ct.CertificateTransparencyLogManager;
+import android.security.net.ct.ICertificateTransparencyLogManager;
 import android.service.oemlock.IOemLockService;
 import android.service.oemlock.OemLockManager;
 import android.service.persistentdata.IPersistentDataBlockService;
@@ -642,6 +644,22 @@ public final class SystemServiceRegistry {
                         ISecurityStateManager service = ISecurityStateManager.Stub.asInterface(b);
                         return new SecurityStateManager(service);
                     }});
+
+        registerService(
+                Context.CERTIFICATE_TRANSPARENCY_SERVICE,
+                CertificateTransparencyLogManager.class,
+                new CachedServiceFetcher<CertificateTransparencyLogManager>() {
+                    @Override
+                    public CertificateTransparencyLogManager createService(ContextImpl ctx)
+                            throws ServiceNotFoundException {
+                        IBinder b =
+                                ServiceManager.getServiceOrThrow(
+                                        Context.CERTIFICATE_TRANSPARENCY_SERVICE);
+                        ICertificateTransparencyLogManager service =
+                                ICertificateTransparencyLogManager.Stub.asInterface(b);
+                        return new CertificateTransparencyLogManager(service);
+                    }
+                });
 
         registerService(Context.SENSOR_SERVICE, SensorManager.class,
                 new CachedServiceFetcher<SensorManager>() {
