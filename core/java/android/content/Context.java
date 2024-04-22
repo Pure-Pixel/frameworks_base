@@ -4215,6 +4215,7 @@ public abstract class Context {
             DEVICE_LOCK_SERVICE,
             VIRTUALIZATION_SERVICE,
             GRAMMATICAL_INFLECTION_SERVICE,
+            CERTIFICATE_TRANSPARENCY_SERVICE,
             SECURITY_STATE_SERVICE,
 
     })
@@ -6489,6 +6490,16 @@ public abstract class Context {
      */
     @SystemApi
     public static final String SHARED_CONNECTIVITY_SERVICE = "shared_connectivity";
+
+    /**
+     * Use with {@link #getSystemService(String)} to retrieve a {@link
+     * android.os.CertificateTransparencyLogManager} for Certificate Transparency verification.
+     *
+     * @see #getSystemService(String)
+     * @see android.os.CertificateTransparencyLogManager
+     */
+    @FlaggedApi(android.security.Flags.FLAG_CERTIFICATE_TRANSPARENCY_LOG_LIST_SERVICE)
+    public static final String CERTIFICATE_TRANSPARENCY_SERVICE = "certificate_transparency";
 
     /**
      * Use with {@link #getSystemService(String)} to retrieve a

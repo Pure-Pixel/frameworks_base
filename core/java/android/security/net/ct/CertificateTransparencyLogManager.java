@@ -1,0 +1,78 @@
+/*
+ * Copyright 2024 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package android.security.net.ct;
+
+import static android.annotation.SystemApi.Client.MODULE_LIBRARIES;
+
+import android.annotation.FlaggedApi;
+import android.annotation.NonNull;
+import android.annotation.Nullable;
+import android.annotation.RequiresPermission;
+import android.annotation.SystemApi;
+import android.annotation.SystemService;
+import android.content.Context;
+import android.os.RemoteException;
+import android.security.Flags;
+
+/** A manager of Certificate Transparency log lists. */
+@FlaggedApi(Flags.FLAG_CERTIFICATE_TRANSPARENCY_LOG_LIST_SERVICE)
+@SystemService(Context.CERTIFICATE_TRANSPARENCY_SERVICE)
+public final class CertificateTransparencyLogManager {
+
+    private final ICertificateTransparencyLogManager mService;
+
+    /** {@hide} */
+    public CertificateTransparencyLogManager(ICertificateTransparencyLogManager service) {
+        mService = service;
+    }
+
+    /**
+     * @return the latest {@link CertificateTransparencyLogList}, or {@code null} if no log list is
+     *     available.
+     */
+    @Nullable
+    public CertificateTransparencyLogList getLogList() {
+        return getLogList("");
+    }
+
+    /**
+     * @return A {@link CertificateTransparencyLogList} matching the provided {@param version}, or
+     *     {@code null} if no log list with that version is available.
+     */
+    @Nullable
+    public CertificateTransparencyLogList getLogList(@NonNull String version) {
+        try {
+            return mService.getLogList(version);
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
+     * @hide Force an update of the {@link CertificateTransparencyLogList} stored on the device.
+     * @return the {@link UpdateStatus} of the request.
+     */
+    @SystemApi(client = MODULE_LIBRARIES)
+    @RequiresPermission("MANAGE_CERTIFICATE_TRANSPARENCY_POLICY")
+    @CertificateTransparencyConstants.UpdateStatus
+    public int forceLogListUpdate() {
+        try {
+            return mService.forceLogListUpdate();
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+}
