@@ -4216,6 +4216,7 @@ public abstract class Context {
             VIRTUALIZATION_SERVICE,
             GRAMMATICAL_INFLECTION_SERVICE,
             SECURITY_STATE_SERVICE,
+            CERTIFICATE_TRANSPARENCY_SERVICE,
 
     })
     @Retention(RetentionPolicy.SOURCE)
@@ -6499,6 +6500,16 @@ public abstract class Context {
      */
     @FlaggedApi(Flags.FLAG_SECURITY_STATE_SERVICE)
     public static final String SECURITY_STATE_SERVICE = "security_state";
+
+    /**
+     * Use with {@link #getSystemService(String)} to retrieve a {@link
+     * android.os.CertificateTransparencyLogManager} for Certificate Transparency verification.
+     *
+     * @see #getSystemService(String)
+     * @see android.os.CertificateTransparencyLogManager
+     */
+    @FlaggedApi(android.security.Flags.FLAG_CERTIFICATE_TRANSPARENCY_LOG_LIST_SERVICE)
+    public static final String CERTIFICATE_TRANSPARENCY_SERVICE = "certificate_transparency";
 
     /**
      * Determine whether the given permission is allowed for a particular
