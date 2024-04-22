@@ -573,6 +573,14 @@ package android.se.omapi {
 
 }
 
+package android.security.net.ct {
+
+  @FlaggedApi("android.security.certificate_transparency_log_list_service") public interface CertificateTransparencyLogManager {
+    method @RequiresPermission("MANAGE_CERTIFICATE_TRANSPARENCY_POLICY") public default int forceLogListUpdate();
+  }
+
+}
+
 package android.telecom {
 
   public abstract class ConnectionService extends android.app.Service {
