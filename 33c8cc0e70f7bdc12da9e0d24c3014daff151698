@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "303ff678_5448d264",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135528
+      },
+      "writtenOn": "2024-05-07T18:31:08Z",
+      "side": 1,
+      "message": "Thanks Susan! We\u0027ve been wanting to add this feature for a while, actually, so I\u0027m glad you did it.\n\nOne question: how does this work when \"Follow typing\" is also enabled? If they are zoomed in on the keyboard and type a letter, does it jump away from the keyboard to center on the textfield? That might be a weird unwanted interaction.",
+      "revId": "33c8cc0e70f7bdc12da9e0d24c3014daff151698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51526f5f_e4b3711c",
+        "filename": "services/accessibility/java/com/android/server/accessibility/AccessibilityUserState.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1135528
+      },
+      "writtenOn": "2024-05-07T18:31:08Z",
+      "side": 1,
+      "message": "Are these getter/setters ever used anywhere?",
+      "revId": "33c8cc0e70f7bdc12da9e0d24c3014daff151698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9b746e8_224bfc60",
+        "filename": "services/core/java/com/android/server/wm/WindowState.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 5096,
+      "author": {
+        "id": 1135528
+      },
+      "writtenOn": "2024-05-07T18:31:08Z",
+      "side": 1,
+      "message": "You\u0027ll probably need to cache this value. Reading it every time will be expensive.",
+      "revId": "33c8cc0e70f7bdc12da9e0d24c3014daff151698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
