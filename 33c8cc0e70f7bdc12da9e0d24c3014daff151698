@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "962fda27_d3d91eec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3307287
+      },
+      "writtenOn": "2024-05-08T16:49:05Z",
+      "side": 1,
+      "message": "Ah I\u0027m glad to hear that! :) And yes, good question -- it currently does jump away from the keyboard to center on the textfield. Were you expecting that turning on this feature turns off the follow typing feature?",
+      "parentUuid": "303ff678_5448d264",
+      "revId": "33c8cc0e70f7bdc12da9e0d24c3014daff151698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51526f5f_e4b3711c",
         "filename": "services/accessibility/java/com/android/server/accessibility/AccessibilityUserState.java",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "writtenOn": "2024-05-07T18:31:08Z",
       "side": 1,
       "message": "Are these getter/setters ever used anywhere?",
+      "revId": "33c8cc0e70f7bdc12da9e0d24c3014daff151698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c934b8e_6bd2531b",
+        "filename": "services/accessibility/java/com/android/server/accessibility/AccessibilityUserState.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 3307287
+      },
+      "writtenOn": "2024-05-08T16:49:05Z",
+      "side": 1,
+      "message": "Yes! These are used in readMagnifyNavAndImeLocked() which I\u0027ve added in AccessibilityManagerService.java!",
+      "parentUuid": "51526f5f_e4b3711c",
       "revId": "33c8cc0e70f7bdc12da9e0d24c3014daff151698",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2024-05-07T18:31:08Z",
       "side": 1,
       "message": "You\u0027ll probably need to cache this value. Reading it every time will be expensive.",
+      "revId": "33c8cc0e70f7bdc12da9e0d24c3014daff151698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2052d7eb_a2c41506",
+        "filename": "services/core/java/com/android/server/wm/WindowState.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 5096,
+      "author": {
+        "id": 3307287
+      },
+      "writtenOn": "2024-05-08T16:49:05Z",
+      "side": 1,
+      "message": "Ah, good point! I\u0027ll look into this and post a revision!",
+      "parentUuid": "f9b746e8_224bfc60",
       "revId": "33c8cc0e70f7bdc12da9e0d24c3014daff151698",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
