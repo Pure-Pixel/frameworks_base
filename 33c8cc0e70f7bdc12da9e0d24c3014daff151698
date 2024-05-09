@@ -184,6 +184,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ce86c21_1d751b97",
+        "filename": "services/core/java/com/android/server/wm/AccessibilityController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 3307287
+      },
+      "writtenOn": "2024-05-09T20:34:43Z",
+      "side": 1,
+      "message": "Hey Tyler! Actually, I had a question -- is it a problem if we don\u0027t hold both locks? \n\n------\nI\u0027m thinking of the case where the device is running reapplyWindowMagnification(), and we toggle the MagnifyNavAndIME Secure Setting -- in that case, wouldn\u0027t shouldMagnify() return inconsistent values? \n\nAs a fix I could add a new lock that only readMagnifyNavAndImeLocked() and reapplyDisplayMagnification() use, but let me know what you think!\n\n[Also, this could depend how we cache, though right now, (in my local changes) in readMagnifyNavAndImeLocked(), which only holds the AccessibilityManagerService\u0027s lock, I make a call to update a member variable I created in WindowManagerService.] \n\n-------\nAlternatively, do you know if there are other situations where not holding A11yManagerService\u0027s mLock might create issues? \n\nFor example, onDisplayAdded() and onDisplayRemoved() use A11yManagerService\u0027s mLock when modifying the validDisplayList -- but I wanted to double check if you had any input!",
+      "parentUuid": "570db4db_cd720489",
+      "revId": "33c8cc0e70f7bdc12da9e0d24c3014daff151698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb363b75_387d2883",
         "filename": "services/core/java/com/android/server/wm/WindowManagerInternal.java",
         "patchSetId": 3
