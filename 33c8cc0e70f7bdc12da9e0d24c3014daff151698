@@ -108,6 +108,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb363b75_387d2883",
+        "filename": "services/core/java/com/android/server/wm/WindowManagerInternal.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 2009640
+      },
+      "writtenOn": "2024-05-09T07:58:31Z",
+      "side": 1,
+      "message": "Naming WindowMagnification may cause some confusion with partial-screen mode magnification, while this method is used for fullscreen magnification. I\u0027m wondering if this could change to `reapplyDisplayMagnification` or some other wordings.",
+      "fixSuggestions": [
+        {
+          "fixId": "352c0ef1_e3796c41",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "services/core/java/com/android/server/wm/WindowManagerInternal.java",
+              "range": {
+                "startLine": 383,
+                "startChar": 0,
+                "endLine": 384,
+                "endChar": 0
+              },
+              "replacement": "    public abstract void reapplyDisplayMagnification(int displayId);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "33c8cc0e70f7bdc12da9e0d24c3014daff151698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9b746e8_224bfc60",
         "filename": "services/core/java/com/android/server/wm/WindowState.java",
         "patchSetId": 3
