@@ -73,6 +73,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d81f301_40714b3f",
+        "filename": "services/accessibility/java/com/android/server/accessibility/AccessibilityManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4908,
+      "author": {
+        "id": 1135528
+      },
+      "writtenOn": "2024-05-09T18:24:22Z",
+      "side": 1,
+      "message": "Continuing with the deadlock suggestion, you\u0027d post to the handler so we\u0027re not holding the a11y lock by the time we call reapplyWindowMagnification()\n\n```suggestion\n        mMainHandler.post(mWindowManagerService::reapplyWindowMagnification);\n```",
+      "range": {
+        "startLine": 4901,
+        "startChar": 7,
+        "endLine": 4908,
+        "endChar": 9
+      },
+      "revId": "33c8cc0e70f7bdc12da9e0d24c3014daff151698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51526f5f_e4b3711c",
         "filename": "services/accessibility/java/com/android/server/accessibility/AccessibilityUserState.java",
         "patchSetId": 3
@@ -102,6 +125,23 @@
       "side": 1,
       "message": "Yes! These are used in readMagnifyNavAndImeLocked() which I\u0027ve added in AccessibilityManagerService.java!",
       "parentUuid": "51526f5f_e4b3711c",
+      "revId": "33c8cc0e70f7bdc12da9e0d24c3014daff151698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63c3ea90_44841118",
+        "filename": "services/core/java/com/android/server/wm/AccessibilityController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1135528
+      },
+      "writtenOn": "2024-05-09T18:24:22Z",
+      "side": 1,
+      "message": "So, Patrick brought up an interesting point, where this possibly could create deadlock:  \"I see in AccessibilityManagerService.onChange, they hold the a11y lock and call into WindowManagerService that then holds the WMS global lock which makes me a little nervous about deadlock.\"\n\nAlthough there are other parts of the code that also do this (e.g FullscreenMagnificationController.SpecAnimationBridge.setEnabled()), it would probably be safer (and faster) to avoid holding the two locks.\n\nOne way I can think of to mitigate this, is to simply iterate over all the mDisplayMagnifiers here in this function, and update their specs if they aren\u0027t null. That way you don\u0027t have to iterate over the displays in updateMagnifyNavAndImeLocked().\n\nSomething like what the AI just generated here:\n\n```suggestion\n        for (int i \u003d 0; i \u003c mDisplayMagnifiers.size(); i++) {\n            final DisplayMagnifier displayMagnifier \u003d mDisplayMagnifiers.valueAt(i);\n            if (displayMagnifier !\u003d null \u0026\u0026 displayMagnifier.isFullscreenMagnificationActivated()) {\n                final MagnificationSpec spec \u003d displayMagnifier.getMagnifiedViewport()\n                        .getMagnificationSpec();\n                if (spec !\u003d null) {\n                    setMagnificationSpec(displayMagnifier.mDisplayId, spec);\n                }\n            }\n        }\n```\n\n\nYou\u0027ll also have to post to the handler in updateMagnifyNavAndImeLocked() so you can get out of the a11yManagerService\u0027s lock... will post a separate suggestion there.",
       "revId": "33c8cc0e70f7bdc12da9e0d24c3014daff151698",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
