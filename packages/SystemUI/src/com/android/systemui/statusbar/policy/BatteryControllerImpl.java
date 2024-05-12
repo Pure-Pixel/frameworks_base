@@ -180,7 +180,7 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
         ipw.print("mIsIncompatibleCharging="); ipw.println(mIsIncompatibleCharging);
         ipw.print("mPowerSave="); ipw.println(mPowerSave);
         ipw.print("mStateUnknown="); ipw.println(mStateUnknown);
-        ipw.println("Callbacks:------------------");
+        ipw.println("Callbacks:-----------------");
         // Since the above lines are already indented, we need to indent twice for the callbacks.
         ipw.increaseIndent();
         synchronized (mChangeCallbacks) {
