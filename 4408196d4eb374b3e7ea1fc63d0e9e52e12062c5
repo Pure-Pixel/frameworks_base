@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de12528c_52e0bda3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2024-05-14T17:57:37Z",
+      "side": 1,
+      "message": "So the consensus during the meeting was to create a new flag for these changes. Also to keep the previous code so that we can use the flag to gate calling the new APIs.",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 14
+      },
+      "revId": "4408196d4eb374b3e7ea1fc63d0e9e52e12062c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27d59f00_55e4a30f",
         "filename": "services/core/java/com/android/server/audio/AudioService.java",
         "patchSetId": 1
@@ -66,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7af02dae_cd9f6e23",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1977,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2024-05-14T17:57:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ad5c679d_0aa30435",
+      "range": {
+        "startLine": 1977,
+        "startChar": 44,
+        "endLine": 1977,
+        "endChar": 64
+      },
+      "revId": "4408196d4eb374b3e7ea1fc63d0e9e52e12062c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7e3fbbd_cc13f366",
@@ -113,6 +160,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69d45db6_15cb1abc",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2319,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2024-05-14T17:57:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2eb92ae0_074898da",
+      "range": {
+        "startLine": 2319,
+        "startChar": 37,
+        "endLine": 2319,
+        "endChar": 59
+      },
+      "revId": "4408196d4eb374b3e7ea1fc63d0e9e52e12062c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2284a8ab_8b8dcdcb",
@@ -150,6 +221,30 @@
       "side": 1,
       "message": "It is a good point here. If the preferred dev is of the same type, the group is the same and device type is the same. So, the same index is stored in both AudioService and AudioPolicyManager.\n\nIf preferred device is different device type, we will store a different index. This is something we shall discuss...",
       "parentUuid": "2284a8ab_8b8dcdcb",
+      "range": {
+        "startLine": 8364,
+        "startChar": 0,
+        "endLine": 8364,
+        "endChar": 12
+      },
+      "revId": "4408196d4eb374b3e7ea1fc63d0e9e52e12062c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8322952f_1b585b44",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 8364,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2024-05-14T17:57:37Z",
+      "side": 1,
+      "message": "From our discussion, it sounded like we want to change this so that we can separate the volume for different device addresses (or some other identifier maybe port). Let me know if you see any major issues with this.",
+      "parentUuid": "28b3f033_15baa120",
       "range": {
         "startLine": 8364,
         "startChar": 0,
