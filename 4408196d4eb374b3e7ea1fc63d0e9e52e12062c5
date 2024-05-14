@@ -44,6 +44,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad5c679d_0aa30435",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1977,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-14T14:05:55Z",
+      "side": 1,
+      "message": "yes, music is the default, and here, we shall prevent to access group that has no matching group id (API returns default, and it would lead to overwrite music min / max)",
+      "parentUuid": "27d59f00_55e4a30f",
+      "range": {
+        "startLine": 1977,
+        "startChar": 44,
+        "endLine": 1977,
+        "endChar": 64
+      },
+      "revId": "4408196d4eb374b3e7ea1fc63d0e9e52e12062c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f7e3fbbd_cc13f366",
         "filename": "services/core/java/com/android/server/audio/AudioService.java",
         "patchSetId": 1
@@ -67,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2eb92ae0_074898da",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2319,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-14T14:05:55Z",
+      "side": 1,
+      "message": ":-)",
+      "parentUuid": "f7e3fbbd_cc13f366",
+      "range": {
+        "startLine": 2319,
+        "startChar": 37,
+        "endLine": 2319,
+        "endChar": 59
+      },
+      "revId": "4408196d4eb374b3e7ea1fc63d0e9e52e12062c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2284a8ab_8b8dcdcb",
         "filename": "services/core/java/com/android/server/audio/AudioService.java",
         "patchSetId": 1
@@ -78,6 +126,30 @@
       "writtenOn": "2024-05-04T05:14:46Z",
       "side": 1,
       "message": "General questions regarding devices and volume group.\n\nIf I have a media volume group with BUS_MEDIA_01, I then set preferred device for BUS_MEDIA_02? Would the volume group get a different volume (current, default, min and max) or would the volume group keep the previous volume group values (current, default , min, max)?\n\nSimilar question but for BT devices or dynamic devices in general.",
+      "range": {
+        "startLine": 8364,
+        "startChar": 0,
+        "endLine": 8364,
+        "endChar": 12
+      },
+      "revId": "4408196d4eb374b3e7ea1fc63d0e9e52e12062c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28b3f033_15baa120",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 8364,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-14T14:05:55Z",
+      "side": 1,
+      "message": "It is a good point here. If the preferred dev is of the same type, the group is the same and device type is the same. So, the same index is stored in both AudioService and AudioPolicyManager.\n\nIf preferred device is different device type, we will store a different index. This is something we shall discuss...",
+      "parentUuid": "2284a8ab_8b8dcdcb",
       "range": {
         "startLine": 8364,
         "startChar": 0,
