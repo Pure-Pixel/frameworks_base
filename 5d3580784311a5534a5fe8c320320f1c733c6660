@@ -44,6 +44,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29a3184d_bf71bc4f",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4035,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-14T14:14:45Z",
+      "side": 1,
+      "message": "definitly, this is the reason why when using Volume Groups, no aliases shall be set. Also, it is not expected to have multiple stream (except for call \u0026 sco stream type).",
+      "parentUuid": "957fd1d7_88c2955d",
+      "range": {
+        "startLine": 4035,
+        "startChar": 12,
+        "endLine": 4035,
+        "endChar": 27
+      },
+      "revId": "5d3580784311a5534a5fe8c320320f1c733c6660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9214f70_d980db0f",
         "filename": "services/core/java/com/android/server/audio/AudioService.java",
         "patchSetId": 1
@@ -55,6 +79,30 @@
       "writtenOn": "2024-05-04T05:49:17Z",
       "side": 1,
       "message": "updated?",
+      "range": {
+        "startLine": 4054,
+        "startChar": 28,
+        "endLine": 4054,
+        "endChar": 34
+      },
+      "revId": "5d3580784311a5534a5fe8c320320f1c733c6660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaaa6b57_6b17b67a",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4054,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-14T14:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9214f70_d980db0f",
       "range": {
         "startLine": 4054,
         "startChar": 28,
@@ -112,6 +160,30 @@
           ]
         }
       ],
+      "revId": "5d3580784311a5534a5fe8c320320f1c733c6660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de31ce48_6694d7f2",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4324,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-14T14:14:45Z",
+      "side": 1,
+      "message": "Stream group will be removed normally (A15 ? A16?) so this CL will not be required anymore",
+      "parentUuid": "08104a03_d5bf7b65",
+      "range": {
+        "startLine": 4324,
+        "startChar": 12,
+        "endLine": 4324,
+        "endChar": 30
+      },
       "revId": "5d3580784311a5534a5fe8c320320f1c733c6660",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
