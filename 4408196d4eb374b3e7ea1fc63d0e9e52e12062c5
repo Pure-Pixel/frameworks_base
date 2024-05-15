@@ -253,6 +253,30 @@
       },
       "revId": "4408196d4eb374b3e7ea1fc63d0e9e52e12062c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "554dcf19_a3be2e04",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 8364,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-15T10:18:18Z",
+      "side": 1,
+      "message": "The point I forgot to mention yesterday was that the AudioOutputDescriptor knows on which device the output is routed, and for this reason, the index is dispatched to the right device.\n\nNow, if it is willing / expected to manage different device index if a preferred device is set (same type/different address), we need to use AudioDeviceInfo instead of device type (int).\n\nFrom user experience, I really cannot make my mind if it is what is expected. You have already tested it, so waiting for your \"go\" to update the API with AudioDeviceInfo.",
+      "parentUuid": "8322952f_1b585b44",
+      "range": {
+        "startLine": 8364,
+        "startChar": 0,
+        "endLine": 8364,
+        "endChar": 12
+      },
+      "revId": "4408196d4eb374b3e7ea1fc63d0e9e52e12062c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
