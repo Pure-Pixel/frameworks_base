@@ -37,6 +37,7 @@ import android.os.IVibratorStateListener;
 import android.os.VibrationEffect;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodSubtype;
+import android.view.InputChannel;
 import android.view.InputDevice;
 import android.view.InputEvent;
 import android.view.InputMonitor;
@@ -244,4 +245,7 @@ interface IInputManager {
     void unregisterKeyboardBacklightListener(IKeyboardBacklightListener listener);
 
     HostUsiVersion getHostUsiVersionFromDisplayConfig(int displayId);
+
+    /** Create an input channel to monitor all input globally. */
+    InputChannel monitorInput(String name, int displayId);
 }

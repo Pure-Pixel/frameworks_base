@@ -45,6 +45,7 @@ import android.os.SystemClock;
 import android.os.Vibrator;
 import android.util.Log;
 import android.view.Display;
+import android.view.InputChannel;
 import android.view.InputDevice;
 import android.view.InputEvent;
 import android.view.InputMonitor;
@@ -1112,6 +1113,15 @@ public final class InputManager {
      */
     public void requestPointerCapture(IBinder windowToken, boolean enable) {
         mGlobal.requestPointerCapture(windowToken, enable);
+    }
+
+    /**
+     * Monitor input on the specified display.
+     *
+     * @hide
+     */
+    public InputChannel monitorInput(String name, int displayId) {
+        return mGlobal.monitorInput(name, displayId);
     }
 
     /**

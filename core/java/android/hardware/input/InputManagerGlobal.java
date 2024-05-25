@@ -48,6 +48,7 @@ import android.os.VibratorManager;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.Display;
+import android.view.InputChannel;
 import android.view.InputDevice;
 import android.view.InputEvent;
 import android.view.InputMonitor;
@@ -1303,6 +1304,17 @@ public final class InputManagerGlobal {
     public void requestPointerCapture(IBinder windowToken, boolean enable) {
         try {
             mIm.requestPointerCapture(windowToken, enable);
+        } catch (RemoteException ex) {
+            throw ex.rethrowFromSystemServer();
+        }
+    }
+
+    /**
+     * @see InputManager#monitorInput(String, int)
+     */
+    public InputChannel monitorInput(String name, int displayId) {
+        try {
+            return mIm.monitorInput(name, displayId);
         } catch (RemoteException ex) {
             throw ex.rethrowFromSystemServer();
         }

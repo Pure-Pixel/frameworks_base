@@ -711,14 +711,25 @@ public class InputManagerService extends IInputManager.Stub
      * @param displayId Target display id.
      * @return The input channel.
      */
+    @Override
     public InputChannel monitorInput(String inputChannelName, int displayId) {
+        if (!checkCallingPermission(android.Manifest.permission.MONITOR_INPUT,
+                "monitorGestureInput()")) {
+            throw new SecurityException("Requires MONITOR_INPUT permission");
+        }
         Objects.requireNonNull(inputChannelName, "inputChannelName not be null");
 
         if (displayId < Display.DEFAULT_DISPLAY) {
             throw new IllegalArgumentException("displayId must >= 0.");
         }
 
-        return mNative.createInputMonitor(displayId, inputChannelName, Binder.getCallingPid());
+        final int callingPid = Binder.getCallingPid();
+        final long ident = Binder.clearCallingIdentity();
+        try {
+            return mNative.createInputMonitor(displayId, inputChannelName, callingPid);
+        } finally {
+            Binder.restoreCallingIdentity(ident);
+        }
     }
 
     @NonNull

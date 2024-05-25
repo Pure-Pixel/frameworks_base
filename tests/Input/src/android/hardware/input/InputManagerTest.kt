@@ -130,6 +130,11 @@ class InputManagerTest {
         val usiVersion = inputManager.getHostUsiVersion(createDisplay(42))
         assertEquals(HostUsiVersion(9, 8), usiVersion)
     }
+
+    @Test(expected = SecurityException::class)
+    fun testMonitorInputThrowsWithoutPermission() {
+        iInputManager.monitorInput("test", 0)
+    }
 }
 
 private fun createInputDevice(
