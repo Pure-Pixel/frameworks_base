@@ -34,6 +34,23 @@
       "parentUuid": "8ed0faa5_1e0cb483",
       "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73e53da4_6a370524",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1407716
+      },
+      "writtenOn": "2024-06-03T14:12:22Z",
+      "side": 1,
+      "message": "Hi @tophyr@gmail.com,\n\nThanks for the change! Can you please elaborate why this is needed?\n\nWe are actively trying to reduce the dependencies on global monitors for input, and would eventually like to remove this API altogether. There may be alternative APIs that might be better suited for your use case.",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
