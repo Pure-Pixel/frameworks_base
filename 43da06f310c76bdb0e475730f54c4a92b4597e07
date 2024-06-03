@@ -51,6 +51,24 @@
       "message": "Hi @tophyr@gmail.com,\n\nThanks for the change! Can you please elaborate why this is needed?\n\nWe are actively trying to reduce the dependencies on global monitors for input, and would eventually like to remove this API altogether. There may be alternative APIs that might be better suited for your use case.",
       "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6649cdf_8cd62826",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2024-06-03T16:43:43Z",
+      "side": 1,
+      "message": "Right, I would expect apps with this permissions to launch a window with SPY flag instead. I don\u0027t think we should be building on top of this monitor stuff, and should ideally try to remove it.",
+      "parentUuid": "73e53da4_6a370524",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
