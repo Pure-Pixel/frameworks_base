@@ -123,6 +123,24 @@
       "parentUuid": "dce7019c_fd42135e",
       "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e61460a_d47031c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2024-06-04T08:17:27Z",
+      "side": 1,
+      "message": "Can you explain why the service needs to monitor keys? What is it doing with them? What kind of keys is it for? We don\u0027t have an API today for key pilfering. What happens if your service decides to handle the key, and at the same time, some focused window also decides to handle the key?",
+      "parentUuid": "a47e04c4_db855dbb",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
