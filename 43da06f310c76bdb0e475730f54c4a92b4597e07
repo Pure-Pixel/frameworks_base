@@ -195,6 +195,24 @@
       "parentUuid": "a2e1a3c5_10dc673e",
       "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f717c28_73f0eb42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2024-06-04T17:38:08Z",
+      "side": 1,
+      "message": "If the app already has to be modified to use this \"secondary API\", then why not just fix the app to handle the events the way you want them to be handled?\n\nIt seems smelly to me to instead send two different streams of the same user input to the apps and let them choose - the two streams will race against each other.",
+      "parentUuid": "6362d8e4_04457015",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
