@@ -177,6 +177,24 @@
       "parentUuid": "d023568f_8983da6e",
       "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6362d8e4_04457015",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096528
+      },
+      "writtenOn": "2024-06-04T17:26:21Z",
+      "side": 1,
+      "message": "I do need to handle them, I just don\u0027t need to prevent the destination from receiving them. The gamepad state is effectively being copied and exposed via a secondary API, for compatibility reasons. Applications will use either this secondary API, *or* the traditional flinger input, for consuming gamepad input - not both.\n\nI considered intercepting the flung input inside the target application (via modifications to the device\u0027s NDK implementation) but decided that was a smelly approach; I don\u0027t want to modify the client\u0027s behavior nor do I want my service to receive input *from* the client.",
+      "parentUuid": "a2e1a3c5_10dc673e",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
