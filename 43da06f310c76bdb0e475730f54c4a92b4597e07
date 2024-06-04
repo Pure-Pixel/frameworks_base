@@ -159,6 +159,24 @@
       "parentUuid": "9e61460a_d47031c1",
       "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2e1a3c5_10dc673e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2024-06-04T17:14:08Z",
+      "side": 1,
+      "message": "What are you trying to do with the gamepad / joystick events if you don\u0027t want to pilfer or handle them?",
+      "parentUuid": "d023568f_8983da6e",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
