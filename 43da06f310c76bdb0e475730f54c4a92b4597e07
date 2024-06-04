@@ -231,6 +231,24 @@
       "parentUuid": "8f717c28_73f0eb42",
       "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9baffffa_1f9a3c4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2024-06-04T20:28:56Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t expect that any application would pay attention to both streams\n\nAPIs should be designed such that it\u0027s impossible to do the incorrect behaviour. We can\u0027t rely on the developers to do the right thing. Any behaviour that the developer might start to rely on can become load-bearing, and eventually impossible to remove or even modify. We are now having trouble with \"injectInputEvent\" precisely for that reason.\n\n\u003e The data is available in both interfaces and the application is able to consume it from either.\nI don\u0027t know what this second interface is, but it doesn\u0027t sound like something that\u0027s supported by the core Android, and is likely not a design we would want.\n\nThe description of your use case is vague and I don\u0027t see the need for this capability to receive focused events outside of the focused application. If we can do stuff in the app process, then that approach should be preferred. It\u0027s better for security, reduces latency, and removes synchronization issues.\n\nI don\u0027t see a valid reason to proceed with this change, so it\u0027s a nack from me.",
+      "parentUuid": "b4d5d360_73e8661c",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
