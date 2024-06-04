@@ -87,6 +87,42 @@
       "parentUuid": "f6649cdf_8cd62826",
       "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a47e04c4_db855dbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096528
+      },
+      "writtenOn": "2024-06-04T00:54:57Z",
+      "side": 1,
+      "message": "@prabirmsp@google.com @svv@google.com I saw the spy window stuff but it seems focused on gesture monitors.\n\nThe use case here is a (appropriately-privileged) Service-based system that needs to monitor both KeyEvent and non-touch-based MotionEvent streams. Gesture monitors can\u0027t do that, unfortunately. Because it\u0027s a Service, it doesn\u0027t really have a Window either.\n\nI do see that nearly all of the references to `monitorInput()` have been eliminated - afaict all monitors in AOSP have been interested in pointer events. Do you have any suggestions on how to better accomplish monitoring of KeyEvents?",
+      "parentUuid": "a1fb9d23_2a1734ba",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0357f4fc_096522c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096528
+      },
+      "writtenOn": "2024-06-04T00:54:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dce7019c_fd42135e",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
