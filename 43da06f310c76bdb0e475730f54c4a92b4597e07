@@ -213,6 +213,24 @@
       "parentUuid": "6362d8e4_04457015",
       "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4d5d360_73e8661c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096528
+      },
+      "writtenOn": "2024-06-04T17:48:12Z",
+      "side": 1,
+      "message": "Apps are built to use one mechanism or the other. I don\u0027t expect that any application would pay attention to both streams - that would be effectively like using both fread() and std::ifstream on the same file.\n\nThe apps that I\u0027m targeting support for aren\u0027t being *modified* to support the secondary API, they *already* use that API and I\u0027m trying to build the data path to support it. I just also don\u0027t want to prevent apps that *do* pay attention to flung input, so that I don\u0027t break standard Android apps.\n\nIOW, even if the gamepad data were only delivered to the target application via InputFlinger, and then some wrapper logic in libandroid.so performed the API translation, it would be the same effect: The data is available in both interfaces and the application is able to consume it from either. \n\nI don\u0027t want to do the libandroid.so wrapper approach for the aforementioned \"avoid modifying client behavior\" reason, as well as some future-looking requirements I have that will necessitate a shared service knowing the current gamepad state at all times regardless of window focus.",
+      "parentUuid": "8f717c28_73f0eb42",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
