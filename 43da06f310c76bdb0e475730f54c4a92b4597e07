@@ -141,6 +141,24 @@
       "parentUuid": "a47e04c4_db855dbb",
       "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d023568f_8983da6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096528
+      },
+      "writtenOn": "2024-06-04T17:10:31Z",
+      "side": 1,
+      "message": "I don\u0027t want to \"pilfer\", or prevent the intended destination from receiving, the event. I just want to receive it in parallel, which is why the InputMonitor functionality seemed so perfect.\n\nThe specific use case right now is for gamepad and joystick events, which are delivered as a combination of KeyEvents and MotionEvents.",
+      "parentUuid": "9e61460a_d47031c1",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
