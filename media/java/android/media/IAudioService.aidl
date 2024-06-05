@@ -305,6 +305,8 @@ interface IAudioService {
 
     void disableSafeMediaVolume(String callingPackage);
 
+    void enableSafeMediaVolume(String callingPackage);
+
     oneway void lowerVolumeToRs1(String callingPackage);
 
     @EnforcePermission("MODIFY_AUDIO_SETTINGS_PRIVILEGED")
