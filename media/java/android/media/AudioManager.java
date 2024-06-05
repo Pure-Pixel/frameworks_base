@@ -6927,6 +6927,18 @@ public class AudioManager {
     }
 
     /**
+     * Only useful for volume controllers.
+     * @hide
+     */
+    public void enableSafeMediaVolume() {
+        try {
+            getService().enableSafeMediaVolume(mApplicationContext.getOpPackageName());
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
      * @hide
      * Lower media volume to RS1 interval
      */
