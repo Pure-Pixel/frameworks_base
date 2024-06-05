@@ -249,6 +249,24 @@
       "parentUuid": "b4d5d360_73e8661c",
       "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d44bdf13_57d90279",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096528
+      },
+      "writtenOn": "2024-06-05T01:36:31Z",
+      "side": 1,
+      "message": "\u003e APIs should be designed such that it\u0027s impossible to do the incorrect behaviour.\n\n@svv@google.com I worry that we got a little side-tracked by the specific use case I\u0027m solving. That use case is completely downstream of AOSP; no upstreaming of its specifics are intended. \n\nI totally agree with the quoted statement, but the interface I\u0027m trying to provide an implementation for is unfortunately not something I have the power to change - it\u0027s an external interface to which I must conform, in order to support applications built for a particular framework. The specific product requirements I face are, effectively, \"offer gamepad data via both traditional InputFlinger *and* this other API\". Regardless of how I end up accessing the data, the client-side API surface is already decided. (And, again, none of *that* noise is aimed at ever being merged back into AOSP. I\u0027m implementing those pieces with parts that can stay fully-downstream.)\n\nSticking with the context of that use case, my options as I see them are threefold:\n1. Perform API translation from `InputEvent` to the secondary API in the Focused Application, via additions to `libandroid.so`\n2. Find a way to get InputFlinger to \"properly\" deliver `InputEvent` data to the Service handling the secondary API logic\n3. Open `/dev/event` in my \"secondary API Service\" and read gamepad events directly from the kernel (effectively duplicating `InputReader.cpp`)\n\n#1 is undesirable because it would still require divergence on my part from AOSP-provided code, and it feels architecturally-smelly because I would in effect be creating a cycle in the \"data flow\" graph: InputFlinger would send an `InputEvent` to FooApp, where `libandroid.so` would intercept it and duplicate it onward to SecondaryApiService, only for SecondaryApiService to then re-expose the information to FooApp.\n\n#3 is undesirable because it seems very duplicative and also would be fairly wasteful of CPU.\n\n#2 is what I settled on as the \"right\" way, and this specific changeset is really just about enabling that - specifically, giving AOSP the architectural capability to duplicate key and non-touch input to a process that isn\u0027t the currently-focused window. This ability *nearly* already exists, in what I\u0027d consider a pretty well-designed fashion: It\u0027s permission-protected, it\u0027s simple and concise, and it\u0027s very low-overhead. All it needs is the actual registration method to be exposed via RPC.\n\nIf you can think of a better way to accomplish this (or have a point that you think would convince me that #1 or #3 are actually the right path) I\u0027m pretty open to suggestions, but I guess my position right now is that I think Android having the architectural capability to multicast `InputEvent` data is a valuable one.",
+      "parentUuid": "9baffffa_1f9a3c4b",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
