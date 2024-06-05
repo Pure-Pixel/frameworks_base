@@ -11068,6 +11068,12 @@ public class AudioService extends IAudioService.Stub
     }
 
     @Override
+    public void enableSafeMediaVolume(String callingPackage) {
+        enforceVolumeController("Enable the safe media volume");
+        mSoundDoseHelper.enableSafeMediaVolume(callingPackage);
+    }
+
+    @Override
     public void lowerVolumeToRs1(String callingPackage) {
         enforceVolumeController("lowerVolumeToRs1");
         postLowerVolumeToRs1();
