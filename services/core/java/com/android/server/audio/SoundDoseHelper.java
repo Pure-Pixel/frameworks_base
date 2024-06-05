@@ -690,6 +690,25 @@ public class SoundDoseHelper {
         }
     }
 
+    /*package*/ void enableSafeMediaVolume(String callingPackage) {
+        synchronized (mSafeMediaVolumeStateLock) {
+            final long identity = Binder.clearCallingIdentity();
+            setSafeMediaVolumeEnabled(true, callingPackage);
+            mMusicActiveMs = 0;
+            Binder.restoreCallingIdentity(identity);
+
+            if (mPendingVolumeCommand != null) {
+                mAudioService.onSetStreamVolume(mPendingVolumeCommand.mStreamType,
+                        mPendingVolumeCommand.mIndex,
+                        mPendingVolumeCommand.mFlags,
+                        mPendingVolumeCommand.mDevice,
+                        callingPackage, true /*hasModifyAudioSettings*/,
+                        true /*canChangeMute*/);
+                mPendingVolumeCommand = null;
+            }
+        }
+    }
+
     /*package*/ void scheduleMusicActiveCheck() {
         synchronized (mSafeMediaVolumeStateLock) {
             cancelMusicActiveCheck();
