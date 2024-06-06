@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "333f0e4d_008102f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1570284
+      },
+      "writtenOn": "2024-06-06T17:43:43Z",
+      "side": 1,
+      "message": "Not sure I understand the point of this method. The enablement of safe media volume should only happen after 20h of listening to media above safe index level and no one should be able to interfere with that.\n\nThe disabling of safe media volume is used by SysUI to acknowledge the safe media warning by the user.\n\nThis approach will slowly be replaced with the sound dose approach introduced in Android 14 which should gradually deprecate the legacy safe media volume.",
+      "revId": "494da18adcb939bc19a9807905709f94891b109c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
