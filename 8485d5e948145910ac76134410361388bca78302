@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "792d4ec8_87877720",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060750
+      },
+      "writtenOn": "2024-06-28T00:27:44Z",
+      "side": 1,
+      "message": "I do not see any references to \"libprocessgroup\" in frameworks/base that would indicate dynamic loading. So I think this is safe.",
+      "revId": "8485d5e948145910ac76134410361388bca78302",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
