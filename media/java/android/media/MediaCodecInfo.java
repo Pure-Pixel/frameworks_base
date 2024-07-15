@@ -4010,13 +4010,19 @@ public final class MediaCodecInfo {
          * Query whether a bitrate mode is supported.
          */
         public boolean isBitrateModeSupported(int mode) {
-            for (Feature feat: bitrates) {
-                if (mode == feat.mValue) {
-                    return (mBitControl & (1 << mode)) != 0;
+            if (FLAG) {
+                return native_isBitrateModeSupported(mode);
+            } else {
+                for (Feature feat: bitrates) {
+                    if (mode == feat.mValue) {
+                        return (mBitControl & (1 << mode)) != 0;
+                    }
                 }
+                return false;
             }
-            return false;
         }
+
+        /* package private */ static native boolean native_isBitrateModeSupported(int mode);
 
         private Range<Integer> mQualityRange;
         private Range<Integer> mComplexityRange;
@@ -4024,6 +4030,12 @@ public final class MediaCodecInfo {
 
         /* no public constructor */
         private EncoderCapabilities() { }
+
+        /* package private */ EncoderCapabilities(Range<Integer> qualityRange,
+                Range<Integer> complexityRange) {
+            mQualityRange = qualityRange;
+            mComplexityRange = complexityRange;
+        }
 
         /** @hide */
         public static EncoderCapabilities create(

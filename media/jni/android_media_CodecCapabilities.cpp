@@ -21,6 +21,7 @@
 #include "jni.h"
 
 #include <media/AudioCapabilities.h>
+#include <media/EncoderCapabilities.h>
 #include <media/VideoCapabilities.h>
 #include <media/stagefright/foundation/ADebug.h>
 #include <nativehelper/JNIHelp.h>
@@ -83,6 +84,11 @@ static VideoCapabilities::PerformancePoint& getPerformancePoints(JNIEnv *env, jo
 static std::shared_ptr<VideoCapabilities> getVideoCapabilities(JNIEnv *env, jobject thiz) {
     VideoCapabilities* const p = (VideoCapabilities*)env->GetLongField(thiz, fields.context);
     return std::shared_ptr<VideoCapabilities>(p);
+}
+
+static std::shared_ptr<EncoderCapabilities> getEncoderCapabilities(JNIEnv *env, jobject thiz) {
+    EncoderCapabilities* const p = (EncoderCapabilities*)env->GetLongField(thiz, fields.context);
+    return std::shared_ptr<EncoderCapabilities>(p);
 }
 
 // The Java AudioCapabilities object keep bitrateRange, sampleRates, sampleRateRanges
@@ -274,6 +280,40 @@ jobject getJavaVideoCapabilitiesFromNative(JNIEnv *env,
     env->SetLongField(jVideoCaps, fields.context, (jlong)videoCaps.get());
 
     return jVideoCaps;
+}
+
+jobject getJavaEncoderCapabilitiesFromNative(JNIEnv *env,
+        std::shared_ptr<EncoderCapabilities> encoderCaps) {
+    if (encoderCaps == nullptr) {
+        return NULL;
+    }
+
+    // get quality range
+    const Range<int>& qualityRange = encoderCaps->getQualityRange();
+    jobject jQualityRange = getJavaIntRangeFromNative(env, qualityRange);
+
+    // get complexity range
+    const Range<int>& complexityRange = encoderCaps->getComplexityRange();
+    jobject jComplexityRange = getJavaIntRangeFromNative(env, complexityRange);
+
+    // construct java EncoderCapabilities object
+    jclass encoderCapsClazz
+            = env->FindClass("android/media/MediaCodecInfo$EncoderCapabilities");
+    CHECK(encoderCapsClazz != NULL);
+    jmethodID encoderCapsConstructID = env->GetMethodID(encoderCapsClazz, "<init>",
+            "(Landroid/util/Range;Landroid/util/Range)V");
+    jobject jEncoderCaps = env->NewObject(encoderCapsClazz, encoderCapsConstructID,
+            jQualityRange, jComplexityRange);
+
+    env->DeleteLocalRef(jQualityRange);
+    jQualityRange = NULL;
+
+    env->DeleteLocalRef(jComplexityRange);
+    jComplexityRange = NULL;
+
+    env->SetLongField(jEncoderCaps, fields.context, (jlong)encoderCaps.get());
+
+    return jEncoderCaps;
 }
 
 // ----------------------------------------------------------------------------
@@ -468,6 +508,20 @@ static jobject android_media_VideoCapabilities_getSupportedHeightsFor(JNIEnv *en
     return jSupportedHeights;
 }
 
+// EncoderCapabilities
+
+static jboolean android_media_EncoderCapabilities_isBitrateModeSupported(JNIEnv *env, jobject thiz,
+        int mode) {
+    std::shared_ptr<EncoderCapabilities> encoderCaps = getEncoderCapabilities(env, thiz);
+    if (encoderCaps == NULL) {
+        jniThrowException(env, "java/lang/IllegalStateException", NULL);
+        return 0;
+    }
+
+    bool res = encoderCaps->isBitrateModeSupported(mode);
+    return res;
+}
+
 // ----------------------------------------------------------------------------
 
 static const JNINativeMethod gAudioCapsMethods[] = {
@@ -491,6 +545,10 @@ static const JNINativeMethod gVideoCapsMethods[] = {
     {"native_getSupportedHeightsFor", "(I)Landroid/util/Range", (void *)android_media_VideoCapabilities_getSupportedHeightsFor}
 };
 
+static const JNINativeMethod gEncoderCapsMethods[] = {
+    {"native_isBitrateModeSupported", "(I)Z", (void *)android_media_EncoderCapabilities_isBitrateModeSupported}
+};
+
 int register_android_media_CodecCapabilities(JNIEnv *env) {
     int result = AndroidRuntime::registerNativeMethods(env, "android/media/MediaCodecInfo$AudioCapabilities",
             gAudioCapsMethods, NELEM(gAudioCapsMethods));
@@ -507,6 +565,12 @@ int register_android_media_CodecCapabilities(JNIEnv *env) {
 
     result = AndroidRuntime::registerNativeMethods(env, "android/media/MediaCodecInfo$VideoCapabilities",
             gVideoCapsMethods, NELEM(gVideoCapsMethods));
+    if (result != JNI_OK) {
+        return result;
+    }
+
+    result = AndroidRuntime::registerNativeMethods(env, "android/media/MediaCodecInfo$EncoderCapabilities",
+            gEncoderCapsMethods, NELEM(gEncoderCapsMethods));
     if (result != JNI_OK) {
         return result;
     }
