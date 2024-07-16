@@ -157,6 +157,28 @@ bool ParseFeatureFlagsParameter(StringPiece arg, android::IDiagnostics* diag,
       }
     }
 
+    std::vector<std::string> name_parts = util::Split(flag_name, ':');
+    if (name_parts.size() > 2) {
+      diag->Error(android::DiagMessage()
+                  << "Invalid feature flag and optional value '" << flag_and_value
+                  << "'. Must be in the format 'flag_name[:READ_ONLY|READ_WRITE][=true|false]");
+      return false;
+    }
+    flag_name = name_parts[0];
+    bool read_only [[maybe_unused]] = false;
+    if (name_parts.size() == 2) {
+      if (name_parts[1] == "ro" || name_parts[1] == "READ_ONLY") {
+        read_only = true;
+      } else if (name_parts[1] == "READ_WRITE") {
+        read_only = false;
+      } else {
+        diag->Error(android::DiagMessage()
+                    << "Invalid feature flag and optional value '" << flag_and_value
+                    << "'. Must be in the format 'flag_name[:READ_ONLY|READ_WRITE][=true|false]");
+        return false;
+      }
+    }
+
     std::optional<bool> flag_value = {};
     if (parts.size() == 2) {
       StringPiece str_flag_value = util::TrimWhitespace(parts[1]);
