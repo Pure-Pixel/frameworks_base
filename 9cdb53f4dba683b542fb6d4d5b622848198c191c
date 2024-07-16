@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41c48b9f_71d2d541",
+        "filename": "tools/aapt2/cmd/Util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1080076
+      },
+      "writtenOn": "2024-07-16T22:42:24Z",
+      "side": 1,
+      "message": "add [[maybe_unused]] to suppress the warning for now",
+      "range": {
+        "startLine": 149,
+        "startChar": 9,
+        "endLine": 149,
+        "endChar": 19
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "efff11ef_781da584",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/aapt2/cmd/Util.cpp",
+              "range": {
+                "startLine": 149,
+                "startChar": 0,
+                "endLine": 150,
+                "endChar": 0
+              },
+              "replacement": "    bool read_only [[maybe_unused]] \u003d false;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9cdb53f4dba683b542fb6d4d5b622848198c191c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
