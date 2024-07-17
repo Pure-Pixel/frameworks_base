@@ -40,6 +40,30 @@
       ],
       "revId": "9cdb53f4dba683b542fb6d4d5b622848198c191c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee54b63b_44bf8a6e",
+        "filename": "tools/aapt2/cmd/Util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1897435
+      },
+      "writtenOn": "2024-07-17T16:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41c48b9f_71d2d541",
+      "range": {
+        "startLine": 149,
+        "startChar": 9,
+        "endLine": 149,
+        "endChar": 19
+      },
+      "revId": "9cdb53f4dba683b542fb6d4d5b622848198c191c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
