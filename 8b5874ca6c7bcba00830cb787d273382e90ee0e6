@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8272e082_6275cb53",
+        "filename": "tools/aapt2/cmd/Util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1080076
+      },
+      "writtenOn": "2024-07-17T17:37:20Z",
+      "side": 1,
+      "message": "well, now you don\u0027t neeed it because it is used. I thought the change here was just to make aapt2 parse the flags but don\u0027t do anything to them, so suppressing the warning was the way",
+      "range": {
+        "startLine": 149,
+        "startChar": 18,
+        "endLine": 149,
+        "endChar": 36
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "b6db79dc_e82488d8",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/aapt2/cmd/Util.cpp",
+              "range": {
+                "startLine": 149,
+                "startChar": 0,
+                "endLine": 150,
+                "endChar": 0
+              },
+              "replacement": "    bool read_only \u003d false;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "8b5874ca6c7bcba00830cb787d273382e90ee0e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
