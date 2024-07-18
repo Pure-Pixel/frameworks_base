@@ -38,7 +38,8 @@ public class ZoneInfoDbTimeZoneProviderEventPreProcessor
      */
     @Override
     public TimeZoneProviderEvent preProcess(@NonNull TimeZoneProviderEvent event) {
-        if (event.getSuggestion() == null || event.getSuggestion().getTimeZoneIds().isEmpty()) {
+        if (event.getSuggestion() == null || event.getSuggestion().getTimeZoneIds().isEmpty()
+            || event.getTimeZoneProviderStatus() == null) {
             return event;
         }
 
