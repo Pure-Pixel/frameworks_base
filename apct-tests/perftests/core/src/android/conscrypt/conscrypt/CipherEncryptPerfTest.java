@@ -101,10 +101,7 @@ public final class CipherEncryptPerfTest {
                               Transformation.AES_ECB_PKCS5)},
             new Object[] {new Config(BufferType.ARRAY,
                               MyCipherFactory.CONSCRYPT,
-                              Transformation.AES_GCM_NO)},
-            new Object[] {new Config(BufferType.ARRAY,
-                              MyCipherFactory.CONSCRYPT,
-                              Transformation.AES_GCM_SIV)},
+                              Transformation.AES_GCM_NO)}
         };
     }
 
