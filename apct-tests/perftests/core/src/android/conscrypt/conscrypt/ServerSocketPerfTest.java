@@ -17,7 +17,6 @@
 package android.conscrypt;
 
 import org.conscrypt.ChannelType;
-import static org.conscrypt.TestUtils.getCommonProtocolSuites;
 import static org.conscrypt.TestUtils.newTextMessage;
 import static org.junit.Assert.assertEquals;
 
@@ -100,7 +99,7 @@ public final class ServerSocketPerfTest {
                               EndpointFactory.CONSCRYPT,
                               EndpointFactory.CONSCRYPT,
                               64,
-                              "AES128-GCM",
+                              "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
                               ChannelType.CHANNEL)},
         };
     }
@@ -121,7 +120,7 @@ public final class ServerSocketPerfTest {
         final ChannelType channelType = config.channelType();
 
         server = config.serverFactory().newServer(
-            channelType, config.messageSize(), getCommonProtocolSuites(), ciphers(config));
+            channelType, config.messageSize(), new String[] {"TLSv1.3", "TLSv1.2"}, ciphers(config));
         server.setMessageProcessor(new MessageProcessor() {
             @Override
             public void processMessage(byte[] inMessage, int numBytes, OutputStream os) {
@@ -145,7 +144,7 @@ public final class ServerSocketPerfTest {
 
         // Always use the same client for consistency across the benchmarks.
         client = config.clientFactory().newClient(
-                ChannelType.CHANNEL, server.port(), getCommonProtocolSuites(), ciphers(config));
+                ChannelType.CHANNEL, server.port(), new String[] {"TLSv1.3", "TLSv1.2"}, ciphers(config));
         client.start();
 
         // Wait for the initial connection to complete.

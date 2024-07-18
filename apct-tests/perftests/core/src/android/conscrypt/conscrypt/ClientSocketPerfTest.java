@@ -110,7 +110,7 @@ public final class ClientSocketPerfTest {
                               EndpointFactory.CONSCRYPT,
                               EndpointFactory.CONSCRYPT,
                               64,
-                              "AES128-GCM",
+                              "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
                               ChannelType.CHANNEL,
                               PerfTestProtocol.TLSv13)},
         };
