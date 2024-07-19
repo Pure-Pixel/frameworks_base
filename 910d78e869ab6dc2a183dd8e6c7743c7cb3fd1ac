@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9943121f_b00fc5b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2024-07-19T22:31:45Z",
+      "side": 1,
+      "message": "I dont have objections to deleting this module type, but I think we can fix this by changing `AddLoadHook` to `SetDefaultableHook`? https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:build/soong/android/hooks.go;l\u003d48-50;bpv\u003d1",
+      "range": {
+        "startLine": 10,
+        "startChar": 26,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "910d78e869ab6dc2a183dd8e6c7743c7cb3fd1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
