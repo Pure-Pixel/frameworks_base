@@ -108,6 +108,7 @@ public class LocalBluetoothManager {
 
     private LocalBluetoothManager(LocalBluetoothAdapter adapter, Context context, Handler handler,
             UserHandle userHandle) {
+        Log.e(TAG, "LOCAL_BLUETOOTH_MANAGER_" + Log.getStackTraceString(new Throwable()));
         mContext = context.getApplicationContext();
         mLocalAdapter = adapter;
         mCachedDeviceManager = new CachedBluetoothDeviceManager(mContext, this);

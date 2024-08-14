@@ -17,6 +17,8 @@
 package com.android.systemui.volume;
 
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothManager;
+import android.bluetooth.BluetoothProfile;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -46,13 +48,10 @@ import androidx.slice.SliceMetadata;
 import androidx.slice.widget.EventInfo;
 import androidx.slice.widget.SliceLiveData;
 
-import com.android.settingslib.bluetooth.A2dpProfile;
 import com.android.settingslib.bluetooth.BluetoothUtils;
-import com.android.settingslib.bluetooth.LocalBluetoothManager;
-import com.android.settingslib.bluetooth.LocalBluetoothProfileManager;
 import com.android.settingslib.media.MediaOutputConstants;
-import com.android.systemui.res.R;
 import com.android.systemui.plugins.ActivityStarter;
+import com.android.systemui.res.R;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
 
 import java.util.ArrayList;
@@ -78,7 +77,6 @@ public class VolumePanelDialog extends SystemUIDialog implements LifecycleOwner 
     private final Map<Uri, LiveData<Slice>> mSliceLiveData = new LinkedHashMap<>();
     private final HashSet<Uri> mLoadedSlices = new HashSet<>();
     private boolean mSlicesReadyToLoad;
-    private LocalBluetoothProfileManager mProfileManager;
 
     public VolumePanelDialog(Context context,
             ActivityStarter activityStarter, boolean aboveStatusBar) {
@@ -110,12 +108,6 @@ public class VolumePanelDialog extends SystemUIDialog implements LifecycleOwner 
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mActivityStarter.startActivity(intent, /* dismissShade= */ true);
         });
-
-        LocalBluetoothManager localBluetoothManager = LocalBluetoothManager.getInstance(
-                getContext(), null);
-        if (localBluetoothManager != null) {
-            mProfileManager = localBluetoothManager.getProfileManager();
-        }
 
         mVolumePanelSlices = dialogView.findViewById(R.id.volume_panel_parent_layout);
         mVolumePanelSlices.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -286,13 +278,12 @@ public class VolumePanelDialog extends SystemUIDialog implements LifecycleOwner 
     }
 
     private BluetoothDevice findActiveDevice() {
-        if (mProfileManager != null) {
-            final A2dpProfile a2dpProfile = mProfileManager.getA2dpProfile();
-            if (a2dpProfile != null) {
-                return a2dpProfile.getActiveDevice();
-            }
-        }
-        return null;
+        List<BluetoothDevice> activeDevices =
+                getContext()
+                        .getSystemService(BluetoothManager.class)
+                        .getAdapter()
+                        .getActiveDevices(BluetoothProfile.A2DP);
+        return activeDevices.size() > 0 ? activeDevices.get(0) : null;
     }
 
     @NonNull
