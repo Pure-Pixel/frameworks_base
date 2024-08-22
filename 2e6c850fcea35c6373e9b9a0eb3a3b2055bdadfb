@@ -16,6 +16,24 @@
       "message": "Good catch. I believe the code will have issue with the secondary cutout side override as the array is treated as integer array in `DisplayCutout#getDisplayCutoutSideOverrides()`. Can you help to verify it can update the commit message to make it clear that this is a bug causing the function is not working as expected, instead of just an inconsistency which sounds like a style issue. Thank you.",
       "revId": "2e6c850fcea35c6373e9b9a0eb3a3b2055bdadfb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0a2641a_d7a0931b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1367099
+      },
+      "writtenOn": "2024-08-22T21:26:54Z",
+      "side": 1,
+      "message": "Mark comment unresolved.",
+      "parentUuid": "69a6c7f0_09b5f3b4",
+      "revId": "2e6c850fcea35c6373e9b9a0eb3a3b2055bdadfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
