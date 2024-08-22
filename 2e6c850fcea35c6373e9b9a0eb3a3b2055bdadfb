@@ -34,6 +34,24 @@
       "parentUuid": "69a6c7f0_09b5f3b4",
       "revId": "2e6c850fcea35c6373e9b9a0eb3a3b2055bdadfb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63fdb060_2605ef1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1637924
+      },
+      "writtenOn": "2024-08-22T21:38:21Z",
+      "side": 1,
+      "message": "Done. The symptom I was seeing was the secondary display not initializing at all when a secondary cutout was set and cutout masking was enabled. The logical display height was set to 0, causing divide by zero crashes. After this change, the secondary display initializes as expected.",
+      "parentUuid": "d0a2641a_d7a0931b",
+      "revId": "2e6c850fcea35c6373e9b9a0eb3a3b2055bdadfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
