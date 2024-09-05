@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78252bc9_f604df3d",
+        "filename": "api/api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1962375
+      },
+      "writtenOn": "2024-09-05T22:47:08Z",
+      "side": 1,
+      "message": "Off topic, but is there a `String() string` method implemented for `proptools.Configurable` struct? If so, would printf-ing the configurable property (mostly for debugging purpose I assume) would take the post processors into account?",
+      "revId": "538749ca41c1083101d0370654c2e0054c6ff46b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "904a0e66_ca80e2bb",
+        "filename": "api/api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1962375
+      },
+      "writtenOn": "2024-09-05T22:47:08Z",
+      "side": 1,
+      "message": "Can you add a comment about why `transformArray` is used here instead of `transformConfigurableArray`?",
+      "revId": "538749ca41c1083101d0370654c2e0054c6ff46b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9711bace_631433d4",
+        "filename": "api/api.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1962375
+      },
+      "writtenOn": "2024-09-05T22:47:08Z",
+      "side": 1,
+      "message": "```suggestion\n\tresult.AddPostProcessor(func(s []string) []string {\n\t    return transformArray(s, \":\", tag)\n\t}\n```\nWDYT about this instead? `transformConfigurableArray` sounds bit misleading, as it does not actually perform the transformation, but it just adds a post processor that will perform the transformation",
+      "revId": "538749ca41c1083101d0370654c2e0054c6ff46b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
