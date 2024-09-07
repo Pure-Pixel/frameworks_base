@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d1b8f76_d5023d91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3623765
+      },
+      "writtenOn": "2024-09-07T15:56:59Z",
+      "side": 1,
+      "message": "(on Android 15) PackageManager creates an instance of PackageParser2, which holds ThreadLocal variables. To release those ThreadLocals, PackageParser2#close() has to be invoked. Otherwise it will cause severe memory leaks.",
+      "revId": "ac8f4fd8d159263bdd21292d7aabef82573878a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
