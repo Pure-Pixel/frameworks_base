@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32d7a312_685796c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3623765
+      },
+      "writtenOn": "2024-09-09T03:15:10Z",
+      "side": 1,
+      "message": "I should not make PR to release branch. Instead, I submit another PR to the main branch.\nhttps://android-review.googlesource.com/c/platform/frameworks/base/+/3258179",
+      "revId": "5579e1f314ea75094120c8216732741560edca00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
