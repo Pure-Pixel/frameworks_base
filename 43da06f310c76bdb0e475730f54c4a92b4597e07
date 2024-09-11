@@ -285,6 +285,24 @@
       "parentUuid": "d44bdf13_57d90279",
       "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00deae3e_6ec62200",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096528
+      },
+      "writtenOn": "2024-09-11T07:34:45Z",
+      "side": 1,
+      "message": "Hi @svv@google.com, I\u0027m picking this back up after a paternity break over the summer. We still need _some_ sort of mechanism for a privileged service to monitor both KeyEvents and MotionEvents in parallel to the currently-focused application. What would be the best way, in your view, to accomplish this?",
+      "parentUuid": "83d0e642_365bda23",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
