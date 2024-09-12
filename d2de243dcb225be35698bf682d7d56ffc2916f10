@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6800941_f0cb1600",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2024-09-12T23:36:23Z",
+      "side": 1,
+      "message": "To fix test flakiness in aosp branch",
+      "revId": "d2de243dcb225be35698bf682d7d56ffc2916f10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
