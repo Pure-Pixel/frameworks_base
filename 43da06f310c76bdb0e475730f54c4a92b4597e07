@@ -303,6 +303,24 @@
       "parentUuid": "83d0e642_365bda23",
       "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36446d00_beb054a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1149384
+      },
+      "writtenOn": "2024-09-12T05:29:29Z",
+      "side": 1,
+      "message": "The official mechanism today for monitoring pointer events is a spy window. We currently don\u0027t have a mechanism for monitoring focused events.\n\nThe only way today for a system component to do that would be probably to add some kind of \"KEY_SPY\" input config for a window, or maybe have it go through \"interceptKeyBeforeQueueing / dispatching\", and then have WM send this to the entity of interest (similar path is used for system UI today via a custom interface), although that wouldn\u0027t work today for joystick events, so it would still require modifications in some part of inputflinger.\n\nWe don\u0027t have a critical need for this today in Android (except for converting PointerLocation to also display keys on screen), so it\u0027s not been thoroughly thought about or designed.\n\nI also don\u0027t quite understand your setup, because you are saying that you have a focused window, but at the same time, want to have *another* window that can monitor focused events (but in the end, it seems like you want these events to go to the same place). If you are trying to translate stuff for some kind of compatibility for the focused window, you don\u0027t need a spy, and should do this directly in the process of that focused window. Any other approach would introduce latency and would be more error-prone, because the changes would not be isolated to the receiving process.\n\nSince it sounds like you are working on your own fork anyways, I don\u0027t think you really need our approval to modify your code. It\u0027s still not clear from the provided description what this \"external service\" is and what its requirements are, so we don\u0027t have full visibility of the problem. Therefore can\u0027t really recommend one solution over the other (and it\u0027s not even clear that this is the right problem to solve to begin with). For example, maybe something like raw access to HID is what you actually need, and prevent the system from handling these input devices altogether.\n\nUnfortunately with the provided information we can\u0027t really be of more help to you, sorry",
+      "parentUuid": "00deae3e_6ec62200",
+      "revId": "43da06f310c76bdb0e475730f54c4a92b4597e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
