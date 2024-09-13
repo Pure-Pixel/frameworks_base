@@ -16,6 +16,47 @@
       "message": "To fix test flakiness in aosp branch",
       "revId": "d2de243dcb225be35698bf682d7d56ffc2916f10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20d4196d_f6ea0d93",
+        "filename": "services/core/java/com/android/server/broadcastradio/IRadioServiceHidlImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2024-09-13T00:07:47Z",
+      "side": 1,
+      "message": "Capital U, similar messages elsewhere are doing that.",
+      "range": {
+        "startLine": 65,
+        "startChar": 48,
+        "endLine": 65,
+        "endChar": 52
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "a38c6ee5_f5694572",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "services/core/java/com/android/server/broadcastradio/IRadioServiceHidlImpl.java",
+              "range": {
+                "startLine": 65,
+                "startChar": 0,
+                "endLine": 66,
+                "endChar": 0
+              },
+              "replacement": "        Objects.requireNonNull(userController, \"User controller cannot be null\");\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d2de243dcb225be35698bf682d7d56ffc2916f10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
