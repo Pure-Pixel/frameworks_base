@@ -81,6 +81,30 @@
       },
       "revId": "d2de243dcb225be35698bf682d7d56ffc2916f10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64beb0d9_31e8554d",
+        "filename": "services/core/java/com/android/server/broadcastradio/IRadioServiceHidlImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2024-09-13T00:13:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bf7c79e7_586c5877",
+      "range": {
+        "startLine": 65,
+        "startChar": 48,
+        "endLine": 65,
+        "endChar": 52
+      },
+      "revId": "d2de243dcb225be35698bf682d7d56ffc2916f10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
