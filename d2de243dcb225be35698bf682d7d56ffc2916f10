@@ -57,6 +57,30 @@
       ],
       "revId": "d2de243dcb225be35698bf682d7d56ffc2916f10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf7c79e7_586c5877",
+        "filename": "services/core/java/com/android/server/broadcastradio/IRadioServiceHidlImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2024-09-13T00:11:52Z",
+      "side": 1,
+      "message": "I\u0027m afraid that this will cause divergence between internal branch with AOSP branch. Could we fix in the internal branch later in a seperate CL?",
+      "parentUuid": "20d4196d_f6ea0d93",
+      "range": {
+        "startLine": 65,
+        "startChar": 48,
+        "endLine": 65,
+        "endChar": 52
+      },
+      "revId": "d2de243dcb225be35698bf682d7d56ffc2916f10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
