@@ -1363,10 +1363,9 @@ public final class InputMethodManagerService implements IInputMethodManagerImpl.
     @GuardedBy("ImfLock.class")
     private void resetDefaultImeLocked(Context context) {
         // Do not reset the default (current) IME when it is a 3rd-party IME
-        String selectedMethodId = getSelectedMethodIdLocked();
         final InputMethodSettings settings = InputMethodSettingsRepository.get(mCurrentUserId);
-        if (selectedMethodId != null
-                && !settings.getMethodMap().get(selectedMethodId).isSystem()) {
+        final InputMethodInfo selectedMethod = settings.getMethodMap().get(settings.getSelectedInputMethod());
+        if (selectedMethod != null && !selectedMethod.isSystem()) {
             return;
         }
         final List<InputMethodInfo> suitableImes = InputMethodInfoUtils.getDefaultEnabledImes(
