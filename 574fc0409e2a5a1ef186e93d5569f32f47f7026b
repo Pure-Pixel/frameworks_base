@@ -16,6 +16,57 @@
       "message": "Upstream from Meta! Thanks in advance for reviewing 😊",
       "revId": "574fc0409e2a5a1ef186e93d5569f32f47f7026b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0975b655_0e42d5f5",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 1964555
+      },
+      "writtenOn": "2024-09-30T18:04:55Z",
+      "side": 1,
+      "message": "nit: let\u0027s replace the existing selectedMethodId check with the new one to keep the code more readable, something along the lines of:\n```\nString selectedMethodId \u003d getSelectedMethodIdLocked();\nfinal InputMethodSettings settings \u003d InputMethodSettingsRepository.get(mCurrentUserId);\nfinal InputMethodInfo currentImi \u003d settings.getMethodMap().get(selectedMethodId);\nif (currentImi !\u003d null \u0026\u0026 !currentImi.isSystem()) {\n  return;\n}\n```",
+      "range": {
+        "startLine": 1368,
+        "startChar": 8,
+        "endLine": 1368,
+        "endChar": 39
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f7692eac_241beead",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+              "range": {
+                "startLine": 1366,
+                "startChar": 0,
+                "endLine": 1367,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+              "range": {
+                "startLine": 1368,
+                "startChar": 0,
+                "endLine": 1373,
+                "endChar": 0
+              },
+              "replacement": "        final InputMethodInfo selectedMethod \u003d settings.getMethodMap().get(settings.getSelectedInputMethod());\n        if (selectedMethod !\u003d null \u0026\u0026 !selectedMethod.isSystem()) {\n            return;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "574fc0409e2a5a1ef186e93d5569f32f47f7026b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
