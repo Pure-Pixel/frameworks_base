@@ -67,6 +67,54 @@
       ],
       "revId": "574fc0409e2a5a1ef186e93d5569f32f47f7026b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19643e7d_cae27de4",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 2034140
+      },
+      "writtenOn": "2024-10-14T22:32:08Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "0975b655_0e42d5f5",
+      "range": {
+        "startLine": 1368,
+        "startChar": 8,
+        "endLine": 1368,
+        "endChar": 39
+      },
+      "revId": "574fc0409e2a5a1ef186e93d5569f32f47f7026b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe076595_56f2402e",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 2034140
+      },
+      "writtenOn": "2024-10-14T22:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0975b655_0e42d5f5",
+      "range": {
+        "startLine": 1368,
+        "startChar": 8,
+        "endLine": 1368,
+        "endChar": 39
+      },
+      "revId": "574fc0409e2a5a1ef186e93d5569f32f47f7026b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
