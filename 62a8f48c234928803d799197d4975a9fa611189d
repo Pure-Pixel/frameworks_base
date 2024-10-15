@@ -61,6 +61,67 @@
       ],
       "revId": "62a8f48c234928803d799197d4975a9fa611189d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c8e9008_da94cf9b",
+        "filename": "core/java/android/os/ServiceManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1346941
+      },
+      "writtenOn": "2024-10-15T23:06:05Z",
+      "side": 1,
+      "message": "Any reason to make this a method that returns a static array?\n\nCan just define a private static final String[] CACHEABLE \u003d {};\n\nBut why not just have a boolean that turns off everything and is less error prone than this approach?",
+      "range": {
+        "startLine": 164,
+        "startChar": 5,
+        "endLine": 165,
+        "endChar": 53
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "4ff359f8_559d21d8",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "core/java/android/os/ServiceManager.java",
+              "range": {
+                "startLine": 164,
+                "startChar": 0,
+                "endLine": 166,
+                "endChar": 0
+              },
+              "replacement": "    private static final String[] listOfLibbinderCacheableServices \u003d {\n"
+            },
+            {
+              "path": "core/java/android/os/ServiceManager.java",
+              "range": {
+                "startLine": 224,
+                "startChar": 0,
+                "endLine": 226,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "core/java/android/os/ServiceManager.java",
+              "range": {
+                "startLine": 235,
+                "startChar": 0,
+                "endLine": 236,
+                "endChar": 0
+              },
+              "replacement": "        for (String element : listOfLibbinderCacheableServices) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "62a8f48c234928803d799197d4975a9fa611189d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
