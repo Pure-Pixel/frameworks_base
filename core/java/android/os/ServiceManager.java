@@ -157,6 +157,88 @@ public final class ServiceManager {
         return sServiceManager;
     }
 
+    private static boolean turnJavaServiceManagerCacheOffFlag() {
+        return android.server.Flags.removeJavaServiceManagerCache();
+    }
+
+    private static String[] listOfLibbinderCacheableServices() {
+        String[] listOfLibbinderCacheableServices = {
+                "accessibility",
+                "account",
+                "activity",
+                "alarm",
+                "android.system.keystore2.IKeystoreService/default",
+                "appops",
+                "audio",
+                "batterystats",
+                "carrier_config",
+                "connectivity",
+                "content",
+                "content_capture",
+                "device_policy",
+                "display",
+                "dropbox",
+                "econtroller",
+                "graphicsstats",
+                "input",
+                "input_method",
+                "isub",
+                "jobscheduler",
+                "legacy_permission",
+                "location",
+                "media.extractor",
+                "media.metrics",
+                "media.player",
+                "media.resource_manager",
+                "media_resource_monitor",
+                "mount",
+                "netd_listener",
+                "netstats",
+                "network_management",
+                "nfc",
+                "notification",
+                "package",
+                "package_native",
+                "performance_hint",
+                "permission",
+                "permission_checker",
+                "permissionmgr",
+                "phone",
+                "platform_compat",
+                "power",
+                "role",
+                "sensorservice",
+                "statscompanion",
+                "telephony.registry",
+                "thermalservice",
+                "time_detector",
+                "trust",
+                "uimode",
+                "user",
+                "virtualdevice",
+                "virtualdevice_native",
+                "webviewupdate",
+                "window",
+        };
+
+        return listOfLibbinderCacheableServices;
+    }
+    /**
+     * This turns the Java side caching service off if the libbinder service
+     * will cache it.
+     */
+    boolean turnJavaServiceManagerCacheOff(String name) {
+        if (!turnJavaServiceManagerCacheOffFlag()) {
+            return false;
+        }
+        // TODO(333854840): Remove this once the static list is removed from libbinder
+        for (String element : listOfLibbinderCacheableServices()) {
+            if (element.equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
     /**
      * Returns a reference to a service with the given name.
      *
@@ -168,7 +250,10 @@ public final class ServiceManager {
     @android.ravenwood.annotation.RavenwoodReplace
     public static IBinder getService(String name) {
         try {
-            IBinder service = sCache.get(name);
+            IBinder service = null;
+            if (!turnJavaServiceManagerCacheOff()) {
+                service = sCache.get(name);
+            }
             if (service != null) {
                 return service;
             } else {
@@ -273,7 +358,10 @@ public final class ServiceManager {
     @UnsupportedAppUsage
     public static IBinder checkService(String name) {
         try {
-            IBinder service = sCache.get(name);
+            IBinder service = null;
+            if (!turnJavaServiceManagerCacheOff()) {
+                service = sCache.get(name);
+            }
             if (service != null) {
                 return service;
             } else {
