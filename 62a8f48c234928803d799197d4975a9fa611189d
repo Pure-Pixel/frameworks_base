@@ -1,0 +1,66 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b806b24d_8e7ccd2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1623611
+      },
+      "writtenOn": "2024-10-15T23:05:06Z",
+      "side": 1,
+      "message": "This looks nice.  I did not review the list of cacheable services, but the logic that uses the list looks good.  (If that list is sorted, Arrays.binarySearch() might be useful.)",
+      "revId": "62a8f48c234928803d799197d4975a9fa611189d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b00f695_790ce1d8",
+        "filename": "core/java/android/os/ServiceManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1623611
+      },
+      "writtenOn": "2024-10-15T23:05:06Z",
+      "side": 1,
+      "message": "I don\u0027t know if it matters much, but this can probably be final.",
+      "fixSuggestions": [
+        {
+          "fixId": "27ebe950_b45477b0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "core/java/android/os/ServiceManager.java",
+              "range": {
+                "startLine": 165,
+                "startChar": 0,
+                "endLine": 166,
+                "endChar": 0
+              },
+              "replacement": "        return new String[] {\n"
+            },
+            {
+              "path": "core/java/android/os/ServiceManager.java",
+              "range": {
+                "startLine": 224,
+                "startChar": 0,
+                "endLine": 225,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "62a8f48c234928803d799197d4975a9fa611189d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
