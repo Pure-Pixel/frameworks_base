@@ -2848,6 +2848,10 @@ public class ActivityManagerService extends IActivityManager.Stub
         }
     }
 
+    private static boolean isJavaServiceManagerCacheEnabled() {
+        return android.server.Flags.javaServiceManagerCacheEnabled();
+    }
+
     /**
      * Initialize the application bind args. These are passed to each
      * process when the bindApplication() IPC is sent to the process. They're
@@ -2859,8 +2863,11 @@ public class ActivityManagerService extends IActivityManager.Stub
         if (isolated) {
             if (mIsolatedAppBindArgs == null) {
                 mIsolatedAppBindArgs = new ArrayMap<>(1);
+                // See b/79378449 about the following exemption.
                 addServiceToMap(mIsolatedAppBindArgs, "package");
-                addServiceToMap(mIsolatedAppBindArgs, "permissionmgr");
+                if (isJavaServiceManagerCacheEnabled()) {
+                    addServiceToMap(mIsolatedAppBindArgs, "permissionmgr");
+                }
             }
             return mIsolatedAppBindArgs;
         }
@@ -2871,27 +2878,30 @@ public class ActivityManagerService extends IActivityManager.Stub
             // Add common services.
             // IMPORTANT: Before adding services here, make sure ephemeral apps can access them too.
             // Enable the check in ApplicationThread.bindApplication() to make sure.
+            if (isJavaServiceManagerCacheEnabled()) {
+                addServiceToMap(mAppBindArgs, "permissionmgr");
+                addServiceToMap(mAppBindArgs, Context.ALARM_SERVICE);
+                addServiceToMap(mAppBindArgs, Context.DISPLAY_SERVICE);
+                addServiceToMap(mAppBindArgs, Context.NETWORKMANAGEMENT_SERVICE);
+                addServiceToMap(mAppBindArgs, Context.CONNECTIVITY_SERVICE);
+                addServiceToMap(mAppBindArgs, Context.ACCESSIBILITY_SERVICE);
+                addServiceToMap(mAppBindArgs, Context.INPUT_METHOD_SERVICE);
+                addServiceToMap(mAppBindArgs, Context.INPUT_SERVICE);
+                addServiceToMap(mAppBindArgs, "graphicsstats");
+                addServiceToMap(mAppBindArgs, Context.APP_OPS_SERVICE);
+                addServiceToMap(mAppBindArgs, "content");
+                addServiceToMap(mAppBindArgs, Context.JOB_SCHEDULER_SERVICE);
+                addServiceToMap(mAppBindArgs, Context.NOTIFICATION_SERVICE);
+                addServiceToMap(mAppBindArgs, Context.VIBRATOR_SERVICE);
+                addServiceToMap(mAppBindArgs, Context.ACCOUNT_SERVICE);
+                addServiceToMap(mAppBindArgs, Context.POWER_SERVICE);
+                addServiceToMap(mAppBindArgs, Context.USER_SERVICE);
+                addServiceToMap(mAppBindArgs, "mount");
+                addServiceToMap(mAppBindArgs, Context.PLATFORM_COMPAT_SERVICE);
+            }
+            // See b/79378449 about the following exemption.
             addServiceToMap(mAppBindArgs, "package");
-            addServiceToMap(mAppBindArgs, "permissionmgr");
             addServiceToMap(mAppBindArgs, Context.WINDOW_SERVICE);
-            addServiceToMap(mAppBindArgs, Context.ALARM_SERVICE);
-            addServiceToMap(mAppBindArgs, Context.DISPLAY_SERVICE);
-            addServiceToMap(mAppBindArgs, Context.NETWORKMANAGEMENT_SERVICE);
-            addServiceToMap(mAppBindArgs, Context.CONNECTIVITY_SERVICE);
-            addServiceToMap(mAppBindArgs, Context.ACCESSIBILITY_SERVICE);
-            addServiceToMap(mAppBindArgs, Context.INPUT_METHOD_SERVICE);
-            addServiceToMap(mAppBindArgs, Context.INPUT_SERVICE);
-            addServiceToMap(mAppBindArgs, "graphicsstats");
-            addServiceToMap(mAppBindArgs, Context.APP_OPS_SERVICE);
-            addServiceToMap(mAppBindArgs, "content");
-            addServiceToMap(mAppBindArgs, Context.JOB_SCHEDULER_SERVICE);
-            addServiceToMap(mAppBindArgs, Context.NOTIFICATION_SERVICE);
-            addServiceToMap(mAppBindArgs, Context.VIBRATOR_SERVICE);
-            addServiceToMap(mAppBindArgs, Context.ACCOUNT_SERVICE);
-            addServiceToMap(mAppBindArgs, Context.POWER_SERVICE);
-            addServiceToMap(mAppBindArgs, Context.USER_SERVICE);
-            addServiceToMap(mAppBindArgs, "mount");
-            addServiceToMap(mAppBindArgs, Context.PLATFORM_COMPAT_SERVICE);
         }
         return mAppBindArgs;
     }
