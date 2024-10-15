@@ -157,6 +157,10 @@ public final class ServiceManager {
         return sServiceManager;
     }
 
+    private static boolean turnJavaServiceManagerCacheOffFlag() {
+        return android.server.Flags.removeJavaServiceManagerCache();
+    }
+
     /**
      * Returns a reference to a service with the given name.
      *
@@ -168,7 +172,11 @@ public final class ServiceManager {
     @android.ravenwood.annotation.RavenwoodReplace
     public static IBinder getService(String name) {
         try {
-            IBinder service = sCache.get(name);
+            IBinder service = null;
+            // See b/79378449 about the following exemption.
+            if (!turnJavaServiceManagerCacheOffFlag() || name == "window" || name == "package") {
+                service = sCache.get(name);
+            }
             if (service != null) {
                 return service;
             } else {
@@ -273,7 +281,10 @@ public final class ServiceManager {
     @UnsupportedAppUsage
     public static IBinder checkService(String name) {
         try {
-            IBinder service = sCache.get(name);
+            IBinder service = null;
+            if (!turnJavaServiceManagerCacheOffFlag() || name == "window" || name == "package") {
+                service = sCache.get(name);
+            }
             if (service != null) {
                 return service;
             } else {
