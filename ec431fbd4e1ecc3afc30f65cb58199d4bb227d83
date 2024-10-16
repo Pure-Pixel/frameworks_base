@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cbc2db7_278144cc",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2904,
+      "author": {
+        "id": 1623611
+      },
+      "writtenOn": "2024-10-16T16:09:24Z",
+      "side": 1,
+      "message": "So there are two exemptions?",
+      "revId": "ec431fbd4e1ecc3afc30f65cb58199d4bb227d83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
