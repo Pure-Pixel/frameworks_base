@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f67bafb3_61126b40",
+        "filename": "services/java/com/android/server/flags.aconfig",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1346941
+      },
+      "writtenOn": "2024-10-16T14:49:52Z",
+      "side": 1,
+      "message": "I think this name is confusing. I\u0027d rename to something like an adjective: \u0027java_service_manager_cache_enabled\u0027. Currently it sounds like a function name whereas it\u0027s more like a variable. Ditto in the usages like: turnJavaServiceManagerCacheOffFlag -\u003e isJavaServiceManagerCacheDisabled (note the use of disabled to avoid the negation in the call sites)",
+      "range": {
+        "startLine": 20,
+        "startChar": 11,
+        "endLine": 20,
+        "endChar": 44
+      },
+      "revId": "95db8af53b13823028998f0823edbcb299d7fcf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
