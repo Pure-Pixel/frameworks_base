@@ -16,6 +16,24 @@
       "message": "So there are two exemptions?",
       "revId": "ec431fbd4e1ecc3afc30f65cb58199d4bb227d83",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "210f77b6_b57cd9f6",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2904,
+      "author": {
+        "id": 1975865
+      },
+      "writtenOn": "2024-10-16T16:12:21Z",
+      "side": 1,
+      "message": "Yes. Check b/79378449",
+      "parentUuid": "0cbc2db7_278144cc",
+      "revId": "ec431fbd4e1ecc3afc30f65cb58199d4bb227d83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
