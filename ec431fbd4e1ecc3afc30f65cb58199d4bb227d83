@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a42d0ab_769d48c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1975865
+      },
+      "writtenOn": "2024-10-17T09:27:15Z",
+      "side": 1,
+      "message": "This CL should remove the Java cache for most of the services.\n\nThere are two exceptions, due to a long standing bug",
+      "revId": "ec431fbd4e1ecc3afc30f65cb58199d4bb227d83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cbc2db7_278144cc",
