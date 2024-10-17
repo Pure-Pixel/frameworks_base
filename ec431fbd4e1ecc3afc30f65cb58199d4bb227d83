@@ -20,6 +20,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02127af3_89b1b868",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2866,
+      "author": {
+        "id": 1101746
+      },
+      "writtenOn": "2024-10-17T16:12:29Z",
+      "side": 1,
+      "message": "It seems the bug has been closed. Is there a plan to fix it and remove this exemption?\n\nDo you mind including a short explanation of why this exemption is necessary, for external partners/developers who do not have access to the bug\u0027s details?",
+      "range": {
+        "startLine": 2866,
+        "startChar": 23,
+        "endLine": 2866,
+        "endChar": 33
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c644ab35_940fd885",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "services/core/java/com/android/server/am/ActivityManagerService.java",
+              "range": {
+                "startLine": 2867,
+                "startChar": 0,
+                "endLine": 2867,
+                "endChar": 0
+              },
+              "replacement": "                // TODO(b/15111111): remove this exemption.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "ec431fbd4e1ecc3afc30f65cb58199d4bb227d83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0cbc2db7_278144cc",
         "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
         "patchSetId": 7
