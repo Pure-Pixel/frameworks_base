@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c950a8f_edf0686d",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 2853,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-18T00:24:13Z",
+      "side": 1,
+      "message": "Please avoid APIs like this, use minimal APIs. Name the flag \u0027enabled\u0027 if possible to avoid double-negative.\n\nhttps://2014.jsconf.eu/speakers/sebastian-markbage-minimal-api-surface-area-learning-patterns-instead-of-frameworks.html",
+      "range": {
+        "startLine": 2850,
+        "startChar": 0,
+        "endLine": 2853,
+        "endChar": 5
+      },
+      "revId": "b42f280a136deb834f8f03a0395c5d484def4d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
