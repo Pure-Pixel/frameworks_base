@@ -83,6 +83,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24f3e3f3_f3c1a9b8",
+        "filename": "services/core/java/com/android/server/am/ActivityManagerService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2866,
+      "author": {
+        "id": 1975865
+      },
+      "writtenOn": "2024-10-18T13:03:56Z",
+      "side": 1,
+      "message": "I\u0027ve picked up the bug, I\u0027ll work on removing this exception",
+      "parentUuid": "44fb09f5_bdb90a1f",
+      "range": {
+        "startLine": 2866,
+        "startChar": 23,
+        "endLine": 2866,
+        "endChar": 33
+      },
+      "revId": "ec431fbd4e1ecc3afc30f65cb58199d4bb227d83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cbc2db7_278144cc",
