@@ -18,6 +18,7 @@ package com.android.server.compat;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.never;
@@ -25,7 +26,6 @@ import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
-import static org.testng.Assert.assertThrows;
 
 import android.compat.Compatibility.ChangeConfig;
 import android.content.Context;
